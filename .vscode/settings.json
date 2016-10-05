@@ -1,0 +1,24 @@
+// Place your settings in this file to overwrite default and user settings.
+{
+	 "files.exclude": {
+		"**/*.js": { "when": "$(basename).ts"},        
+		"**/*.js.map": true 
+	},
+    "search.exclude": {
+		"**/node_modules": true,
+        "**/target": true,
+		"**/e2e": true,
+		"**/*.js": { "when": "$(basename).ts"},
+        "**/typings": true
+	},
+    "relativePath.ignore": [
+		"**/node_modules/**",
+		"**/*.dll",
+		"**/obj/**",
+		"**/objd/**",
+         "**/target/**",
+		"**/e2e/**",
+		"**/src/**/**.js",
+        "**/typings/**"
+	]
+}
