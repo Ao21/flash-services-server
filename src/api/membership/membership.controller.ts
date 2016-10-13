@@ -2,11 +2,12 @@ import * as express from 'express';
 
 const defaultConfig = {
 	"code": {
-		"id": "MEM100",
-		"description": "PERSONAL MEMBERSHIP"
+		"id": "MEMRENEW100",
+		"description": "PERSONAL MEMBERSHIP RENEWAL",
+		"renewal": true
 	},
-	"name": "Personal Membership",
-	"schemaCode": "PERSONALMEMBERSHIP",
+	"name": "Personal Membership RENEWAL",
+	"schemaCode": "PERSONALMEMBERSHIPRENEWAL",
 	"coverLevel": [{
 		"active": true,
 		"display": "Roadside Rescue",
@@ -49,11 +50,11 @@ const defaultConfig = {
 			}
 		}
 	}, {
-		"active": true,
+		"active": false,
 		"display": "Home Start",
 		"name": "homestart",
 		"description": "Home start means you’re covered at your home or very near your home address",
-		"disabled": true,
+		"disabled": false,
 		"price": {
 			"monthly": {
 				"amount": 0,
@@ -160,12 +161,6 @@ const defaultConfig = {
 			},
 			"title": "Please enter your details",
 			"fields": [{
-				"name": "email",
-				"label": "Email",
-				"type": "email",
-				"placeholder": "example@theaa.ie",
-				"validation": ["required", "emailValidator"]
-			}, {
 				"name": "title",
 				"label": "Title",
 				"type": "title",
