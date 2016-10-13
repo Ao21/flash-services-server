@@ -58,11 +58,10 @@ RUN npm i -g pm2
 
 # Add application files
 ADD ./src /var/www/app/current/src
-ADD ./angular-dist /var/www/app/current/dist 
 
 ADD processes.json ./
 
 #Expose the port
-EXPOSE 4500
+EXPOSE 5000
 
 CMD ["pm2", "start", "processes.json", "--no-daemon"]
