@@ -284,9 +284,9 @@ export const defaultConfig = {
 export const configWithQuotation = {
     "code": {
         "id": "MEM100",
-        "description": "AA PERSONAL MEMBERSHIP RENEWAL"
+        "description": "AA PERSONAL MEMBERSHIP"
     },
-    "name": "AA PERSONAL MEMBERSHIP RENEWAL",
+    "name": "AA PERSONAL MEMBERSHIP",
     "schemaCode": "MEM100",
     "coverLevel": [{
         "active": true,
@@ -664,30 +664,30 @@ export const configWithQuotation = {
         "reference": "BRER17000001",
         "renewalOptions": {
             "updateDetails": true,
-            "discount": {
-                "type": 'additionalMember'
-            }
             // "discount": {
-            //     type: 'cover',
-            //     ref: "HOMESTART",
-            //     display: 'Home Start',
-            //     "price": {
-            //         "monthly": {
-            //             "amount": 225,
-            //             "str": "2.25",
-            //             "symbol": "€",
-            //             "currency": "EUR",
-            //             "pretty": "€2.25"
-            //         },
-            //         "annual": {
-            //             "amount": 2700,
-            //             "str": "27.00",
-            //             "symbol": "€",
-            //             "currency": "EUR",
-            //             "pretty": "€27.00"
-            //         }
-            //     },
-            // },
+            //     "type": 'additionalMember'
+            // }
+            "discount": {
+                type: 'cover',
+                ref: "HOMESTART",
+                display: 'Home Start',
+                "price": {
+                    "monthly": {
+                        "amount": 225,
+                        "str": "2.25",
+                        "symbol": "€",
+                        "currency": "EUR",
+                        "pretty": "€2.25"
+                    },
+                    "annual": {
+                        "amount": 2700,
+                        "str": "27.00",
+                        "symbol": "€",
+                        "currency": "EUR",
+                        "pretty": "€27.00"
+                    }
+                },
+            },
         },
         "total": {
             "annual": {
