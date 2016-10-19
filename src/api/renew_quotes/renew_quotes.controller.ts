@@ -1,6 +1,6 @@
 import * as express from 'express';
 import * as _ from 'lodash';
-import { defaultConfig, configWithQuotation, defaultSaveQuote } from './../../constants_membership';
+import { defaultConfig, configWithQuotation, configWithQuotationNoOffer, defaultSaveQuote } from './../../constants_membership';
 
 export default class RenewQuotes {
 	public quote = configWithQuotation;
@@ -11,7 +11,7 @@ export default class RenewQuotes {
 
 	public saveQuote = (req: express.Request, res: express.Response) => {
 		this.quote.quotation.renewalOptions.updateDetails = false;
-		return res.status(200).send(defaultSaveQuote);
+		return res.status(200).send(this.quote);
 	}
 	public retrieve = (req: express.Request, res: express.Response) => {
 		let params = req.query;
@@ -22,6 +22,15 @@ export default class RenewQuotes {
 			setTimeout(() => {
 				return res.status(200).send(JSON.stringify(this.quote));
 			}, 1000);
+		}
+	}
+
+	public offer = (req: express.Request, res: express.Response) => {
+		if (req.body.accepted) {
+			delete this.quote.quotation.renewalOptions.offer;
+			res.send(this.quote)
+		} else {
+			res.send(configWithQuotationNoOffer);
 		}
 	}
 
@@ -46,33 +55,7 @@ export default class RenewQuotes {
 				mandatory: false
 			})
 			this.quote.coverLevel[coverIndex].active = true;
-			if (coverIndex === 1) {
-				this.quote.quotation.renewalOptions.discount = null;
-			}
 		} else {
-			if (coverIndex === 1) {
-				this.quote.quotation.renewalOptions.discount = {
-					type: 'cover',
-					ref: "HOMESTART",
-					display: 'Home Start',
-					"price": {
-						"monthly": {
-							"amount": 225,
-							"str": "2.25",
-							"symbol": "€",
-							"currency": "EUR",
-							"pretty": "€2.25"
-						},
-						"annual": {
-							"amount": 2700,
-							"str": "27.00",
-							"symbol": "€",
-							"currency": "EUR",
-							"pretty": "€27.00"
-						}
-					},
-				}
-			}
 			this.quote.coverLevel[coverIndex].active = false;
 			this.quote.quotation.breakdown.splice(breakdownIndex, 1)
 		}
@@ -80,7 +63,6 @@ export default class RenewQuotes {
 	}
 
 	public removeMember = (req: express.Request, res: express.Response) => {
-		console.log(req.params.memberId);
 		let breakdownIndex = _.findIndex(this.quote.quotation.breakdown, (e: any) => {
 			return e.index === Number(req.params.memberId)
 		})
@@ -90,6 +72,7 @@ export default class RenewQuotes {
 		res.status(200).send();
 	}
 	public addMember = (req: express.Request, res: express.Response) => {
+		console.log(req.body);
 		let breakdownIndex = _.findIndex(this.quote.quotation.breakdown, (e: any) => {
 			return e.index === Number(req.params.memberId)
 		})
@@ -121,8 +104,8 @@ export default class RenewQuotes {
 		};
 
 		if (breakdownIndex != -1) {
-			this.quote.members[req.params.memberId]
-			this.quote.quotation.breakdown[breakdownIndex].description = `${req.body.firstName} ${req.body.surname}`
+			this.quote.members[req.params.memberId];
+			this.quote.quotation.breakdown[breakdownIndex].description = `${req.body.firstName} ${req.body.surname}`;
 		} else {
 			this.quote.quotation.breakdown.push({
 				"description": `${req.body.firstName} ${req.body.surname}`,
@@ -147,7 +130,6 @@ export default class RenewQuotes {
 				mandatory: false
 			})
 		}
-		console.log(this.quote.members);
 		res.status(200).send();
 	}
 

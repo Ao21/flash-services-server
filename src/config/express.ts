@@ -4,7 +4,7 @@ import * as bodyParser from 'body-parser';
 import environment from './env/index';
 const app = express();
 
-app.use(bodyParser());
+app.use(bodyParser.json());
 
 app.use(function (req: any, res: any, next: any) {
 	res.header("Access-Control-Allow-Origin", req.headers.origin);
