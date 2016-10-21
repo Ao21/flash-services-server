@@ -27,9 +27,10 @@ export default class RenewQuotes {
 
 	public offer = (req: express.Request, res: express.Response) => {
 		if (req.body.accepted) {
-			delete this.quote.quotation.renewalOptions.offer;
+			this.quote.quotation.renewalOptions.offer.accepted = true;
 			res.send(this.quote)
 		} else {
+			this.quote.quotation.renewalOptions.offer.accepted = false;
 			res.send(configWithQuotationNoOffer);
 		}
 	}

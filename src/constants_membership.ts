@@ -754,37 +754,27 @@ export const configWithQuotation = {
         "renewalOptions": {
             updateDetails: true,
             offer: {
+                'accepted': null, // null/true/false
 				'description': 'You are eligible for a discount on your renewal!',
-				'price': {
-					'monthly': {
-						'amount': 575,
-						'str': '5.75',
-						'symbol': '€',
-						'currency': 'EUR',
-						'pretty': '5.75'
-					},
-					'annual': {
-						'amount': 6900,
-						'str': '69',
-						'symbol': '€',
-						'currency': 'EUR',
-						'pretty': '€69'
-					}
-				},
+                'price': createPrice(825),
+                'originalPrice': createPrice(1525),
 				'discounts': [{
 					'type': 'cover',
 					'ref': 'HOMESTART',
-					'active': true,
-					'description': 'Subtitle edmure gregor podrick hot pie greywind sansa grey worm brienne stannis.'
+                    'active': true,
+                    'price': createPrice(0),
+					'description': `Get Homestart for ${createPrice(0).monthly.pretty}`
 				}, {
 					'type': 'cover',
 					'ref': 'RESCUEPLUS',
-					'description': 'Subtitle edmure gregor podrick hot pie greywind sansa grey worm brienne stannis.',
+                    'description': `Get Rescue Plus for ${createPrice(0).monthly.pretty}`,
+                    'price': createPrice(0),
 					'active': true
 				}, {
 					'type': 'member',
-					'index': 1,
-					'description': 'Subtitle edmure gregor podrick hot pie greywind sansa grey worm brienne stannis.',
+                    'index': 1,
+                    'price': createPrice(0),
+					'description': `Get an additional member for free!`,
 					'fields': [{
 						'name': 'firstName',
 						'label': 'First Name',
@@ -806,8 +796,9 @@ export const configWithQuotation = {
 					}]
 				}, {
 					'type': 'member',
-					'index': 2,
-					'description': 'Subtitle edmure gregor podrick hot pie greywind sansa grey worm brienne stannis.',
+                    'index': 2,
+                    'price': createPrice(0),
+					'description': `Get an additional member for free!`,
 					'fields': [{
 						'name': 'firstName',
 						'label': 'First Name',
@@ -830,7 +821,6 @@ export const configWithQuotation = {
 				}]
 			}
         },
-        premiumWithOffer: {},
         premium: createPrice(1825),
         "breakdown": [{
             "description": "Roo Bree",
