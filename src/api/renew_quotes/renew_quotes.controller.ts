@@ -9,6 +9,11 @@ export default class RenewQuotes {
 
 	}
 
+	public reset = (req: express.Request, res: express.Response) => {
+		this.quote = configWithQuotation;
+		res.send(200);
+	}
+
 	public saveQuote = (req: express.Request, res: express.Response) => {
 		this.quote.quotation.renewalOptions.updateDetails = false;
 		return res.status(200).send(this.quote);

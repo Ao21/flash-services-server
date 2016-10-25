@@ -6,6 +6,7 @@ export class RenewalRoutes {
 
 	constructor(rout) {
 		this.router = rout;
+		this.router.put('/reset', this.renewQuotes.reset);
 		this.router.put('/users/me', this.renewQuotes.saveQuote);
 		this.router.get('/users/me/quote', this.renewQuotes.retrieve);
 		this.router.put('/users/me/offer', this.renewQuotes.offer);
