@@ -1,12 +1,14 @@
 import * as express from "express";
 import { MembershipRoutes } from './api/membership/index';
 import { RenewalRoutes } from './api/renew_quotes/';
+import { MotorRoutes } from './api/motor/';
 
 export class Routes {
 
 	router: express.Router;	
 	membershipRoutes: MembershipRoutes;
-	renewalRoutes: RenewalRoutes
+	renewalRoutes: RenewalRoutes;
+	motorRoutes: MotorRoutes;
 	
 
 	public static bootstrap() {
@@ -17,6 +19,7 @@ export class Routes {
 		this.router = express.Router();
 		this.createMembershipRoutes();
 		this.createRenewalRoutes();
+		this.createMotorRoutes();
 	}
 
 	createMembershipRoutes() {
@@ -25,6 +28,10 @@ export class Routes {
 
 	createRenewalRoutes() {
 		this.renewalRoutes = new RenewalRoutes(this.router);
+	}
+
+	createMotorRoutes() {
+		this.motorRoutes = new MotorRoutes(this.router);
 	}
 }
 
