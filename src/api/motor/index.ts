@@ -6,6 +6,8 @@ export class MotorRoutes {
 
 	constructor(rout) {
 		this.router = rout;
+		this.router.get('/motor/occupation/all', this.motor.getAllOccupations);
+		this.router.get('/motor/occupation/search', this.motor.getOccupation);
 		this.router.get('/motor/section/:section', this.motor.getSection);
 		this.router.get('/motor/section/:section/questions', this.motor.getSectionQuestions);
 		

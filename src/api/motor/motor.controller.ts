@@ -1,12 +1,31 @@
 import * as express from 'express';
 import * as _ from 'lodash';
 import { QUESTIONS, SECTION } from './../../constants_motor';
+import { OCCUPATIONS } from './../../constants_occupations';
+import * as Fuse from 'fuse.js';
 
 export default class Motor {
+	fuseList: Fuse;
 
 	constructor() {
-		
+		this.fuseList = new Fuse(OCCUPATIONS, {
+			shouldSort: true,
+			location: 0,
+			threshold: 0.2,
+			distance: 100,
+			keys: ['text']
+		});
 	}
+
+	getAllOccupations(req: express.Request, res: express.Response) {
+		res.send(JSON.stringify(OCCUPATIONS));
+	}
+
+	getOccupation = (req: express.Request, res: express.Response) => {
+		let list = this.fuseList.search(req.query.query);
+		res.send(JSON.stringify(list));
+	}
+	
 
 	getSection(req: express.Request, res: express.Response) {
 		let section = SECTION[req.params.section];
