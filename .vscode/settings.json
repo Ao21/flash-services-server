@@ -21,4 +21,6 @@
 		"**/src/**/**.js",
         "**/typings/**"
 	]
+,
+"typescript.tsdk": "./node_modules/typescript/lib"
 }
