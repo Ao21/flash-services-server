@@ -125,9 +125,11 @@ export const QUESTIONS = {
 		type: 'slider',
 		required: true,
 		order: 10,
-		value: 1,
-		min: 1,
-		max: 7
+		values: [5,6,11,12],
+		// steps: 500,
+		value: 11,
+		// min: 1,
+		// max: 7
 	}]
 }
 
