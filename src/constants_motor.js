@@ -29,7 +29,7 @@ exports.QUESTIONS = {
             type: 'text',
             required: true,
             placeholder: 'John',
-            order: 0
+            order: 0,
         }, {
             key: 'lastName',
             label: 'Last Name',

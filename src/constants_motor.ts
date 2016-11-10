@@ -30,7 +30,7 @@ export const QUESTIONS = {
 		type: 'text',
 		required: true,
 		placeholder: 'John',
-		order: 0
+		order: 0,
 	}, {
 		key: 'lastName',
 		label: 'Last Name',
@@ -68,7 +68,7 @@ export const QUESTIONS = {
 		type: 'autocomplete',
 		placeholder: 'Select an Occupation',
 		serviceUrl: 'motor/occupation/',
-		autoCompleteType: 'search', // search || all | options
+		autoCompleteType: 'search', // search || all || options
 		options: [
 			{ id: 'Employed', text: 'Employed' },
 			{ id: 'Household Duties', text: 'Household Duties' },
