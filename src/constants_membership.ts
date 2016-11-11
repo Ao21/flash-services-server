@@ -755,7 +755,7 @@ export const configWithQuotation = {
             updateDetails: true,
             offer: {
                 'accepted': null, // null/true/false
-				'description': 'You are eligible for a discount on your renewal!',
+				'description': '(Firstname), this year we have a special offer for you',
                 'price': createPrice(825),
                 'originalPrice': createPrice(1525),
 				'discounts': [{
@@ -763,18 +763,18 @@ export const configWithQuotation = {
 					'ref': 'HOMESTART',
                     'active': true,
                     'price': createPrice(0),
-					'description': `Get Homestart for ${createPrice(0).monthly.pretty}`
+					'description': `<b>Free Home Start worth ${createPrice(225).monthly.pretty}.</b> - this means you're covered right at your doorstep.`
 				}, {
 					'type': 'cover',
 					'ref': 'RESCUEPLUS',
-                    'description': `Get Rescue Plus for ${createPrice(0).monthly.pretty}`,
+                    'description': `<b>Free rescue plus worth ${createPrice(425).monthly.pretty}</b> - covers you for a nationwide tow if needed. We can also organise one of the following for you - car hire, travel expenses or free accommodation if something goes wrong.`,
                     'price': createPrice(0),
 					'active': true
 				}, {
 					'type': 'member',
                     'index': 1,
                     'price': createPrice(0),
-					'description': `Get an additional member for free!`,
+					'description': `<b>${createPrice(125).monthly.pretty} off additional Member  worth ${createPrice(425).monthly.pretty}</b> - add someone in your home to your AA Membership.`,
 					'fields': [{
 						'name': 'firstName',
 						'label': 'First Name',
@@ -798,7 +798,7 @@ export const configWithQuotation = {
 					'type': 'member',
                     'index': 2,
                     'price': createPrice(0),
-					'description': `Get an additional member for free!`,
+					'description': `<b>Free additional Member worth ${createPrice(425).monthly.pretty}</b>- Add someone in your home to your Membership for free`,
 					'fields': [{
 						'name': 'firstName',
 						'label': 'First Name',
