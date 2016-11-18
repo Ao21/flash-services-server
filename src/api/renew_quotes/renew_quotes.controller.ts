@@ -36,13 +36,13 @@ export default class RenewQuotes {
 			res.send(this.quote)
 		} else {
 			this.quote.quotation.renewalOptions.offer.accepted = false;
-			res.send(configWithQuotationNoOffer);
+			res.send(this.quote);
 		}
 	}
 
 	public toggleCoverLevel = (req: express.Request, res: express.Response) => {
 		let params = req.params;
-
+		this.quote.quotation.renewalOptions.offer.accepted = true;
 		let coverIndex = _.findIndex(this.quote.coverLevel, (e: any) => {
 			return e.name === req.params.coverlevel.toLowerCase();
 		})

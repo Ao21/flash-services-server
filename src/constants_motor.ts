@@ -11,10 +11,11 @@ export const QUESTIONS = {
 		label: 'How many drivers?',
 		type: 'counter',
 		required: true,
+		// disabled: true,
 		order: 1,
-		value: 1,
-		min: 1,
-		max: 7
+		// value: 1,
+		min: 0,
+		max: 10
 	}, {
 		key: 'termsConditions',
 		label: 'Terms and Conditions',
@@ -81,6 +82,8 @@ export const QUESTIONS = {
 			{ id: 'Very Self Employed', text: 'Very Self Employed' }
 		],
 		required: true,
+		disabled: false,
+		// value: { id: 'Employed', text: 'Employed' },
 		order: 2,
 		validators: []
 	},
@@ -125,12 +128,36 @@ export const QUESTIONS = {
 		type: 'slider',
 		required: true,
 		order: 10,
-		values: [5,6,11,12],
+		values: [5, 6, 11, 12],
 		// steps: 500,
 		value: 11,
 		// min: 1,
 		// max: 7
-	}]
+	},
+	{
+		key: 'occupation3',
+		label: 'Occupation',
+		type: 'autocomplete',
+		placeholder: 'Select an Occupation',
+		serviceUrl: 'motor/occupation/',
+		autoCompleteType: 'search', // search || all || options
+		options: [
+			{ id: 'Employed', text: 'Employed' },
+			{ id: 'Household Duties', text: 'Household Duties' },
+			{ id: 'Retired', text: 'Retired' },
+			{ id: 'Self Employed', text: 'Self Employed' },
+			{ id: 'Unemployed', text: 'Unemployed' },
+			{ id: 'Very Employed', text: 'Very Employed' },
+			{ id: 'Very Household Duties', text: 'Very Household Duties' },
+			{ id: 'Very Retired', text: 'Very Retired' },
+			{ id: 'Very Self Employed', text: 'Very Self Employed' }
+		],
+		required: true,
+		disabled: false,
+		// value: { id: 'Employed', text: 'Employed' },
+		order:99992,
+		validators: []
+	},]
 }
 
 export const SECTION = {

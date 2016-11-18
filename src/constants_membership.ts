@@ -762,6 +762,7 @@ export const configWithQuotation = {
 					'type': 'cover',
 					'ref': 'HOMESTART',
                     'active': true,
+                    'priority': true,
                     'price': createPrice(0),
 					'description': `<b>Free Home Start worth ${createPrice(225).monthly.pretty}.</b> - this means you're covered right at your doorstep.`
 				}, {
