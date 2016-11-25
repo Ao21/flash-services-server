@@ -1,6 +1,6 @@
 import * as express from 'express';
 import * as _ from 'lodash';
-import { QUESTIONS, SECTION } from './../../constants_motor';
+import { QUESTIONS, PAGES, CONFIG } from './../../constants_motor';
 import { OCCUPATIONS } from './../../constants_occupations';
 import * as Fuse from 'fuse.js';
 
@@ -17,6 +17,9 @@ export default class Motor {
 		});
 	}
 
+	getConfig(req: express.Request, res: express.Response) { 
+		res.send(CONFIG);
+	}	
 	getAllOccupations(req: express.Request, res: express.Response) {
 		res.send(JSON.stringify(OCCUPATIONS));
 	}
@@ -28,8 +31,7 @@ export default class Motor {
 	
 
 	getSection(req: express.Request, res: express.Response) {
-		let section = SECTION[req.params.section];
-		section.questions = QUESTIONS[req.params.section];
+		let section = PAGES[req.params.section];
 		res.send(JSON.stringify(section)).status(200);
 
 	}

@@ -44,6 +44,7 @@ export const QUESTIONS = {
 		label: 'Date Of Birth',
 		type: 'date',
 		required: true,
+		disabled: false,
 		order: 2,
 		validators: ['validDateValidate', 'validOverEighteenValidate']
 	}, {
@@ -51,6 +52,7 @@ export const QUESTIONS = {
 		label: 'Phone Number',
 		type: 'tel',
 		required: true,
+		disabled: true,
 		order: 2,
 		validators: ['validPhoneNumberValidate']
 	},
@@ -94,7 +96,7 @@ export const QUESTIONS = {
 		placeholder: 'Select an Area of Business',
 		trigger: {
 			key: 'occupation',
-			type: 'occupation',
+			name: 'occupation',
 		},
 		serviceUrl: 'motor/occupation/',
 		autoCompleteType: 'search', // search || all | options
@@ -127,12 +129,14 @@ export const QUESTIONS = {
 		label: 'How many drivers?',
 		type: 'slider',
 		required: true,
+		disabled: false,
 		order: 10,
-		values: [5, 6, 11, 12],
-		// steps: 500,
-		value: 11,
-		// min: 1,
-		// max: 7
+		// values: [5, 6, 11, 12],
+		value: 2,
+		// steps: 1,
+		
+		min: 0,
+		max: 7
 	},
 	{
 		key: 'occupation3',
@@ -160,12 +164,44 @@ export const QUESTIONS = {
 	},]
 }
 
-export const SECTION = {
+export const PAGES = {
 	pre: {
 		title: 'Pre',
-		order: 0
+		order: 0,
+		templates: {},
+		sections: [
+			{
+				type: 'default',
+				fields: QUESTIONS.pre
+			},
+			{
+				type: 'alt',
+				fields: QUESTIONS.pre
+			}
+		]
 	},
 	details: {
-		title: 'Details'
+		title: 'Details',
+		order: 1,
+		templates: {
+			additionalDrivers: {
+				type: 'additionalDrivers',
+				max: 5,
+				optional: true,
+				fields: QUESTIONS.details
+			}
+		},
+		sections: [
+			{
+				type: 'default',
+				fields: QUESTIONS.details
+			}
+		]
+	}
+}
+
+export const CONFIG = {
+	stages: {
+		quotation: PAGES
 	}
 }
