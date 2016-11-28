@@ -134,7 +134,7 @@ export const QUESTIONS = {
 		// values: [5, 6, 11, 12],
 		value: 2,
 		// steps: 1,
-		
+
 		min: 0,
 		max: 7
 	},
@@ -159,49 +159,129 @@ export const QUESTIONS = {
 		required: true,
 		disabled: false,
 		// value: { id: 'Employed', text: 'Employed' },
-		order:99992,
+		order: 99992,
 		validators: []
-	},]
+	}],
+
+
+	defaultClaimQuestion: [{
+		key: 'customerClaims',
+		label: 'Have you had any claims in the past 3 years?',
+		type: 'radio',
+		options: ['Yes', 'No'],
+		required: true,
+		order: 2,
+		validators: []
+	}],
+
+	claims: [{
+		key: 'dateOfClaim',
+		label: 'When was the claim?',
+		type: 'date',
+		required: true,
+		disabled: false,
+		order: 0,
+		validators: ['validDateValidate']
+	},
+	{
+		key: 'reasonForClaim',
+		label: 'What was the reason for the claim?',
+		type: 'dropdown',
+		options: ['Employed', 'Household Duties', 'Retired', 'Self Employed', 'Unemployed'],
+		required: true,
+		order: 0,
+		validators: []
+	},
+	{
+		key: 'costOfClaim',
+		label: 'Cost of claim',
+		type: 'text',
+		required: true,
+		placeholder: 'How Much',
+		order: 0,
+	},
+	{
+		key: 'customerAtFault',
+		label: 'Were you at fault?',
+		type: 'radio',
+		options: ['Yes', 'No'],
+		required: true,
+		order: 2,
+		validators: []
+	},
+	{
+		key: 'noClaimsBonusProtected',
+		label: 'Was your no claims bonus protected?',
+		type: 'radio',
+		options: ['Yes', 'No'],
+		required: true,
+		order: 2,
+		validators: []
+	}]
 }
 
-export const PAGES = {
-	pre: {
-		title: 'Pre',
-		order: 0,
-		templates: {},
-		sections: [
-			{
-				type: 'default',
-				fields: QUESTIONS.pre
-			},
-			{
-				type: 'alt',
-				fields: QUESTIONS.pre
-			}
-		]
-	},
-	details: {
-		title: 'Details',
-		order: 1,
-		templates: {
-			additionalDrivers: {
-				type: 'additionalDrivers',
-				max: 5,
-				optional: true,
-				fields: QUESTIONS.details
-			}
+export const PAGES = [{
+	id: 'pre',
+	title: 'Pre',
+	order: 0,
+	templates: {},
+	sections: [
+		{
+			id: 'pre-default',
+			type: 'default',
+			fields: QUESTIONS.pre
 		},
-		sections: [
-			{
-				type: 'default',
-				fields: QUESTIONS.details
-			}
-		]
-	}
-}
+		{
+			id: 'pre-alt',
+			type: 'alt',
+			fields: QUESTIONS.pre
+		}
+	]
+}, {
+	id: 'details',
+	title: 'Details',
+	order: 1,
+	templates: {
+		additionalDrivers: {
+			type: 'additionalDrivers',
+			max: 5,
+			optional: true,
+			fields: QUESTIONS.details
+		}
+	},
+	sections: [
+		{
+			id: 'details-default',
+			type: 'default',
+			fields: QUESTIONS.details
+		}
+	]
+},
+{
+	id: 'claims',
+	title: 'Claims',
+	order: 1,
+	templates: {
+		claim: {
+			type: 'claim',
+			userHasClaim: null,
+			optional: true,
+			fields: QUESTIONS.claims
+		},
+	},
+	sections: [
+		{
+			id: 'claim-default',
+			userHasClaim: null,
+			type: 'claim',
+		}
+	]
+}];
 
 export const CONFIG = {
-	stages: {
-		quotation: PAGES
-	}
+	stages: [{
+		id: 'quotation',
+		title: 'quotation',
+		pages: PAGES
+	}]
 }
