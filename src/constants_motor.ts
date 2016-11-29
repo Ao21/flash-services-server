@@ -119,7 +119,7 @@ export const QUESTIONS = {
 		key: 'livedOutsideIreland',
 		label: 'Have you lived outside the Republic of Ireland or the UK in the last 12 months?',
 		type: 'radio',
-		options: ['Yes', 'No'],
+		options: [{ value: 'Yes', text: 'Yes' }, { value: 'No', text: 'No' }],
 		required: true,
 		order: 2,
 		validators: []
@@ -168,7 +168,7 @@ export const QUESTIONS = {
 		key: 'customerClaims',
 		label: 'Have you had any claims in the past 3 years?',
 		type: 'radio',
-		options: ['Yes', 'No'],
+		options: [{ value: 'Yes', text: 'Yes' }, { value: 'No', text: 'No' }],
 		required: true,
 		order: 2,
 		validators: []
@@ -201,10 +201,36 @@ export const QUESTIONS = {
 		order: 0,
 	},
 	{
+		key: 'business',
+		label: 'Type of Business',
+		type: 'autocomplete',
+		placeholder: 'Select an Area of Business',
+		// trigger: {
+		// 	key: 'occupation',
+		// 	name: 'occupation',
+		// },
+		serviceUrl: 'motor/occupation/',
+		autoCompleteType: 'search', // search || all | options
+		options: [
+			{ id: 'Employed', text: 'Employed' },
+			{ id: 'Household Duties', text: 'Household Duties' },
+			{ id: 'Retired', text: 'Retired' },
+			{ id: 'Self Employed', text: 'Self Employed' },
+			{ id: 'Unemployed', text: 'Unemployed' },
+			{ id: 'Very Employed', text: 'Very Employed' },
+			{ id: 'Very Household Duties', text: 'Very Household Duties' },
+			{ id: 'Very Retired', text: 'Very Retired' },
+			{ id: 'Very Self Employed', text: 'Very Self Employed' }
+		],
+		required: true,
+		order: 2,
+		validators: []
+	},
+	{
 		key: 'customerAtFault',
 		label: 'Were you at fault?',
 		type: 'radio',
-		options: ['Yes', 'No'],
+		options: [{ value: 'Yes', text: 'Yes' }, { value: 'No', text: 'No' }],
 		required: true,
 		order: 2,
 		validators: []
@@ -213,7 +239,7 @@ export const QUESTIONS = {
 		key: 'noClaimsBonusProtected',
 		label: 'Was your no claims bonus protected?',
 		type: 'radio',
-		options: ['Yes', 'No'],
+		options: [{ value: 'Yes', text: 'Yes' }, { value: 'No', text: 'No' }],
 		required: true,
 		order: 2,
 		validators: []
@@ -272,8 +298,31 @@ export const PAGES = [{
 	sections: [
 		{
 			id: 'claim-default',
+			title: 'Main Driver',
 			userHasClaim: null,
 			type: 'claim',
+			fields: [
+				{
+					key: 'primaryDriverClaims',
+					type: 'claims',
+					isComplete: false,
+					fields: QUESTIONS.claims
+				}
+			]
+		},
+		{
+			id: 'claim-secondary-driver',
+			title: 'Secondary Driver',
+			userHasClaim: null,
+			type: 'claim',
+			fields: [
+				{
+					key: 'secondaryDriverClaims',
+					type: 'claims',
+					isComplete: false,
+					fields: QUESTIONS.claims
+				}
+			]
 		}
 	]
 }];
