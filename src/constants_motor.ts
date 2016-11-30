@@ -163,6 +163,7 @@ export const QUESTIONS = {
 		validators: []
 	}],
 
+		
 
 	defaultClaimQuestion: [{
 		key: 'customerClaims',
@@ -181,13 +182,13 @@ export const QUESTIONS = {
 		required: true,
 		disabled: false,
 		order: 0,
-		validators: ['validDateValidate']
+		validators: ['validDateValidate','validLastThreeYearsValidate']
 	},
 	{
 		key: 'reasonForClaim',
 		label: 'What was the reason for the claim?',
 		type: 'dropdown',
-		options: ['Employed', 'Household Duties', 'Retired', 'Self Employed', 'Unemployed'],
+		options: ['Accident', 'Accidental Damage', 'Fire', 'Malicious Damage As A Result Of Theft', 'Personal Accident', 'Personal Effects', 'Theft','Third Party','Vandalism','Windscreen'],
 		required: true,
 		order: 0,
 		validators: []
@@ -199,32 +200,6 @@ export const QUESTIONS = {
 		required: true,
 		placeholder: 'How Much',
 		order: 0,
-	},
-	{
-		key: 'business',
-		label: 'Type of Business',
-		type: 'autocomplete',
-		placeholder: 'Select an Area of Business',
-		// trigger: {
-		// 	key: 'occupation',
-		// 	name: 'occupation',
-		// },
-		serviceUrl: 'motor/occupation/',
-		autoCompleteType: 'search', // search || all | options
-		options: [
-			{ id: 'Employed', text: 'Employed' },
-			{ id: 'Household Duties', text: 'Household Duties' },
-			{ id: 'Retired', text: 'Retired' },
-			{ id: 'Self Employed', text: 'Self Employed' },
-			{ id: 'Unemployed', text: 'Unemployed' },
-			{ id: 'Very Employed', text: 'Very Employed' },
-			{ id: 'Very Household Duties', text: 'Very Household Duties' },
-			{ id: 'Very Retired', text: 'Very Retired' },
-			{ id: 'Very Self Employed', text: 'Very Self Employed' }
-		],
-		required: true,
-		order: 2,
-		validators: []
 	},
 	{
 		key: 'customerAtFault',
@@ -241,6 +216,55 @@ export const QUESTIONS = {
 		type: 'radio',
 		options: [{ value: 'Yes', text: 'Yes' }, { value: 'No', text: 'No' }],
 		required: true,
+		order: 2,
+		validators: []
+	}],
+	claimWithValues: [{
+		key: 'dateOfClaim',
+		label: 'When was the claim?',
+		type: 'date',
+		required: true,
+		disabled: false,
+		value: '01/01/1997',
+		order: 0,
+		validators: ['validDateValidate','validLastThreeYearsValidate']
+	},
+	{
+		key: 'reasonForClaim',
+		label: 'What was the reason for the claim?',
+		type: 'dropdown',
+		options: ['Accident', 'Accidental Damage', 'Fire', 'Malicious Damage As A Result Of Theft', 'Personal Accident', 'Personal Effects', 'Theft','Third Party','Vandalism','Windscreen'],
+		required: true,
+		value: 'Accident',
+		order: 0,
+		validators: []
+	},
+	{
+		key: 'costOfClaim',
+		label: 'Cost of claim',
+		type: 'text',
+		value: '5000',
+		required: true,
+		placeholder: 'How Much',
+		order: 0,
+	},
+	{
+		key: 'customerAtFault',
+		label: 'Were you at fault?',
+		type: 'radio',
+		options: [{ value: 'Yes', text: 'Yes' }, { value: 'No', text: 'No' }],
+		required: true,
+		value: 'Yes',
+		order: 2,
+		validators: []
+	},
+	{
+		key: 'noClaimsBonusProtected',
+		label: 'Was your no claims bonus protected?',
+		type: 'radio',
+		options: [{ value: 'Yes', text: 'Yes' }, { value: 'No', text: 'No' }],
+		required: true,
+		value: 'Yes',
 		order: 2,
 		validators: []
 	}]
@@ -297,33 +321,33 @@ export const PAGES = [{
 	},
 	sections: [
 		{
-			id: 'claim-default',
+			id: 'claim-primary-driver',
 			title: 'Main Driver',
-			userHasClaim: null,
+			userHasClaim: true,
 			type: 'claim',
 			fields: [
 				{
-					key: 'primaryDriverClaims',
-					type: 'claims',
-					isComplete: false,
-					fields: QUESTIONS.claims
+					key: '0',
+					type: 'claim',
+					isComplete: true,
+					fields: QUESTIONS.claimWithValues
 				}
 			]
 		},
-		{
-			id: 'claim-secondary-driver',
-			title: 'Secondary Driver',
-			userHasClaim: null,
-			type: 'claim',
-			fields: [
-				{
-					key: 'secondaryDriverClaims',
-					type: 'claims',
-					isComplete: false,
-					fields: QUESTIONS.claims
-				}
-			]
-		}
+		// {
+		// 	id: 'claim-secondary-driver',
+		// 	title: 'Secondary Driver',
+		// 	userHasClaim: null,
+		// 	type: 'claim',
+		// 	fields: [
+		// 		{
+		// 			key: 'secondaryDriverClaims-0',
+		// 			type: 'claim',
+		// 			isComplete: false,
+		// 			fields: QUESTIONS.claims
+		// 		}
+		// 	]
+		// }
 	]
 }];
 
