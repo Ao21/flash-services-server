@@ -267,6 +267,61 @@ export const QUESTIONS = {
 		value: 'Yes',
 		order: 2,
 		validators: []
+	}],
+	penalties: [{
+		key: 'dateOfPenalty',
+		label: 'When was it?',
+		type: 'date',
+		required: true,
+		disabled: false,
+		order: 0,
+		validators: ['validDateValidate','validLastThreeYearsValidate']
+	},
+	{
+		key: 'reasonForPenalty',
+		label: 'What was the reason?',
+		type: 'dropdown',
+		options: ['Accident', 'Accidental Damage', 'Fire', 'Malicious Damage As A Result Of Theft', 'Personal Accident', 'Personal Effects', 'Theft','Third Party','Vandalism','Windscreen'],
+		required: true,
+		order: 0,
+		validators: []
+	},
+	{
+		key: 'howManyPoints',
+		label: 'How many points?',
+		type: 'text',
+		required: true,
+		placeholder: 'How Much',
+		order: 0,
+	}],
+	penaltiesWithValues: [{
+		key: 'dateOfPenalty',
+		label: 'When was it?',
+		type: 'date',
+		value: '01/01/2016',
+		required: true,
+		disabled: false,
+		order: 0,
+		validators: ['validDateValidate','validLastThreeYearsValidate']
+	},
+	{
+		key: 'reasonForPenalty',
+		label: 'What was the reason?',
+		type: 'dropdown',
+		options: ['Accident', 'Accidental Damage', 'Fire', 'Malicious Damage As A Result Of Theft', 'Personal Accident', 'Personal Effects', 'Theft', 'Third Party', 'Vandalism', 'Windscreen'],
+		value: 'Accident',
+		required: true,
+		order: 0,
+		validators: []
+	},
+	{
+		key: 'howManyPoints',
+		label: 'How many points?',
+		type: 'text',
+		required: true,
+		value: '5',
+		placeholder: 'How Much',
+		order: 0,
 	}]
 }
 
@@ -348,6 +403,35 @@ export const PAGES = [{
 		// 		}
 		// 	]
 		// }
+	]
+},
+{
+	id: 'penalties',
+	title: 'Penalty Points',
+	order: 1,
+	templates: {
+		penalty: {
+			type: 'penalty',
+			userHasPenalty: null,
+			optional: true,
+			fields: QUESTIONS.penalties
+		},
+	},
+	sections: [
+		{
+			id: 'penalty-primary-driver',
+			title: 'Main Driver',
+			userHasPenalty: true,
+			type: 'penalty',
+			fields: [
+				{
+					key: '0',
+					type: 'penalty',
+					isComplete: true,
+					fields: QUESTIONS.penaltiesWithValues
+				}
+			]
+		},
 	]
 }];
 
