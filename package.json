@@ -14,7 +14,8 @@
     "connect-slow": "^0.4.0",
     "express": "^4.14.0",
     "fuse.js": "^2.5.0",
-    "lodash": "^4.16.4"
+    "lodash": "^4.16.4",
+    "node-zendesk": "^1.1.12"
   },
   "devDependencies": {
     "@types/body-parser": "0.0.33",
