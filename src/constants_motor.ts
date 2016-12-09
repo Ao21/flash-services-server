@@ -30,6 +30,7 @@ export const QUESTIONS = {
 		label: 'First Name',
 		type: 'text',
 		required: true,
+		helpId: 214205625,
 		placeholder: 'John',
 		order: 0,
 	}, {
@@ -37,6 +38,7 @@ export const QUESTIONS = {
 		label: 'Last Name',
 		placeholder: 'Snow',
 		type: 'text',
+		helpId: 213679469,
 		required: true,
 		order: 1
 	}, {
@@ -44,6 +46,7 @@ export const QUESTIONS = {
 		label: 'Date Of Birth',
 		type: 'date',
 		required: true,
+		helpId: 213685289,
 		disabled: false,
 		order: 2,
 		validators: ['validDateValidate', 'validOverEighteenValidate']
@@ -53,6 +56,7 @@ export const QUESTIONS = {
 		type: 'tel',
 		required: true,
 		disabled: true,
+		helpId: 214224585,
 		order: 2,
 		validators: ['validPhoneNumberValidate']
 	},
@@ -196,7 +200,7 @@ export const QUESTIONS = {
 	{
 		key: 'costOfClaim',
 		label: 'Cost of claim',
-		type: 'text',
+		type: 'currency',
 		required: true,
 		placeholder: 'How Much',
 		order: 0,
@@ -242,7 +246,7 @@ export const QUESTIONS = {
 	{
 		key: 'costOfClaim',
 		label: 'Cost of claim',
-		type: 'text',
+		type: 'currency',
 		value: '5000',
 		required: true,
 		placeholder: 'How Much',
@@ -421,15 +425,15 @@ export const PAGES = [{
 		{
 			id: 'penalty-primary-driver',
 			title: 'Main Driver',
-			userHasPenalty: true,
+			userHasPenalty: false,
 			type: 'penalty',
 			fields: [
-				{
-					key: '0',
-					type: 'penalty',
-					isComplete: true,
-					fields: QUESTIONS.penaltiesWithValues
-				}
+				// {
+				// 	key: '0',
+				// 	type: 'penalty',
+				// 	isComplete: true,
+				// 	fields: QUESTIONS.penaltiesWithValues
+				// }
 			]
 		},
 	]

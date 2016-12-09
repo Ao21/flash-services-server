@@ -2,6 +2,7 @@ import * as express from "express";
 import { MembershipRoutes } from './api/membership/index';
 import { RenewalRoutes } from './api/renew_quotes/';
 import { MotorRoutes } from './api/motor/';
+import { ZendeskRoutes } from './api/zendesk/';
 
 export class Routes {
 
@@ -9,6 +10,7 @@ export class Routes {
 	membershipRoutes: MembershipRoutes;
 	renewalRoutes: RenewalRoutes;
 	motorRoutes: MotorRoutes;
+	zendeskRoutes: ZendeskRoutes;
 	
 
 	public static bootstrap() {
@@ -20,6 +22,7 @@ export class Routes {
 		this.createMembershipRoutes();
 		this.createRenewalRoutes();
 		this.createMotorRoutes();
+		this.createZendeskRoutes();
 	}
 
 	createMembershipRoutes() {
@@ -32,6 +35,10 @@ export class Routes {
 
 	createMotorRoutes() {
 		this.motorRoutes = new MotorRoutes(this.router);
+	}
+
+	createZendeskRoutes() {
+		this.zendeskRoutes = new ZendeskRoutes(this.router);
 	}
 }
 
