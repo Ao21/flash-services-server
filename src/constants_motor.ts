@@ -13,9 +13,12 @@ export const QUESTIONS = {
 		required: true,
 		// disabled: true,
 		order: 1,
-		// value: 1,
-		min: 0,
-		max: 10
+		value: 1,
+		min: 1,
+		max: 5,
+		trigger: {
+			name: 'additionalDrivers',
+		},
 	}, {
 		key: 'termsConditions',
 		label: 'Terms and Conditions',
@@ -55,7 +58,7 @@ export const QUESTIONS = {
 		label: 'Phone Number',
 		type: 'tel',
 		required: true,
-		disabled: true,
+		disabled: false,
 		helpId: 214224585,
 		order: 2,
 		validators: ['validPhoneNumberValidate']
@@ -126,44 +129,6 @@ export const QUESTIONS = {
 		options: [{ value: 'Yes', text: 'Yes' }, { value: 'No', text: 'No' }],
 		required: true,
 		order: 2,
-		validators: []
-	},
-	{
-		key: 'amountOfDrivers',
-		label: 'How many drivers?',
-		type: 'slider',
-		required: true,
-		disabled: false,
-		order: 10,
-		// values: [5, 6, 11, 12],
-		value: 2,
-		// steps: 1,
-
-		min: 0,
-		max: 7
-	},
-	{
-		key: 'occupation3',
-		label: 'Occupation',
-		type: 'autocomplete',
-		placeholder: 'Select an Occupation',
-		serviceUrl: 'motor/occupation/',
-		autoCompleteType: 'search', // search || all || options
-		options: [
-			{ id: 'Employed', text: 'Employed' },
-			{ id: 'Household Duties', text: 'Household Duties' },
-			{ id: 'Retired', text: 'Retired' },
-			{ id: 'Self Employed', text: 'Self Employed' },
-			{ id: 'Unemployed', text: 'Unemployed' },
-			{ id: 'Very Employed', text: 'Very Employed' },
-			{ id: 'Very Household Duties', text: 'Very Household Duties' },
-			{ id: 'Very Retired', text: 'Very Retired' },
-			{ id: 'Very Self Employed', text: 'Very Self Employed' }
-		],
-		required: true,
-		disabled: false,
-		// value: { id: 'Employed', text: 'Employed' },
-		order: 99992,
 		validators: []
 	}],
 
@@ -333,16 +298,13 @@ export const PAGES = [{
 	id: 'pre',
 	title: 'Pre',
 	order: 0,
-	templates: {},
+	uiOptions: {
+		nextPage: 'details'
+	},
 	sections: [
 		{
 			id: 'pre-default',
 			type: 'default',
-			fields: QUESTIONS.pre
-		},
-		{
-			id: 'pre-alt',
-			type: 'alt',
 			fields: QUESTIONS.pre
 		}
 	]
@@ -350,11 +312,15 @@ export const PAGES = [{
 	id: 'details',
 	title: 'Details',
 	order: 1,
+	uiOptions: {
+		nextPage: 'claims',
+		prevPage: 'pre'
+	},
 	templates: {
-		additionalDrivers: {
-			type: 'additionalDrivers',
-			max: 5,
-			optional: true,
+		additionalDriver: {
+			type: 'default',
+			additional: true,
+			hasQuestionsByDefault: true,
 			fields: QUESTIONS.details
 		}
 	},
@@ -362,6 +328,7 @@ export const PAGES = [{
 		{
 			id: 'details-default',
 			type: 'default',
+			title: 'Primary Driver',
 			fields: QUESTIONS.details
 		}
 	]
@@ -370,54 +337,48 @@ export const PAGES = [{
 	id: 'claims',
 	title: 'Claims',
 	order: 1,
+	uiOptions: {
+		nextPage: 'penalties',
+		prevPage: 'details'
+	},
 	templates: {
-		claim: {
+		additionalDriver: {
 			type: 'claim',
-			userHasClaim: null,
-			optional: true,
+			userHasClaim: false,
+			additional: true,
 			fields: QUESTIONS.claims
 		},
 	},
 	sections: [
 		{
 			id: 'claim-primary-driver',
-			title: 'Main Driver',
-			userHasClaim: true,
+			title: 'Primary Driver',
+			userHasClaim: false,
 			type: 'claim',
 			fields: [
-				{
-					key: '0',
-					type: 'claim',
-					isComplete: true,
-					fields: QUESTIONS.claimWithValues
-				}
+				// {
+				// 	key: '0',
+				// 	type: 'claim',
+				// 	isComplete: true,
+				// 	fields: QUESTIONS.claimWithValues
+				// }
 			]
-		},
-		// {
-		// 	id: 'claim-secondary-driver',
-		// 	title: 'Secondary Driver',
-		// 	userHasClaim: null,
-		// 	type: 'claim',
-		// 	fields: [
-		// 		{
-		// 			key: 'secondaryDriverClaims-0',
-		// 			type: 'claim',
-		// 			isComplete: false,
-		// 			fields: QUESTIONS.claims
-		// 		}
-		// 	]
-		// }
+		}
 	]
 },
 {
 	id: 'penalties',
 	title: 'Penalty Points',
 	order: 1,
+	uiOptions: {
+		prevPage: 'claims'
+	},
 	templates: {
-		penalty: {
+		additionalDriver: {
 			type: 'penalty',
-			userHasPenalty: null,
-			optional: true,
+			title: 'Primary Driver',
+			userHasPenalty: false,
+			additional: true,
 			fields: QUESTIONS.penalties
 		},
 	},
