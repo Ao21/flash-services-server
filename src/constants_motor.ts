@@ -200,7 +200,7 @@ export const QUESTIONS = {
 			text: 'No'
 		}],
 		required: true,
-		},
+	},
 	{
 		key: 'insuredNamedDriverOnPolicy',
 		label: 'On whose policy',
@@ -426,7 +426,6 @@ export const QUESTIONS = {
 	}],
 
 
-
 	defaultClaimQuestion: [{
 		key: 'customerClaims',
 		label: 'Have you had any claims in the past 3 years?',
@@ -439,6 +438,53 @@ export const QUESTIONS = {
 			text: 'No'
 		}],
 		required: true,
+		order: 2,
+		validators: []
+	}],
+
+
+	addressQuestionTemplate: [{
+		key: 'addressLine1',
+		label: 'Address Line 1',
+		type: 'text',
+		required: true,
+		order: 0,
+		validators: []
+	},
+	{
+		key: 'addressLine2',
+		label: 'Address Line 2',
+		type: 'text',
+		required: true,
+		order: 0,
+		validators: []
+	},
+	{
+		key: 'area',
+		label: 'Town',
+		type: 'autocomplete',
+		serviceUrl: 'motor/reference/town/',
+		autoCompleteType: 'search', // search || all || options
+		required: true,
+		disabled: false,
+		// value: { id: 'Employed', text: 'Employed' },
+		order: 2,
+		validators: []
+	},
+	{
+		key: 'county',
+		label: 'County',
+		type: 'autocomplete',
+		serviceUrl: 'motor/reference/county/',
+		autoCompleteType: 'linked', // search || all || options || linked
+		link: 'area',
+		trigger: {
+			name: 'disabledBasedOnKey',
+			key: 'area'
+		},
+		required: true,
+		disabled: false,
+		// value: { id: 'Employed', text: 'Employed' },
 		order: 2,
 		validators: []
 	}],
@@ -622,7 +668,7 @@ export const PAGES = [{
 	title: 'Details',
 	order: 1,
 	uiOptions: {
-		nextPage: 'licence',
+		nextPage: 'address',
 		prevPage: 'pre'
 	},
 	templates: {
@@ -642,12 +688,34 @@ export const PAGES = [{
 },
 
 {
+	id: 'address',
+	title: 'Addresss',
+	order: 1,
+	uiOptions: {
+		nextPage: 'licence',
+		prevPage: 'details'
+	},
+	sections: [{
+		id: 'address-default',
+		type: 'address',
+		title: 'Primary Driver',
+		fields: [{
+			key: 'address',
+			type: 'address',
+			isComplete: true,
+			fields: QUESTIONS.addressQuestionTemplate
+		}]
+	}]
+
+},
+
+{
 	id: 'licence',
 	title: 'Licence',
 	order: 1,
 	uiOptions: {
 		nextPage: 'cover',
-		prevPage: 'details'
+		prevPage: 'address'
 	},
 	templates: {
 		additionalDriver: {
@@ -682,6 +750,8 @@ export const PAGES = [{
 	}]
 
 },
+
+
 
 
 {
@@ -732,7 +802,7 @@ export const PAGES = [{
 	},
 	sections: [{
 		id: 'penalty-primary-driver',
-		title: 'Main Driver',
+		title: 'Primary Driver',
 		userHasPenalty: null,
 		type: 'penalty',
 		fields: [

@@ -9,7 +9,12 @@ app.use(bodyParser.json());
 
 app.use(slow({
 	url: /query/i,
-	delay: 1000
+	delay: 150
+}))
+
+app.use(slow({
+	url: /selected/i,
+	delay: 350
 }))
 
 app.use(function (req: any, res: any, next: any) {

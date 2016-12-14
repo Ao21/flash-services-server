@@ -11,6 +11,12 @@ export class MotorRoutes {
 		this.router.get('/motor/occupation/search', this.motor.getOccupation);
 		this.router.get('/motor/section/:section', this.motor.getSection);
 		this.router.get('/motor/section/:section/questions', this.motor.getSectionQuestions);
+
+		this.router.get('/motor/reference/town/:town', this.motor.getTown);
+		this.router.get('/motor/reference/county/:county', this.motor.getCounty);
+		
+		this.router.put('/motor/reference/address', this.motor.putAddress);
+		this.router.post('/motor/reference/address/selected', this.motor.selectAddress);
 		
 	}
 
