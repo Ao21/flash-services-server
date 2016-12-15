@@ -1,14 +1,6 @@
 export const QUESTIONS = {
 
-	pre: [
-		{
-			key: 'checkbox-alarm',
-			name: 'Alarm',
-			type: 'checkbox',
-			timeline: false,
-			required: false
-		},
-		{
+	pre: [{
 			key: 'email',
 			label: 'What is your email?',
 			type: 'email',
@@ -871,8 +863,8 @@ export const PAGES = [{
 	title: 'Car',
 	order: 1,
 	uiOptions: {
-		nextPage: 'address',
-		prevPage: 'licence'
+		nextPage: 'licence',
+		prevPage: 'address'
 	},
 	sections: [{
 		id: 'car-default',
