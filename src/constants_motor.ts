@@ -1,32 +1,40 @@
 export const QUESTIONS = {
 
-	pre: [{
-		key: 'email',
-		label: 'What is your email?',
-		type: 'email',
-		required: true,
-		order: 0
-	}, {
-		key: 'amountOfDrivers',
-		label: 'How many drivers?',
-		type: 'counter',
-		required: true,
-		// disabled: true,
-		order: 1,
-		value: 1,
-		min: 1,
-		max: 5,
-		trigger: {
-			name: 'additionalDrivers',
+	pre: [
+		{
+			key: 'checkbox-alarm',
+			name: 'Alarm',
+			type: 'checkbox',
+			timeline: false,
+			required: false
 		},
-	}, {
-		key: 'termsConditions',
-		label: 'Terms and Conditions',
-		type: 'questionText',
-		order: 2,
-		timeline: false,
-		content: `By providing the requested data, you consent to AA's Data Protection and Privacy Policy and to AA using it for administration and keeping you informed by mail, telephone, email and SMS of other products and services from us. By proceeding, you consent to & confirm that you have read and accepted the AA Data Protection & Privacy Policy and the AA Terms & Conditions`
-	}],
+		{
+			key: 'email',
+			label: 'What is your email?',
+			type: 'email',
+			required: true,
+			order: 0
+		}, {
+			key: 'amountOfDrivers',
+			label: 'How many drivers?',
+			type: 'counter',
+			required: true,
+			// disabled: true,
+			order: 1,
+			value: 1,
+			min: 1,
+			max: 5,
+			trigger: {
+				name: 'additionalDrivers',
+			},
+		}, {
+			key: 'termsConditions',
+			label: 'Terms and Conditions',
+			type: 'questionText',
+			order: 2,
+			timeline: false,
+			content: `By providing the requested data, you consent to AA's Data Protection and Privacy Policy and to AA using it for administration and keeping you informed by mail, telephone, email and SMS of other products and services from us. By proceeding, you consent to & confirm that you have read and accepted the AA Data Protection & Privacy Policy and the AA Terms & Conditions`
+		}],
 
 	details: [{
 		key: 'firstName',
@@ -313,10 +321,10 @@ export const QUESTIONS = {
 			name: 'showDualKey',
 		},
 		options: [{
-			value: 'Yes',
+			value: true,
 			text: 'Yes'
 		}, {
-			value: 'No',
+			value: false,
 			text: 'No'
 		}],
 		required: true,
@@ -328,7 +336,8 @@ export const QUESTIONS = {
 		order: 7,
 		trigger: {
 			key: 'startPolicySameDate',
-			name: 'showBasedOnKey',
+			name: 'showIfKeyEquals',
+			equals: false
 		},
 		required: true,
 	},
@@ -648,7 +657,156 @@ export const QUESTIONS = {
 		value: '5',
 		placeholder: 'How Much',
 		order: 0,
-	}]
+	}],
+
+	carQuestions: [
+		{
+			key: 'dateOfRegistration',
+			label: 'Date of Registration',
+			type: 'date',
+			required: true,
+			disabled: false,
+			// value: { id: 'Employed', text: 'Employed' },
+			order: 0,
+			validators: []
+		},
+		{
+			key: 'carMake',
+			label: 'Car Make',
+			type: 'autocomplete',
+			serviceUrl: 'motor/reference/car/make',
+			autoCompleteType: 'search', // search || all || options || linked
+			required: true,
+			disabled: false,
+			// value: { id: 'Employed', text: 'Employed' },
+			order: 1,
+			validators: []
+		},
+		{
+			key: 'carModel',
+			label: 'Car Model',
+			type: 'autocomplete',
+			serviceUrl: 'motor/reference/car/model',
+			autoCompleteType: 'search', // search || all || options || linked
+			required: true,
+			disabled: false,
+			// value: { id: 'Employed', text: 'Employed' },
+			order: 2,
+			validators: []
+		},
+		{
+			key: 'engineSize',
+			label: 'Engine Size?',
+			type: 'dropdown',
+			options: ['0cc - 1499cc', '1500cc - 1999cc', '2000cc - 2499cc', '2500cc - 2999cc', '3000cc - 3449cc', '3500cc - 3999cc', '4000cc - 4449cc', '4500cc - 4999cc', '4500cc - 4999cc'],
+			required: true,
+			order: 3,
+			validators: []
+		},
+		{
+			key: 'exactModel',
+			label: 'Car Model?',
+			type: 'autocomplete',
+			serviceUrl: 'motor/reference/car/exactModel',
+			autoCompleteType: 'search', // search || all || options || linked
+			required: true,
+			disabled: false,
+			// value: { id: 'Employed', text: 'Employed' },
+			order: 4,
+			validators: []
+		},
+		{
+			key: 'dateOrPurchase',
+			label: 'Date of Purchase',
+			type: 'date',
+			required: true,
+			disabled: false,
+			// value: { id: 'Employed', text: 'Employed' },
+			order: 5,
+			validators: []
+		},
+		{
+			key: 'currentValue',
+			label: 'Current Value',
+			type: 'currency',
+			required: true,
+			disabled: false,
+			// value: { id: 'Employed', text: 'Employed' },
+			order: 6,
+			validators: []
+		},
+		{
+			key: 'kilometersPerYear',
+			label: 'How many kilometres do you drive in a year?',
+			type: 'tel',
+			required: true,
+			disabled: false,
+			// value: { id: 'Employed', text: 'Employed' },
+			order: 7,
+			validators: []
+		},
+		{
+			key: 'securityFeatures',
+			type: 'group',
+			label: 'What secturity features does your car have?',
+			order: 8,
+			isComplete: false,
+			fields: [{
+				key: 'security-alarm',
+				name: 'Alarm',
+				type: 'checkbox',
+				timeline: false,
+				required: false
+			},
+			{
+				key: 'security-immobiliser',
+				name: 'Immobiliser',
+				type: 'checkbox',
+				timeline: false,
+				required: false
+			},
+			{
+				key: 'security-tracker',
+				name: 'Tracker',
+				type: 'checkbox',
+				timeline: false,
+				required: false
+			},
+			{
+				key: 'security-other',
+				name: 'Other',
+				type: 'checkbox',
+				timeline: false,
+				required: false
+			},
+			]
+		},
+
+		{
+			key: 'carMainlyUsed',
+			label: 'County',
+			type: 'autocomplete',
+			serviceUrl: 'motor/reference/county/',
+			autoCompleteType: 'search', // search || all || options || linked
+			required: true,
+			disabled: false,
+			// value: { id: 'Employed', text: 'Employed' },
+			order: 9,
+			validators: []
+		},
+		{
+			key: 'carKeptOvernight',
+			label: 'County',
+			type: 'autocomplete',
+			serviceUrl: 'motor/reference/county/',
+			autoCompleteType: 'search', // search || all || options || linked
+			required: true,
+			disabled: false,
+			// value: { id: 'Employed', text: 'Employed' },
+			order: 10,
+			validators: []
+		}],
+
 }
 
 export const PAGES = [{
@@ -692,7 +850,7 @@ export const PAGES = [{
 	title: 'Addresss',
 	order: 1,
 	uiOptions: {
-		nextPage: 'licence',
+		nextPage: 'car',
 		prevPage: 'details'
 	},
 	sections: [{
@@ -701,13 +859,30 @@ export const PAGES = [{
 		title: 'Primary Driver',
 		fields: [{
 			key: 'address',
-			type: 'address',
+			type: 'group',
 			isComplete: true,
 			fields: QUESTIONS.addressQuestionTemplate
 		}]
 	}]
 
 },
+{
+	id: 'car',
+	title: 'Car',
+	order: 1,
+	uiOptions: {
+		nextPage: 'address',
+		prevPage: 'licence'
+	},
+	sections: [{
+		id: 'car-default',
+		type: 'car',
+		title: 'Primary Driver',
+		fields: QUESTIONS.carQuestions
+	}]
+
+},
+
 
 {
 	id: 'licence',
@@ -715,7 +890,7 @@ export const PAGES = [{
 	order: 1,
 	uiOptions: {
 		nextPage: 'cover',
-		prevPage: 'address'
+		prevPage: 'car'
 	},
 	templates: {
 		additionalDriver: {
@@ -763,8 +938,9 @@ export const PAGES = [{
 		prevPage: 'licence'
 	},
 	templates: {
+		// Group Question
 		additionalDriver: {
-			type: 'claim',
+			type: 'group',
 			userHasClaim: null,
 			additional: true,
 			fields: QUESTIONS.claims
@@ -792,8 +968,9 @@ export const PAGES = [{
 		prevPage: 'claims'
 	},
 	templates: {
+		// Group Question
 		additionalDriver: {
-			type: 'penalty',
+			type: 'group',
 			title: 'Primary Driver',
 			userHasPenalty: null,
 			additional: true,
