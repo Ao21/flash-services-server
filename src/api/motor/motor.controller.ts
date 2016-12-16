@@ -76,5 +76,18 @@ export default class Motor {
 	selectAddress = (req: express.Request, res: express.Response) => {
 		res.send(JSON.stringify(GEOCODE_SELECTED));
 	}
+
+	/** Car Calls */
+
+	getVehicleRegistration = (req: express.Request, res: express.Response) => {
+		let response = {
+			dateOfRegistration: '01/01/2015',
+			carMake: {text:'Renault', value:'Renault'},
+			carModel: { text: 'Fiesta', value: 'Fiesta' },
+			engineSize: '1500cc - 1999cc',
+			exactModel: {text:'FIESTA 1.6I 16V ZETEC MANUAL Hatchback 1596cc PETROL', value: 'ford'}
+		}
+		res.send(JSON.stringify(response));
+	}
 	
 }

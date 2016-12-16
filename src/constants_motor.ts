@@ -1,32 +1,32 @@
 export const QUESTIONS = {
 
 	pre: [{
-			key: 'email',
-			label: 'What is your email?',
-			type: 'email',
-			required: true,
-			order: 0
-		}, {
-			key: 'amountOfDrivers',
-			label: 'How many drivers?',
-			type: 'counter',
-			required: true,
-			// disabled: true,
-			order: 1,
-			value: 1,
-			min: 1,
-			max: 5,
-			trigger: {
-				name: 'additionalDrivers',
-			},
-		}, {
-			key: 'termsConditions',
-			label: 'Terms and Conditions',
-			type: 'questionText',
-			order: 2,
-			timeline: false,
-			content: `By providing the requested data, you consent to AA's Data Protection and Privacy Policy and to AA using it for administration and keeping you informed by mail, telephone, email and SMS of other products and services from us. By proceeding, you consent to & confirm that you have read and accepted the AA Data Protection & Privacy Policy and the AA Terms & Conditions`
-		}],
+		key: 'email',
+		label: 'What is your email?',
+		type: 'email',
+		required: true,
+		order: 0
+	}, {
+		key: 'amountOfDrivers',
+		label: 'How many drivers?',
+		type: 'counter',
+		required: true,
+		// disabled: true,
+		order: 1,
+		value: 1,
+		min: 1,
+		max: 5,
+		trigger: {
+			name: 'additionalDrivers',
+		},
+	}, {
+		key: 'termsConditions',
+		label: 'Terms and Conditions',
+		type: 'questionText',
+		order: 2,
+		timeline: false,
+		content: `By providing the requested data, you consent to AA's Data Protection and Privacy Policy and to AA using it for administration and keeping you informed by mail, telephone, email and SMS of other products and services from us. By proceeding, you consent to & confirm that you have read and accepted the AA Data Protection & Privacy Policy and the AA Terms & Conditions`
+	}],
 
 	details: [{
 		key: 'firstName',
@@ -481,6 +481,7 @@ export const QUESTIONS = {
 		link: 'area',
 		trigger: {
 			name: 'disabledBasedOnKey',
+			expectedType: 'object',
 			key: 'area'
 		},
 		required: true,
@@ -666,10 +667,15 @@ export const QUESTIONS = {
 			key: 'carMake',
 			label: 'Car Make',
 			type: 'autocomplete',
-			serviceUrl: 'motor/reference/car/make',
+			serviceUrl: 'motor/reference/car/make/',
 			autoCompleteType: 'search', // search || all || options || linked
 			required: true,
 			disabled: false,
+			trigger: {
+				name: 'disabledBasedOnKey',
+				expectedType: 'string',
+				key: 'dateOfRegistration'
+			},
 			// value: { id: 'Employed', text: 'Employed' },
 			order: 1,
 			validators: []
@@ -678,10 +684,15 @@ export const QUESTIONS = {
 			key: 'carModel',
 			label: 'Car Model',
 			type: 'autocomplete',
-			serviceUrl: 'motor/reference/car/model',
+			serviceUrl: 'motor/reference/car/model/',
 			autoCompleteType: 'search', // search || all || options || linked
 			required: true,
 			disabled: false,
+			trigger: {
+				name: 'disabledBasedOnKey',
+				expectedType: 'object',
+				key: 'carMake'
+			},
 			// value: { id: 'Employed', text: 'Employed' },
 			order: 2,
 			validators: []
@@ -692,6 +703,11 @@ export const QUESTIONS = {
 			type: 'dropdown',
 			options: ['0cc - 1499cc', '1500cc - 1999cc', '2000cc - 2499cc', '2500cc - 2999cc', '3000cc - 3449cc', '3500cc - 3999cc', '4000cc - 4449cc', '4500cc - 4999cc', '4500cc - 4999cc'],
 			required: true,
+			trigger: {
+				name: 'disabledBasedOnKey',
+				expectedType: 'object',
+				key: 'carModel'
+			},
 			order: 3,
 			validators: []
 		},
@@ -699,10 +715,15 @@ export const QUESTIONS = {
 			key: 'exactModel',
 			label: 'Car Model?',
 			type: 'autocomplete',
-			serviceUrl: 'motor/reference/car/exactModel',
+			serviceUrl: 'motor/reference/car/exactModel/',
 			autoCompleteType: 'search', // search || all || options || linked
 			required: true,
 			disabled: false,
+			trigger: {
+				name: 'disabledBasedOnKey',
+				expectedType: 'string',
+				key: 'engineSize'
+			},
 			// value: { id: 'Employed', text: 'Employed' },
 			order: 4,
 			validators: []
