@@ -953,7 +953,7 @@ export const PAGES = [{
 	templates: {
 		// Group Question
 		additionalDriver: {
-			type: 'group',
+			type: 'claim',
 			userHasClaim: null,
 			additional: true,
 			fields: QUESTIONS.claims
@@ -983,7 +983,7 @@ export const PAGES = [{
 	templates: {
 		// Group Question
 		additionalDriver: {
-			type: 'group',
+			type: 'penalty',
 			title: 'Primary Driver',
 			userHasPenalty: null,
 			additional: true,
