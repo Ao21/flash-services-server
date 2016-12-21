@@ -823,11 +823,12 @@ export const QUESTIONS = {
 }
 
 export const PAGES = [{
-	id: 'pre',
+	id: 'getting-started',
 	title: 'Pre',
 	order: 0,
 	uiOptions: {
-		nextPage: 'details'
+		nextPage: 'your-details',
+		isVisible: true,
 	},
 	sections: [{
 		id: 'pre-default',
@@ -835,12 +836,13 @@ export const PAGES = [{
 		fields: QUESTIONS.pre
 	}]
 }, {
-	id: 'details',
+	id: 'your-details',
 	title: 'Details',
 	order: 1,
 	uiOptions: {
-		nextPage: 'address',
-		prevPage: 'pre'
+		nextPage: 'your-address',
+		prevPage: 'getting-started',
+		isVisible: true,
 	},
 	templates: {
 		additionalDriver: {
@@ -859,12 +861,13 @@ export const PAGES = [{
 },
 
 {
-	id: 'address',
+	id: 'your-address',
 	title: 'Addresss',
 	order: 1,
 	uiOptions: {
-		nextPage: 'car',
-		prevPage: 'details'
+		nextPage: 'your-car',
+		prevPage: 'your-details',
+		isVisible: true,
 	},
 	sections: [{
 		id: 'address-default',
@@ -880,12 +883,13 @@ export const PAGES = [{
 
 },
 {
-	id: 'car',
+	id: 'your-car',
 	title: 'Car',
 	order: 1,
 	uiOptions: {
-		nextPage: 'licence',
-		prevPage: 'address'
+		nextPage: 'your-licence',
+		prevPage: 'your-address',
+		isVisible: true,
 	},
 	sections: [{
 		id: 'car-default',
@@ -898,12 +902,13 @@ export const PAGES = [{
 
 
 {
-	id: 'licence',
+	id: 'your-licence',
 	title: 'Licence',
 	order: 1,
 	uiOptions: {
-		nextPage: 'cover',
-		prevPage: 'car'
+		nextPage: 'your-cover',
+		prevPage: 'your-car',
+		isVisible: true,
 	},
 	templates: {
 		additionalDriver: {
@@ -923,12 +928,13 @@ export const PAGES = [{
 },
 
 {
-	id: 'cover',
+	id: 'your-cover',
 	title: 'Cover',
 	order: 1,
 	uiOptions: {
-		nextPage: 'claims',
-		prevPage: 'licence'
+		nextPage: 'your-claims',
+		prevPage: 'your-licence',
+		isVisible: true,
 	},
 	sections: [{
 		id: 'cover-default',
@@ -943,12 +949,13 @@ export const PAGES = [{
 
 
 {
-	id: 'claims',
+	id: 'your-claims',
 	title: 'Claims',
 	order: 1,
 	uiOptions: {
-		nextPage: 'penalties',
-		prevPage: 'licence'
+		nextPage: 'your-penalties',
+		prevPage: 'your-cover',
+		isVisible: true,
 	},
 	templates: {
 		// Group Question
@@ -974,11 +981,12 @@ export const PAGES = [{
 		]
 	}]
 }, {
-	id: 'penalties',
+	id: 'your-penalties',
 	title: 'Penalty Points',
 	order: 1,
 	uiOptions: {
-		prevPage: 'claims'
+		prevPage: 'your-claims',
+		isVisible: true,
 	},
 	templates: {
 		// Group Question
@@ -1010,7 +1018,7 @@ export const PAGES = [{
 export const CONFIG = {
 	stages: [{
 		id: 'quotation',
-		title: 'quotation',
+		title: 'Your Quote',
 		pages: PAGES
 	}]
 }
