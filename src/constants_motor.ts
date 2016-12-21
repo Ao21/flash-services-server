@@ -668,7 +668,8 @@ export const QUESTIONS = {
 			label: 'Car Make',
 			type: 'autocomplete',
 			serviceUrl: 'motor/reference/car/make/',
-			autoCompleteType: 'search', // search || all || options || linked
+			autoCompleteType: 'linked', // search || all || options || linked
+			link: 'dateOfRegistration',
 			required: true,
 			disabled: false,
 			trigger: {
@@ -685,7 +686,8 @@ export const QUESTIONS = {
 			label: 'Car Model',
 			type: 'autocomplete',
 			serviceUrl: 'motor/reference/car/model/',
-			autoCompleteType: 'search', // search || all || options || linked
+			autoCompleteType: 'linked', // search || all || options || linked
+			link: 'carMake',
 			required: true,
 			disabled: false,
 			trigger: {
@@ -709,23 +711,6 @@ export const QUESTIONS = {
 				key: 'carModel'
 			},
 			order: 3,
-			validators: []
-		},
-		{
-			key: 'exactModel',
-			label: 'Car Model?',
-			type: 'autocomplete',
-			serviceUrl: 'motor/reference/car/exactModel/',
-			autoCompleteType: 'search', // search || all || options || linked
-			required: true,
-			disabled: false,
-			trigger: {
-				name: 'disabledBasedOnKey',
-				expectedType: 'string',
-				key: 'engineSize'
-			},
-			// value: { id: 'Employed', text: 'Employed' },
-			order: 4,
 			validators: []
 		},
 		{

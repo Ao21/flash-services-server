@@ -19,8 +19,10 @@ export class MotorRoutes {
 		this.router.post('/motor/reference/address/selected', this.motor.selectAddress);
 
 		this.router.get('/motor/reference/getVehicleRegistration/:registration',this.motor.getVehicleRegistration)		
-		this.router.get('/motor/reference/car/make/search', this.motor.getOccupation);
-		this.router.get('/motor/reference/car/model/search', this.motor.getOccupation);
+		this.router.get('/motor/reference/car/make/search', this.motor.getCarMake);
+		this.router.get('/motor/reference/car/make/linked', this.motor.getCarMake);
+		this.router.get('/motor/reference/car/model/search', this.motor.getCarMake);
+		this.router.get('/motor/reference/car/model/linked', this.motor.getCarMake);
 		this.router.get('/motor/reference/car/exactModel/search', this.motor.getOccupation);
 		
 	}

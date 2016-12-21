@@ -89,5 +89,10 @@ export default class Motor {
 		}
 		res.send(JSON.stringify(response));
 	}
+
+	getCarMake = (req: express.Request, res: express.Response) => { 
+		let list = this.fuseList.search(req.query.query);
+		res.send(JSON.stringify(list));
+	}
 	
 }
