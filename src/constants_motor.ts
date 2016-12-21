@@ -1016,6 +1016,13 @@ export const CONFIG = {
 	stages: [{
 		id: 'quotation',
 		title: 'Your Quote',
-		pages: PAGES
+		pages: PAGES,
+		active: true,
+	},
+	{
+		id: 'quotation2',
+		title: 'Your Quote',
+		pages: PAGES,
+		active: false,
 	}]
 }
