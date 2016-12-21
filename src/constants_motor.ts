@@ -247,7 +247,6 @@ export const QUESTIONS = {
 		key: 'whereNoClaimsBonus',
 		label: 'Where did you earn your no claims bonus',
 		type: 'autocomplete',
-		serviceUrl: 'motor/occupation/',
 		autoCompleteType: 'options', // search || all || options
 		trigger: {
 			key1: 'insuredInYourOwnName',
@@ -654,64 +653,75 @@ export const QUESTIONS = {
 
 	carQuestions: [
 		{
-			key: 'dateOfRegistration',
-			label: 'Date of Registration',
-			type: 'date',
-			required: true,
-			disabled: false,
-			// value: { id: 'Employed', text: 'Employed' },
+			key: 'primaryCarInformation',
+			type: 'group', 
+			alignment: 'none',
+			timeline: false,
 			order: 0,
-			validators: []
-		},
-		{
-			key: 'carMake',
-			label: 'Car Make',
-			type: 'autocomplete',
-			serviceUrl: 'motor/reference/car/make/',
-			autoCompleteType: 'linked', // search || all || options || linked
-			link: 'dateOfRegistration',
-			required: true,
-			disabled: false,
-			trigger: {
-				name: 'disabledBasedOnKey',
-				expectedType: 'string',
-				key: 'dateOfRegistration'
-			},
-			// value: { id: 'Employed', text: 'Employed' },
-			order: 1,
-			validators: []
-		},
-		{
-			key: 'carModel',
-			label: 'Car Model',
-			type: 'autocomplete',
-			serviceUrl: 'motor/reference/car/model/',
-			autoCompleteType: 'linked', // search || all || options || linked
-			link: 'carMake',
-			required: true,
-			disabled: false,
-			trigger: {
-				name: 'disabledBasedOnKey',
-				expectedType: 'object',
-				key: 'carMake'
-			},
-			// value: { id: 'Employed', text: 'Employed' },
-			order: 2,
-			validators: []
-		},
-		{
-			key: 'engineSize',
-			label: 'Engine Size?',
-			type: 'dropdown',
-			options: ['0cc - 1499cc', '1500cc - 1999cc', '2000cc - 2499cc', '2500cc - 2999cc', '3000cc - 3449cc', '3500cc - 3999cc', '4000cc - 4449cc', '4500cc - 4999cc', '4500cc - 4999cc'],
-			required: true,
-			trigger: {
-				name: 'disabledBasedOnKey',
-				expectedType: 'object',
-				key: 'carModel'
-			},
-			order: 3,
-			validators: []
+			isComplete: false,
+			fields: [
+				{
+					key: 'dateOfRegistration',
+					label: 'Date of Registration',
+					type: 'date',
+					required: true,
+					disabled: false,
+					// value: { id: 'Employed', text: 'Employed' },
+					order: 0,
+					validators: []
+				},
+				{
+					key: 'carMake',
+					label: 'Car Make',
+					type: 'autocomplete',
+					serviceUrl: 'motor/reference/car/make/',
+					autoCompleteType: 'linked', // search || all || options || linked
+					link: 'primaryCarInformation',
+					required: true,
+					disabled: false,
+					trigger: {
+						name: 'disabledBasedOnKey',
+						expectedType: 'string',
+						key: 'dateOfRegistration'
+					},
+					// value: { id: 'Employed', text: 'Employed' },
+					order: 1,
+					validators: []
+				},
+				{
+					key: 'engineSize',
+					label: 'Engine Size?',
+					type: 'dropdown',
+					options: ['0cc - 1499cc', '1500cc - 1999cc', '2000cc - 2499cc', '2500cc - 2999cc', '3000cc - 3449cc', '3500cc - 3999cc', '4000cc - 4449cc', '4500cc - 4999cc', '4500cc - 4999cc'],
+					required: true,
+					trigger: {
+						name: 'disabledBasedOnKey',
+						expectedType: 'object',
+						key: 'carModel'
+					},
+					order: 3,
+					validators: []
+				},
+
+				{
+					key: 'carModel',
+					label: 'Car Model',
+					type: 'autocomplete',
+					serviceUrl: 'motor/reference/car/model/',
+					autoCompleteType: 'linked', // search || all || options || linked
+					link: 'primaryCarInformation',
+					required: true,
+					disabled: false,
+					trigger: {
+						name: 'disabledBasedOnKey',
+						expectedType: 'object',
+						key: 'carMake'
+					},
+					// value: { id: 'Employed', text: 'Employed' },
+					order: 2,
+					validators: []
+				}
+			]
 		},
 		{
 			key: 'dateOrPurchase',
@@ -746,6 +756,8 @@ export const QUESTIONS = {
 		{
 			key: 'securityFeatures',
 			type: 'group',
+			alignment: 'half',
+			timeline: true,
 			label: 'What secturity features does your car have?',
 			order: 8,
 			isComplete: false,
