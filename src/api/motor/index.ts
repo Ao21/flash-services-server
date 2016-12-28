@@ -9,7 +9,11 @@ export class MotorRoutes {
 		this.router.get('/motor/config', this.motor.getConfig);
 		this.router.get('/motor/occupation/all', this.motor.getAllOccupations);
 		this.router.get('/motor/occupation/search', this.motor.getOccupation);
+		
+		this.router.post('/motor/page/:page', this.motor.updatePage);
+
 		this.router.get('/motor/section/:section', this.motor.getSection);
+		this.router.post('/motor/section/:section', this.motor.updateSection);
 		this.router.get('/motor/section/:section/questions', this.motor.getSectionQuestions);
 
 		this.router.get('/motor/reference/town/:town', this.motor.getTown);
@@ -24,6 +28,7 @@ export class MotorRoutes {
 		this.router.get('/motor/reference/car/model/search', this.motor.getCarMake);
 		this.router.get('/motor/reference/car/model/linked', this.motor.getCarMake);
 		this.router.get('/motor/reference/car/exactModel/search', this.motor.getOccupation);
+
 		
 	}
 

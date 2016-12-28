@@ -35,6 +35,7 @@ export const QUESTIONS = {
 		required: true,
 		helpId: 214205625,
 		placeholder: 'John',
+		// value: 'Ronan',
 		order: 0,
 	}, {
 		key: 'lastName',
@@ -77,34 +78,6 @@ export const QUESTIONS = {
 		placeholder: 'Select an Occupation',
 		serviceUrl: 'motor/occupation/',
 		autoCompleteType: 'search', // search || all || options
-		options: [{
-			id: 'Employed',
-			text: 'Employed'
-		}, {
-			id: 'Household Duties',
-			text: 'Household Duties'
-		}, {
-			id: 'Retired',
-			text: 'Retired'
-		}, {
-			id: 'Self Employed',
-			text: 'Self Employed'
-		}, {
-			id: 'Unemployed',
-			text: 'Unemployed'
-		}, {
-			id: 'Very Employed',
-			text: 'Very Employed'
-		}, {
-			id: 'Very Household Duties',
-			text: 'Very Household Duties'
-		}, {
-			id: 'Very Retired',
-			text: 'Very Retired'
-		}, {
-			id: 'Very Self Employed',
-			text: 'Very Self Employed'
-		}],
 		required: true,
 		disabled: false,
 		// value: { id: 'Employed', text: 'Employed' },
@@ -654,7 +627,7 @@ export const QUESTIONS = {
 	carQuestions: [
 		{
 			key: 'primaryCarInformation',
-			type: 'group', 
+			type: 'group',
 			alignment: 'none',
 			timeline: false,
 			order: 0,
@@ -821,7 +794,7 @@ export const QUESTIONS = {
 
 export const PAGES = [{
 	id: 'getting-started',
-	title: 'Pre',
+	title: 'Getting Started',
 	order: 0,
 	uiOptions: {
 		nextPage: 'your-details',
@@ -983,6 +956,7 @@ export const PAGES = [{
 	order: 1,
 	uiOptions: {
 		prevPage: 'your-claims',
+		nextPage: 'choose-your-product',
 		isVisible: true,
 	},
 	templates: {
@@ -1009,20 +983,38 @@ export const PAGES = [{
 			// }
 		]
 	},]
-}
-];
+}];
+
+const PRICE_PAGES = [{
+	id: 'choose-your-product',
+	title: 'Choose a Product',
+	uiOptions: {
+		prevPage: 'your-penalties',
+		isTitleHidden: true,
+		isVisible: true,
+	},
+},
+{
+	id: 'choose-your-product2',
+	title: 'Choose a Product',
+	uiOptions: {
+		prevPage: 'your-penalties',
+		isTitleHidden: true,
+		isVisible: true,
+	},
+}]
 
 export const CONFIG = {
 	stages: [{
 		id: 'quotation',
 		title: 'Your Quote',
 		pages: PAGES,
-		active: true,
+		isComplete: false,
 	},
 	{
-		id: 'quotation2',
-		title: 'Your Quote',
-		pages: PAGES,
-		active: false,
+		id: 'price-presentation',
+		title: 'Price Presentation',
+		pages: PRICE_PAGES,
+		isComplete: false,
 	}]
 }

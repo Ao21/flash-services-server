@@ -36,6 +36,15 @@ export default class Motor {
 		});
 	}
 
+	updatePage(req: express.Request, res: express.Response) {
+		console.log(req.body);
+		res.send(200);
+	}	
+
+	updateSection(req: express.Request, res: express.Response) {
+
+	}
+
 	getConfig(req: express.Request, res: express.Response) { 
 		res.send(CONFIG);
 	}	
