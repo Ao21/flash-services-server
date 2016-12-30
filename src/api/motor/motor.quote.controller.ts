@@ -15,13 +15,14 @@ const BENEFITS = [
 ]
 
 const BREAKDOWN_ITEMS = [
-	{ description: 'Text Here', price: createPrice(5000) },
-	{ description: 'Text Here', price: createPrice(5000) },
-	{ description: 'Text Here', price: createPrice(5000)},
+	{ description: 'AA Motor', price: createPrice(5000) },
+	{ description: 'Fee', price: createPrice(320) },
+	{ description: 'Member Discount', price: createPrice(5000), discount: true},
 ]
 
 const AAValue = {
 	name: 'AA Value',
+	id: 'AAVALUE',
 	benefits: BENEFITS,
 	breakdown: BREAKDOWN_ITEMS,
 	premium: {
@@ -31,22 +32,25 @@ const AAValue = {
 				number: 11,
 				instalment: createPrice(5999) 
 			},
+			total: createPrice(5999),
 			apr: '10%'
 
 		},
-		annual: {
+		annually: {
 			deposit: createPrice(0),
 			installments: {
 				number: 1,
-				installment: createPrice(151000)
+				instalment: createPrice(151000)
 			},
+			total: createPrice(151000),
 			apr: '4.5%',
 		}
 	}
 }
 
-const AAMotor = {,
+const AAMotor = {
 	name: 'AA Motor',
+	id: 'AAMOTOR',
 	benefits: BENEFITS,
 	breakdown: BREAKDOWN_ITEMS,
 	premium: {
@@ -56,15 +60,17 @@ const AAMotor = {,
 				number: 11,
 				instalment: createPrice(6999) 
 			},
+			total: createPrice(6999),
 			apr: '10%'
 
 		},
-		annual: {
+		annually: {
 			deposit: createPrice(0),
 			installments: {
 				number: 1,
-				installment: createPrice(320000)
+				instalment: createPrice(125000)
 			},
+			total: createPrice(125000),
 			apr: '4.5%',
 		}
 	}
@@ -73,7 +79,8 @@ const AAMotor = {,
 const quote = {
 	reference: '56565656',
 	products: [AAMotor, AAValue],
-	paymentFrequency: 'Monthly'
+	paymentFrequency: 'monthly',
+	activeProduct: null
 }
 
 export default class MotorQuote {

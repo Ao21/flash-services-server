@@ -28,118 +28,115 @@ export const QUESTIONS = {
 		content: `By providing the requested data, you consent to AA's Data Protection and Privacy Policy and to AA using it for administration and keeping you informed by mail, telephone, email and SMS of other products and services from us. By proceeding, you consent to & confirm that you have read and accepted the AA Data Protection & Privacy Policy and the AA Terms & Conditions`
 	}],
 
-	details: [{
-		key: 'firstName',
-		label: 'First Name',
-		type: 'text',
-		required: true,
-		helpId: 214205625,
-		placeholder: 'John',
-		// value: 'Ronan',
-		order: 0,
-	}, {
-		key: 'lastName',
-		label: 'Last Name',
-		placeholder: 'Snow',
-		type: 'text',
-		helpId: 213679469,
-		required: true,
-		order: 1
-	}, {
-		key: 'dateOfBirth',
-		label: 'Date Of Birth',
-		type: 'date',
-		required: true,
-		helpId: 213685289,
-		disabled: false,
-		order: 2,
-		validators: ['validDateValidate', 'validOverEighteenValidate']
-	}, {
-		key: 'phoneNumber',
-		label: 'Phone Number',
-		type: 'tel',
-		required: true,
-		disabled: false,
-		helpId: 214224585,
-		order: 2,
-		validators: ['validPhoneNumberValidate']
-	}, {
-		key: 'typeOfEmployment',
-		label: 'Type of Employment',
-		type: 'dropdown',
-		options: ['Employed', 'Household Duties', 'Retired', 'Self Employed', 'Unemployed'],
-		required: true,
-		order: 2,
-		validators: []
-	}, {
-		key: 'occupation',
-		label: 'Occupation',
-		type: 'autocomplete',
-		placeholder: 'Select an Occupation',
-		serviceUrl: 'motor/occupation/',
-		autoCompleteType: 'search', // search || all || options
-		required: true,
-		disabled: false,
-		// value: { id: 'Employed', text: 'Employed' },
-		order: 2,
-		validators: []
-	}, {
-		key: 'business',
-		label: 'Type of Business',
-		type: 'autocomplete',
-		placeholder: 'Select an Area of Business',
-		trigger: {
-			key: 'occupation',
-			name: 'occupation',
+	details: [
+		{
+			key: 'title',
+			label: 'Title',
+			type: 'radio',
+			order: 0,
+			options: [{
+				value: 'Mr',
+				text: 'Mr'
+			},
+			{
+				value: 'Mrs',
+				text: 'Mrs'
+			},
+			{
+				value: 'Miss',
+				text: 'Miss'
+			},
+			{
+				value: 'Ms',
+				text: 'Ms'
+			}],
+			required: true,
+		}, {
+			key: 'firstName',
+			label: 'First Name',
+			type: 'text',
+			required: true,
+			helpId: 214205625,
+			placeholder: 'John',
+			// value: 'Ronan',
+			order: 0,
+		}, {
+			key: 'lastName',
+			label: 'Last Name',
+			placeholder: 'Snow',
+			type: 'text',
+			helpId: 213679469,
+			required: true,
+			order: 1
 		},
-		serviceUrl: 'motor/occupation/',
-		autoCompleteType: 'search', // search || all | options
-		options: [{
-			id: 'Employed',
-			text: 'Employed'
+
+		{
+			key: 'dateOfBirth',
+			label: 'Date Of Birth',
+			type: 'date',
+			required: true,
+			helpId: 213685289,
+			disabled: false,
+			order: 2,
+			validators: ['validDateValidate', 'validOverEighteenValidate']
 		}, {
-			id: 'Household Duties',
-			text: 'Household Duties'
+			key: 'phoneNumber',
+			label: 'Phone Number',
+			type: 'tel',
+			required: true,
+			disabled: false,
+			helpId: 214224585,
+			order: 2,
+			validators: ['validPhoneNumberValidate']
 		}, {
-			id: 'Retired',
-			text: 'Retired'
+			key: 'typeOfEmployment',
+			label: 'Type of Employment',
+			type: 'dropdown',
+			options: ['Employed', 'Household Duties', 'Retired', 'Self Employed', 'Unemployed'],
+			required: true,
+			order: 2,
+			validators: []
 		}, {
-			id: 'Self Employed',
-			text: 'Self Employed'
+			key: 'occupation',
+			label: 'Occupation',
+			type: 'autocomplete',
+			placeholder: 'Select an Occupation',
+			serviceUrl: 'motor/occupation/',
+			autoCompleteType: 'search', // search || all || options
+			required: true,
+			disabled: false,
+			// value: { id: 'Employed', text: 'Employed' },
+			order: 2,
+			validators: []
 		}, {
-			id: 'Unemployed',
-			text: 'Unemployed'
+			key: 'business',
+			label: 'Type of Business',
+			type: 'autocomplete',
+			placeholder: 'Select an Area of Business',
+			trigger: {
+				key: 'occupation',
+				name: 'occupation',
+			},
+			serviceUrl: 'motor/occupation/',
+			autoCompleteType: 'search', // search || all | options
+			required: true,
+			order: 2,
+			validators: []
 		}, {
-			id: 'Very Employed',
-			text: 'Very Employed'
-		}, {
-			id: 'Very Household Duties',
-			text: 'Very Household Duties'
-		}, {
-			id: 'Very Retired',
-			text: 'Very Retired'
-		}, {
-			id: 'Very Self Employed',
-			text: 'Very Self Employed'
+			key: 'livedOutsideIreland',
+			label: 'Have you lived outside the Republic of Ireland or the UK in the last 12 months?',
+			type: 'radio',
+			options: [{
+				value: 'Yes',
+				text: 'Yes'
+			}, {
+				value: 'No',
+				text: 'No'
+			}],
+			required: true,
+			order: 2,
+			validators: []
 		}],
-		required: true,
-		order: 2,
-		validators: []
-	}, {
-		key: 'livedOutsideIreland',
-		label: 'Have you lived outside the Republic of Ireland or the UK in the last 12 months?',
-		type: 'radio',
-		options: [{
-			value: 'Yes',
-			text: 'Yes'
-		}, {
-			value: 'No',
-			text: 'No'
-		}],
-		required: true,
-		order: 2,
-		validators: []
-	}],
 
 
 	cover: [{
@@ -985,6 +982,44 @@ export const PAGES = [{
 	},]
 }];
 
+const TEST_PAGES = [{
+	id: 'getting-started',
+	title: 'Getting Started',
+	order: 0,
+	uiOptions: {
+		nextPage: 'your-details',
+		isVisible: true,
+	},
+	sections: [{
+		id: 'pre-default',
+		type: 'default',
+		fields: QUESTIONS.pre
+	}]
+}, {
+	id: 'your-details',
+	title: 'Details',
+	order: 1,
+	uiOptions: {
+		nextPage: 'choose-your-product',
+		prevPage: 'getting-started',
+		isVisible: true,
+	},
+	templates: {
+		additionalDriver: {
+			type: 'default',
+			additional: true,
+			hasQuestionsByDefault: true,
+			fields: QUESTIONS.details
+		}
+	},
+	sections: [{
+		id: 'details-default',
+		type: 'default',
+		title: 'Primary Driver',
+		fields: QUESTIONS.details
+	}]
+}]
+
 const PRICE_PAGES = [{
 	id: 'choose-your-product',
 	title: 'Choose a Product',
@@ -1008,10 +1043,10 @@ export const CONFIG = {
 	stages: [{
 		id: 'quotation',
 		title: 'Your Quote',
-		pages: PAGES,
+		pages: TEST_PAGES,
 		isComplete: false,
 		uiOptions: {
-			
+
 		}
 	},
 	{

@@ -13,6 +13,7 @@ export class MotorRoutes {
 		this.router.get('/motor/occupation/search', this.motor.getOccupation);
 		
 		this.router.post('/motor/page/:page', this.quote.sendQuote);
+		this.router.get('/motor/quote',this.quote.sendQuote)
 
 		this.router.get('/motor/section/:section', this.motor.getSection);
 		this.router.post('/motor/section/:section', this.motor.updateSection);
