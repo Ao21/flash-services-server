@@ -990,16 +990,16 @@ const PRICE_PAGES = [{
 	title: 'Choose a Product',
 	uiOptions: {
 		prevPage: 'your-penalties',
+		nextPage: 'choose-your-payment',
 		isTitleHidden: true,
 		isVisible: true,
 	},
 },
 {
-	id: 'choose-your-product2',
-	title: 'Choose a Product',
+	id: 'choose-your-payment',
+	title: 'Choose your payment',
 	uiOptions: {
-		prevPage: 'your-penalties',
-		isTitleHidden: true,
+		prevPage: 'choose-your-product',
 		isVisible: true,
 	},
 }]
@@ -1010,11 +1010,17 @@ export const CONFIG = {
 		title: 'Your Quote',
 		pages: PAGES,
 		isComplete: false,
+		uiOptions: {
+			
+		}
 	},
 	{
 		id: 'price-presentation',
-		title: 'Price Presentation',
 		pages: PRICE_PAGES,
 		isComplete: false,
+		uiOptions: {
+			isWide: true,
+			isTitleHidden: true,
+		}
 	}]
 }

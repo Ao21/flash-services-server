@@ -1,8 +1,10 @@
 import * as express from "express";
 import Motor from './motor.controller';
+import MotorQuote from './motor.quote.controller';
 export class MotorRoutes {
 	router: express.Router;
 	motor: Motor = new Motor();
+	quote: MotorQuote = new MotorQuote();
 
 	constructor(rout) {
 		this.router = rout;
@@ -10,7 +12,7 @@ export class MotorRoutes {
 		this.router.get('/motor/occupation/all', this.motor.getAllOccupations);
 		this.router.get('/motor/occupation/search', this.motor.getOccupation);
 		
-		this.router.post('/motor/page/:page', this.motor.updatePage);
+		this.router.post('/motor/page/:page', this.quote.sendQuote);
 
 		this.router.get('/motor/section/:section', this.motor.getSection);
 		this.router.post('/motor/section/:section', this.motor.updateSection);
