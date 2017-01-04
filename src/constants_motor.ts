@@ -28,115 +28,114 @@ export const QUESTIONS = {
 		content: `By providing the requested data, you consent to AA's Data Protection and Privacy Policy and to AA using it for administration and keeping you informed by mail, telephone, email and SMS of other products and services from us. By proceeding, you consent to & confirm that you have read and accepted the AA Data Protection & Privacy Policy and the AA Terms & Conditions`
 	}],
 
-	details: [
-		{
-			key: 'title',
-			label: 'Title',
-			type: 'radio',
-			order: 0,
-			options: [{
-				value: 'Mr',
-				text: 'Mr'
-			},
-			{
-				value: 'Mrs',
-				text: 'Mrs'
-			},
-			{
-				value: 'Miss',
-				text: 'Miss'
-			},
-			{
-				value: 'Ms',
-				text: 'Ms'
-			}],
-			required: true,
-		}, {
-			key: 'firstName',
-			label: 'First Name',
-			type: 'text',
-			required: true,
-			helpId: 214205625,
-			placeholder: 'John',
-			// value: 'Ronan',
-			order: 0,
-		}, {
-			key: 'lastName',
-			label: 'Last Name',
-			placeholder: 'Snow',
-			type: 'text',
-			helpId: 213679469,
-			required: true,
-			order: 1
+	details: [{
+		key: 'title',
+		label: 'Title',
+		type: 'radio',
+		order: 0,
+		options: [{
+			value: 'Mr',
+			text: 'Mr'
 		},
-
 		{
-			key: 'dateOfBirth',
-			label: 'Date Of Birth',
-			type: 'date',
-			required: true,
-			helpId: 213685289,
-			disabled: false,
-			order: 2,
-			validators: ['validDateValidate', 'validOverEighteenValidate']
-		}, {
-			key: 'phoneNumber',
-			label: 'Phone Number',
-			type: 'tel',
-			required: true,
-			disabled: false,
-			helpId: 214224585,
-			order: 2,
-			validators: ['validPhoneNumberValidate']
-		}, {
-			key: 'typeOfEmployment',
-			label: 'Type of Employment',
-			type: 'dropdown',
-			options: ['Employed', 'Household Duties', 'Retired', 'Self Employed', 'Unemployed'],
-			required: true,
-			order: 2,
-			validators: []
-		}, {
-			key: 'occupation',
-			label: 'Occupation',
-			type: 'autocomplete',
-			placeholder: 'Select an Occupation',
-			serviceUrl: 'motor/occupation/',
-			autoCompleteType: 'search', // search || all || options
-			required: true,
-			disabled: false,
-			// value: { id: 'Employed', text: 'Employed' },
-			order: 2,
-			validators: []
-		}, {
-			key: 'business',
-			label: 'Type of Business',
-			type: 'autocomplete',
-			placeholder: 'Select an Area of Business',
-			trigger: {
-				key: 'occupation',
-				name: 'occupation',
-			},
-			serviceUrl: 'motor/occupation/',
-			autoCompleteType: 'search', // search || all | options
-			required: true,
-			order: 2,
-			validators: []
-		}, {
-			key: 'livedOutsideIreland',
-			label: 'Have you lived outside the Republic of Ireland or the UK in the last 12 months?',
-			type: 'radio',
-			options: [{
-				value: 'Yes',
-				text: 'Yes'
-			}, {
-				value: 'No',
-				text: 'No'
-			}],
-			required: true,
-			order: 2,
-			validators: []
+			value: 'Mrs',
+			text: 'Mrs'
+		},
+		{
+			value: 'Miss',
+			text: 'Miss'
+		},
+		{
+			value: 'Ms',
+			text: 'Ms'
 		}],
+		required: true,
+	}, {
+		key: 'firstName',
+		label: 'First Name',
+		type: 'text',
+		required: true,
+		helpId: 214205625,
+		placeholder: 'John',
+		// value: 'Ronan',
+		order: 0,
+	}, {
+		key: 'lastName',
+		label: 'Last Name',
+		placeholder: 'Snow',
+		type: 'text',
+		helpId: 213679469,
+		required: true,
+		order: 1
+	},
+
+	{
+		key: 'dateOfBirth',
+		label: 'Date Of Birth',
+		type: 'date',
+		required: true,
+		helpId: 213685289,
+		disabled: false,
+		order: 2,
+		validators: ['validDateValidate', 'validOverEighteenValidate']
+	}, {
+		key: 'phoneNumber',
+		label: 'Phone Number',
+		type: 'tel',
+		required: true,
+		disabled: false,
+		helpId: 214224585,
+		order: 2,
+		validators: ['validPhoneNumberValidate']
+	}, {
+		key: 'typeOfEmployment',
+		label: 'Type of Employment',
+		type: 'dropdown',
+		options: ['Employed', 'Household Duties', 'Retired', 'Self Employed', 'Unemployed'],
+		required: true,
+		order: 2,
+		validators: []
+	}, {
+		key: 'occupation',
+		label: 'Occupation',
+		type: 'autocomplete',
+		placeholder: 'Select an Occupation',
+		serviceUrl: 'motor/occupation/',
+		autoCompleteType: 'search', // search || all || options
+		required: true,
+		disabled: false,
+		// value: { id: 'Employed', text: 'Employed' },
+		order: 2,
+		validators: []
+	}, {
+		key: 'business',
+		label: 'Type of Business',
+		type: 'autocomplete',
+		placeholder: 'Select an Area of Business',
+		trigger: {
+			key: 'occupation',
+			name: 'occupation',
+		},
+		serviceUrl: 'motor/occupation/',
+		autoCompleteType: 'search', // search || all | options
+		required: true,
+		order: 2,
+		validators: []
+	}, {
+		key: 'livedOutsideIreland',
+		label: 'Have you lived outside the Republic of Ireland or the UK in the last 12 months?',
+		type: 'radio',
+		options: [{
+			value: 'Yes',
+			text: 'Yes'
+		}, {
+			value: 'No',
+			text: 'No'
+		}],
+		required: true,
+		order: 2,
+		validators: []
+	}],
 
 
 	cover: [{
@@ -1022,7 +1021,6 @@ const TEST_PAGES = [{
 
 const PRICE_PAGES = [{
 	id: 'choose-your-product',
-	title: 'Choose a Product',
 	uiOptions: {
 		prevPage: 'your-penalties',
 		nextPage: 'choose-your-payment',
@@ -1032,10 +1030,10 @@ const PRICE_PAGES = [{
 },
 {
 	id: 'choose-your-payment',
-	title: 'Choose your payment',
 	uiOptions: {
 		prevPage: 'choose-your-product',
 		isVisible: true,
+		isTitleHidden: true,
 	},
 }]
 
@@ -1043,7 +1041,7 @@ export const CONFIG = {
 	stages: [{
 		id: 'quotation',
 		title: 'Your Quote',
-		pages: TEST_PAGES,
+		pages: PAGES,
 		isComplete: false,
 		uiOptions: {
 
@@ -1051,11 +1049,13 @@ export const CONFIG = {
 	},
 	{
 		id: 'price-presentation',
+		title: 'Get Quote',
 		pages: PRICE_PAGES,
 		isComplete: false,
 		uiOptions: {
 			isWide: true,
 			isTitleHidden: true,
+			isPagesHidden: true
 		}
 	}]
 }

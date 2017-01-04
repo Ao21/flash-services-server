@@ -5,6 +5,8 @@ import { OCCUPATIONS } from './../../constants_occupations';
 import { TOWNS, COUNTIES, GEOCODE, GEOCODE_SELECTED } from './../../constants_address';
 import * as Fuse from 'fuse.js';
 
+import { QUOTE } from './../../sixto_consts';
+
 export default class Motor {
 	fuseList: Fuse;
 	countiesList: Fuse;
