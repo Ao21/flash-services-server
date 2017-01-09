@@ -1023,15 +1023,24 @@ const PRICE_PAGES = [{
 	id: 'choose-your-product',
 	uiOptions: {
 		prevPage: 'your-penalties',
-		nextPage: 'choose-your-payment',
+		nextPage: 'are-you-a-member',
 		isTitleHidden: true,
 		isVisible: true,
 	},
 },
 {
-	id: 'choose-your-payment',
+	id: 'are-you-a-member',
 	uiOptions: {
 		prevPage: 'choose-your-product',
+		nextPage: 'choose-your-payment',
+		isVisible: true,
+		isTitleHidden: true,
+	},
+},
+{
+	id: 'choose-your-payment',
+	uiOptions: {
+		prevPage: 'are-you-a-member',
 		isVisible: true,
 		isTitleHidden: true,
 	},
