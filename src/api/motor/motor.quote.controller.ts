@@ -51,8 +51,9 @@ const AAValue = {
 const AAMotor = {
 	name: 'AA Motor',
 	id: 'AAMOTOR',
+	preferred: true,
 	benefits: BENEFITS,
-	breakdown: BREAKDOWN_ITEMS,
+	breakdowns: BREAKDOWN_ITEMS,
 	premium: {
 		monthly: {
 			deposit: createPrice(4999),
