@@ -5,7 +5,10 @@ export const QUESTIONS = {
 		label: 'What is your email?',
 		type: 'email',
 		required: true,
-		order: 0
+		order: 0,
+		uiOptions: {
+			summaryTitle: 'Email'
+		}
 	}, {
 		key: 'amountOfDrivers',
 		label: 'How many drivers?',
@@ -19,6 +22,9 @@ export const QUESTIONS = {
 		trigger: {
 			name: 'additionalDrivers',
 		},
+		uiOptions: {
+			summaryTitle: 'Amount of Drivers'
+		}
 	}, {
 		key: 'termsConditions',
 		label: 'Terms and Conditions',
@@ -50,6 +56,9 @@ export const QUESTIONS = {
 			text: 'Ms'
 		}],
 		required: true,
+		uiOptions: {
+			summaryTitle: 'Email'
+		}
 	}, {
 		key: 'firstName',
 		label: 'First Name',
@@ -59,6 +68,9 @@ export const QUESTIONS = {
 		placeholder: 'John',
 		// value: 'Ronan',
 		order: 0,
+		uiOptions: {
+			summaryTitle: 'First Name'
+		}
 	}, {
 		key: 'lastName',
 		label: 'Last Name',
@@ -66,7 +78,10 @@ export const QUESTIONS = {
 		type: 'text',
 		helpId: 213679469,
 		required: true,
-		order: 1
+		order: 1,
+		uiOptions: {
+			summaryTitle: 'Last Name'
+		}
 	},
 
 	{
@@ -77,7 +92,10 @@ export const QUESTIONS = {
 		helpId: 213685289,
 		disabled: false,
 		order: 2,
-		validators: ['validDateValidate', 'validOverEighteenValidate']
+		validators: ['validDateValidate', 'validOverEighteenValidate'],
+		uiOptions: {
+			summaryTitle: 'Date of Birth'
+		}
 	}, {
 		key: 'phoneNumber',
 		label: 'Phone Number',
@@ -86,7 +104,10 @@ export const QUESTIONS = {
 		disabled: false,
 		helpId: 214224585,
 		order: 2,
-		validators: ['validPhoneNumberValidate']
+		validators: ['validPhoneNumberValidate'],
+		uiOptions: {
+			summaryTitle: 'Phone Number'
+		}
 	}, {
 		key: 'typeOfEmployment',
 		label: 'Type of Employment',
@@ -94,7 +115,10 @@ export const QUESTIONS = {
 		options: ['Employed', 'Household Duties', 'Retired', 'Self Employed', 'Unemployed'],
 		required: true,
 		order: 2,
-		validators: []
+		validators: [],
+		uiOptions: {
+			summaryTitle: 'Type of Employment'
+		}
 	}, {
 		key: 'occupation',
 		label: 'Occupation',
@@ -106,7 +130,10 @@ export const QUESTIONS = {
 		disabled: false,
 		// value: { id: 'Employed', text: 'Employed' },
 		order: 2,
-		validators: []
+		validators: [],
+		uiOptions: {
+			summaryTitle: 'Occupation'
+		}
 	}, {
 		key: 'business',
 		label: 'Type of Business',
@@ -120,7 +147,10 @@ export const QUESTIONS = {
 		autoCompleteType: 'search', // search || all | options
 		required: true,
 		order: 2,
-		validators: []
+		validators: [],
+		uiOptions: {
+			summaryTitle: 'Type of business'
+		}
 	}, {
 		key: 'livedOutsideIreland',
 		label: 'Have you lived outside the Republic of Ireland or the UK in the last 12 months?',
@@ -134,7 +164,8 @@ export const QUESTIONS = {
 		}],
 		required: true,
 		order: 2,
-		validators: []
+		validators: [],
+
 	}],
 
 
@@ -151,6 +182,9 @@ export const QUESTIONS = {
 			text: 'No'
 		}],
 		required: true,
+		uiOptions: {
+			summaryTitle: 'Insured in your own Name'
+		}
 	},
 	{
 		key: 'insuredNamedDriver',
@@ -169,6 +203,9 @@ export const QUESTIONS = {
 			text: 'No'
 		}],
 		required: true,
+		uiOptions: {
+			summaryTitle: 'Named Driver'
+		}
 	},
 	{
 		key: 'insuredNamedDriverOnPolicy',
@@ -181,7 +218,10 @@ export const QUESTIONS = {
 		options: ['Employed', 'Household Duties', 'Retired', 'Self Employed', 'Unemployed'],
 		required: true,
 		order: 1,
-		validators: []
+		validators: [],
+		uiOptions: {
+			summaryTitle: `On who's policy`
+		}
 	},
 	{
 		key: 'insuranceCompany',
@@ -195,7 +235,10 @@ export const QUESTIONS = {
 		options: ['AXA', 'Irish Learners Permit', 'Full EU Licence', 'Non-EU Licence'],
 		required: true,
 		order: 2,
-		validators: []
+		validators: [],
+		uiOptions: {
+			summaryTitle: 'Current Insurance Company'
+		}
 	},
 	{
 		key: 'noClaimsBonusYears',
@@ -211,6 +254,9 @@ export const QUESTIONS = {
 		value: 1,
 		min: 0,
 		max: 9,
+		uiOptions: {
+			summaryTitle: 'Amount of Years No Claims Bonus'
+		}
 	},
 	{
 		key: 'whereNoClaimsBonus',
@@ -254,7 +300,10 @@ export const QUESTIONS = {
 		disabled: false,
 		// value: { id: 'Employed', text: 'Employed' },
 		order: 4,
-		validators: []
+		validators: [],
+		uiOptions: {
+			summaryTitle: 'Location no claims bonus was earned'
+		}
 	},
 	{
 		key: 'policyExpiryDate',
@@ -268,7 +317,10 @@ export const QUESTIONS = {
 		required: true,
 		disabled: false,
 		order: 5,
-		validators: ['validDateValidate']
+		validators: ['validDateValidate'],
+		uiOptions: {
+			summaryTitle: 'Policy Expiration Date'
+		}
 	},
 	{
 		key: 'startPolicySameDate',
@@ -288,6 +340,9 @@ export const QUESTIONS = {
 			text: 'No'
 		}],
 		required: true,
+		uiOptions: {
+			summaryTitle: 'Policy Start Date'
+		}
 	},
 	{
 		key: 'policyStartDate',
@@ -300,6 +355,7 @@ export const QUESTIONS = {
 			equals: false
 		},
 		required: true,
+
 	},
 	{
 		key: 'levelOfCover',
@@ -315,6 +371,9 @@ export const QUESTIONS = {
 			text: 'Third Party, Fire and Theft'
 		}],
 		required: true,
+		uiOptions: {
+			summaryTitle: 'Level of Cover'
+		}
 	},
 	{
 		key: 'levelOfNoClaimsBonus',
@@ -333,6 +392,9 @@ export const QUESTIONS = {
 			text: 'None'
 		}],
 		required: true,
+		uiOptions: {
+			summaryTitle: 'Level of no claims bonus'
+		}
 	}],
 
 
@@ -343,7 +405,10 @@ export const QUESTIONS = {
 		options: ['Full Irish Licence', 'Irish Learners Permit', 'Full EU Licence', 'Non-EU Licence'],
 		required: true,
 		order: 0,
-		validators: []
+		validators: [],
+		uiOptions: {
+			summaryTitle: 'Type of Licence'
+		}
 	}, {
 		key: 'howLongLicenceHeld',
 		label: 'How long have you held your licence?',
@@ -353,6 +418,9 @@ export const QUESTIONS = {
 		value: 1,
 		min: 0,
 		max: 9,
+		uiOptions: {
+			summaryTitle: 'Amount of years you held your licence'
+		}
 	}, {
 		key: 'whereEarnLicence',
 		label: 'Where did you earn your licence',
@@ -391,7 +459,10 @@ export const QUESTIONS = {
 		disabled: false,
 		// value: { id: 'Employed', text: 'Employed' },
 		order: 2,
-		validators: []
+		validators: [],
+		uiOptions: {
+			summaryTitle: 'Where did you earn your licence'
+		}
 	}],
 
 
@@ -418,7 +489,10 @@ export const QUESTIONS = {
 		type: 'text',
 		required: true,
 		order: 0,
-		validators: []
+		validators: [],
+		uiOptions: {
+			summaryTitle: 'Address line 1'
+		}
 	},
 	{
 		key: 'addressLine2',
@@ -426,7 +500,10 @@ export const QUESTIONS = {
 		type: 'text',
 		required: true,
 		order: 0,
-		validators: []
+		validators: [],
+		uiOptions: {
+			summaryTitle: 'Address line 2'
+		}
 	},
 	{
 		key: 'area',
@@ -438,7 +515,10 @@ export const QUESTIONS = {
 		disabled: false,
 		// value: { id: 'Employed', text: 'Employed' },
 		order: 2,
-		validators: []
+		validators: [],
+		uiOptions: {
+			summaryTitle: 'Town'
+		}
 	},
 	{
 		key: 'county',
@@ -456,7 +536,10 @@ export const QUESTIONS = {
 		disabled: false,
 		// value: { id: 'Employed', text: 'Employed' },
 		order: 2,
-		validators: []
+		validators: [],
+		uiOptions: {
+			summaryTitle: 'County'
+		}
 	}],
 
 	claims: [{
@@ -466,7 +549,10 @@ export const QUESTIONS = {
 		required: true,
 		disabled: false,
 		order: 0,
-		validators: ['validDateValidate', 'validLastThreeYearsValidate']
+		validators: ['validDateValidate', 'validLastThreeYearsValidate'],
+		uiOptions: {
+			summaryTitle: 'Date of Claim'
+		}
 	}, {
 		key: 'reasonForClaim',
 		label: 'What was the reason for the claim?',
@@ -474,7 +560,10 @@ export const QUESTIONS = {
 		options: ['Accident', 'Accidental Damage', 'Fire', 'Malicious Damage As A Result Of Theft', 'Personal Accident', 'Personal Effects', 'Theft', 'Third Party', 'Vandalism', 'Windscreen'],
 		required: true,
 		order: 0,
-		validators: []
+		validators: [],
+		uiOptions: {
+			summaryTitle: 'Reason for Claim'
+		}
 	}, {
 		key: 'costOfClaim',
 		label: 'Cost of claim',
@@ -482,6 +571,9 @@ export const QUESTIONS = {
 		required: true,
 		placeholder: 'How Much',
 		order: 0,
+		uiOptions: {
+			summaryTitle: 'Cost of Claim'
+		}
 	}, {
 		key: 'customerAtFault',
 		label: 'Were you at fault?',
@@ -495,7 +587,10 @@ export const QUESTIONS = {
 		}],
 		required: true,
 		order: 2,
-		validators: []
+		validators: [],
+		uiOptions: {
+			summaryTitle: 'Claim Fault'
+		}
 	}, {
 		key: 'noClaimsBonusProtected',
 		label: 'Was your no claims bonus protected?',
@@ -509,7 +604,10 @@ export const QUESTIONS = {
 		}],
 		required: true,
 		order: 2,
-		validators: []
+		validators: [],
+		uiOptions: {
+			summaryTitle: 'No Claim Bonus Protected'
+		}
 	}],
 	claimWithValues: [{
 		key: 'dateOfClaim',
@@ -519,7 +617,10 @@ export const QUESTIONS = {
 		disabled: false,
 		value: '01/01/1997',
 		order: 0,
-		validators: ['validDateValidate', 'validLastThreeYearsValidate']
+		validators: ['validDateValidate', 'validLastThreeYearsValidate'],
+		uiOptions: {
+			summaryTitle: 'Date of Claim'
+		}
 	}, {
 		key: 'reasonForClaim',
 		label: 'What was the reason for the claim?',
@@ -528,7 +629,10 @@ export const QUESTIONS = {
 		required: true,
 		value: 'Accident',
 		order: 0,
-		validators: []
+		validators: [],
+		uiOptions: {
+			summaryTitle: 'Reason for Claim'
+		}
 	}, {
 		key: 'costOfClaim',
 		label: 'Cost of claim',
@@ -537,6 +641,9 @@ export const QUESTIONS = {
 		required: true,
 		placeholder: 'How Much',
 		order: 0,
+		uiOptions: {
+			summaryTitle: `Cost of claim`
+		}
 	}, {
 		key: 'customerAtFault',
 		label: 'Were you at fault?',
@@ -551,7 +658,10 @@ export const QUESTIONS = {
 		required: true,
 		value: 'Yes',
 		order: 2,
-		validators: []
+		validators: [],
+		uiOptions: {
+			summaryTitle: 'Were you at fault?'
+		}
 	}, {
 		key: 'noClaimsBonusProtected',
 		label: 'Was your no claims bonus protected?',
@@ -1041,6 +1151,27 @@ const PRICE_PAGES = [{
 	id: 'choose-your-payment',
 	uiOptions: {
 		prevPage: 'are-you-a-member',
+		nextPage: 'summary',
+		isVisible: true,
+		isTitleHidden: true,
+	},
+},
+]
+
+const SUMMARY_PAGES = [{
+	id: 'summary',
+	uiOptions: {
+		prevPage: 'choose-your-payment',
+		isVisible: true,
+		isTitleHidden: true,
+	},
+}]
+
+
+const TERMS_AND_CONDITIONS_PAGES = [{
+	id: 'termsConditions',
+	uiOptions: {
+		prevPage: 'choose-your-payment',
 		isVisible: true,
 		isTitleHidden: true,
 	},
@@ -1066,5 +1197,27 @@ export const CONFIG = {
 			isTitleHidden: true,
 			isPagesHidden: true
 		}
-	}]
+	}, {
+		id: 'summary',
+		title: 'Summary',
+		pages: SUMMARY_PAGES,
+		isComplete: false,
+		uiOptions: {
+			isWide: true,
+			isTitleHidden: true,
+			isPagesHidden: true
+		}
+	},
+	// {
+	// 	id: 'termsConditions',
+	// 	title: 'Terms and Conditions',
+	// 	pages: TERMS_AND_CONDITIONS_PAGES,
+	// 	isComplete: false,
+	// 	uiOptions: {
+	// 		isWide: true,
+	// 		isTitleHidden: true,
+	// 		isPagesHidden: true
+	// 	}
+	// }
+	]
 }

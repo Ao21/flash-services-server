@@ -24,7 +24,7 @@ const AAValue = {
 	name: 'AA Value',
 	id: 'AAVALUE',
 	benefits: BENEFITS,
-	breakdown: BREAKDOWN_ITEMS,
+	breakdowns: BREAKDOWN_ITEMS,
 	premium: {
 		monthly: {
 			deposit: createPrice(2999),
