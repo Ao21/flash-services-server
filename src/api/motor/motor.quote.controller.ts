@@ -24,6 +24,7 @@ const AAValue = {
 	name: 'AA Value',
 	id: 'AAVALUE',
 	benefits: BENEFITS,
+	img: 'product-aavalue.svg',
 	breakdowns: BREAKDOWN_ITEMS,
 	premium: {
 		monthly: {
@@ -53,6 +54,7 @@ const AAMotor = {
 	id: 'AAMOTOR',
 	preferred: true,
 	benefits: BENEFITS,
+	img: 'product-aastandard.svg',
 	breakdowns: BREAKDOWN_ITEMS,
 	premium: {
 		monthly: {

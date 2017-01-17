@@ -1204,7 +1204,6 @@ export const CONFIG = {
 		isComplete: false,
 		uiOptions: {
 			isWide: true,
-			isTitleHidden: true,
 			isPagesHidden: true
 		}
 	},
