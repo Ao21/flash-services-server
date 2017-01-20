@@ -3,7 +3,9 @@ import * as _ from 'lodash';
 import { QUESTIONS, PAGES, CONFIG } from './../../constants_motor';
 import { OCCUPATIONS } from './../../constants_occupations';
 import { TOWNS, COUNTIES, GEOCODE, GEOCODE_SELECTED } from './../../constants_address';
+import { CARMAKES } from './../../constants_carmakes';
 import * as Fuse from 'fuse.js';
+
 
 import { QUOTE } from './../../sixto_consts';
 
@@ -11,6 +13,7 @@ export default class Motor {
 	fuseList: Fuse;
 	countiesList: Fuse;
 	townList: Fuse;
+	carList: Fuse;
 
 	constructor() {
 		this.fuseList = new Fuse(OCCUPATIONS, {
@@ -30,6 +33,14 @@ export default class Motor {
 		});
 
 		this.townList = new Fuse(TOWNS, {
+			shouldSort: true,
+			location: 0,
+			threshold: 0.2,
+			distance: 100,
+			keys: ['text']
+		});
+
+		this.carList = new Fuse(CARMAKES, {
 			shouldSort: true,
 			location: 0,
 			threshold: 0.2,
@@ -102,7 +113,7 @@ export default class Motor {
 	}
 
 	getCarMake = (req: express.Request, res: express.Response) => { 
-		let list = this.fuseList.search(req.query.query);
+		let list = this.carList.search(req.query.query);
 		res.send(JSON.stringify(list));
 	}
 	

@@ -1,0 +1,25 @@
+"use strict";
+exports.CARMAKES = [{
+        "id": "ACURA",
+        "text": "Acura",
+    }, {
+        "id": "ALFA",
+        "text": "Alfa Romeo",
+    }, {
+        "id": "AMC",
+        "text": "AMC",
+    }, {
+        "id": "ASTON",
+        "text": "Aston Martin",
+    }, {
+        "id": "AVANTI",
+        "text": "Avanti",
+    }, {
+        "id": "BENTL",
+        "text": "Bentley",
+    }, {
+        "id": "BMW",
+        "text": "BMW",
+    }];
+
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9jb25zdGFudHNfY2FybWFrZXMudHMiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IjtBQUFhLGdCQUFRLEdBQUcsQ0FBQztRQUNyQixJQUFJLEVBQUUsT0FBTztRQUNiLE1BQU0sRUFBRSxPQUFPO0tBQ2xCLEVBQUU7UUFDQyxJQUFJLEVBQUUsTUFBTTtRQUNaLE1BQU0sRUFBRSxZQUFZO0tBQ3ZCLEVBQUU7UUFDQyxJQUFJLEVBQUUsS0FBSztRQUNYLE1BQU0sRUFBRSxLQUFLO0tBRWhCLEVBQUU7UUFDQyxJQUFJLEVBQUUsT0FBTztRQUNiLE1BQU0sRUFBRSxjQUFjO0tBRXpCLEVBQUU7UUFDQyxJQUFJLEVBQUUsUUFBUTtRQUNkLE1BQU0sRUFBRSxRQUFRO0tBQ25CLEVBQUU7UUFDQyxJQUFJLEVBQUUsT0FBTztRQUNiLE1BQU0sRUFBRSxTQUFTO0tBQ3BCLEVBQUU7UUFDQyxJQUFJLEVBQUUsS0FBSztRQUNYLE1BQU0sRUFBRSxLQUFLO0tBQ2hCLENBQUMsQ0FBQSIsImZpbGUiOiJjb25zdGFudHNfY2FybWFrZXMuanMiLCJzb3VyY2VzQ29udGVudCI6W251bGxdLCJzb3VyY2VSb290IjoiL3NvdXJjZS8ifQ==

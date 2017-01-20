@@ -128,6 +128,7 @@ export const QUESTIONS = {
 		autoCompleteType: 'search', // search || all || options
 		required: true,
 		disabled: false,
+		helpId: 1001,
 		// value: { id: 'Employed', text: 'Employed' },
 		order: 2,
 		validators: [],
@@ -174,6 +175,7 @@ export const QUESTIONS = {
 		label: 'Have you been insured previously in your own name in the last two years?',
 		type: 'radio',
 		order: 0,
+		helpId: 1001,
 		options: [{
 			value: true,
 			text: 'Yes'
@@ -210,12 +212,13 @@ export const QUESTIONS = {
 	{
 		key: 'insuredNamedDriverOnPolicy',
 		label: 'On whose policy',
+		helpId: 1001,
 		type: 'dropdown',
 		trigger: {
 			key: 'insuredNamedDriver',
 			name: 'showBasedOnKey',
 		},
-		options: ['Employed', 'Household Duties', 'Retired', 'Self Employed', 'Unemployed'],
+		options: ['Brother in Law','Business Partner','Common Law Spouse','Daughter','Daughter in Law','Employee of Proposer','Employer of Proposer','Father in Law','Friend','Mother In Law','Parent','Partner','Proposer','Relative','Sister','Sister in Law','Son','Son in Law','Spouse','Tenant','Unrelated'],
 		required: true,
 		order: 1,
 		validators: [],
@@ -232,7 +235,7 @@ export const QUESTIONS = {
 			key2: 'insuredNamedDriver',
 			name: 'showDualKey',
 		},
-		options: ['AXA', 'Irish Learners Permit', 'Full EU Licence', 'Non-EU Licence'],
+		options: ['ARB Underwriting Ltd','AXA Broker','AXA Direct','AXA Insurance','Allianz','Asgard','Aviva','Chartis Insurance','Chubb Insurance','Cigna Insurance of Europe','Cornhill','Ecclesiastical Insurance Office Plc','Europa General','FBD Insurance','FC Rebroked AXA Broker','First Call Direct','Generali Insurance','Kennco Underwriting Ltd','Liberty Underwriting','One Direct','Prestige Underwriting Services','Provident Insurance','Quinn Direct','RSA Insurance Ireland','Sertus Underwriting','Setanta Insurance','Torch','Travelers Insurance','Unlisted Insurer - Ireland','Unlisted Insurer - Not Ireland','Wright Way Underwriting','XS Direct','Zurich'],
 		required: true,
 		order: 2,
 		validators: [],
@@ -262,6 +265,7 @@ export const QUESTIONS = {
 		key: 'whereNoClaimsBonus',
 		label: 'Where did you earn your no claims bonus',
 		type: 'autocomplete',
+		helpId: 1001,
 		autoCompleteType: 'options', // search || all || options
 		trigger: {
 			key1: 'insuredInYourOwnName',
@@ -269,32 +273,11 @@ export const QUESTIONS = {
 			name: 'showDualKey',
 		},
 		options: [{
-			id: 'Employed',
-			text: 'Employed'
+			id: 'Dublin',
+			text: 'dublin'
 		}, {
-			id: 'Household Duties',
-			text: 'Household Duties'
-		}, {
-			id: 'Retired',
-			text: 'Retired'
-		}, {
-			id: 'Self Employed',
-			text: 'Self Employed'
-		}, {
-			id: 'Unemployed',
-			text: 'Unemployed'
-		}, {
-			id: 'Very Employed',
-			text: 'Very Employed'
-		}, {
-			id: 'Very Household Duties',
-			text: 'Very Household Duties'
-		}, {
-			id: 'Very Retired',
-			text: 'Very Retired'
-		}, {
-			id: 'Very Self Employed',
-			text: 'Very Self Employed'
+			id: 'Cork',
+			text: 'cork'
 		}],
 		required: true,
 		disabled: false,
@@ -309,6 +292,7 @@ export const QUESTIONS = {
 		key: 'policyExpiryDate',
 		label: 'When does your policy expire?',
 		type: 'date',
+		helpId: 1001,
 		trigger: {
 			key1: 'insuredInYourOwnName',
 			key2: 'insuredNamedDriver',
@@ -346,7 +330,7 @@ export const QUESTIONS = {
 	},
 	{
 		key: 'policyStartDate',
-		label: 'Start the new policy from the same date?',
+		label: 'What date do you want to start your policy from?',
 		type: 'date',
 		order: 7,
 		trigger: {
@@ -379,6 +363,7 @@ export const QUESTIONS = {
 		key: 'levelOfNoClaimsBonus',
 		label: 'What level of no claims bonus protection do you require?',
 		type: 'radio',
+		helpId: 1001,
 		order: 9,
 		options: [{
 			value: 'full',
@@ -404,6 +389,7 @@ export const QUESTIONS = {
 		type: 'dropdown',
 		options: ['Full Irish Licence', 'Irish Learners Permit', 'Full EU Licence', 'Non-EU Licence'],
 		required: true,
+		disabled: false,
 		order: 0,
 		validators: [],
 		uiOptions: {
@@ -428,32 +414,11 @@ export const QUESTIONS = {
 		serviceUrl: 'motor/occupation/',
 		autoCompleteType: 'options', // search || all || options
 		options: [{
-			id: 'Employed',
-			text: 'Employed'
+			id: 'Dublin',
+			text: 'dublin'
 		}, {
-			id: 'Household Duties',
-			text: 'Household Duties'
-		}, {
-			id: 'Retired',
-			text: 'Retired'
-		}, {
-			id: 'Self Employed',
-			text: 'Self Employed'
-		}, {
-			id: 'Unemployed',
-			text: 'Unemployed'
-		}, {
-			id: 'Very Employed',
-			text: 'Very Employed'
-		}, {
-			id: 'Very Household Duties',
-			text: 'Very Household Duties'
-		}, {
-			id: 'Very Retired',
-			text: 'Very Retired'
-		}, {
-			id: 'Very Self Employed',
-			text: 'Very Self Employed'
+			id: 'Cork',
+			text: 'cork'
 		}],
 		required: true,
 		disabled: false,
@@ -578,6 +543,7 @@ export const QUESTIONS = {
 		key: 'customerAtFault',
 		label: 'Were you at fault?',
 		type: 'radio',
+		helpId: 1001,
 		options: [{
 			value: 'Yes',
 			text: 'Yes'
@@ -666,6 +632,7 @@ export const QUESTIONS = {
 		key: 'noClaimsBonusProtected',
 		label: 'Was your no claims bonus protected?',
 		type: 'radio',
+		helpId: 1001,
 		options: [{
 			value: 'Yes',
 			text: 'Yes'
@@ -873,7 +840,7 @@ export const QUESTIONS = {
 
 		{
 			key: 'carMainlyUsed',
-			label: 'County',
+			label: 'Where is your car mainly used?',
 			type: 'autocomplete',
 			serviceUrl: 'motor/reference/county/',
 			autoCompleteType: 'search', // search || all || options || linked
@@ -885,7 +852,7 @@ export const QUESTIONS = {
 		},
 		{
 			key: 'carKeptOvernight',
-			label: 'County',
+			label: 'Where is you car kept overnight?',
 			type: 'autocomplete',
 			serviceUrl: 'motor/reference/county/',
 			autoCompleteType: 'search', // search || all || options || linked
