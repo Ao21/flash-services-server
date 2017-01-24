@@ -25,7 +25,7 @@ const BENEFITS_STANDARD = [
     { description: 'Step Back Bonus Protection', inHeader: true, included: true },
     { description: 'Personal Belongings/Sat Navs/Mobile Phones', inHeader: true, included: true },
     { description: 'Replacement Locks & Alarms', inHeader: true, included: true },
-    { description: 'Child Car Seats', inHeader: true, included: flase },
+    { description: 'Child Car Seats', inHeader: true, included: false },
     { description: 'Misfuel', inHeader: true, included: false },
     { description: 'Courtesy Car', inHeader: true, included: false },
 ];
