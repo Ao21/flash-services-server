@@ -6,12 +6,35 @@ import { TOWNS, COUNTIES, GEOCODE, GEOCODE_SELECTED } from './../../constants_ad
 import * as Fuse from 'fuse.js';
 
 const BENEFITS = [
-	{ description: 'Lifetime Glass', inHeader: true, included: true },
-	{ description: 'Theft & Protection', inHeader: true, included: true },
 	{ description: 'Windscreen Cover', inHeader: true, included: true },
-	{ description: 'Personal Accident', inHeader: false, included: true },
-	{ description: 'Blah', inHeader: false, included: true },
-	{ description: 'Blah', inHeader: false, included: false }
+	{ description: 'Lifetime Glass, Theft & Fire Protection', inHeader: true, included: true },
+	{ description: 'Personal Accident', inHeader: true, included: true },
+	{ description: 'Legal fees', inHeader: true, included: true },
+	{ description: 'Fire Brigade Charges', inHeader: true, included: true },
+	{ description: 'Car Valet', inHeader: true, included: true },
+	{ description: 'Standard or Motor', inHeader: true, included: true },
+	{ description: 'Step Back Bonus Protection', inHeader: true, included: true },
+	{ description: 'Personal Belongings/Sat Navs/Mobile Phones', inHeader: true, included: true },
+	{ description: 'Replacement Locks & Alarms', inHeader: true, included: true },
+	{ description: 'Child Car Seats', inHeader: true, included: true },
+	{ description: 'Misfuel', inHeader: true, included: true },
+	{ description: 'Courtesy Car', inHeader: true, included: true },
+]
+
+const BENEFITS_STANDARD = [
+	{ description: 'Windscreen Cover', inHeader: true, included: true },
+	{ description: 'Lifetime Glass, Theft & Fire Protection', inHeader: true, included: true },
+	{ description: 'Personal Accident', inHeader: true, included: true },
+	{ description: 'Legal fees', inHeader: true, included: true },
+	{ description: 'Fire Brigade Charges', inHeader: true, included: true },
+	{ description: 'Car Valet', inHeader: true, included: true },
+	{ description: 'Standard or Motor', inHeader: true, included: true },
+	{ description: 'Step Back Bonus Protection', inHeader: true, included: true },
+	{ description: 'Personal Belongings/Sat Navs/Mobile Phones', inHeader: true, included: true },
+	{ description: 'Replacement Locks & Alarms', inHeader: true, included: true },
+	{ description: 'Child Car Seats', inHeader: true, included: flase },
+	{ description: 'Misfuel', inHeader: true, included: false },
+	{ description: 'Courtesy Car', inHeader: true, included: false },
 ]
 
 const BREAKDOWN_ITEMS = [
@@ -53,7 +76,7 @@ const AAMotor = {
 	name: 'AA Motor',
 	id: 'AAMOTOR',
 	preferred: true,
-	benefits: BENEFITS,
+	benefits: BENEFITS_STANDARD,
 	img: 'product-aastandard.svg',
 	breakdowns: BREAKDOWN_ITEMS,
 	premium: {

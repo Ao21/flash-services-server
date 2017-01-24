@@ -274,7 +274,7 @@ export const QUESTIONS = {
 		},
 		options: [{
 			id: 'Dublin',
-			text: 'dublin'
+			text: 'Dublin'
 		}, {
 			id: 'Cork',
 			text: 'cork'
@@ -415,7 +415,7 @@ export const QUESTIONS = {
 		autoCompleteType: 'options', // search || all || options
 		options: [{
 			id: 'Dublin',
-			text: 'dublin'
+			text: 'Dublin'
 		}, {
 			id: 'Cork',
 			text: 'cork'

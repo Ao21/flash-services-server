@@ -269,7 +269,7 @@ exports.QUESTIONS = {
             },
             options: [{
                     id: 'Dublin',
-                    text: 'dublin'
+                    text: 'Dublin'
                 }, {
                     id: 'Cork',
                     text: 'cork'
@@ -407,7 +407,7 @@ exports.QUESTIONS = {
             autoCompleteType: 'options',
             options: [{
                     id: 'Dublin',
-                    text: 'dublin'
+                    text: 'Dublin'
                 }, {
                     id: 'Cork',
                     text: 'cork'
