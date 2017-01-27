@@ -112,7 +112,13 @@ export const QUESTIONS = {
 		key: 'typeOfEmployment',
 		label: 'Type of Employment',
 		type: 'dropdown',
-		options: ['Employed', 'Household Duties', 'Retired', 'Self Employed', 'Unemployed'],
+		options: [
+			{ id: 'Employed', description: 'Employed' },
+			{ id: 'Household Duties', description: 'Household Duties' },
+			{ id: 'Retired', description: 'Retired' },
+			{ id: 'Self Employed', description: 'Self Employed' },
+			{ id: 'Unemployed', description: 'Unemployed' }
+		],
 		required: true,
 		order: 2,
 		validators: [],
@@ -218,7 +224,27 @@ export const QUESTIONS = {
 			key: 'insuredNamedDriver',
 			name: 'showBasedOnKey',
 		},
-		options: ['Brother in Law','Business Partner','Common Law Spouse','Daughter','Daughter in Law','Employee of Proposer','Employer of Proposer','Father in Law','Friend','Mother In Law','Parent','Partner','Proposer','Relative','Sister','Sister in Law','Son','Son in Law','Spouse','Tenant','Unrelated'],
+		options: [{ id: 'Brother in Law', description: 'Brother in Law' },
+		{ id: 'Business Partner', description: 'Business Partner' },
+		{ id: 'Common Law Spouse', description: 'Common Law Spouse' },
+		{ id: 'Daughter', description: 'Daughter' },
+		{ id: 'Daughter in Law', description: 'Daughter in Law' },
+		{ id: 'Employee of Proposer', description: 'Employee of Proposer' },
+		{ id: 'Employer of Proposer', description: 'Employer of Proposer' },
+		{ id: 'Father in Law', description: 'Father in Law' },
+		{ id: 'Friend', description: 'Friend' },
+		{ id: 'Mother In Law', description: 'Mother In Law' },
+		{ id: 'Parent', description: 'Parent' },
+		{ id: 'Partner', description: 'Partner' },
+		{ id: 'Proposer', description: 'Proposer' },
+		{ id: 'Relative', description: 'Relative' },
+		{ id: 'Sister', description: 'Sister' },
+		{ id: 'Sister in Law', description: 'Sister in Law' },
+		{ id: 'Son', description: 'Son' },
+		{ id: 'Son in Law', description: 'Son in Law' },
+		{ id: 'Spouse', description: 'Spouse' },
+		{ id: 'Tenant', description: 'Tenant' },
+		{ id: 'Unrelated', description: 'Unrelated' }],
 		required: true,
 		order: 1,
 		validators: [],
@@ -235,7 +261,39 @@ export const QUESTIONS = {
 			key2: 'insuredNamedDriver',
 			name: 'showDualKey',
 		},
-		options: ['ARB Underwriting Ltd','AXA Broker','AXA Direct','AXA Insurance','Allianz','Asgard','Aviva','Chartis Insurance','Chubb Insurance','Cigna Insurance of Europe','Cornhill','Ecclesiastical Insurance Office Plc','Europa General','FBD Insurance','FC Rebroked AXA Broker','First Call Direct','Generali Insurance','Kennco Underwriting Ltd','Liberty Underwriting','One Direct','Prestige Underwriting Services','Provident Insurance','Quinn Direct','RSA Insurance Ireland','Sertus Underwriting','Setanta Insurance','Torch','Travelers Insurance','Unlisted Insurer - Ireland','Unlisted Insurer - Not Ireland','Wright Way Underwriting','XS Direct','Zurich'],
+		options: [{ id: 'ARB Underwriting Ltd', description: 'ARB Underwriting Ltd' },
+		{ id: 'AXA Broker', description: 'AXA Broker' },
+		{ id: 'AXA Direct', description: 'AXA Direct' },
+		{ id: 'AXA Insurance', description: 'AXA Insurance' },
+		{ id: 'Allianz', description: 'Allianz' },
+		{ id: 'Asgard', description: 'Asgard' },
+		{ id: 'Aviva', description: 'Aviva' },
+		{ id: 'Chartis Insurance', description: 'Chartis Insurance' },
+		{ id: 'Chubb Insurance', description: 'Chubb Insurance' },
+		{ id: 'Cigna Insurance of Europe', description: 'Cigna Insurance of Europe' },
+		{ id: 'Cornhill', description: 'Cornhill' },
+		{ id: 'Ecclesiastical Insurance Office Plc', description: 'Ecclesiastical Insurance Office Plc' },
+		{ id: 'Europa General', description: 'Europa General' },
+		{ id: 'FBD Insurance', description: 'FBD Insurance' },
+		{ id: 'FC Rebroked AXA Broker', description: 'FC Rebroked AXA Broker' },
+		{ id: 'First Call Direct', description: 'First Call Direct' },
+		{ id: 'Generali Insurance', description: 'Generali Insurance' },
+		{ id: 'Kennco Underwriting Ltd', description: 'Kennco Underwriting Ltd' },
+		{ id: 'Liberty Underwriting', description: 'Liberty Underwriting' },
+		{ id: 'One Direct', description: 'One Direct' },
+		{ id: 'Prestige Underwriting Services', description: 'Prestige Underwriting Services' },
+		{ id: 'Provident Insurance', description: 'Provident Insurance' },
+		{ id: 'Quinn Direct', description: 'Quinn Direct' },
+		{ id: 'RSA Insurance Ireland', description: 'RSA Insurance Ireland' },
+		{ id: 'Sertus Underwriting', description: 'Sertus Underwriting' },
+		{ id: 'Setanta Insurance', description: 'Setanta Insurance' },
+		{ id: 'Torch', description: 'Torch' },
+		{ id: 'Travelers Insurance', description: 'Travelers Insurance' },
+		{ id: 'Unlisted Insurer - Ireland', description: 'Unlisted Insurer - Ireland' },
+		{ id: 'Unlisted Insurer - Not Ireland', description: 'Unlisted Insurer - Not Ireland' },
+		{ id: 'Wright Way Underwriting', description: 'Wright Way Underwriting' },
+		{ id: 'XS Direct', description: 'XS Direct' },
+		{ id: 'Zurich', description: 'Zurich' }],
 		required: true,
 		order: 2,
 		validators: [],
@@ -274,10 +332,10 @@ export const QUESTIONS = {
 		},
 		options: [{
 			id: 'Dublin',
-			text: 'Dublin'
+			description: 'Dublin'
 		}, {
 			id: 'Cork',
-			text: 'cork'
+			description: 'cork'
 		}],
 		required: true,
 		disabled: false,
@@ -387,7 +445,10 @@ export const QUESTIONS = {
 		key: 'typeOfLicence',
 		label: 'What licence do you hold?',
 		type: 'dropdown',
-		options: ['Full Irish Licence', 'Irish Learners Permit', 'Full EU Licence', 'Non-EU Licence'],
+		options: [{ id: 'Full Irish Licence', description: 'Full Irish Licence' },
+		{ id: 'Irish Learners Permit', description: 'Irish Learners Permit' },
+		{ id: 'Full EU Licence', description: 'Full EU Licence' },
+		{ id: 'Non-EU Licence', description: 'Non-EU Licence' }],
 		required: true,
 		disabled: false,
 		order: 0,
@@ -415,10 +476,10 @@ export const QUESTIONS = {
 		autoCompleteType: 'options', // search || all || options
 		options: [{
 			id: 'Dublin',
-			text: 'Dublin'
+			description: 'Dublin'
 		}, {
 			id: 'Cork',
-			text: 'cork'
+			description: 'cork'
 		}],
 		required: true,
 		disabled: false,
@@ -522,7 +583,18 @@ export const QUESTIONS = {
 		key: 'reasonForClaim',
 		label: 'What was the reason for the claim?',
 		type: 'dropdown',
-		options: ['Accident', 'Accidental Damage', 'Fire', 'Malicious Damage As A Result Of Theft', 'Personal Accident', 'Personal Effects', 'Theft', 'Third Party', 'Vandalism', 'Windscreen'],
+		options: [
+			{ id: 'Accident', description: 'Accident', },
+			{ id: 'Accidental Damage', description: 'Accidental Damage' },
+			{ id: 'Fire', description: 'Fire' },
+			{ id: 'Malicious Damage As A Result Of Theft', description: 'Malicious Damage As A Result Of Theft' },
+			{ id: 'Personal Accident', description: 'Personal Accident' },
+			{ id: 'Personal Effects', description: 'Personal Effects' },
+			{ id: 'Theft', description: 'Theft' },
+			{ id: 'Third Party', description: 'Third Party' },
+			{ id: 'Vandalism', description: 'Vandalism' },
+			{ id: 'Windscreen', description: 'Windscreen' }
+		],
 		required: true,
 		order: 0,
 		validators: [],
@@ -591,7 +663,18 @@ export const QUESTIONS = {
 		key: 'reasonForClaim',
 		label: 'What was the reason for the claim?',
 		type: 'dropdown',
-		options: ['Accident', 'Accidental Damage', 'Fire', 'Malicious Damage As A Result Of Theft', 'Personal Accident', 'Personal Effects', 'Theft', 'Third Party', 'Vandalism', 'Windscreen'],
+		options: [
+			{ id: 'Accident', description: 'Accident', },
+			{ id: 'Accidental Damage', description: 'Accidental Damage' },
+			{ id: 'Fire', description: 'Fire' },
+			{ id: 'Malicious Damage As A Result Of Theft', description: 'Malicious Damage As A Result Of Theft' },
+			{ id: 'Personal Accident', description: 'Personal Accident' },
+			{ id: 'Personal Effects', description: 'Personal Effects' },
+			{ id: 'Theft', description: 'Theft' },
+			{ id: 'Third Party', description: 'Third Party' },
+			{ id: 'Vandalism', description: 'Vandalism' },
+			{ id: 'Windscreen', description: 'Windscreen' }
+		],
 		required: true,
 		value: 'Accident',
 		order: 0,
@@ -657,7 +740,18 @@ export const QUESTIONS = {
 		key: 'reasonForPenalty',
 		label: 'What was the reason?',
 		type: 'dropdown',
-		options: ['Accident', 'Accidental Damage', 'Fire', 'Malicious Damage As A Result Of Theft', 'Personal Accident', 'Personal Effects', 'Theft', 'Third Party', 'Vandalism', 'Windscreen'],
+		options: [
+			{ id: 'Accident', description: 'Accident', },
+			{ id: 'Accidental Damage', description: 'Accidental Damage' },
+			{ id: 'Fire', description: 'Fire' },
+			{ id: 'Malicious Damage As A Result Of Theft', description: 'Malicious Damage As A Result Of Theft' },
+			{ id: 'Personal Accident', description: 'Personal Accident' },
+			{ id: 'Personal Effects', description: 'Personal Effects' },
+			{ id: 'Theft', description: 'Theft' },
+			{ id: 'Third Party', description: 'Third Party' },
+			{ id: 'Vandalism', description: 'Vandalism' },
+			{ id: 'Windscreen', description: 'Windscreen' }
+		],
 		required: true,
 		order: 0,
 		validators: []
@@ -682,7 +776,18 @@ export const QUESTIONS = {
 		key: 'reasonForPenalty',
 		label: 'What was the reason?',
 		type: 'dropdown',
-		options: ['Accident', 'Accidental Damage', 'Fire', 'Malicious Damage As A Result Of Theft', 'Personal Accident', 'Personal Effects', 'Theft', 'Third Party', 'Vandalism', 'Windscreen'],
+		options: [
+			{ id: 'Accident', description: 'Accident', },
+			{ id: 'Accidental Damage', description: 'Accidental Damage' },
+			{ id: 'Fire', description: 'Fire' },
+			{ id: 'Malicious Damage As A Result Of Theft', description: 'Malicious Damage As A Result Of Theft' },
+			{ id: 'Personal Accident', description: 'Personal Accident' },
+			{ id: 'Personal Effects', description: 'Personal Effects' },
+			{ id: 'Theft', description: 'Theft' },
+			{ id: 'Third Party', description: 'Third Party' },
+			{ id: 'Vandalism', description: 'Vandalism' },
+			{ id: 'Windscreen', description: 'Windscreen' }
+		],
 		value: 'Accident',
 		required: true,
 		order: 0,
@@ -738,7 +843,17 @@ export const QUESTIONS = {
 					key: 'engineSize',
 					label: 'Engine Size?',
 					type: 'dropdown',
-					options: ['0cc - 1499cc', '1500cc - 1999cc', '2000cc - 2499cc', '2500cc - 2999cc', '3000cc - 3449cc', '3500cc - 3999cc', '4000cc - 4449cc', '4500cc - 4999cc', '4500cc - 4999cc'],
+					options: [
+						{ id: '0cc - 1499cc', description: '0cc - 1499cc' },
+						{ id: '1500cc - 1999cc', description: '1500cc - 1999cc' },
+						{ id: '2000cc - 2499cc', description: '2000cc - 2499cc' },
+						{ id: '2500cc - 2999cc', description: '2500cc - 2999cc' },
+						{ id: '3000cc - 3449cc', description: '3000cc - 3449cc' },
+						{ id: '3500cc - 3999cc', description: '3500cc - 3999cc' },
+						{ id: '4000cc - 4449cc', description: '4000cc - 4449cc' },
+						{ id: '4500cc - 4999cc', description: '4500cc - 4999cc' },
+						{ id: '4500cc - 4999c', description: '4500cc - 4999cc' }
+					],
 					required: true,
 					trigger: {
 						name: 'disabledBasedOnKey',
@@ -1154,36 +1269,36 @@ export const CONFIG = {
 
 		}
 	},
-	{
-		id: 'price-presentation',
-		title: 'Get Quote',
-		pages: PRICE_PAGES,
-		isComplete: false,
-		uiOptions: {
-			isWide: true,
-			isTitleHidden: true,
-			isPagesHidden: true
-		}
-	}, {
-		id: 'summary',
-		title: 'Summary',
-		pages: SUMMARY_PAGES,
-		isComplete: false,
-		uiOptions: {
-			isWide: true,
-			isPagesHidden: true
-		}
-	},
-	// {
-	// 	id: 'termsConditions',
-	// 	title: 'Terms and Conditions',
-	// 	pages: TERMS_AND_CONDITIONS_PAGES,
-	// 	isComplete: false,
-	// 	uiOptions: {
-	// 		isWide: true,
-	// 		isTitleHidden: true,
-	// 		isPagesHidden: true
-	// 	}
-	// }
+		// {
+		// 	id: 'price-presentation',
+		// 	title: 'Get Quote',
+		// 	pages: PRICE_PAGES,
+		// 	isComplete: false,
+		// 	uiOptions: {
+		// 		isWide: true,
+		// 		isTitleHidden: true,
+		// 		isPagesHidden: true
+		// 	}
+		// }, {
+		// 	id: 'summary',
+		// 	title: 'Summary',
+		// 	pages: SUMMARY_PAGES,
+		// 	isComplete: false,
+		// 	uiOptions: {
+		// 		isWide: true,
+		// 		isPagesHidden: true
+		// 	}
+		// },
+		// {
+		// 	id: 'termsConditions',
+		// 	title: 'Terms and Conditions',
+		// 	pages: TERMS_AND_CONDITIONS_PAGES,
+		// 	isComplete: false,
+		// 	uiOptions: {
+		// 		isWide: true,
+		// 		isTitleHidden: true,
+		// 		isPagesHidden: true
+		// 	}
+		// }
 	]
 }

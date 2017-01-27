@@ -21,7 +21,7 @@ export default class Motor {
 			location: 0,
 			threshold: 0.2,
 			distance: 100,
-			keys: ['text']
+			keys: ['description']
 		});
 
 		this.countiesList = new Fuse(COUNTIES, {
@@ -29,7 +29,7 @@ export default class Motor {
 			location: 0,
 			threshold: 0.2,
 			distance: 100,
-			keys: ['text']
+			keys: ['description']
 		});
 
 		this.townList = new Fuse(TOWNS, {
@@ -37,7 +37,7 @@ export default class Motor {
 			location: 0,
 			threshold: 0.2,
 			distance: 100,
-			keys: ['text']
+			keys: ['description']
 		});
 
 		this.carList = new Fuse(CARMAKES, {
@@ -45,7 +45,7 @@ export default class Motor {
 			location: 0,
 			threshold: 0.2,
 			distance: 100,
-			keys: ['text']
+			keys: ['description']
 		});
 	}
 

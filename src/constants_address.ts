@@ -1,16 +1,16 @@
 export const TOWNS = [{
-    text: 'Dublin 1',
+    description: 'Dublin 1',
     id: 'dublin1'
 }, {
-    text: 'Dublin 2',
+    description: 'Dublin 2',
     id: 'dublin2'
 }]
 
 export const COUNTIES = [{
-    text: 'Dublin',
+    description: 'Dublin',
     id: 'dublin'
 }, {
-    text: 'Cork',
+    description: 'Cork',
     id: 'cork'
 }]
 
@@ -18,11 +18,11 @@ export const GEOCODE = {
     "addressLine1": "14 Harcourt St",
     "addressLine2": "",
 	"county": {
-		text: "Dublin 3",
+		description: "Dublin 3",
 		id: "Dublin 3"
 	},
 	"area": {
-		text: 'Dublin City',
+		description: 'Dublin City',
 		id: 'Dublin City'
 	},
     "lookups": [{
@@ -47,11 +47,11 @@ export const GEOCODE_SELECTED = {
     "addressLine1": "14 Harcourt Street",
     "addressLine2": "Dublin City",
     "county": {
-		text: "Dublin 3",
+		description: "Dublin 3",
 		id: "Dublin 3"
 	},
 	"area": {
-		text: 'Dublin City',
+		description: 'Dublin City',
 		id: 'Dublin City'
 	},
     "lookups": [{

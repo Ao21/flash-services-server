@@ -1,24 +1,24 @@
 export const CARMAKES = [{
     "id": "ACURA",
-    "text": "Acura",
+    "description": "Acura",
 }, {
     "id": "ALFA",
-    "text": "Alfa Romeo",
+    "description": "Alfa Romeo",
 }, {
     "id": "AMC",
-    "text": "AMC",
+    "description": "AMC",
    
 }, {
     "id": "ASTON",
-    "text": "Aston Martin",
+    "description": "Aston Martin",
 
 }, {
     "id": "AVANTI",
-    "text": "Avanti",
+    "description": "Avanti",
 }, {
     "id": "BENTL",
-    "text": "Bentley",
+    "description": "Bentley",
 }, {
     "id": "BMW",
-    "text": "BMW",
+    "description": "BMW",
 }]
