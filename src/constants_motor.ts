@@ -1269,17 +1269,18 @@ export const CONFIG = {
 
 		}
 	},
-		// {
-		// 	id: 'price-presentation',
-		// 	title: 'Get Quote',
-		// 	pages: PRICE_PAGES,
-		// 	isComplete: false,
-		// 	uiOptions: {
-		// 		isWide: true,
-		// 		isTitleHidden: true,
-		// 		isPagesHidden: true
-		// 	}
-		// }, {
+		{
+			id: 'price-presentation',
+			title: 'Get Quote',
+			pages: PRICE_PAGES,
+			isComplete: false,
+			uiOptions: {
+				isWide: true,
+				isTitleHidden: true,
+				isPagesHidden: true
+			}
+		},
+		//{
 		// 	id: 'summary',
 		// 	title: 'Summary',
 		// 	pages: SUMMARY_PAGES,
