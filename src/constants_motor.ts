@@ -40,20 +40,20 @@ export const QUESTIONS = {
 		type: 'radio',
 		order: 0,
 		options: [{
-			value: 'Mr',
-			text: 'Mr'
+			id: 'Mr',
+			description: 'Mr'
 		},
 		{
-			value: 'Mrs',
-			text: 'Mrs'
+			id: 'Mrs',
+			description: 'Mrs'
 		},
 		{
-			value: 'Miss',
-			text: 'Miss'
+			id: 'Miss',
+			description: 'Miss'
 		},
 		{
-			value: 'Ms',
-			text: 'Ms'
+			id: 'Ms',
+			description: 'Ms'
 		}],
 		required: true,
 		uiOptions: {
@@ -135,7 +135,6 @@ export const QUESTIONS = {
 		required: true,
 		disabled: false,
 		helpId: 1001,
-		// value: { id: 'Employed', text: 'Employed' },
 		order: 2,
 		validators: [],
 		uiOptions: {
@@ -163,11 +162,11 @@ export const QUESTIONS = {
 		label: 'Have you lived outside the Republic of Ireland or the UK in the last 12 months?',
 		type: 'radio',
 		options: [{
-			value: 'Yes',
-			text: 'Yes'
+			id: 'Yes',
+			description: 'Yes'
 		}, {
-			value: 'No',
-			text: 'No'
+			id: 'No',
+			description: 'No'
 		}],
 		required: true,
 		order: 2,
@@ -183,11 +182,11 @@ export const QUESTIONS = {
 		order: 0,
 		helpId: 1001,
 		options: [{
-			value: true,
-			text: 'Yes'
+			id: true,
+			description: 'Yes'
 		}, {
-			value: false,
-			text: 'No'
+			id: false,
+			description: 'No'
 		}],
 		required: true,
 		uiOptions: {
@@ -204,11 +203,11 @@ export const QUESTIONS = {
 			name: 'hideBasedOnKey',
 		},
 		options: [{
-			value: true,
-			text: 'Yes'
+			id: true,
+			description: 'Yes'
 		}, {
-			value: false,
-			text: 'No'
+			id: false,
+			description: 'No'
 		}],
 		required: true,
 		uiOptions: {
@@ -339,7 +338,6 @@ export const QUESTIONS = {
 		}],
 		required: true,
 		disabled: false,
-		// value: { id: 'Employed', text: 'Employed' },
 		order: 4,
 		validators: [],
 		uiOptions: {
@@ -375,11 +373,11 @@ export const QUESTIONS = {
 			name: 'showDualKey',
 		},
 		options: [{
-			value: true,
-			text: 'Yes'
+			id: true,
+			description: 'Yes'
 		}, {
-			value: false,
-			text: 'No'
+			id: false,
+			description: 'No'
 		}],
 		required: true,
 		uiOptions: {
@@ -406,11 +404,11 @@ export const QUESTIONS = {
 		alignment: 'vertical',
 		order: 8,
 		options: [{
-			value: 'comprehensive',
-			text: 'Comprehensive'
+			id: 'comprehensive',
+			description: 'Comprehensive'
 		}, {
-			value: 'thirdParty',
-			text: 'Third Party, Fire and Theft'
+			id: 'thirdParty',
+			description: 'Third Party, Fire and Theft'
 		}],
 		required: true,
 		uiOptions: {
@@ -424,15 +422,15 @@ export const QUESTIONS = {
 		helpId: 1001,
 		order: 9,
 		options: [{
-			value: 'full',
-			text: 'Full'
+			id: 'full',
+			description: 'Full'
 		}, {
-			value: 'stepBack',
-			text: 'Step Back'
+			id: 'stepBack',
+			description: 'Step Back'
 		},
 		{
-			value: 'none',
-			text: 'None'
+			id: 'none',
+			description: 'None'
 		}],
 		required: true,
 		uiOptions: {
@@ -483,7 +481,6 @@ export const QUESTIONS = {
 		}],
 		required: true,
 		disabled: false,
-		// value: { id: 'Employed', text: 'Employed' },
 		order: 2,
 		validators: [],
 		uiOptions: {
@@ -497,11 +494,11 @@ export const QUESTIONS = {
 		label: 'Have you had any claims in the past 3 years?',
 		type: 'radio',
 		options: [{
-			value: 'Yes',
-			text: 'Yes'
+			id: 'Yes',
+			description: 'Yes'
 		}, {
-			value: 'No',
-			text: 'No'
+			id: 'No',
+			description: 'No'
 		}],
 		required: true,
 		order: 2,
@@ -539,7 +536,6 @@ export const QUESTIONS = {
 		autoCompleteType: 'search', // search || all || options
 		required: true,
 		disabled: false,
-		// value: { id: 'Employed', text: 'Employed' },
 		order: 2,
 		validators: [],
 		uiOptions: {
@@ -560,7 +556,6 @@ export const QUESTIONS = {
 		},
 		required: true,
 		disabled: false,
-		// value: { id: 'Employed', text: 'Employed' },
 		order: 2,
 		validators: [],
 		uiOptions: {
@@ -617,11 +612,11 @@ export const QUESTIONS = {
 		type: 'radio',
 		helpId: 1001,
 		options: [{
-			value: 'Yes',
-			text: 'Yes'
+			id: 'Yes',
+			description: 'Yes'
 		}, {
-			value: 'No',
-			text: 'No'
+			id: 'No',
+			description: 'No'
 		}],
 		required: true,
 		order: 2,
@@ -634,11 +629,11 @@ export const QUESTIONS = {
 		label: 'Was your no claims bonus protected?',
 		type: 'radio',
 		options: [{
-			value: 'Yes',
-			text: 'Yes'
+			id: 'Yes',
+			description: 'Yes'
 		}, {
-			value: 'No',
-			text: 'No'
+			id: 'No',
+			description: 'No'
 		}],
 		required: true,
 		order: 2,
@@ -698,11 +693,11 @@ export const QUESTIONS = {
 		label: 'Were you at fault?',
 		type: 'radio',
 		options: [{
-			value: 'Yes',
-			text: 'Yes'
+			id: 'Yes',
+			description: 'Yes'
 		}, {
-			value: 'No',
-			text: 'No'
+			id: 'No',
+			description: 'No'
 		}],
 		required: true,
 		value: 'Yes',
@@ -717,11 +712,11 @@ export const QUESTIONS = {
 		type: 'radio',
 		helpId: 1001,
 		options: [{
-			value: 'Yes',
-			text: 'Yes'
+			id: 'Yes',
+			description: 'Yes'
 		}, {
-			value: 'No',
-			text: 'No'
+			id: 'No',
+			description: 'No'
 		}],
 		required: true,
 		value: 'Yes',
@@ -817,7 +812,6 @@ export const QUESTIONS = {
 					type: 'date',
 					required: true,
 					disabled: false,
-					// value: { id: 'Employed', text: 'Employed' },
 					order: 0,
 					validators: []
 				},
@@ -835,7 +829,6 @@ export const QUESTIONS = {
 						expectedType: 'string',
 						key: 'dateOfRegistration'
 					},
-					// value: { id: 'Employed', text: 'Employed' },
 					order: 1,
 					validators: []
 				},
@@ -878,7 +871,6 @@ export const QUESTIONS = {
 						expectedType: 'object',
 						key: 'carMake'
 					},
-					// value: { id: 'Employed', text: 'Employed' },
 					order: 2,
 					validators: []
 				}
@@ -890,7 +882,6 @@ export const QUESTIONS = {
 			type: 'date',
 			required: true,
 			disabled: false,
-			// value: { id: 'Employed', text: 'Employed' },
 			order: 5,
 			validators: []
 		},
@@ -900,7 +891,6 @@ export const QUESTIONS = {
 			type: 'currency',
 			required: true,
 			disabled: false,
-			// value: { id: 'Employed', text: 'Employed' },
 			order: 6,
 			validators: []
 		},
@@ -910,7 +900,6 @@ export const QUESTIONS = {
 			type: 'tel',
 			required: true,
 			disabled: false,
-			// value: { id: 'Employed', text: 'Employed' },
 			order: 7,
 			validators: []
 		},
@@ -961,7 +950,6 @@ export const QUESTIONS = {
 			autoCompleteType: 'search', // search || all || options || linked
 			required: true,
 			disabled: false,
-			// value: { id: 'Employed', text: 'Employed' },
 			order: 9,
 			validators: []
 		},
@@ -973,7 +961,6 @@ export const QUESTIONS = {
 			autoCompleteType: 'search', // search || all || options || linked
 			required: true,
 			disabled: false,
-			// value: { id: 'Employed', text: 'Employed' },
 			order: 10,
 			validators: []
 		}],
