@@ -176,228 +176,242 @@ export const QUESTIONS = {
 
 
 	cover: [{
-		key: 'insuredInYourOwnName',
-		label: 'Have you been insured previously in your own name in the last two years?',
-		type: 'radio',
+		key: 'drivingExperience',
+		type: 'group',
+		alignment: 'none',
+		timeline: false,
 		order: 0,
-		helpId: 1001,
-		options: [{
-			id: true,
-			description: 'Yes'
-		}, {
-			id: false,
-			description: 'No'
-		}],
-		required: true,
-		uiOptions: {
-			summaryTitle: 'Insured in your own Name'
-		}
-	},
-	{
-		key: 'insuredNamedDriver',
-		label: 'Have you been a named driver on someone else’s policy?',
-		type: 'radio',
-		order: 0,
-		trigger: {
+		isComplete: false,
+		fields: [{
 			key: 'insuredInYourOwnName',
-			name: 'hideBasedOnKey',
+			label: 'Have you been insured previously in your own name in the last two years?',
+			type: 'radio',
+			order: 0,
+			helpId: 1001,
+			options: [{
+				id: true,
+				description: 'Yes'
+			}, {
+				id: false,
+				description: 'No'
+			}],
+			required: true,
+			uiOptions: {
+				summaryTitle: 'Insured in your own Name'
+			}
 		},
-		options: [{
-			id: true,
-			description: 'Yes'
-		}, {
-			id: false,
-			description: 'No'
-		}],
-		required: true,
-		uiOptions: {
-			summaryTitle: 'Named Driver'
-		}
-	},
-	{
-		key: 'insuredNamedDriverOnPolicy',
-		label: 'On whose policy',
-		helpId: 1001,
-		type: 'dropdown',
-		trigger: {
+		{
 			key: 'insuredNamedDriver',
-			name: 'showBasedOnKey',
+			label: 'Have you been a named driver on someone else’s policy?',
+			type: 'radio',
+			order: 0,
+			trigger: {
+				key: 'insuredInYourOwnName',
+				name: 'hideBasedOnKey',
+				isObject: true
+			},
+			options: [{
+				id: true,
+				description: 'Yes'
+			}, {
+				id: false,
+				description: 'No'
+			}],
+			required: true,
+			uiOptions: {
+				summaryTitle: 'Named Driver'
+			}
 		},
-		options: [{ id: 'Brother in Law', description: 'Brother in Law' },
-		{ id: 'Business Partner', description: 'Business Partner' },
-		{ id: 'Common Law Spouse', description: 'Common Law Spouse' },
-		{ id: 'Daughter', description: 'Daughter' },
-		{ id: 'Daughter in Law', description: 'Daughter in Law' },
-		{ id: 'Employee of Proposer', description: 'Employee of Proposer' },
-		{ id: 'Employer of Proposer', description: 'Employer of Proposer' },
-		{ id: 'Father in Law', description: 'Father in Law' },
-		{ id: 'Friend', description: 'Friend' },
-		{ id: 'Mother In Law', description: 'Mother In Law' },
-		{ id: 'Parent', description: 'Parent' },
-		{ id: 'Partner', description: 'Partner' },
-		{ id: 'Proposer', description: 'Proposer' },
-		{ id: 'Relative', description: 'Relative' },
-		{ id: 'Sister', description: 'Sister' },
-		{ id: 'Sister in Law', description: 'Sister in Law' },
-		{ id: 'Son', description: 'Son' },
-		{ id: 'Son in Law', description: 'Son in Law' },
-		{ id: 'Spouse', description: 'Spouse' },
-		{ id: 'Tenant', description: 'Tenant' },
-		{ id: 'Unrelated', description: 'Unrelated' }],
-		required: true,
-		order: 1,
-		validators: [],
-		uiOptions: {
-			summaryTitle: `On who's policy`
-		}
-	},
-	{
-		key: 'insuranceCompany',
-		label: 'Which is your current insurance company?',
-		type: 'dropdown',
-		trigger: {
-			key1: 'insuredInYourOwnName',
-			key2: 'insuredNamedDriver',
-			name: 'showDualKey',
+		{
+			key: 'insuredNamedDriverOnPolicy',
+			label: 'On whose policy',
+			helpId: 1001,
+			type: 'dropdown',
+			trigger: {
+				key: 'insuredNamedDriver',
+				name: 'showBasedOnKey',
+				isObject: true
+			},
+			options: [{ id: 'Brother in Law', description: 'Brother in Law' },
+			{ id: 'Business Partner', description: 'Business Partner' },
+			{ id: 'Common Law Spouse', description: 'Common Law Spouse' },
+			{ id: 'Daughter', description: 'Daughter' },
+			{ id: 'Daughter in Law', description: 'Daughter in Law' },
+			{ id: 'Employee of Proposer', description: 'Employee of Proposer' },
+			{ id: 'Employer of Proposer', description: 'Employer of Proposer' },
+			{ id: 'Father in Law', description: 'Father in Law' },
+			{ id: 'Friend', description: 'Friend' },
+			{ id: 'Mother In Law', description: 'Mother In Law' },
+			{ id: 'Parent', description: 'Parent' },
+			{ id: 'Partner', description: 'Partner' },
+			{ id: 'Proposer', description: 'Proposer' },
+			{ id: 'Relative', description: 'Relative' },
+			{ id: 'Sister', description: 'Sister' },
+			{ id: 'Sister in Law', description: 'Sister in Law' },
+			{ id: 'Son', description: 'Son' },
+			{ id: 'Son in Law', description: 'Son in Law' },
+			{ id: 'Spouse', description: 'Spouse' },
+			{ id: 'Tenant', description: 'Tenant' },
+			{ id: 'Unrelated', description: 'Unrelated' }],
+			required: true,
+			order: 1,
+			validators: [],
+			uiOptions: {
+				summaryTitle: `On who's policy`
+			}
 		},
-		options: [{ id: 'ARB Underwriting Ltd', description: 'ARB Underwriting Ltd' },
-		{ id: 'AXA Broker', description: 'AXA Broker' },
-		{ id: 'AXA Direct', description: 'AXA Direct' },
-		{ id: 'AXA Insurance', description: 'AXA Insurance' },
-		{ id: 'Allianz', description: 'Allianz' },
-		{ id: 'Asgard', description: 'Asgard' },
-		{ id: 'Aviva', description: 'Aviva' },
-		{ id: 'Chartis Insurance', description: 'Chartis Insurance' },
-		{ id: 'Chubb Insurance', description: 'Chubb Insurance' },
-		{ id: 'Cigna Insurance of Europe', description: 'Cigna Insurance of Europe' },
-		{ id: 'Cornhill', description: 'Cornhill' },
-		{ id: 'Ecclesiastical Insurance Office Plc', description: 'Ecclesiastical Insurance Office Plc' },
-		{ id: 'Europa General', description: 'Europa General' },
-		{ id: 'FBD Insurance', description: 'FBD Insurance' },
-		{ id: 'FC Rebroked AXA Broker', description: 'FC Rebroked AXA Broker' },
-		{ id: 'First Call Direct', description: 'First Call Direct' },
-		{ id: 'Generali Insurance', description: 'Generali Insurance' },
-		{ id: 'Kennco Underwriting Ltd', description: 'Kennco Underwriting Ltd' },
-		{ id: 'Liberty Underwriting', description: 'Liberty Underwriting' },
-		{ id: 'One Direct', description: 'One Direct' },
-		{ id: 'Prestige Underwriting Services', description: 'Prestige Underwriting Services' },
-		{ id: 'Provident Insurance', description: 'Provident Insurance' },
-		{ id: 'Quinn Direct', description: 'Quinn Direct' },
-		{ id: 'RSA Insurance Ireland', description: 'RSA Insurance Ireland' },
-		{ id: 'Sertus Underwriting', description: 'Sertus Underwriting' },
-		{ id: 'Setanta Insurance', description: 'Setanta Insurance' },
-		{ id: 'Torch', description: 'Torch' },
-		{ id: 'Travelers Insurance', description: 'Travelers Insurance' },
-		{ id: 'Unlisted Insurer - Ireland', description: 'Unlisted Insurer - Ireland' },
-		{ id: 'Unlisted Insurer - Not Ireland', description: 'Unlisted Insurer - Not Ireland' },
-		{ id: 'Wright Way Underwriting', description: 'Wright Way Underwriting' },
-		{ id: 'XS Direct', description: 'XS Direct' },
-		{ id: 'Zurich', description: 'Zurich' }],
-		required: true,
-		order: 2,
-		validators: [],
-		uiOptions: {
-			summaryTitle: 'Current Insurance Company'
-		}
-	},
-	{
-		key: 'noClaimsBonusYears',
-		label: 'How many years no claims bonus do you have?',
-		type: 'slider',
-		trigger: {
-			key1: 'insuredInYourOwnName',
-			key2: 'insuredNamedDriver',
-			name: 'showDualKey',
+		{
+			key: 'insuranceCompany',
+			label: 'Which is your current insurance company?',
+			type: 'dropdown',
+			trigger: {
+				key1: 'insuredInYourOwnName',
+				key2: 'insuredNamedDriver',
+				name: 'showDualKey',
+				isObject: true
+			},
+			options: [{ id: 'ARB Underwriting Ltd', description: 'ARB Underwriting Ltd' },
+			{ id: 'AXA Broker', description: 'AXA Broker' },
+			{ id: 'AXA Direct', description: 'AXA Direct' },
+			{ id: 'AXA Insurance', description: 'AXA Insurance' },
+			{ id: 'Allianz', description: 'Allianz' },
+			{ id: 'Asgard', description: 'Asgard' },
+			{ id: 'Aviva', description: 'Aviva' },
+			{ id: 'Chartis Insurance', description: 'Chartis Insurance' },
+			{ id: 'Chubb Insurance', description: 'Chubb Insurance' },
+			{ id: 'Cigna Insurance of Europe', description: 'Cigna Insurance of Europe' },
+			{ id: 'Cornhill', description: 'Cornhill' },
+			{ id: 'Ecclesiastical Insurance Office Plc', description: 'Ecclesiastical Insurance Office Plc' },
+			{ id: 'Europa General', description: 'Europa General' },
+			{ id: 'FBD Insurance', description: 'FBD Insurance' },
+			{ id: 'FC Rebroked AXA Broker', description: 'FC Rebroked AXA Broker' },
+			{ id: 'First Call Direct', description: 'First Call Direct' },
+			{ id: 'Generali Insurance', description: 'Generali Insurance' },
+			{ id: 'Kennco Underwriting Ltd', description: 'Kennco Underwriting Ltd' },
+			{ id: 'Liberty Underwriting', description: 'Liberty Underwriting' },
+			{ id: 'One Direct', description: 'One Direct' },
+			{ id: 'Prestige Underwriting Services', description: 'Prestige Underwriting Services' },
+			{ id: 'Provident Insurance', description: 'Provident Insurance' },
+			{ id: 'Quinn Direct', description: 'Quinn Direct' },
+			{ id: 'RSA Insurance Ireland', description: 'RSA Insurance Ireland' },
+			{ id: 'Sertus Underwriting', description: 'Sertus Underwriting' },
+			{ id: 'Setanta Insurance', description: 'Setanta Insurance' },
+			{ id: 'Torch', description: 'Torch' },
+			{ id: 'Travelers Insurance', description: 'Travelers Insurance' },
+			{ id: 'Unlisted Insurer - Ireland', description: 'Unlisted Insurer - Ireland' },
+			{ id: 'Unlisted Insurer - Not Ireland', description: 'Unlisted Insurer - Not Ireland' },
+			{ id: 'Wright Way Underwriting', description: 'Wright Way Underwriting' },
+			{ id: 'XS Direct', description: 'XS Direct' },
+			{ id: 'Zurich', description: 'Zurich' }],
+			required: true,
+			order: 2,
+			validators: [],
+			uiOptions: {
+				summaryTitle: 'Current Insurance Company'
+			}
 		},
-		required: true,
-		order: 3,
-		value: 1,
-		min: 0,
-		max: 9,
-		uiOptions: {
-			summaryTitle: 'Amount of Years No Claims Bonus'
-		}
-	},
-	{
-		key: 'whereNoClaimsBonus',
-		label: 'Where did you earn your no claims bonus',
-		type: 'autocomplete',
-		helpId: 1001,
-		autoCompleteType: 'options', // search || all || options
-		trigger: {
-			key1: 'insuredInYourOwnName',
-			key2: 'insuredNamedDriver',
-			name: 'showDualKey',
+		{
+			key: 'noClaimsBonusYears',
+			label: 'How many years no claims bonus do you have?',
+			type: 'slider',
+			trigger: {
+				key1: 'insuredInYourOwnName',
+				key2: 'insuredNamedDriver',
+				name: 'showDualKey',
+				isObject: true
+			},
+			required: true,
+			order: 3,
+			value: 1,
+			min: 0,
+			max: 9,
+			uiOptions: {
+				summaryTitle: 'Amount of Years No Claims Bonus'
+			}
 		},
-		options: [{
-			id: 'Dublin',
-			description: 'Dublin'
-		}, {
-			id: 'Cork',
-			description: 'cork'
-		}],
-		required: true,
-		disabled: false,
-		order: 4,
-		validators: [],
-		uiOptions: {
-			summaryTitle: 'Location no claims bonus was earned'
-		}
-	},
-	{
-		key: 'policyExpiryDate',
-		label: 'When does your policy expire?',
-		type: 'date',
-		helpId: 1001,
-		trigger: {
-			key1: 'insuredInYourOwnName',
-			key2: 'insuredNamedDriver',
-			name: 'showDualKey',
+		{
+			key: 'whereNoClaimsBonus',
+			label: 'Where did you earn your no claims bonus',
+			type: 'autocomplete',
+			helpId: 1001,
+			autoCompleteType: 'options', // search || all || options
+			trigger: {
+				key1: 'insuredInYourOwnName',
+				key2: 'insuredNamedDriver',
+				name: 'showDualKey',
+				isObject: true
+			},
+			options: [{
+				id: 'Dublin',
+				description: 'Dublin'
+			}, {
+				id: 'Cork',
+				description: 'cork'
+			}],
+			required: true,
+			disabled: false,
+			order: 4,
+			validators: [],
+			uiOptions: {
+				summaryTitle: 'Location no claims bonus was earned'
+			}
 		},
-		required: true,
-		disabled: false,
-		order: 5,
-		validators: ['validDateValidate'],
-		uiOptions: {
-			summaryTitle: 'Policy Expiration Date'
-		}
-	},
-	{
-		key: 'startPolicySameDate',
-		label: 'Start the new policy from the same date?',
-		type: 'radio',
-		order: 6,
-		trigger: {
-			key1: 'insuredInYourOwnName',
-			key2: 'insuredNamedDriver',
-			name: 'showDualKey',
+		{
+			key: 'policyExpiryDate',
+			label: 'When does your policy expire?',
+			type: 'date',
+			helpId: 1001,
+			trigger: {
+				key1: 'insuredInYourOwnName',
+				key2: 'insuredNamedDriver',
+				name: 'showDualKey',
+				isObject: true
+			},
+			required: true,
+			disabled: false,
+			order: 5,
+			validators: ['validDateValidate'],
+			uiOptions: {
+				summaryTitle: 'Policy Expiration Date'
+			}
 		},
-		options: [{
-			id: true,
-			description: 'Yes'
-		}, {
-			id: false,
-			description: 'No'
-		}],
-		required: true,
-		uiOptions: {
-			summaryTitle: 'Policy Start Date'
-		}
-	},
-	{
-		key: 'policyStartDate',
-		label: 'What date do you want to start your policy from?',
-		type: 'date',
-		order: 7,
-		trigger: {
+		{
 			key: 'startPolicySameDate',
-			name: 'showIfKeyEquals',
-			equals: false
+			label: 'Start the new policy from the same date?',
+			type: 'radio',
+			order: 6,
+			trigger: {
+				key1: 'insuredInYourOwnName',
+				key2: 'insuredNamedDriver',
+				name: 'showDualKey',
+				isObject: true
+			},
+			options: [{
+				id: true,
+				description: 'Yes'
+			}, {
+				id: false,
+				description: 'No'
+			}],
+			required: true,
+			uiOptions: {
+				summaryTitle: 'Policy Start Date'
+			}
 		},
-		required: true,
+		{
+			key: 'policyStartDate',
+			label: 'What date do you want to start your policy from?',
+			type: 'date',
+			order: 7,
+			trigger: {
+				key: 'startPolicySameDate',
+				name: 'showIfKeyEquals',
+				equals: false
+			},
+			required: true,
 
-	},
-	{
+		}]
+	},{
 		key: 'levelOfCover',
 		label: 'What level of cover do you need?',
 		type: 'radio',
@@ -1256,17 +1270,17 @@ export const CONFIG = {
 
 		}
 	},
-		{
-			id: 'price-presentation',
-			title: 'Get Quote',
-			pages: PRICE_PAGES,
-			isComplete: false,
-			uiOptions: {
-				isWide: true,
-				isTitleHidden: true,
-				isPagesHidden: true
-			}
-		},
+	{
+		id: 'price-presentation',
+		title: 'Get Quote',
+		pages: PRICE_PAGES,
+		isComplete: false,
+		uiOptions: {
+			isWide: true,
+			isTitleHidden: true,
+			isPagesHidden: true
+		}
+	},
 		//{
 		// 	id: 'summary',
 		// 	title: 'Summary',
