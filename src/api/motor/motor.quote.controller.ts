@@ -47,6 +47,7 @@ const AAValue = {
 	name: 'AA Value',
 	id: 'AAVALUE',
 	benefits: BENEFITS,
+	tagline: 'Your Essential Cover',
 	img: 'product-aavalue.svg',
 	breakdowns: BREAKDOWN_ITEMS,
 	premium: {
@@ -76,6 +77,7 @@ const AAMotor = {
 	name: 'AA Motor',
 	id: 'AAMOTOR',
 	preferred: true,
+	tagline: 'Our Premium Product',
 	benefits: BENEFITS_STANDARD,
 	img: 'product-aastandard.svg',
 	breakdowns: BREAKDOWN_ITEMS,
@@ -106,7 +108,7 @@ const quote = {
 	reference: '56565656',
 	products: [AAMotor, AAValue],
 	paymentFrequency: 'monthly',
-	activeProduct: null
+	activeProduct: 'AAMOTOR'
 }
 
 export default class MotorQuote {

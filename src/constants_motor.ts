@@ -474,9 +474,10 @@ export const QUESTIONS = {
 		type: 'slider',
 		required: true,
 		order: 1,
-		value: 1,
-		min: 0,
-		max: 9,
+		value: '0',
+		// min: 0,
+		// max: 9,
+		values: ['0','1','2','3','4','5','6','7','8','9+'],
 		uiOptions: {
 			summaryTitle: 'Amount of years you held your licence'
 		}
