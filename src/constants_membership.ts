@@ -755,7 +755,7 @@ export const configWithQuotation = {
             updateDetails: true,
             offer: {
                 'accepted': null, // null/true/false
-				'description': '(Firstname), this year we have a special offer for you',
+				'description': '(Firstname), your Membership renewal is €45.50',
                 'price': createPrice(825),
                 'originalPrice': createPrice(1525),
 				'discounts': [{

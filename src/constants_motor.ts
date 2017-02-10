@@ -411,7 +411,7 @@ export const QUESTIONS = {
 			required: true,
 
 		}]
-	},{
+	}, {
 		key: 'levelOfCover',
 		label: 'What level of cover do you need?',
 		type: 'radio',
@@ -477,7 +477,7 @@ export const QUESTIONS = {
 		value: '0',
 		// min: 0,
 		// max: 9,
-		values: ['0','1','2','3','4','5','6','7','8','9+'],
+		values: ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9+'],
 		uiOptions: {
 			summaryTitle: 'Amount of years you held your licence'
 		}
@@ -979,6 +979,76 @@ export const QUESTIONS = {
 			order: 10,
 			validators: []
 		}],
+	additionalQuestions: [
+		{
+			key: 'driverLicenceNumber',
+			label: 'What’s your driver licence number?',
+			type: 'text',
+			required: false,
+			disabled: false,
+			validators: []
+		},
+		{
+			key: 'previousPolicyNumber',
+			label: 'What’s your previous policy number?',
+			type: 'text',
+			required: false,
+			disabled: false,
+			validators: []
+		},
+	],
+
+	tokenisation: [
+		{
+			key: 'areYouCardholder',
+			label: 'Are you the Cardholder?',
+			type: 'radio',
+			options: [{
+				id: true,
+				description: 'Yes'
+			}, {
+				id: false,
+				description: 'No'
+			}],
+			required: true,
+			value: 'Yes',
+			order: 2,
+			validators: []
+		},
+		{
+			key: 'saveCardFutureTransactions',
+			label: 'Would you like us to save this card securely to us for future transactions?',
+			type: 'radio',
+			options: [{
+				id: true,
+				description: 'Yes'
+			}, {
+				id: false,
+				description: 'No'
+			}],
+			required: true,
+			value: 'Yes',
+			order: 2,
+			validators: []
+		},
+		{
+			key: 'saveCardAllAAProducts',
+			label: 'Would you like to save this card use on all AA Products?',
+			type: 'radio',
+			options: [{
+				id: true,
+				description: 'Yes'
+			}, {
+				id: false,
+				description: 'No'
+			}],
+			required: true,
+			value: 'Yes',
+			order: 2,
+			validators: []
+		}
+
+	]
 
 }
 
@@ -1224,6 +1294,7 @@ const PRICE_PAGES = [{
 },
 {
 	id: 'are-you-a-member',
+	title: 'Are you a Member?',
 	uiOptions: {
 		prevPage: 'choose-your-product',
 		nextPage: 'choose-your-payment',
@@ -1235,7 +1306,7 @@ const PRICE_PAGES = [{
 	id: 'choose-your-payment',
 	uiOptions: {
 		prevPage: 'are-you-a-member',
-		nextPage: 'summary',
+		nextPage: 'additional-questions',
 		isVisible: true,
 		isTitleHidden: true,
 	},
@@ -1253,7 +1324,7 @@ const SUMMARY_PAGES = [{
 
 
 const TERMS_AND_CONDITIONS_PAGES = [{
-	id: 'termsConditions',
+	id: 'terms',
 	uiOptions: {
 		prevPage: 'choose-your-payment',
 		isVisible: true,
@@ -1261,6 +1332,71 @@ const TERMS_AND_CONDITIONS_PAGES = [{
 	},
 }]
 
+const PAYMENT_PAGES = [
+	{
+		id: 'additional-questions',
+		title: 'Additional Questions',
+		uiOptions: {
+			nextPage: 'terms-and-conditions',
+			prevPage: 'choose-your-payment',
+			isVisible: true,
+			isTitleHidden: true,
+		},
+		sections: [{
+			id: 'additional-questions',
+			type: 'default',
+			fields: QUESTIONS.additionalQuestions
+		}]
+
+	},
+	{
+		id: 'terms-and-conditions',
+		title: 'Terms and Conditions',
+		uiOptions: {
+			prevPage: 'additional-question',
+			nextPage: 'tokenisation',
+			isVisible: true,
+			isTitleHidden: true,
+		},
+	},
+	{
+		id: 'tokenisation',
+		title: 'Tokenisation',
+		uiOptions: {
+			prevPage: 'terms-and-conditions',
+			nextPage: 'payment',
+			isVisible: true,
+			isTitleHidden: true,
+		},
+		sections: [{
+			id: 'tokenisation',
+			type: 'default',
+			fields: QUESTIONS.tokenisation
+		}]
+	},
+	{
+		id: 'payment',
+		title: 'Payment',
+		uiOptions: {
+			prevPage: 'tokenisation',
+			nextPage: 'confirmation',
+			isVisible: true,
+			isTitleHidden: true,
+		}
+	}]
+
+
+const CONFIRMATION_PAGE = [
+	{
+		id: 'confirmation',
+		title: 'Confirmation',
+		uiOptions: {
+			prevPage: 'payment',
+			isVisible: true,
+			isTitleHidden: true,
+		}
+	}
+]
 export const CONFIG = {
 	stages: [{
 		id: 'quotation',
@@ -1279,6 +1415,31 @@ export const CONFIG = {
 		uiOptions: {
 			isWide: true,
 			isTitleHidden: true,
+			isPagesHidden: true
+		}
+	},
+	{
+		id: 'payments',
+		title: 'Payment',
+		pages: PAYMENT_PAGES,
+		isComplete: false,
+		uiOptions: {
+			isWide: true,
+			isTitleHidden: true,
+			isPagesHidden: true
+		}
+	},
+	{
+		id: 'confirmation',
+		title: 'Confirmation',
+		pages: CONFIRMATION_PAGE,
+		isComplete: false,
+		uiOptions: {
+			isWide: true,
+			isTitleHidden: true,
+			isProgressHidden: true,
+			isHelpCenterHidden: true,
+			isHeaderExtended: true,
 			isPagesHidden: true
 		}
 	},
