@@ -2,7 +2,7 @@ export const QUESTIONS = {
 
 	pre: [{
 		key: 'email',
-		label: 'What is your email?',
+		label: 'What is your Email Address?',
 		type: 'email',
 		required: true,
 		order: 0,
@@ -11,7 +11,7 @@ export const QUESTIONS = {
 		}
 	}, {
 		key: 'amountOfDrivers',
-		label: 'How many drivers?',
+		label: 'How many drivers will there be on your policy including yourself?',
 		type: 'counter',
 		required: true,
 		// disabled: true,
@@ -98,7 +98,7 @@ export const QUESTIONS = {
 		}
 	}, {
 		key: 'phoneNumber',
-		label: 'Phone Number',
+		label: 'Contact Number',
 		type: 'tel',
 		required: true,
 		disabled: false,
@@ -127,7 +127,7 @@ export const QUESTIONS = {
 		}
 	}, {
 		key: 'occupation',
-		label: 'Occupation',
+		label: 'What is your Occupation?',
 		type: 'autocomplete',
 		placeholder: 'Select an Occupation',
 		serviceUrl: 'motor/occupation/',
@@ -159,7 +159,7 @@ export const QUESTIONS = {
 		}
 	}, {
 		key: 'livedOutsideIreland',
-		label: 'Have you lived outside the Republic of Ireland or the UK in the last 12 months?',
+		label: 'Have you lived outside of Ireland or the UK in the past 12 months?',
 		type: 'radio',
 		options: [{
 			id: 'Yes',
@@ -184,7 +184,7 @@ export const QUESTIONS = {
 		isComplete: false,
 		fields: [{
 			key: 'insuredInYourOwnName',
-			label: 'Have you been insured previously in your own name in the last two years?',
+			label: 'Have you been insured in your own name within the last two years?',
 			type: 'radio',
 			order: 0,
 			helpId: 1001,
@@ -217,6 +217,21 @@ export const QUESTIONS = {
 				id: false,
 				description: 'No'
 			}],
+			required: true,
+			uiOptions: {
+				summaryTitle: 'Named Driver'
+			}
+		},
+		{
+			key: 'insuredOwnNameNoClaimsBonus',
+			label: 'How many years no claims discount have you earned in your own name?',
+			type: 'number',
+			order: 0,
+			trigger: {
+				key: 'insuredInYourOwnName',
+				name: 'showBasedOnKey',
+				isObject: true
+			},
 			required: true,
 			uiOptions: {
 				summaryTitle: 'Named Driver'
@@ -311,8 +326,67 @@ export const QUESTIONS = {
 			}
 		},
 		{
+			key: 'namedDrivingExperienceYears',
+			label: 'How many years named driving experience do you have?',
+			type: 'slider',
+			trigger: {
+				key: 'insuredNamedDriver',
+				name: 'showBasedOnKey',
+				isObject: true
+			},
+			required: true,
+			order: 3,
+			value: 1,
+			min: 0,
+			max: 9,
+			uiOptions: {
+				summaryTitle: 'Amount of Years No Claims Bonus'
+			}
+		},
+		{
+			key: 'countryNamedDrivingExperience',
+			label: 'In what country did you earn your named driving experience?',
+			type: 'autocomplete',
+			serviceUrl: 'motor/occupation/',
+			trigger: {
+				key: 'insuredNamedDriver',
+				name: 'showBasedOnKey',
+				isObject: true
+			},
+			autoCompleteType: 'options', // search || all || options
+			options: [{
+				id: 'Dublin',
+				description: 'Dublin'
+			}, {
+				id: 'Cork',
+				description: 'cork'
+			}],
+			required: true,
+			disabled: false,
+			order: 2,
+			validators: [],
+			uiOptions: {
+				summaryTitle: 'Where did you earn your licence'
+			},
+		},
+		{
+			key: 'namedDrivingExperienceExpire',
+			label: 'When does this named driving experience expire?',
+			type: 'date',
+			trigger: {
+				key: 'insuredNamedDriver',
+				name: 'showBasedOnKey',
+				isObject: true
+			},
+			required: true,
+			order: 3,
+			uiOptions: {
+				summaryTitle: 'Amount of Years No Claims Bonus'
+			}
+		},
+		{
 			key: 'noClaimsBonusYears',
-			label: 'How many years no claims bonus do you have?',
+			label: 'How many years no claims discount do you have?',
 			type: 'slider',
 			trigger: {
 				key1: 'insuredInYourOwnName',
@@ -377,7 +451,7 @@ export const QUESTIONS = {
 		},
 		{
 			key: 'startPolicySameDate',
-			label: 'Start the new policy from the same date?',
+			label: 'Would you like to start your policy from the same date?',
 			type: 'radio',
 			order: 6,
 			trigger: {
@@ -400,7 +474,7 @@ export const QUESTIONS = {
 		},
 		{
 			key: 'policyStartDate',
-			label: 'What date do you want to start your policy from?',
+			label: 'What date would you like to start your policy from??',
 			type: 'date',
 			order: 7,
 			trigger: {
@@ -455,7 +529,7 @@ export const QUESTIONS = {
 
 	licence: [{
 		key: 'typeOfLicence',
-		label: 'What licence do you hold?',
+		label: 'What type of licence do you hold?',
 		type: 'dropdown',
 		options: [{ id: 'Full Irish Licence', description: 'Full Irish Licence' },
 		{ id: 'Irish Learners Permit', description: 'Irish Learners Permit' },
@@ -483,7 +557,7 @@ export const QUESTIONS = {
 		}
 	}, {
 		key: 'whereEarnLicence',
-		label: 'Where did you earn your licence',
+		label: 'Where did you earn your licence?',
 		type: 'autocomplete',
 		serviceUrl: 'motor/occupation/',
 		autoCompleteType: 'options', // search || all || options
@@ -506,7 +580,7 @@ export const QUESTIONS = {
 
 	defaultClaimQuestion: [{
 		key: 'customerClaims',
-		label: 'Have you had any claims in the past 3 years?',
+		label: 'Have you had any accident or claim (regardless of blame) excluding one windscreen claim in the last 5 years?',
 		type: 'radio',
 		options: [{
 			id: 'Yes',
@@ -545,7 +619,7 @@ export const QUESTIONS = {
 	},
 	{
 		key: 'area',
-		label: 'Town',
+		label: 'Area',
 		type: 'autocomplete',
 		serviceUrl: 'motor/reference/town/',
 		autoCompleteType: 'search', // search || all || options
@@ -580,7 +654,7 @@ export const QUESTIONS = {
 
 	claims: [{
 		key: 'dateOfClaim',
-		label: 'When was the claim?',
+		label: 'Date of claim',
 		type: 'date',
 		required: true,
 		disabled: false,
@@ -611,7 +685,38 @@ export const QUESTIONS = {
 		uiOptions: {
 			summaryTitle: 'Reason for Claim'
 		}
-	}, {
+	},
+	{
+		key: 'isClaimSettled',
+		label: 'Is the claim settled?',
+		type: 'radio',
+		options: [
+			{ id: true, description: 'Yes', },
+			{ id: false, description: 'No' },
+		],
+		required: true,
+		order: 0,
+		validators: [],
+		uiOptions: {
+			summaryTitle: 'Reason for Claim'
+		}
+	},
+	{
+		key: 'thirdPartyInjuries',
+		label: 'Were there any third party injuries?',
+		type: 'radio',
+		options: [
+			{ id: true, description: 'Yes', },
+			{ id: false, description: 'No' },
+		],
+		required: true,
+		order: 0,
+		validators: [],
+		uiOptions: {
+			summaryTitle: 'Reason for Claim'
+		}
+	},
+	{
 		key: 'costOfClaim',
 		label: 'Cost of claim',
 		type: 'currency',
@@ -740,7 +845,7 @@ export const QUESTIONS = {
 	}],
 	penalties: [{
 		key: 'dateOfPenalty',
-		label: 'When was it?',
+		label: 'Date of Penalty',
 		type: 'date',
 		required: true,
 		disabled: false,
@@ -849,7 +954,7 @@ export const QUESTIONS = {
 				},
 				{
 					key: 'engineSize',
-					label: 'Engine Size?',
+					label: 'Engine Size',
 					type: 'dropdown',
 					options: [
 						{ id: '0cc - 1499cc', description: '0cc - 1499cc' },
@@ -923,7 +1028,7 @@ export const QUESTIONS = {
 			type: 'group',
 			alignment: 'half',
 			timeline: true,
-			label: 'What secturity features does your car have?',
+			label: 'What security features are fitted to your vehicle?',
 			order: 8,
 			isComplete: false,
 			fields: [{
@@ -946,14 +1051,7 @@ export const QUESTIONS = {
 				type: 'checkbox',
 				timeline: false,
 				required: false
-			},
-			{
-				key: 'security-other',
-				name: 'Other',
-				type: 'checkbox',
-				timeline: false,
-				required: false
-			},
+			}
 			]
 		},
 
@@ -982,7 +1080,7 @@ export const QUESTIONS = {
 	additionalQuestions: [
 		{
 			key: 'driverLicenceNumber',
-			label: 'What’s your driver licence number?',
+			label: 'What is your Drivers Licence number?',
 			type: 'text',
 			required: false,
 			disabled: false,
@@ -990,7 +1088,7 @@ export const QUESTIONS = {
 		},
 		{
 			key: 'previousPolicyNumber',
-			label: 'What’s your previous policy number?',
+			label: 'What was your previous policy number?',
 			type: 'text',
 			required: false,
 			disabled: false,
