@@ -6,6 +6,7 @@ export const QUESTIONS = {
 		type: 'email',
 		required: true,
 		order: 0,
+		validators: ['validEmailValidate'],
 		uiOptions: {
 			summaryTitle: 'Email'
 		}
@@ -1536,6 +1537,7 @@ export const CONFIG = {
 			isWide: true,
 			isTitleHidden: true,
 			isProgressHidden: true,
+			isSummaryHidden: true,
 			isHelpCenterHidden: true,
 			isHeaderExtended: true,
 			isPagesHidden: true

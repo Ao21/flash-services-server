@@ -50,7 +50,6 @@ export default class Motor {
 	}
 
 	updatePage(req: express.Request, res: express.Response) {
-		console.log(req.body);
 		res.send(200);
 	}	
 
