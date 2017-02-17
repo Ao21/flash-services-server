@@ -753,6 +753,7 @@ export const configWithQuotation = {
         "reference": "BRER17000001",
         "renewalOptions": {
             updateDetails: true,
+            updateFamily: true,
             offer: {
                 'accepted': null, // null/true/false
 				'description': '(Firstname), your Membership renewal is €45.50',
