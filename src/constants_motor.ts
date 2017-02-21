@@ -918,9 +918,9 @@ export const QUESTIONS = {
 		order: 0,
 	}],
 
-	carQuestions: [
+	secondCarQuestion: [
 		{
-			key: 'primaryCarInformation',
+			key: 'carInformation',
 			type: 'group',
 			alignment: 'none',
 			timeline: false,
@@ -942,7 +942,7 @@ export const QUESTIONS = {
 					type: 'autocomplete',
 					serviceUrl: 'motor/reference/car/make/',
 					autoCompleteType: 'linked', // search || all || options || linked
-					link: 'primaryCarInformation',
+					link: 'carInformation',
 					required: true,
 					disabled: false,
 					trigger: {
@@ -984,7 +984,88 @@ export const QUESTIONS = {
 					type: 'autocomplete',
 					serviceUrl: 'motor/reference/car/model/',
 					autoCompleteType: 'linked', // search || all || options || linked
-					link: 'primaryCarInformation',
+					link: 'carInformation',
+					required: true,
+					disabled: false,
+					trigger: {
+						name: 'disabledBasedOnKey',
+						expectedType: 'object',
+						key: 'carMake'
+					},
+					order: 2,
+					validators: []
+				}
+			]
+		},
+	],
+
+	carQuestions: [
+		{
+			key: 'carInformation',
+			type: 'group',
+			alignment: 'none',
+			timeline: false,
+			order: 0,
+			isComplete: false,
+			fields: [
+				{
+					key: 'dateOfRegistration',
+					label: 'Date of Registration',
+					type: 'date',
+					required: true,
+					disabled: false,
+					order: 0,
+					validators: []
+				},
+				{
+					key: 'carMake',
+					label: 'Car Make',
+					type: 'autocomplete',
+					serviceUrl: 'motor/reference/car/make/',
+					autoCompleteType: 'linked', // search || all || options || linked
+					link: 'carInformation',
+					required: true,
+					disabled: false,
+					trigger: {
+						name: 'disabledBasedOnKey',
+						expectedType: 'string',
+						key: 'dateOfRegistration'
+					},
+					order: 1,
+					validators: []
+				},
+				{
+					key: 'engineSize',
+					label: 'Engine Size',
+					type: 'dropdown',
+					options: [
+						{ id: '0cc - 1499cc', description: '0cc - 1499cc' },
+						{ id: '1500cc - 1999cc', description: '1500cc - 1999cc' },
+						{ id: '2000cc - 2499cc', description: '2000cc - 2499cc' },
+						{ id: '2500cc - 2999cc', description: '2500cc - 2999cc' },
+						{ id: '3000cc - 3449cc', description: '3000cc - 3449cc' },
+						{ id: '3500cc - 3999cc', description: '3500cc - 3999cc' },
+						{ id: '4000cc - 4449cc', description: '4000cc - 4449cc' },
+						{ id: '4500cc - 4999cc', description: '4500cc - 4999cc' },
+						{ id: '4500cc - 4999c', description: '4500cc - 4999cc' }
+					],
+					required: true,
+					trigger: {
+						name: 'disabledBasedOnKey',
+						expectedType: 'object',
+						key: 'carModel'
+					},
+					order: 3,
+					validators: []
+				},
+
+				{
+					key: 'carModel',
+					label: 'Car Model',
+					type: 'autocomplete',
+					serviceUrl: 'motor/reference/car/model/',
+					autoCompleteType: 'linked', // search || all || options || linked
+					link: 'carInformation',
 					required: true,
 					disabled: false,
 					trigger: {
@@ -1225,6 +1306,11 @@ export const PAGES = [{
 		type: 'car',
 		title: 'Primary Driver',
 		fields: QUESTIONS.carQuestions
+	},
+	{
+		id: 'car-secondary',
+		type: 'car',
+		fields: QUESTIONS.secondCarQuestion
 	}]
 
 },

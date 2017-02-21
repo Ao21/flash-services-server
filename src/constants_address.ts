@@ -14,34 +14,23 @@ export const COUNTIES = [{
     id: 'cork'
 }]
 
-export const GEOCODE = {
-    "addressLine1": "14 Harcourt St",
-    "addressLine2": "",
-	"county": {
-		description: "Dublin 3",
-		id: "Dublin 3"
-	},
-	"area": {
-		description: 'Dublin City',
-		id: 'Dublin City'
-	},
-    "lookups": [{
-        "id": 0,
-        "address": "14 Harcourt Street,Dublin 2"
-    }, {
-        "id": 1,
-        "address": "Apartment 1,14 Harcourt Street,Dublin 2"
-    }, {
-        "id": 2,
-        "address": "Apartment 2,14 Harcourt Street,Dublin 2"
-    }, {
-        "id": 3,
-        "address": "Flat 14,38 Harcourt Street,Dublin 2,County Dublin"
-    }, {
-        "id": 4,
-        "address": "14 Harcourt Street,Dublin 2"
-    }]
-};
+export const GEOCODE = [{
+    "id": 0,
+    "address": "14 Harcourt Street,Dublin 2"
+}, {
+    "id": 1,
+    "address": "Apartment 1,14 Harcourt Street,Dublin 2"
+}, {
+    "id": 2,
+    "address": "Apartment 2,14 Harcourt Street,Dublin 2"
+}, {
+    "id": 3,
+    "address": "Flat 14,38 Harcourt Street,Dublin 2,County Dublin"
+}, {
+    "id": 4,
+    "address": "14 Harcourt Street,Dublin 2"
+}];
+
 
 export const GEOCODE_SELECTED = {
     "addressLine1": "14 Harcourt Street",

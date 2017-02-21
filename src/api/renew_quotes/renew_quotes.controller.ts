@@ -79,6 +79,7 @@ export default class RenewQuotes {
 	}
 	public addMember = (req: express.Request, res: express.Response) => {
 		console.log(req.body);
+		this.quote.quotation.renewalOptions.updateFamily = false;
 		let breakdownIndex = _.findIndex(this.quote.quotation.breakdown, (e: any) => {
 			return e.index === Number(req.params.memberId)
 		})
