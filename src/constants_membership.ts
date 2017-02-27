@@ -737,6 +737,7 @@ export const configWithQuotation = {
                 "dateOfBirth": "29/12/1987",
                 "price": createPrice(425),
                 "typeDisplay": "Adult",
+                placeholder: false,
                 "type": "adults",
                 "index": 1
             },

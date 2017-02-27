@@ -611,7 +611,7 @@ export const QUESTIONS = {
 		key: 'addressLine2',
 		label: 'Address Line 2',
 		type: 'text',
-		required: true,
+		required: false,
 		order: 0,
 		validators: [],
 		uiOptions: {
@@ -1470,6 +1470,7 @@ const TEST_PAGES = [{
 
 const PRICE_PAGES = [{
 	id: 'choose-your-product',
+	title: 'Choose the best product for you',
 	uiOptions: {
 		prevPage: 'your-penalties',
 		nextPage: 'are-you-a-member',
@@ -1578,6 +1579,8 @@ const CONFIRMATION_PAGE = [
 		uiOptions: {
 			prevPage: 'payment',
 			isVisible: true,
+			isSummaryHidden: true,
+			isTimelineHidden: true,
 			isTitleHidden: true,
 		}
 	}
