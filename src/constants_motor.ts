@@ -1151,11 +1151,15 @@ export const QUESTIONS = {
 		{
 			key: 'carKeptOvernight',
 			label: 'Where is you car kept overnight?',
-			type: 'autocomplete',
-			serviceUrl: 'motor/reference/county/',
-			autoCompleteType: 'search', // search || all || options || linked
+			type: 'dropdown',
+			options: [
+				{ id: 'carport', description: 'Carport' },
+				{ id: 'garaged', description: 'Garaged' },
+				{ id: 'keptPrivate', description: 'Kept on Private Property' },
+				{ id: 'keptPublic', description: 'Kept on Public Property' },
+				{ id: 'parkedInDrive', description: 'Parked on Drive' },
+			],
 			required: true,
-			disabled: false,
 			order: 10,
 			validators: []
 		}],
@@ -1238,7 +1242,6 @@ export const PAGES = [{
 	order: 0,
 	uiOptions: {
 		nextPage: 'your-details',
-		isVisible: true,
 	},
 	sections: [{
 		id: 'pre-default',
@@ -1252,7 +1255,6 @@ export const PAGES = [{
 	uiOptions: {
 		nextPage: 'your-address',
 		prevPage: 'getting-started',
-		isVisible: true,
 	},
 	templates: {
 		additionalDriver: {
@@ -1277,7 +1279,6 @@ export const PAGES = [{
 	uiOptions: {
 		nextPage: 'your-car',
 		prevPage: 'your-details',
-		isVisible: true,
 	},
 	sections: [{
 		id: 'address-default',
@@ -1299,7 +1300,6 @@ export const PAGES = [{
 	uiOptions: {
 		nextPage: 'your-licence',
 		prevPage: 'your-address',
-		isVisible: true,
 	},
 	sections: [{
 		id: 'car-default',
@@ -1323,7 +1323,6 @@ export const PAGES = [{
 	uiOptions: {
 		nextPage: 'your-cover',
 		prevPage: 'your-car',
-		isVisible: true,
 	},
 	templates: {
 		additionalDriver: {
@@ -1349,7 +1348,6 @@ export const PAGES = [{
 	uiOptions: {
 		nextPage: 'your-claims',
 		prevPage: 'your-licence',
-		isVisible: true,
 	},
 	sections: [{
 		id: 'cover-default',
@@ -1370,7 +1368,6 @@ export const PAGES = [{
 	uiOptions: {
 		nextPage: 'your-penalties',
 		prevPage: 'your-cover',
-		isVisible: true,
 	},
 	templates: {
 		// Group Question
@@ -1402,7 +1399,6 @@ export const PAGES = [{
 	uiOptions: {
 		prevPage: 'your-claims',
 		nextPage: 'choose-your-product',
-		isVisible: true,
 	},
 	templates: {
 		// Group Question
@@ -1436,7 +1432,6 @@ const TEST_PAGES = [{
 	order: 0,
 	uiOptions: {
 		nextPage: 'your-details',
-		isVisible: true,
 	},
 	sections: [{
 		id: 'pre-default',
@@ -1450,7 +1445,6 @@ const TEST_PAGES = [{
 	uiOptions: {
 		nextPage: 'choose-your-product',
 		prevPage: 'getting-started',
-		isVisible: true,
 	},
 	templates: {
 		additionalDriver: {
@@ -1474,8 +1468,6 @@ const PRICE_PAGES = [{
 	uiOptions: {
 		prevPage: 'your-penalties',
 		nextPage: 'are-you-a-member',
-		isTitleHidden: true,
-		isVisible: true,
 	},
 },
 {
@@ -1484,8 +1476,6 @@ const PRICE_PAGES = [{
 	uiOptions: {
 		prevPage: 'choose-your-product',
 		nextPage: 'choose-your-payment',
-		isVisible: true,
-		isTitleHidden: true,
 	},
 },
 {
@@ -1493,8 +1483,6 @@ const PRICE_PAGES = [{
 	uiOptions: {
 		prevPage: 'are-you-a-member',
 		nextPage: 'additional-questions',
-		isVisible: true,
-		isTitleHidden: true,
 	},
 },
 ]
@@ -1503,8 +1491,6 @@ const SUMMARY_PAGES = [{
 	id: 'summary',
 	uiOptions: {
 		prevPage: 'choose-your-payment',
-		isVisible: true,
-		isTitleHidden: true,
 	},
 }]
 
@@ -1513,8 +1499,6 @@ const TERMS_AND_CONDITIONS_PAGES = [{
 	id: 'terms',
 	uiOptions: {
 		prevPage: 'choose-your-payment',
-		isVisible: true,
-		isTitleHidden: true,
 	},
 }]
 
@@ -1525,8 +1509,6 @@ const PAYMENT_PAGES = [
 		uiOptions: {
 			nextPage: 'terms-and-conditions',
 			prevPage: 'choose-your-payment',
-			isVisible: true,
-			isTitleHidden: true,
 		},
 		sections: [{
 			id: 'additional-questions',
@@ -1541,8 +1523,6 @@ const PAYMENT_PAGES = [
 		uiOptions: {
 			prevPage: 'additional-question',
 			nextPage: 'tokenisation',
-			isVisible: true,
-			isTitleHidden: true,
 		},
 	},
 	{
@@ -1551,8 +1531,6 @@ const PAYMENT_PAGES = [
 		uiOptions: {
 			prevPage: 'terms-and-conditions',
 			nextPage: 'payment',
-			isVisible: true,
-			isTitleHidden: true,
 		},
 		sections: [{
 			id: 'tokenisation',
@@ -1566,8 +1544,6 @@ const PAYMENT_PAGES = [
 		uiOptions: {
 			prevPage: 'tokenisation',
 			nextPage: 'confirmation',
-			isVisible: true,
-			isTitleHidden: true,
 		}
 	}]
 
@@ -1578,10 +1554,8 @@ const CONFIRMATION_PAGE = [
 		title: 'Confirmation',
 		uiOptions: {
 			prevPage: 'payment',
-			isVisible: true,
 			isSummaryHidden: true,
 			isTimelineHidden: true,
-			isTitleHidden: true,
 		}
 	}
 ]
@@ -1602,7 +1576,6 @@ export const CONFIG = {
 		isComplete: false,
 		uiOptions: {
 			isWide: true,
-			isTitleHidden: true,
 			isPagesHidden: true
 		}
 	},
@@ -1613,7 +1586,6 @@ export const CONFIG = {
 		isComplete: false,
 		uiOptions: {
 			isWide: true,
-			isTitleHidden: true,
 			isPagesHidden: true
 		}
 	},
@@ -1624,7 +1596,6 @@ export const CONFIG = {
 		isComplete: false,
 		uiOptions: {
 			isWide: true,
-			isTitleHidden: true,
 			isProgressHidden: true,
 			isSummaryHidden: true,
 			isHelpCenterHidden: true,
@@ -1649,7 +1620,6 @@ export const CONFIG = {
 		// 	isComplete: false,
 		// 	uiOptions: {
 		// 		isWide: true,
-		// 		isTitleHidden: true,
 		// 		isPagesHidden: true
 		// 	}
 		// }
