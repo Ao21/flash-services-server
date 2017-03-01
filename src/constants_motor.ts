@@ -8,7 +8,7 @@ export const QUESTIONS = {
 		order: 0,
 		validators: ['validEmailValidate'],
 		uiOptions: {
-			summaryTitle: 'Email'
+			summaryTitle: ''
 		}
 	}, {
 		key: 'amountOfDrivers',
@@ -32,7 +32,10 @@ export const QUESTIONS = {
 		type: 'questionText',
 		order: 2,
 		timeline: false,
-		content: `By providing the requested data, you consent to AA's Data Protection and Privacy Policy and to AA using it for administration and keeping you informed by mail, telephone, email and SMS of other products and services from us. By proceeding, you consent to & confirm that you have read and accepted the AA Data Protection & Privacy Policy and the AA Terms & Conditions`
+		content: `By providing the requested data, you consent to AA's Data Protection and Privacy Policy and to AA using it for administration and keeping you informed by mail, telephone, email and SMS of other products and services from us. By proceeding, you consent to & confirm that you have read and accepted the AA Data Protection & Privacy Policy and the AA Terms & Conditions`,
+		uiOptions: {
+			summaryHidden: true
+		}
 	}],
 
 	details: [{
@@ -224,21 +227,6 @@ export const QUESTIONS = {
 			}
 		},
 		{
-			key: 'insuredOwnNameNoClaimsBonus',
-			label: 'How many years no claims discount have you earned in your own name?',
-			type: 'number',
-			order: 0,
-			trigger: {
-				key: 'insuredInYourOwnName',
-				name: 'showBasedOnKey',
-				isObject: true
-			},
-			required: true,
-			uiOptions: {
-				summaryTitle: 'Named Driver'
-			}
-		},
-		{
 			key: 'insuredNamedDriverOnPolicy',
 			label: 'On whose policy',
 			helpId: 1001,
@@ -387,7 +375,7 @@ export const QUESTIONS = {
 		},
 		{
 			key: 'noClaimsBonusYears',
-			label: 'How many years no claims discount do you have?',
+			label: 'How many years no claims discount have you earned in your own name?',
 			type: 'slider',
 			trigger: {
 				key1: 'insuredInYourOwnName',
@@ -771,7 +759,7 @@ export const QUESTIONS = {
 		disabled: false,
 		value: '01/01/1997',
 		order: 0,
-		validators: ['validDateValidate', 'validLastThreeYearsValidate'],
+		validators: ['validDateValidate', 'validLastFiveYearsValidate'],
 		uiOptions: {
 			summaryTitle: 'Date of Claim'
 		}
@@ -1007,6 +995,9 @@ export const QUESTIONS = {
 			timeline: false,
 			order: 0,
 			isComplete: false,
+			uiOptions: {
+				summaryTitle: 'Car Model'
+			},
 			fields: [
 				{
 					key: 'dateOfRegistration',
@@ -1015,7 +1006,10 @@ export const QUESTIONS = {
 					required: true,
 					disabled: false,
 					order: 0,
-					validators: []
+					validators: [],
+					uiOptions: {
+						summaryTitle: 'Date of Registration'
+					}
 				},
 				{
 					key: 'carMake',
@@ -1032,7 +1026,10 @@ export const QUESTIONS = {
 						key: 'dateOfRegistration'
 					},
 					order: 1,
-					validators: []
+					validators: [],
+					uiOptions: {
+						summaryTitle: 'Make'
+					}
 				},
 				{
 					key: 'engineSize',
@@ -1056,7 +1053,10 @@ export const QUESTIONS = {
 						key: 'carModel'
 					},
 					order: 3,
-					validators: []
+					validators: [],
+					uiOptions: {
+						summaryTitle: 'Make'
+					}
 				},
 
 				{
@@ -1074,7 +1074,10 @@ export const QUESTIONS = {
 						key: 'carMake'
 					},
 					order: 2,
-					validators: []
+					validators: [],
+					uiOptions: {
+						summaryTitle: 'Model'
+					}
 				}
 			]
 		},
@@ -1085,7 +1088,10 @@ export const QUESTIONS = {
 			required: true,
 			disabled: false,
 			order: 5,
-			validators: []
+			validators: [],
+			uiOptions: {
+				summaryTitle: 'Date of Purchase'
+			}
 		},
 		{
 			key: 'currentValue',
@@ -1094,7 +1100,10 @@ export const QUESTIONS = {
 			required: true,
 			disabled: false,
 			order: 6,
-			validators: []
+			validators: [],
+			uiOptions: {
+				summaryTitle: 'Car value '
+			}
 		},
 		{
 			key: 'kilometersPerYear',
@@ -1103,7 +1112,10 @@ export const QUESTIONS = {
 			required: true,
 			disabled: false,
 			order: 7,
-			validators: []
+			validators: [],
+			uiOptions: {
+				summaryTitle: 'Kilometers per year'
+			}
 		},
 		{
 			key: 'securityFeatures',
@@ -1113,26 +1125,38 @@ export const QUESTIONS = {
 			label: 'What security features are fitted to your vehicle?',
 			order: 8,
 			isComplete: false,
+			uiOptions: {
+				summaryTitle: 'Security Features'
+			},
 			fields: [{
 				key: 'security-alarm',
 				name: 'Alarm',
 				type: 'checkbox',
 				timeline: false,
-				required: false
+				required: false,
+				uiOptions: {
+					summaryTitle: 'Security Alarm'
+				}
 			},
 			{
 				key: 'security-immobiliser',
 				name: 'Immobiliser',
 				type: 'checkbox',
 				timeline: false,
-				required: false
+				required: false,
+				uiOptions: {
+					summaryTitle: 'Immobiliser'
+				}
 			},
 			{
 				key: 'security-tracker',
 				name: 'Tracker',
 				type: 'checkbox',
 				timeline: false,
-				required: false
+				required: false,
+				uiOptions: {
+					summaryTitle: 'Tracker'
+				}
 			}
 			]
 		},

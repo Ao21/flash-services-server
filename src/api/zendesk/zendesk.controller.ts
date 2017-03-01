@@ -52,11 +52,7 @@ export default class ZendeskController {
 	}
 
 	getArticleById = (req: express.Request, res: express.Response) => {
-		console.log(req);
-		if (req.params.id === '1001') {
-			return res.send(JSON.stringify(defaultHelp));
-		}
-		res.send(JSON.stringify(_.find(this.articles, (e:any) =>  e.id == req.params.id)));
+		return res.send(JSON.stringify(defaultHelp));
 	}
 	
 	getAllArticles = (req: express.Request, res: express.Response) => { 
