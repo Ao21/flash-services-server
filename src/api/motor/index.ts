@@ -12,7 +12,7 @@ export class MotorRoutes {
 		this.router.get('/motor-ux-api/motor/occupation/all', this.motor.getAllOccupations);
 		this.router.get('/motor-ux-api/motor/occupation/search', this.motor.getOccupation);
 		
-		this.router.post('/motor-ux-api/motor/page/:page', this.quote.sendQuote);
+		this.router.post('/motor-ux-api/motor/page/:page', this.motor.updatePage);
 		this.router.get('/motor-ux-api/motor/quote',this.quote.sendQuote)
 
 		this.router.get('/motor-ux-api/motor/section/:section', this.motor.getSection);

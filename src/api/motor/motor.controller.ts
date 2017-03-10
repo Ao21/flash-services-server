@@ -50,16 +50,16 @@ export default class Motor {
 	}
 
 	updatePage(req: express.Request, res: express.Response) {
-		res.send(200);
-	}	
+		res.status(400).send('There was a problem in the last section');
+	}
 
 	updateSection(req: express.Request, res: express.Response) {
 
 	}
 
-	getConfig(req: express.Request, res: express.Response) { 
+	getConfig(req: express.Request, res: express.Response) {
 		res.send(CONFIG);
-	}	
+	}
 	getAllOccupations(req: express.Request, res: express.Response) {
 		res.send(JSON.stringify(OCCUPATIONS));
 	}
@@ -89,8 +89,8 @@ export default class Motor {
 		let list = this.countiesList.search(req.query.query);
 		res.send(JSON.stringify(list));
 	}
-	
-	putAddress = (req: express.Request, res: express.Response) => { 
+
+	putAddress = (req: express.Request, res: express.Response) => {
 		res.send(JSON.stringify(GEOCODE));
 	}
 
@@ -101,19 +101,34 @@ export default class Motor {
 	/** Car Calls */
 
 	getVehicleRegistration = (req: express.Request, res: express.Response) => {
+		// let response = {
+		// 	dateOfRegistration: '01/01/2015',
+		// 	carMake: {description:'Renault', id:'Renault'},
+		// 	carModel: { description: 'Fiesta', id: 'Fiesta' },
+		// 	engineSize: { id: '1500cc - 1999cc', description: '1500cc - 1999cc' },
+		// 	exactModel: {description:'FIESTA 1.6I 16V ZETEC MANUAL Hatchback 1596cc PETROL', id: 'ford'}
+		// }
 		let response = {
 			dateOfRegistration: '01/01/2015',
-			carMake: {description:'Renault', id:'Renault'},
-			carModel: { description: 'Fiesta', id: 'Fiesta' },
-			engineSize: { id: '1500cc - 1999cc', description: '1500cc - 1999cc' },
-			exactModel: {description:'FIESTA 1.6I 16V ZETEC MANUAL Hatchback 1596cc PETROL', id: 'ford'}
+			"carMake": {
+				"id": "nissan", "description": "NISSAN", 
+			},
+			"carModel": {
+				"id": "almera", "description": "ALMERA FLARE", 
+			},
+			"engineSize": {
+				id: '1500cc - 1999cc', description: '1500cc - 1999cc'
+			},
+			"fuelType": {
+				"id": "0", "description": "Petrol", 
+			}
 		}
 		res.send(JSON.stringify(response));
 	}
 
-	getCarMake = (req: express.Request, res: express.Response) => { 
+	getCarMake = (req: express.Request, res: express.Response) => {
 		let list = this.carList.search(req.query.query);
 		res.send(JSON.stringify(list));
 	}
-	
+
 }

@@ -8,21 +8,21 @@ export const QUESTIONS = {
 		order: 0,
 		validators: ['validEmailValidate'],
 		uiOptions: {
-			summaryTitle: ''
+			summaryTitle: '',
 		}
 	}, {
 		key: 'amountOfDrivers',
 		label: 'How many drivers will there be on your policy including yourself?',
-		type: 'counter',
+		type: 'memberSelector',
 		required: true,
 		// disabled: true,
 		order: 1,
 		value: 1,
 		min: 1,
 		max: 5,
-		trigger: {
-			name: 'additionalDrivers',
-		},
+		// trigger: {
+		// 	name: 'additionalDrivers',
+		// },
 		uiOptions: {
 			summaryTitle: 'Amount of Drivers'
 		}
@@ -34,7 +34,7 @@ export const QUESTIONS = {
 		timeline: false,
 		content: `By providing the requested data, you consent to AA's Data Protection and Privacy Policy and to AA using it for administration and keeping you informed by mail, telephone, email and SMS of other products and services from us. By proceeding, you consent to & confirm that you have read and accepted the AA Data Protection & Privacy Policy and the AA Terms & Conditions`,
 		uiOptions: {
-			summaryHidden: true
+			summaryHidden: true,
 		}
 	}],
 
@@ -69,7 +69,6 @@ export const QUESTIONS = {
 		type: 'text',
 		required: true,
 		helpId: 214205625,
-		placeholder: 'John',
 		// value: 'Ronan',
 		order: 0,
 		uiOptions: {
@@ -78,7 +77,6 @@ export const QUESTIONS = {
 	}, {
 		key: 'lastName',
 		label: 'Last Name',
-		placeholder: 'Snow',
 		type: 'text',
 		helpId: 213679469,
 		required: true,
@@ -378,9 +376,8 @@ export const QUESTIONS = {
 			label: 'How many years no claims discount have you earned in your own name?',
 			type: 'slider',
 			trigger: {
-				key1: 'insuredInYourOwnName',
-				key2: 'insuredNamedDriver',
-				name: 'showDualKey',
+				key: 'insuredInYourOwnName',
+				name: 'showBasedOnKey',
 				isObject: true
 			},
 			required: true,
@@ -399,9 +396,8 @@ export const QUESTIONS = {
 			helpId: 1001,
 			autoCompleteType: 'options', // search || all || options
 			trigger: {
-				key1: 'insuredInYourOwnName',
-				key2: 'insuredNamedDriver',
-				name: 'showDualKey',
+				key: 'insuredInYourOwnName',
+				name: 'showBasedOnKey',
 				isObject: true
 			},
 			options: [{
@@ -463,7 +459,7 @@ export const QUESTIONS = {
 		},
 		{
 			key: 'policyStartDate',
-			label: 'What date would you like to start your policy from??',
+			label: 'What date would you like to start your policy from?',
 			type: 'date',
 			order: 7,
 			trigger: {
@@ -648,7 +644,7 @@ export const QUESTIONS = {
 		required: true,
 		disabled: false,
 		order: 0,
-		validators: ['validDateValidate', 'validLastThreeYearsValidate'],
+		validators: ['validDateValidate', 'validLastFiveYearsValidate'],
 		uiOptions: {
 			summaryTitle: 'Date of Claim'
 		}
@@ -922,7 +918,10 @@ export const QUESTIONS = {
 					required: true,
 					disabled: false,
 					order: 0,
-					validators: []
+					validators: [],
+					uiOptions: {
+						locked: 'day',
+					}
 				},
 				{
 					key: 'carMake',
@@ -1008,7 +1007,8 @@ export const QUESTIONS = {
 					order: 0,
 					validators: [],
 					uiOptions: {
-						summaryTitle: 'Date of Registration'
+						summaryTitle: 'Date of Registration',
+						locked: 'day'
 					}
 				},
 				{
@@ -1082,7 +1082,7 @@ export const QUESTIONS = {
 			]
 		},
 		{
-			key: 'dateOrPurchase',
+			key: 'dateOfPurchase',
 			label: 'Date of Purchase',
 			type: 'date',
 			required: true,
@@ -1162,8 +1162,21 @@ export const QUESTIONS = {
 		},
 
 		{
-			key: 'carMainlyUsed',
-			label: 'Where is your car mainly used?',
+			key: 'carMainlyUsedCounty',
+			label: 'In what county is your usually used?',
+			placeholder: 'Please enter a county',
+			type: 'autocomplete',
+			serviceUrl: 'motor/reference/county/',
+			autoCompleteType: 'search', // search || all || options || linked
+			required: true,
+			disabled: false,
+			order: 9,
+			validators: []
+		},
+		{
+			key: 'carMainlyUsedArea',
+			label: 'In what area is your car usually used',
+			placeholder: 'Please type the neighbourhood, region, area',
 			type: 'autocomplete',
 			serviceUrl: 'motor/reference/county/',
 			autoCompleteType: 'search', // search || all || options || linked
@@ -1224,6 +1237,29 @@ export const QUESTIONS = {
 			validators: []
 		},
 		{
+			key: 'doYouHavePermissionCardholder',
+			label: `We need to store the cardholders payment information securely to complete your purchase. Can you confirm that
+				the cardholder has consented to their payment details being stored for use with this AA product only?`,
+			type: 'radio',
+			options: [{
+				id: true,
+				description: 'Yes'
+			}, {
+				id: false,
+				description: 'No'
+			}],
+			trigger: {
+				key: 'areYouCardholder',
+				name: 'showIfKeyEquals',
+				equals: false,
+				isObject: true
+			},
+			required: true,
+			value: 'Yes',
+			order: 2,
+			validators: []
+		},
+		{
 			key: 'saveCardFutureTransactions',
 			label: 'Would you like us to save this card securely to us for future transactions?',
 			type: 'radio',
@@ -1249,7 +1285,13 @@ export const QUESTIONS = {
 			}, {
 				id: false,
 				description: 'No'
-			}],
+				}],
+			trigger: {
+				key: 'saveCardFutureTransactions',
+				name: 'showIfKeyEquals',
+				equals: false,
+				isObject: true
+			},
 			required: true,
 			value: 'Yes',
 			order: 2,
@@ -1331,11 +1373,12 @@ export const PAGES = [{
 		title: 'Primary Driver',
 		fields: QUESTIONS.carQuestions
 	},
-	{
-		id: 'car-secondary',
-		type: 'car',
-		fields: QUESTIONS.secondCarQuestion
-	}]
+		// {
+		// 	id: 'car-secondary',
+		// 	type: 'car',
+		// 	fields: QUESTIONS.secondCarQuestion
+		// 	}
+	]
 
 },
 

@@ -1,9 +1,10 @@
 import * as express from 'express';
 import * as _ from 'lodash';
-import { defaultConfig, configWithQuotation, configWithQuotationNoOffer, defaultSaveQuote } from './../../constants_membership';
+import { defaultConfig, configWithQuotation, configWithQuotationNoOffer, defaultSaveQuote, SIXTO_CONFIG } from './../../constants_membership';
 
 export default class RenewQuotes {
-	public quote = configWithQuotation;
+	public quote = SIXTO_CONFIG;
+
 
 	constructor() {
 
