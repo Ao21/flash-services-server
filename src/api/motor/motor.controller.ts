@@ -50,7 +50,7 @@ export default class Motor {
 	}
 
 	updatePage(req: express.Request, res: express.Response) {
-		res.status(400).send('There was a problem in the last section');
+		res.send(200);
 	}
 
 	updateSection(req: express.Request, res: express.Response) {
