@@ -334,6 +334,7 @@ export const QUESTIONS = {
 			key: 'countryNamedDrivingExperience',
 			label: 'In what country did you earn your named driving experience?',
 			type: 'autocomplete',
+			placeholder: 'Please enter a country',
 			serviceUrl: 'motor/occupation/',
 			trigger: {
 				key: 'insuredNamedDriver',
@@ -394,6 +395,7 @@ export const QUESTIONS = {
 			label: 'Where did you earn your no claims bonus',
 			type: 'autocomplete',
 			helpId: 1001,
+			placeholder: 'Please enter a country',
 			autoCompleteType: 'options', // search || all || options
 			trigger: {
 				key: 'insuredInYourOwnName',
@@ -544,6 +546,7 @@ export const QUESTIONS = {
 		key: 'whereEarnLicence',
 		label: 'Where did you earn your licence?',
 		type: 'autocomplete',
+		placeholder: 'Please enter a country',
 		serviceUrl: 'motor/occupation/',
 		autoCompleteType: 'options', // search || all || options
 		options: [{
@@ -860,7 +863,7 @@ export const QUESTIONS = {
 		label: 'How many points?',
 		type: 'text',
 		required: true,
-		placeholder: 'How Much',
+		placeholder: 'How many?',
 		order: 0,
 	}],
 	penaltiesWithValues: [{
@@ -1163,7 +1166,7 @@ export const QUESTIONS = {
 
 		{
 			key: 'carMainlyUsedCounty',
-			label: 'In what county is your usually used?',
+			label: 'In what county is your car usually used?',
 			placeholder: 'Please enter a county',
 			type: 'autocomplete',
 			serviceUrl: 'motor/reference/county/',
@@ -1175,7 +1178,7 @@ export const QUESTIONS = {
 		},
 		{
 			key: 'carMainlyUsedArea',
-			label: 'In what area is your car usually used',
+			label: 'In what area is your car usually used?',
 			placeholder: 'Please type the neighbourhood, region, area',
 			type: 'autocomplete',
 			serviceUrl: 'motor/reference/county/',
@@ -1547,6 +1550,7 @@ const PRICE_PAGES = [{
 },
 {
 	id: 'choose-your-payment',
+	title: 'Choose your payment',
 	uiOptions: {
 		prevPage: 'are-you-a-member',
 		nextPage: 'additional-questions',
