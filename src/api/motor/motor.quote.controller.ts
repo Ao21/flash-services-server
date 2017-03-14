@@ -6,35 +6,30 @@ import { TOWNS, COUNTIES, GEOCODE, GEOCODE_SELECTED } from './../../constants_ad
 import * as Fuse from 'fuse.js';
 
 const BENEFITS = [
-	{ description: 'Windscreen Cover', inHeader: true, included: true },
-	{ description: 'Lifetime Glass, Theft & Fire Protection', inHeader: true, included: true },
-	{ description: 'Personal Accident', inHeader: true, included: true },
-	{ description: 'Legal fees', inHeader: false, included: true },
-	{ description: 'Fire Brigade Charges', inHeader: false, included: true },
-	{ description: 'Car Valet', inHeader: false, included: true },
-	{ description: 'Standard or Motor', inHeader: false, included: true },
-	{ description: 'Step Back Bonus Protection', inHeader: false, included: true },
-	{ description: 'Personal Belongings/Sat Navs/Mobile Phones', inHeader: false, included: true },
-	{ description: 'Replacement Locks & Alarms', inHeader: false, included: true },
-	{ description: 'Child Car Seats', inHeader: false, included: false },
-	{ description: 'Misfuel', inHeader: false, included: false },
-	{ description: 'Courtesy Car', inHeader: false, included: false },
+	{ description: 'Lifetime NCD (Glass, Fire & Theft)', inHeader: true, included: true },
+	{ description: 'Personal Accident Protection (€75k)', inHeader: true, included: true },
+	{ description: 'Fire Brigade Charges', inHeader: true, included: true },
+	{ description: 'Temporary Replacement Vehicle', inHeader: true, included: false },
+	{ description: 'NCD Stepback', inHeader: false, included: false },
+	{ description: 'Windscreen/Glass Breakage', inHeader: false, included: true },
+	{ description: 'Foreign Travel', inHeader: false, included: true },
+	
+	
+	
 ]
 
 const BENEFITS_STANDARD = [
-	{ description: 'Windscreen Cover', inHeader: true, included: true },
-	{ description: 'Lifetime Glass, Theft & Fire Protection', inHeader: true, included: true },
-	{ description: 'Personal Accident', inHeader: true, included: true },
-	{ description: 'Legal fees', inHeader: false, included: true },
-	{ description: 'Fire Brigade Charges', inHeader: false, included: true },
-	{ description: 'Car Valet', inHeader: false, included: true },
-	{ description: 'Standard or Motor', inHeader: false, included: true },
-	{ description: 'Step Back Bonus Protection', inHeader: false, included: true },
-	{ description: 'Personal Belongings/Sat Navs/Mobile Phones', inHeader: false, included: true },
-	{ description: 'Replacement Locks & Alarms', inHeader: false, included: true },
-	{ description: 'Child Car Seats', inHeader: false, included: false },
-	{ description: 'Misfuel', inHeader: false, included: false },
-	{ description: 'Courtesy Car', inHeader: false, included: false },
+	
+	{ description: 'Lifetime NCD (Glass, Fire & Theft)', inHeader: true, included: true },
+	{ description: 'Personal Accident Protection (€75k)', inHeader: true, included: true },
+	{ description: 'Fire Brigade Charges', inHeader: true, included: true },
+	{ description: 'Temporary Replacement Vehicle', inHeader: true, included: true },
+	{ description: 'NCD Stepback', inHeader: false, included: true },
+	{ description: 'Windscreen/Glass Breakage', inHeader: false, included: true },
+	{ description: 'Foreign Travel', inHeader: false, included: true },
+	
+	
+	
 ]
 
 const BREAKDOWN_ITEMS = [
