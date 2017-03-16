@@ -21,7 +21,7 @@ export const QUESTIONS = {
 		min: 1,
 		max: 5,
 		// trigger: {
-		// 	name: 'additionalDrivers',
+		// 	name: 'sections',
 		// },
 		uiOptions: {
 			summaryTitle: 'Amount of Drivers'
@@ -1288,7 +1288,7 @@ export const QUESTIONS = {
 			}, {
 				id: false,
 				description: 'No'
-				}],
+			}],
 			trigger: {
 				key: 'saveCardFutureTransactions',
 				name: 'showIfKeyEquals',
@@ -1325,14 +1325,13 @@ export const PAGES = [{
 		nextPage: 'your-address',
 		prevPage: 'getting-started',
 	},
-	templates: {
-		additionalDriver: {
-			type: 'default',
-			additional: true,
-			hasQuestionsByDefault: true,
-			fields: QUESTIONS.details
-		}
-	},
+	templates: [{
+		type: 'default',
+		additional: true,
+		hasQuestionsByDefault: true,
+		fields: QUESTIONS.details
+
+	}],
 	sections: [{
 		id: 'details-default',
 		type: 'default',
@@ -1394,14 +1393,12 @@ export const PAGES = [{
 		nextPage: 'your-cover',
 		prevPage: 'your-car',
 	},
-	templates: {
-		additionalDriver: {
+	templates: [{
 			type: 'default',
 			additional: true,
 			hasQuestionsByDefault: true,
 			fields: QUESTIONS.licence
-		},
-	},
+		}],
 	sections: [{
 		id: 'licence-default',
 		type: 'default',
@@ -1439,15 +1436,15 @@ export const PAGES = [{
 		nextPage: 'your-penalties',
 		prevPage: 'your-cover',
 	},
-	templates: {
+	templates: [
 		// Group Question
-		additionalDriver: {
+		{
 			type: 'claim',
 			userHasClaim: null,
 			additional: true,
 			fields: QUESTIONS.claims
 		},
-	},
+	],
 	sections: [{
 		id: 'claim-primary-driver',
 		title: 'Primary Driver',
@@ -1470,16 +1467,13 @@ export const PAGES = [{
 		prevPage: 'your-claims',
 		nextPage: 'choose-your-product',
 	},
-	templates: {
-		// Group Question
-		additionalDriver: {
+	templates: [{
 			type: 'penalty',
 			title: 'Primary Driver',
 			userHasPenalty: null,
 			additional: true,
 			fields: QUESTIONS.penalties
-		},
-	},
+	}],
 	sections: [{
 		id: 'penalty-primary-driver',
 		title: 'Primary Driver',
@@ -1516,14 +1510,13 @@ const TEST_PAGES = [{
 		nextPage: 'choose-your-product',
 		prevPage: 'getting-started',
 	},
-	templates: {
-		additionalDriver: {
+	templates: [{
 			type: 'default',
 			additional: true,
 			hasQuestionsByDefault: true,
 			fields: QUESTIONS.details
 		}
-	},
+	],
 	sections: [{
 		id: 'details-default',
 		type: 'default',
