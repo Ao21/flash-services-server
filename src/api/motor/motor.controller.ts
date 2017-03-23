@@ -50,7 +50,7 @@ export default class Motor {
 	}
 
 	updatePage(req: express.Request, res: express.Response) {
-		res.send(200);
+		res.status(200).send();
 	}
 
 	updateSection(req: express.Request, res: express.Response) {
@@ -100,14 +100,12 @@ export default class Motor {
 
 	/** Car Calls */
 
+
+	setCarDetails = (req: express.Request, res: express.Response) => {
+		res.send(200);
+	}
+
 	getVehicleRegistration = (req: express.Request, res: express.Response) => {
-		// let response = {
-		// 	dateOfRegistration: '01/01/2015',
-		// 	carMake: {description:'Renault', id:'Renault'},
-		// 	carModel: { description: 'Fiesta', id: 'Fiesta' },
-		// 	engineSize: { id: '1500cc - 1999cc', description: '1500cc - 1999cc' },
-		// 	exactModel: {description:'FIESTA 1.6I 16V ZETEC MANUAL Hatchback 1596cc PETROL', id: 'ford'}
-		// }
 		let response = {
 			dateOfRegistration: '01/01/2015',
 			"carMake": {
@@ -120,7 +118,7 @@ export default class Motor {
 				id: '1500cc - 1999cc', description: '1500cc - 1999cc'
 			},
 			"fuelType": {
-				"id": "0", "description": "Petrol", 
+				"id": "petrol", "description": "Petrol", 
 			}
 		}
 		res.send(JSON.stringify(response));

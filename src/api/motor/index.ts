@@ -32,6 +32,10 @@ export class MotorRoutes {
 		this.router.get('/motor-ux-api/motor/reference/car/model/linked', this.motor.getCarMake);
 		this.router.get('/motor-ux-api/motor/reference/car/exactModel/search', this.motor.getOccupation);
 
+		this.router.post('/motor-ux-api/motor/reference/manualCarDetails', this.motor.setCarDetails);
+
+
+
 		
 	}
 

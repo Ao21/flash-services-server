@@ -526,6 +526,7 @@ export const QUESTIONS = {
 		disabled: false,
 		order: 0,
 		validators: [],
+		// value: { id: 'Irish Learners Permit', description: 'Irish Learners Permit' },
 		uiOptions: {
 			summaryTitle: 'Type of Licence'
 		}
@@ -1002,19 +1003,6 @@ export const QUESTIONS = {
 			},
 			fields: [
 				{
-					key: 'dateOfRegistration',
-					label: 'Date of Registration',
-					type: 'date',
-					required: true,
-					disabled: false,
-					order: 0,
-					validators: [],
-					uiOptions: {
-						summaryTitle: 'Date of Registration',
-						locked: 'day'
-					}
-				},
-				{
 					key: 'carMake',
 					label: 'Car Make',
 					type: 'autocomplete',
@@ -1023,39 +1011,7 @@ export const QUESTIONS = {
 					link: 'carInformation',
 					required: true,
 					disabled: false,
-					trigger: {
-						name: 'disabledBasedOnKey',
-						expectedType: 'string',
-						key: 'dateOfRegistration'
-					},
 					order: 1,
-					validators: [],
-					uiOptions: {
-						summaryTitle: 'Make'
-					}
-				},
-				{
-					key: 'engineSize',
-					label: 'Engine Size',
-					type: 'dropdown',
-					options: [
-						{ id: '0cc - 1499cc', description: '0cc - 1499cc' },
-						{ id: '1500cc - 1999cc', description: '1500cc - 1999cc' },
-						{ id: '2000cc - 2499cc', description: '2000cc - 2499cc' },
-						{ id: '2500cc - 2999cc', description: '2500cc - 2999cc' },
-						{ id: '3000cc - 3449cc', description: '3000cc - 3449cc' },
-						{ id: '3500cc - 3999cc', description: '3500cc - 3999cc' },
-						{ id: '4000cc - 4449cc', description: '4000cc - 4449cc' },
-						{ id: '4500cc - 4999cc', description: '4500cc - 4999cc' },
-						{ id: '4500cc - 4999c', description: '4500cc - 4999cc' }
-					],
-					required: true,
-					trigger: {
-						name: 'disabledBasedOnKey',
-						expectedType: 'object',
-						key: 'carModel'
-					},
-					order: 3,
 					validators: [],
 					uiOptions: {
 						summaryTitle: 'Make'
@@ -1081,8 +1037,68 @@ export const QUESTIONS = {
 					uiOptions: {
 						summaryTitle: 'Model'
 					}
-				}
+				},
+				{
+					key: 'fuelType',
+					label: 'Fuel Type',
+					type: 'dropdown',
+					options: [
+						{ id: 'petrol', description: 'Petrol' },
+						{ id: 'diesel', description: 'Diesel' },
+					],
+					required: true,
+					trigger: {
+						name: 'disabledBasedOnKey',
+						expectedType: 'object',
+						key: 'carModel'
+					},
+					order: 3,
+					validators: [],
+					uiOptions: {
+						summaryTitle: 'Make'
+					}
+				},
+				{
+					key: 'engineSize',
+					label: 'Engine Size',
+					type: 'dropdown',
+					options: [
+						{ id: '0cc - 1499cc', description: '0cc - 1499cc' },
+						{ id: '1500cc - 1999cc', description: '1500cc - 1999cc' },
+						{ id: '2000cc - 2499cc', description: '2000cc - 2499cc' },
+						{ id: '2500cc - 2999cc', description: '2500cc - 2999cc' },
+						{ id: '3000cc - 3449cc', description: '3000cc - 3449cc' },
+						{ id: '3500cc - 3999cc', description: '3500cc - 3999cc' },
+						{ id: '4000cc - 4449cc', description: '4000cc - 4449cc' },
+						{ id: '4500cc - 4999cc', description: '4500cc - 4999cc' },
+						{ id: '4500cc - 4999c', description: '4500cc - 4999cc' }
+					],
+					required: true,
+					trigger: {
+						name: 'disabledBasedOnKey',
+						expectedType: 'object',
+						key: 'fuelType'
+					},
+					order: 3,
+					validators: [],
+					uiOptions: {
+						summaryTitle: 'Make'
+					}
+				},
 			]
+		},
+		{
+			key: 'dateOfRegistration',
+			label: 'Date of Registration',
+			type: 'date',
+			required: true,
+			disabled: false,
+			order: 0,
+			validators: [],
+			uiOptions: {
+				summaryTitle: 'Date of Registration',
+				locked: 'day'
+			}
 		},
 		{
 			key: 'dateOfPurchase',
@@ -1335,6 +1351,7 @@ export const PAGES = [{
 	sections: [{
 		id: 'details-default',
 		type: 'default',
+		isDriver: true,
 		title: 'Primary Driver',
 		fields: QUESTIONS.details
 	}]
@@ -1394,14 +1411,15 @@ export const PAGES = [{
 		prevPage: 'your-car',
 	},
 	templates: [{
-			type: 'default',
-			additional: true,
-			hasQuestionsByDefault: true,
-			fields: QUESTIONS.licence
-		}],
+		type: 'default',
+		additional: true,
+		hasQuestionsByDefault: true,
+		fields: QUESTIONS.licence
+	}],
 	sections: [{
 		id: 'licence-default',
 		type: 'default',
+		isDriver: true,
 		title: 'Primary Driver',
 		fields: QUESTIONS.licence
 	}]
@@ -1449,6 +1467,7 @@ export const PAGES = [{
 		id: 'claim-primary-driver',
 		title: 'Primary Driver',
 		userHasClaim: null,
+		isDriver: true,
 		type: 'claim',
 		fields: [
 			// {
@@ -1468,16 +1487,17 @@ export const PAGES = [{
 		nextPage: 'choose-your-product',
 	},
 	templates: [{
-			type: 'penalty',
-			title: 'Primary Driver',
-			userHasPenalty: null,
-			additional: true,
-			fields: QUESTIONS.penalties
+		type: 'penalty',
+		title: 'Primary Driver',
+		userHasPenalty: null,
+		additional: true,
+		fields: QUESTIONS.penalties
 	}],
 	sections: [{
 		id: 'penalty-primary-driver',
 		title: 'Primary Driver',
 		userHasPenalty: null,
+		isDriver: true,
 		type: 'penalty',
 		fields: [
 			// {
@@ -1511,11 +1531,11 @@ const TEST_PAGES = [{
 		prevPage: 'getting-started',
 	},
 	templates: [{
-			type: 'default',
-			additional: true,
-			hasQuestionsByDefault: true,
-			fields: QUESTIONS.details
-		}
+		type: 'default',
+		additional: true,
+		hasQuestionsByDefault: true,
+		fields: QUESTIONS.details
+	}
 	],
 	sections: [{
 		id: 'details-default',
