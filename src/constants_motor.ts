@@ -3,7 +3,7 @@ export const QUESTIONS = {
 	pre: [{
 		key: 'email',
 		label: 'What is your Email Address?',
-		type: 'email',
+		type: 'myaaEmail',
 		required: true,
 		order: 0,
 		validators: ['validEmailValidate'],

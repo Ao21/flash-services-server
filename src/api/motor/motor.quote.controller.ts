@@ -33,9 +33,9 @@ const BENEFITS_STANDARD = [
 ]
 
 const BREAKDOWN_ITEMS = [
-	{ description: 'AA Motor', price: createPrice(5000) },
-	{ description: 'Fee', price: createPrice(320) },
-	{ description: 'Member Discount', price: createPrice(5000), discount: true},
+	{ description: 'AA Motor', price: { monthly: createPrice(5000), annual: createPrice(60000)} },
+	{ description: 'Fee', price: { monthly: createPrice(320), annual: createPrice(3840)} },
+	{ description: 'Member Discount', price: { monthly: createPrice(5000), annual: createPrice(60000)}, discount: true},
 ]
 
 const AAValue = {
@@ -56,7 +56,7 @@ const AAValue = {
 			apr: '10%'
 
 		},
-		annually: {
+		annual: {
 			deposit: createPrice(0),
 			installments: {
 				number: 1,
@@ -75,7 +75,7 @@ const AAMotor = {
 	tagline: 'Our Premium Product',
 	benefits: BENEFITS_STANDARD,
 	img: 'product-aastandard.svg',
-	breakdowns: BREAKDOWN_ITEMS,
+	breakdown: BREAKDOWN_ITEMS,
 	premium: {
 		monthly: {
 			deposit: createPrice(4999),
@@ -87,7 +87,7 @@ const AAMotor = {
 			apr: '10%'
 
 		},
-		annually: {
+		annual: {
 			deposit: createPrice(0),
 			installments: {
 				number: 1,

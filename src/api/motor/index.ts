@@ -13,7 +13,11 @@ export class MotorRoutes {
 		this.router.get('/motor-ux-api/motor/occupation/search', this.motor.getOccupation);
 		
 		this.router.post('/motor-ux-api/motor/page/:page', this.motor.updatePage);
-		this.router.get('/motor-ux-api/motor/quote',this.quote.sendQuote)
+		this.router.post('/motor-ux-api/motor/update', this.motor.updateQuote);
+		this.router.get('/motor-ux-api/motor/quote', this.quote.sendQuote)
+		
+		this.router.get('/motor-ux-api/myaa/email/:email', this.motor.checkMyAAEmail);
+		this.router.post('/motor-ux-api/myaa/login', this.motor.loginToMyAA);
 
 		this.router.get('/motor-ux-api/motor/section/:section', this.motor.getSection);
 		this.router.post('/motor-ux-api/motor/section/:section', this.motor.updateSection);
@@ -32,7 +36,12 @@ export class MotorRoutes {
 		this.router.get('/motor-ux-api/motor/reference/car/model/linked', this.motor.getCarMake);
 		this.router.get('/motor-ux-api/motor/reference/car/exactModel/search', this.motor.getOccupation);
 
-		this.router.post('/motor-ux-api/motor/reference/manualCarDetails', this.motor.setCarDetails);
+		this.router.post('/motor-ux-api/motor/reference/manualCarDetails', this.motor.setCarDetails)
+		this.router.post('/motor-ux-api/motor/reference/manualCarTag', this.motor.setCarTag);
+
+		this.router.post('/motor-ux-api/motor/reference/bankVerification', this.motor.checkBankVerification);
+
+		this.router.get('/motor-ux-api/motor/retrieveQuote', this.motor.retrieveQuote);
 
 
 
