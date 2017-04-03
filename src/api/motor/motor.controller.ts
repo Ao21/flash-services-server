@@ -183,6 +183,10 @@ export default class Motor {
 		res.status(200).send(JSON.stringify(options));
 	}
 
+	selectCar = (req: express.Request, res: express.Response) => { 
+		res.send(200);
+	}
+
 	setCarTag = (req: express.Request, res: express.Response) => {
 
 		let tags = [

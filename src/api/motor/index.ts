@@ -38,6 +38,7 @@ export class MotorRoutes {
 
 		this.router.post('/motor-ux-api/motor/reference/manualCarDetails', this.motor.setCarDetails)
 		this.router.post('/motor-ux-api/motor/reference/manualCarTag', this.motor.setCarTag);
+		this.router.post('/motor-ux-api/motor/reference/manualCarTag/selected', this.motor.selectCar);
 
 		this.router.post('/motor-ux-api/motor/reference/bankVerification', this.motor.checkBankVerification);
 
