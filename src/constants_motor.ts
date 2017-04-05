@@ -539,7 +539,18 @@ export const QUESTIONS = {
 		value: '0',
 		// min: 0,
 		// max: 9,
-		values: ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9+'],
+		values: [
+			{ description: '0', id: 0 },
+			{ description: '1', id: 1 },
+			{ description: '2', id: 2 },
+			{ description: '3', id: 3 },
+			{ description: '4', id: 4 },
+			{ description: '5', id: 5 },
+			{ description: '6', id: 6 },
+			{ description: '7', id: 7 },
+			{ description: '8', id: 8 },
+			{ description: '9+', id: 9 },
+		],
 		uiOptions: {
 			summaryTitle: 'Amount of years you held your licence'
 		}
