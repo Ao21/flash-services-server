@@ -133,7 +133,7 @@ export const QUESTIONS = {
 		type: 'autocomplete',
 		placeholder: 'Select an Occupation',
 		serviceUrl: 'motor/occupation/',
-		autoCompleteType: 'search', // search || all || options
+		autoCompleteType: 'all', // search || all || options
 		required: true,
 		disabled: false,
 		helpId: 1001,

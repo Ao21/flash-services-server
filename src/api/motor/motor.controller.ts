@@ -76,7 +76,7 @@ export default class Motor {
 				driverName: 'Ro Brett',
 				price: '€126.78',
 				ref: 'REFERENCE'
-			},{
+			}, {
 				dateOfQuote: '12/01/2017',
 				driverName: 'Ro Brett',
 				price: '€126.78',
@@ -99,7 +99,7 @@ export default class Motor {
 	}
 
 	getConfig = (req: express.Request, res: express.Response) => {
-		if (!this.isRetrieveQuote){
+		if (!this.isRetrieveQuote) {
 			res.send(CONFIG);
 		} else {
 			res.send(retrieveQuote);
@@ -160,12 +160,13 @@ export default class Motor {
 
 
 	setCarDetails = (req: express.Request, res: express.Response) => {
+
 		let options = {
 			tags: [
 				{ id: 'SE', description: 'SE' },
 				{ id: '1998cc', description: '1998cc' }
 			],
-			list: [
+			exactModelDetails: [
 				{ id: '0', description: 'A4 SE 1998cc 2003 5-door Petrol' },
 				{ id: '2', description: 'A4 SE 1998cc 2003 5-door Petrol' },
 				{ id: '3', description: 'A4 SE 1998cc 2003 5-door Petrol' },
@@ -180,10 +181,32 @@ export default class Motor {
 				{ id: '12', description: 'A4 SE 1998cc 2003 5-door Petrol' },
 			]
 		}
+
+
+		if (req.body.tags && req.body.tags.length > 0) {
+			let tags = [
+				{ id: 'SE', description: 'SE' },
+				{ id: '1998cc', description: '1998cc' }
+			];
+
+			let filteredTags = _.filter(tags, (tag) => {
+				return !_.find(req.body, (bodyTag: any) => {
+					return bodyTag.id === tag.id;
+				});
+			})
+			options = {
+				tags: filteredTags,
+				exactModelDetails: [
+					{ id: '0', description: 'A4 SE 1998cc 2003 5-door Petrol' },
+					{ id: '2', description: 'A4 SE 1998cc 2003 5-door Petrol' },
+					{ id: '3', description: 'A4 SE 1998cc 2003 5-door Petrol' },
+				]
+			}
+		}
 		res.status(200).send(JSON.stringify(options));
 	}
 
-	selectCar = (req: express.Request, res: express.Response) => { 
+	selectCar = (req: express.Request, res: express.Response) => {
 		res.send(200);
 	}
 
@@ -201,7 +224,7 @@ export default class Motor {
 		})
 		let options = {
 			tags: filteredTags,
-			list: [
+			exactModelDetails: [
 				{ id: '0', description: 'A4 SE 1998cc 2003 5-door Petrol' },
 				{ id: '2', description: 'A4 SE 1998cc 2003 5-door Petrol' },
 				{ id: '3', description: 'A4 SE 1998cc 2003 5-door Petrol' },
