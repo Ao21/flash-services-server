@@ -343,11 +343,11 @@ export const QUESTIONS = {
 			},
 			autoCompleteType: 'options', // search || all || options
 			options: [{
-				id: 'Dublin',
-				description: 'Dublin'
+				id: 'ireland',
+				description: 'Ireland'
 			}, {
-				id: 'Cork',
-				description: 'cork'
+				id: 'England',
+				description: 'england'
 			}],
 			required: true,
 			disabled: false,
@@ -536,7 +536,7 @@ export const QUESTIONS = {
 		type: 'slider',
 		required: true,
 		order: 1,
-		value: '0',
+		value: { description: '0', id: 0 },
 		// min: 0,
 		// max: 9,
 		values: [
@@ -1019,7 +1019,7 @@ export const QUESTIONS = {
 					type: 'autocomplete',
 					serviceUrl: 'motor/reference/car/make/',
 					autoCompleteType: 'linked', // search || all || options || linked
-					link: 'carInformation',
+					link: '',
 					required: true,
 					disabled: false,
 					order: 1,
@@ -1035,7 +1035,7 @@ export const QUESTIONS = {
 					type: 'autocomplete',
 					serviceUrl: 'motor/reference/car/model/',
 					autoCompleteType: 'linked', // search || all || options || linked
-					link: 'carInformation',
+					link: 'carMake',
 					required: true,
 					disabled: false,
 					trigger: {
@@ -1199,6 +1199,10 @@ export const QUESTIONS = {
 			serviceUrl: 'motor/reference/county/',
 			autoCompleteType: 'search', // search || all || options || linked
 			required: true,
+			trigger: {
+				key: 'county',
+				name: 'getValueFromQuestion',
+			},
 			disabled: false,
 			order: 9,
 			validators: []
@@ -1211,6 +1215,10 @@ export const QUESTIONS = {
 			serviceUrl: 'motor/reference/county/',
 			autoCompleteType: 'search', // search || all || options || linked
 			required: true,
+			trigger: {
+				key: 'area',
+				name: 'getValueFromQuestion',
+			},
 			disabled: false,
 			order: 9,
 			validators: []

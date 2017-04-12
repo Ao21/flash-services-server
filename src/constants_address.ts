@@ -36,13 +36,13 @@ export const GEOCODE = [{
 export const GEOCODE_SELECTED = {
     "addressLine1": "14 Harcourt Street",
     "addressLine2": "Dublin City",
-    "county": {
-		description: "Dublin 3",
-		id: "Dublin 3"
+    "area": {
+		description: "Dublin 1",
+		id: "dublin1"
 	},
-	"area": {
-		description: 'Dublin City',
-		id: 'Dublin City'
+	"county": {
+		description: 'Dublin',
+		id: 'dublin'
 	},
     "lookups": [{
         "id": 0,
