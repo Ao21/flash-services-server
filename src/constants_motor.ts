@@ -403,11 +403,11 @@ export const QUESTIONS = {
 				isObject: true
 			},
 			options: [{
-				id: 'Dublin',
-				description: 'Dublin'
+				id: 'Ireland',
+				description: 'Ireland'
 			}, {
-				id: 'Cork',
-				description: 'cork'
+				id: 'England',
+				description: 'England'
 			}],
 			required: true,
 			disabled: false,
@@ -562,11 +562,11 @@ export const QUESTIONS = {
 		serviceUrl: 'motor/occupation/',
 		autoCompleteType: 'options', // search || all || options
 		options: [{
+			id: 'Ireland',
+			description: 'ireland'
+		}, {
 			id: 'Dublin',
 			description: 'Dublin'
-		}, {
-			id: 'Cork',
-			description: 'cork'
 		}],
 		required: true,
 		disabled: false,
