@@ -166,7 +166,7 @@ export default class Motor {
 				{ id: 'SE', description: 'SE' },
 				{ id: '1998cc', description: '1998cc' }
 			],
-			exactModelDetails: [
+			exactModels: [
 				{ id: '0', description: 'A4 SE 1998cc 2003 5-door Petrol' },
 				{ id: '2', description: 'A4 SE 1998cc 2003 5-door Petrol' },
 				{ id: '3', description: 'A4 SE 1998cc 2003 5-door Petrol' },
@@ -196,7 +196,7 @@ export default class Motor {
 			})
 			options = {
 				tags: filteredTags,
-				exactModelDetails: [
+				exactModels: [
 					{ id: '0', description: 'A4 SE 1998cc 2003 5-door Petrol' },
 					{ id: '2', description: 'A4 SE 1998cc 2003 5-door Petrol' },
 					{ id: '3', description: 'A4 SE 1998cc 2003 5-door Petrol' },
