@@ -917,7 +917,7 @@ export const QUESTIONS = {
 		order: 0,
 	}],
 
-	secondCarQuestion: [
+	secondCarQuestions: [
 		{
 			key: 'carInformation',
 			type: 'group',
@@ -925,35 +925,65 @@ export const QUESTIONS = {
 			timeline: false,
 			order: 0,
 			isComplete: false,
+			uiOptions: {
+				summaryTitle: 'Car Model'
+			},
 			fields: [
-				{
-					key: 'dateOfRegistration',
-					label: 'Date of Registration',
-					type: 'date',
-					required: true,
-					disabled: false,
-					order: 0,
-					validators: [],
-					uiOptions: {
-						locked: 'day',
-					}
-				},
 				{
 					key: 'carMake',
 					label: 'Car Make',
 					type: 'autocomplete',
 					serviceUrl: 'motor/reference/car/make/',
 					autoCompleteType: 'linked', // search || all || options || linked
-					link: 'carInformation',
+					link: '',
+					required: true,
+					disabled: false,
+					order: 1,
+					validators: [],
+					uiOptions: {
+						summaryTitle: 'Make'
+					}
+				},
+
+				{
+					key: 'carModel',
+					label: 'Car Model',
+					type: 'autocomplete',
+					serviceUrl: 'motor/reference/car/model/',
+					autoCompleteType: 'linked', // search || all || options || linked
+					link: 'carMake',
 					required: true,
 					disabled: false,
 					trigger: {
 						name: 'disabledBasedOnKey',
-						expectedType: 'string',
-						key: 'dateOfRegistration'
+						expectedType: 'object',
+						key: 'carMake'
 					},
-					order: 1,
-					validators: []
+					order: 2,
+					validators: [],
+					uiOptions: {
+						summaryTitle: 'Model'
+					}
+				},
+				{
+					key: 'fuelType',
+					label: 'Fuel Type',
+					type: 'dropdown',
+					options: [
+						{ id: 'petrol', description: 'Petrol' },
+						{ id: 'diesel', description: 'Diesel' },
+					],
+					required: true,
+					trigger: {
+						name: 'disabledBasedOnKey',
+						expectedType: 'object',
+						key: 'carModel'
+					},
+					order: 3,
+					validators: [],
+					uiOptions: {
+						summaryTitle: 'Make'
+					}
 				},
 				{
 					key: 'engineSize',
@@ -974,32 +1004,29 @@ export const QUESTIONS = {
 					trigger: {
 						name: 'disabledBasedOnKey',
 						expectedType: 'object',
-						key: 'carModel'
+						key: 'fuelType'
 					},
 					order: 3,
-					validators: []
+					validators: [],
+					uiOptions: {
+						summaryTitle: 'Make'
+					}
 				},
-
-				{
-					key: 'carModel',
-					label: 'Car Model',
-					type: 'autocomplete',
-					serviceUrl: 'motor/reference/car/model/',
-					autoCompleteType: 'linked', // search || all || options || linked
-					link: 'carInformation',
-					required: true,
-					disabled: false,
-					trigger: {
-						name: 'disabledBasedOnKey',
-						expectedType: 'object',
-						key: 'carMake'
-					},
-					order: 2,
-					validators: []
-				}
 			]
 		},
-	],
+		{
+			key: 'dateOfRegistration',
+			label: 'Date of Registration',
+			type: 'date',
+			required: true,
+			disabled: false,
+			order: 0,
+			validators: [],
+			uiOptions: {
+				summaryTitle: 'Date of Registration',
+				locked: 'day'
+			}
+		}],
 
 	carQuestions: [
 		{
@@ -1411,12 +1438,12 @@ export const PAGES = [{
 		title: 'Primary Driver',
 		fields: QUESTIONS.carQuestions
 	},
-		// {
-		// 	id: 'car-secondary',
-		// 	type: 'car',
-		// 	fields: QUESTIONS.secondCarQuestion
-		// 	}
-	]
+	{
+		id: 'car-secondary',
+		type: 'car',
+		title: 'Second Car',
+		fields: QUESTIONS.secondCarQuestions
+	}]
 
 },
 

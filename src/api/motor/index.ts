@@ -29,7 +29,9 @@ export class MotorRoutes {
 		this.router.put('/motor-ux-api/motor/reference/address', this.motor.putAddress);
 		this.router.post('/motor-ux-api/motor/reference/address/selected', this.motor.selectAddress);
 
-		this.router.get('/motor-ux-api/motor/reference/getVehicleRegistration/:registration',this.motor.getVehicleRegistration)		
+		this.router.get('/motor-ux-api/motor/reference/firstvehicle/:registration', this.motor.getVehicleRegistration)	
+		this.router.get('/motor-ux-api/motor/reference/secondvehicle/:registration', this.motor.getVehicleRegistration)	
+		
 		this.router.get('/motor-ux-api/motor/reference/car/make/search', this.motor.getCarMake);
 		this.router.get('/motor-ux-api/motor/reference/car/make/linked', this.motor.getCarMake);
 		this.router.get('/motor-ux-api/motor/reference/car/model/search', this.motor.getCarMake);
@@ -38,7 +40,9 @@ export class MotorRoutes {
 
 		this.router.post('/motor-ux-api/motor/reference/manualCarDetails', this.motor.setCarDetails)
 		this.router.post('/motor-ux-api/motor/reference/manualCarTag', this.motor.setCarTag);
-		this.router.post('/motor-ux-api/motor/reference/manualCarTag/selected', this.motor.selectCar);
+		
+		this.router.put('/motor-ux-api/motor/reference/firstvehicle/selected/:id', this.motor.selectCar);
+		this.router.put('/motor-ux-api/motor/reference/secondvehicle/selected/:id', this.motor.selectCar);
 
 		this.router.post('/motor-ux-api/motor/reference/bankVerification', this.motor.checkBankVerification);
 
