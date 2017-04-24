@@ -25,7 +25,8 @@ export class MotorRoutes {
 
 		this.router.get('/motor-ux-api/motor/reference/town/:town', this.motor.getTown);
 		this.router.get('/motor-ux-api/motor/reference/county/:county', this.motor.getCounty);
-		
+		this.router.get('/motor-ux-api/motor/reference/address/:address', this.motor.putAddress);
+
 		this.router.put('/motor-ux-api/motor/reference/address', this.motor.putAddress);
 		this.router.post('/motor-ux-api/motor/reference/address/selected', this.motor.selectAddress);
 

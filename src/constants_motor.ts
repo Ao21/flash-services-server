@@ -596,25 +596,22 @@ export const QUESTIONS = {
 
 
 	addressQuestionTemplate: [{
-		key: 'addressLine1',
-		label: 'Address Line 1',
-		type: 'text',
+		key: 'address',
+		label: 'Address',
+		type: 'autocomplete',
+		autoCompleteType: 'linked', // search || all || options
+		serviceUrl: 'motor/reference/address/',
+		link: 'area',
+		trigger: {
+			name: 'disabledBasedOnKey',
+			expectedType: 'object',
+			key: 'area'
+		},
 		required: true,
-		order: 0,
+		order: 2,
 		validators: [],
 		uiOptions: {
 			summaryTitle: 'Address line 1'
-		}
-	},
-	{
-		key: 'addressLine2',
-		label: 'Address Line 2',
-		type: 'text',
-		required: false,
-		order: 0,
-		validators: [],
-		uiOptions: {
-			summaryTitle: 'Address line 2'
 		}
 	},
 	{
@@ -622,10 +619,16 @@ export const QUESTIONS = {
 		label: 'Area',
 		type: 'autocomplete',
 		serviceUrl: 'motor/reference/town/',
-		autoCompleteType: 'search', // search || all || options
+		link: 'county',
+		autoCompleteType: 'linked', // search || all || options
 		required: true,
 		disabled: false,
-		order: 2,
+		trigger: {
+			name: 'disabledBasedOnKey',
+			expectedType: 'object',
+			key: 'county'
+		},
+		order: 1,
 		validators: [],
 		uiOptions: {
 			summaryTitle: 'Town'
@@ -634,18 +637,44 @@ export const QUESTIONS = {
 	{
 		key: 'county',
 		label: 'County',
-		type: 'autocomplete',
+		type: 'dropdown',
 		serviceUrl: 'motor/reference/county/',
 		autoCompleteType: 'linked', // search || all || options || linked
-		link: 'area',
-		trigger: {
-			name: 'disabledBasedOnKey',
-			expectedType: 'object',
-			key: 'area'
-		},
 		required: true,
+		options: [{ id: 'Antrim', description: 'Antrim' },
+		{ id: 'Armagh', description: 'Armagh' },
+		{ id: 'Carlow', description: 'Carlow' },
+		{ id: 'Cavan', description: 'Cavan' },
+		{ id: 'Clare', description: 'Clare' },
+		{ id: 'Cork', description: 'Cork' },
+		{ id: 'Derry', description: 'Derry' },
+		{ id: 'Donegal', description: 'Donegal' },
+		{ id: 'Down', description: 'Down' },
+		{ id: 'Dublin', description: 'Dublin' },
+		{ id: 'Fermanagh', description: 'Fermanagh' },
+		{ id: 'Galway', description: 'Galway' },
+		{ id: 'Kerry', description: 'Kerry' },
+		{ id: 'Kildare', description: 'Kildare' },
+		{ id: 'Kilkenny', description: 'Kilkenny' },
+		{ id: 'Laois', description: 'Laois' },
+		{ id: 'Leitrim', description: 'Leitrim' },
+		{ id: 'Limerick', description: 'Limerick' },
+		{ id: 'Longford', description: 'Longford' },
+		{ id: 'Louth', description: 'Louth' },
+		{ id: 'Mayo', description: 'Mayo' },
+		{ id: 'Meath', description: 'Meath' },
+		{ id: 'Monaghan', description: 'Monaghan' },
+		{ id: 'Offaly', description: 'Offaly' },
+		{ id: 'Roscommon', description: 'Roscommon' },
+		{ id: 'Sligo', description: 'Sligo' },
+		{ id: 'Tipperary', description: 'Tipperary' },
+		{ id: 'Tyrone', description: 'Tyrone' },
+		{ id: 'Waterford', description: 'Waterford' },
+		{ id: 'Westmeath', description: 'Westmeath' },
+		{ id: 'Wexford', description: 'Wexford' },
+		{ id: 'Wicklow', description: 'Wicklow' }],
 		disabled: false,
-		order: 2,
+		order: 0,
 		validators: [],
 		uiOptions: {
 			summaryTitle: 'County'
