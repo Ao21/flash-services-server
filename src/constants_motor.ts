@@ -1625,7 +1625,7 @@ const PRICE_PAGES = [{
 	title: 'Choose the best product for you',
 	uiOptions: {
 		prevPage: 'your-penalties',
-		nextPage: 'are-you-a-member',
+		nextPage: 'choose-your-payment',
 	},
 },
 {
@@ -1640,7 +1640,7 @@ const PRICE_PAGES = [{
 	id: 'choose-your-payment',
 	title: 'Choose your payment',
 	uiOptions: {
-		prevPage: 'are-you-a-member',
+		prevPage: 'choose-your-product',
 		nextPage: 'additional-questions',
 	},
 },
