@@ -106,11 +106,24 @@ const quote = {
 	activeProduct: 'AAMOTOR'
 }
 
+const singleQuote = {
+	reference: '56565656',
+	products: [AAMotor],
+	paymentFrequency: 'monthly',
+	activeProduct: 'AAMOTOR'
+}
+
+let count = 0;
 export default class MotorQuote {
 	constructor() { }
 
 	sendQuote(req: express.Request, res: express.Response) {
-		res.status(200).send(JSON.stringify({quote: quote}));
+		if (count === 0) {
+			res.status(200).send(JSON.stringify({ quote: quote }));
+			return count++
+		}
+		res.status(200).send(JSON.stringify({ quote: singleQuote }));
+		
 	}
 }
 
