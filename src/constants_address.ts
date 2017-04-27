@@ -25,7 +25,7 @@ export const GEOCODE = [{
     "description": "Apartment 2, 14 Harcourt Street,Dublin 2"
 }, {
     "id": 5,
-    "description": "12399-SE-Really-Long-Street-Name-for-Test-Purposes-Trwy-NW-Unit-1_Cairo_GA_30000_M58066-02345"
+    "description": "143, Harcourt st, Dublin 3"
 }, {
     "id": 3,
     "description": "Flat 14, 38 Harcourt Street,Dublin 2,County Dublin"
