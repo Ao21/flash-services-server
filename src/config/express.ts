@@ -13,6 +13,16 @@ app.use(slow({
 }))
 
 app.use(slow({
+	url: /town/i,
+	delay: 350
+}))
+
+app.use(slow({
+	url: /county/i,
+	delay: 350
+}))
+
+app.use(slow({
 	url: /selected/i,
 	delay: 350
 }))

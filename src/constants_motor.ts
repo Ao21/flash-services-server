@@ -467,7 +467,8 @@ export const QUESTIONS = {
 			trigger: {
 				key: 'startPolicySameDate',
 				name: 'showIfKeyEquals',
-				equals: false
+				equals: false,
+				isObject: true
 			},
 			required: true,
 
