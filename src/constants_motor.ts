@@ -1661,6 +1661,7 @@ const PAYMENT_PAGES = [
 		sections: [{
 			id: 'additional-questions',
 			type: 'default',
+			isDriver: true,
 			fields: QUESTIONS.additionalQuestions
 		}]
 

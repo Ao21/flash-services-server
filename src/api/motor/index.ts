@@ -46,6 +46,8 @@ export class MotorRoutes {
 
 		this.router.post('/motor-ux-api/motor/reference/bankVerification', this.motor.checkBankVerification);
 
+		this.router.put('/motor-ux-api/motor/reference/additional', this.motor.checkBankVerification);
+
 		this.router.get('/motor-ux-api/motor/retrieveQuote', this.motor.retrieveQuote);
 
 
