@@ -1272,7 +1272,7 @@ export const QUESTIONS = {
 			type: 'text',
 			required: false,
 			disabled: false,
-			validators: []
+			validators: ['licenceNumberValidate']
 		},
 		{
 			key: 'previousPolicyNumber',
