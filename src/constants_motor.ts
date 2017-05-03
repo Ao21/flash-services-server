@@ -1284,6 +1284,17 @@ export const QUESTIONS = {
 			validators: []
 		},
 	],
+	additionalQuestionMembers: [
+		{
+			key: 'driverLicenceNumber',
+			label: 'What is your Drivers Licence number?',
+			type: 'text',
+			required: false,
+			disabled: false,
+			validators: ['licenceNumberValidate']
+		},
+	],
+
 
 	tokenisation: [
 		{
@@ -1638,9 +1649,15 @@ const PAYMENT_PAGES = [
 		id: 'additional-questions',
 		title: 'Additional Questions',
 		uiOptions: {
-			nextPage: 'terms-and-conditions',
+			nextPage: 'tokenisation',
 			prevPage: 'choose-your-payment',
 		},
+		templates: [{
+			type: 'default',
+			additional: true,
+			hasQuestionsByDefault: true,
+			fields: QUESTIONS.additionalQuestionMembers
+		}],
 		sections: [{
 			id: 'additional-questions',
 			type: 'default',
@@ -1660,7 +1677,7 @@ const PAYMENT_PAGES = [
 		id: 'tokenisation',
 		title: 'Tokenisation',
 		uiOptions: {
-			prevPage: 'terms-and-conditions',
+			prevPage: 'additional-questions',
 			nextPage: 'payment',
 		},
 		sections: [{
