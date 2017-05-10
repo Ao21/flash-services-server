@@ -519,7 +519,7 @@ export const QUESTIONS = {
 		key: 'typeOfLicence',
 		label: 'What type of licence do you hold?',
 		type: 'dropdown',
-		options: [{ id: 'Full Irish Licence', description: 'Full Irish Licence' },
+		options: [{ id: 'FullIrish', description: 'Full Irish Licence' },
 		{ id: 'Irish Learners Permit', description: 'Irish Learners Permit' },
 		{ id: 'Full EU Licence', description: 'Full EU Licence' },
 		{ id: 'Non-EU Licence', description: 'Non-EU Licence' }],
@@ -527,7 +527,7 @@ export const QUESTIONS = {
 		disabled: false,
 		order: 0,
 		validators: [],
-		// value: { id: 'Irish Learners Permit', description: 'Irish Learners Permit' },
+		// value: { id: 'FullIrish', description: 'Full Irish Licence' },
 		uiOptions: {
 			summaryTitle: 'Type of Licence'
 		}
@@ -1271,8 +1271,13 @@ export const QUESTIONS = {
 			key: 'driverLicenceNumber',
 			label: 'What is your Drivers Licence number?',
 			type: 'text',
-			required: false,
+			required: true,
 			disabled: false,
+			trigger: {
+				name: 'getValueForValidationFromQuestion',
+				key: 'typeOfLicence',
+				value: 'FullIrish'
+			},
 			validators: ['licenceNumberValidate']
 		},
 		{
