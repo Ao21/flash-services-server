@@ -32,7 +32,7 @@ export const QUESTIONS = {
 		type: 'questionText',
 		order: 2,
 		timeline: false,
-		content: `By providing the requested data, you consent to AA's Data Protection and Privacy Policy and to AA using it for administration and keeping you informed by mail, telephone, email and SMS of other products and services from us. By proceeding, you consent to & confirm that you have read and accepted the AA Data Protection & Privacy Policy and the AA Terms & Conditions`,
+		content: `<p>By providing the requested data, you consent to AA's Data Protection and Privacy Policy and to AA using it for administration and keeping you informed by mail, telephone, email and SMS of other products and services from us. By proceeding, you consent to & confirm that you have read and accepted the AA Data Protection & Privacy Policy and the AA Terms & Conditions</p>`,
 		uiOptions: {
 			summaryHidden: true,
 		}
@@ -196,7 +196,12 @@ export const QUESTIONS = {
 			}, {
 				id: false,
 				description: 'No'
-			}],
+				}],
+			trigger: {
+				key: 'insuredNamedDriver',
+				name: 'hideBasedOnKey',
+				isObject: true
+			},
 			required: true,
 			uiOptions: {
 				summaryTitle: 'Insured in your own Name'
@@ -1613,7 +1618,7 @@ const PRICE_PAGES = [{
 	title: 'Choose the best product for you',
 	uiOptions: {
 		prevPage: 'your-penalties',
-		nextPage: 'are-you-a-member',
+		nextPage: 'choose-your-payment',
 	},
 },
 {
@@ -1628,7 +1633,7 @@ const PRICE_PAGES = [{
 	id: 'choose-your-payment',
 	title: 'Choose your payment',
 	uiOptions: {
-		prevPage: 'are-you-a-member',
+		prevPage: 'choose-your-product',
 		nextPage: 'additional-questions',
 	},
 },

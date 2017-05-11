@@ -6,9 +6,14 @@ export const TOWNS = [{
     id: 'dublin2'
 }]
 
-export const COUNTIES = [{
+export const COUNTIES = [
+    {
     description: 'Dublin',
     id: 'dublin'
+    },
+     {
+    description: 'Derry',
+    id: 'derry'
 }, {
     description: 'Cork',
     id: 'cork'
