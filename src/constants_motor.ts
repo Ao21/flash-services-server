@@ -138,6 +138,11 @@ export const QUESTIONS = {
 		disabled: false,
 		helpId: 1001,
 		order: 2,
+		trigger: {
+			key: 'typeOfEmployment',
+			equals: ['Unemployed', 'Retired'],
+			name: 'hideIfKeyEqualsMulti'
+		},
 		validators: [],
 		uiOptions: {
 			summaryTitle: 'Occupation'
@@ -196,7 +201,7 @@ export const QUESTIONS = {
 			}, {
 				id: false,
 				description: 'No'
-				}],
+			}],
 			trigger: {
 				key: 'insuredNamedDriver',
 				name: 'hideBasedOnKey',
@@ -542,7 +547,7 @@ export const QUESTIONS = {
 		type: 'slider',
 		required: true,
 		order: 1,
-		value: { description: '0', id: 0 },
+		value: 1,
 		// min: 0,
 		// max: 9,
 		values: [
@@ -1293,6 +1298,17 @@ export const QUESTIONS = {
 			disabled: false,
 			validators: []
 		},
+		{
+			"key": "carRegistration",
+			"label": "Please enter your car registration in order to purchase.",
+			"type": "text",
+			"required": true,
+			"disabled": false,
+			"trigger": {
+				"name": "getValueFromQuestion",
+				"key": "carSearchQuestion"
+			}
+		},
 	],
 	additionalQuestionMembers: [
 		{
@@ -1392,6 +1408,7 @@ export const QUESTIONS = {
 export const PAGES = [{
 	id: 'getting-started',
 	title: 'Getting Started',
+	description: 'First we need some details to get started.',
 	order: 0,
 	uiOptions: {
 		nextPage: 'your-details',
@@ -1404,6 +1421,7 @@ export const PAGES = [{
 }, {
 	id: 'your-details',
 	title: 'Details',
+	description: 'We need to know some details about you so that we can give you the best quote.',
 	order: 1,
 	uiOptions: {
 		nextPage: 'your-address',
@@ -1411,7 +1429,7 @@ export const PAGES = [{
 	},
 	templates: [{
 		type: 'default',
-		additional: true,
+		additional: 1,
 		hasQuestionsByDefault: true,
 		fields: QUESTIONS.details
 
@@ -1422,7 +1440,15 @@ export const PAGES = [{
 		isDriver: true,
 		title: 'Primary Driver',
 		fields: QUESTIONS.details
-	}]
+	},
+	// {
+	// 	id: 'details-blah',
+	// 	type: 'default',
+	// 	additional: 1,
+	// 	title: 'Secondary Driver',
+	// 	fields: QUESTIONS.details
+	// 	}
+	]
 },
 
 {
@@ -1480,7 +1506,7 @@ export const PAGES = [{
 	},
 	templates: [{
 		type: 'default',
-		additional: true,
+		additional: 1,
 		hasQuestionsByDefault: true,
 		fields: QUESTIONS.licence
 	}],
@@ -1527,7 +1553,7 @@ export const PAGES = [{
 		{
 			type: 'claim',
 			userHasClaim: null,
-			additional: true,
+			additional: 1,
 			fields: QUESTIONS.claims
 		},
 	],
@@ -1558,7 +1584,7 @@ export const PAGES = [{
 		type: 'penalty',
 		title: 'Primary Driver',
 		userHasPenalty: null,
-		additional: true,
+		additional: 1,
 		fields: QUESTIONS.penalties
 	}],
 	sections: [{
@@ -1600,7 +1626,7 @@ const TEST_PAGES = [{
 	},
 	templates: [{
 		type: 'default',
-		additional: true,
+		additional: 1,
 		hasQuestionsByDefault: true,
 		fields: QUESTIONS.details
 	}
@@ -1664,7 +1690,7 @@ const PAYMENT_PAGES = [
 		},
 		templates: [{
 			type: 'default',
-			additional: true,
+			additional: 1,
 			hasQuestionsByDefault: true,
 			fields: QUESTIONS.additionalQuestionMembers
 		}],
@@ -1724,9 +1750,7 @@ export const CONFIG = {
 		title: 'Your Quote',
 		pages: PAGES,
 		isComplete: false,
-		uiOptions: {
-
-		}
+		uiOptions: {}
 	},
 	{
 		id: 'price-presentation',
