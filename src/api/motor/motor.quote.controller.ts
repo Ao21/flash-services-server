@@ -478,7 +478,8 @@ export default class MotorQuote {
 
 
 	checkAAMembership = (req: express.Request, res: express.Response) =>{
-		this.testQuote.quote.selection.aaMembership = "435435435";
+		let q = req.params.id === 'RESET' ? null : req.params.id;
+		this.testQuote.quote.selection.aaMembership = q;
 		res.send(200);
 	}
 
