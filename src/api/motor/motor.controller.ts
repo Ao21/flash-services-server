@@ -1,6 +1,6 @@
 import * as express from 'express';
 import * as _ from 'lodash';
-import { QUESTIONS, PAGES, CONFIG } from './../../constants_motor';
+import { QUESTIONS, PAGES } from './../../constants_motor';
 import { OCCUPATIONS } from './../../constants_occupations';
 import { TOWNS, COUNTIES, GEOCODE, GEOCODE_SELECTED } from './../../constants_address';
 import { retrieveQuote } from './../../contants_motor-retrieve';
@@ -11,7 +11,7 @@ import * as Fuse from 'fuse.js';
 import { QUOTE } from './../../sixto_consts';
 
 
-import { KEITH } from './../../constants_keith';
+import { CONFIG } from './../../constants_keith';
 
 export default class Motor {
 	fuseList: Fuse;
@@ -83,6 +83,14 @@ export default class Motor {
 				ref: 'REFERENCE'
 			}]
 		});
+	}
+
+	triggerFormError(req: express.Request, res: express.Response) { 
+		res.send(403, JSON.stringify({
+			type: 'fields',
+			errors: {
+				carRegistration: 'carRegInvalid'
+		}}))
 	}
 
 	/** Updating Pages */
@@ -242,7 +250,7 @@ export default class Motor {
 			"carModel": {
 				"id": "almera", "description": "ALMERA FLARE",
 			},
-			"engineSize": {
+			"engineSizeRange": {
 				id: '1500cc - 1999cc', description: '1500cc - 1999cc'
 			},
 			"fuelType": {

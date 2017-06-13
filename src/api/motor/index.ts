@@ -9,8 +9,9 @@ export class MotorRoutes {
 	constructor(rout) {
 		this.router = rout;
 		this.router.get('/motor-ux-api/motor/config', this.motor.getConfig);
-		this.router.get('/motor-ux-api/motor/occupation/all', this.motor.getAllOccupations);
-		this.router.get('/motor-ux-api/motor/occupation/search', this.motor.getOccupation);
+		this.router.get('/motor-ux-api/reference/occupation/all', this.motor.getAllOccupations);
+		this.router.get('/motor-ux-api/reference/employerBusinessType/all', this.motor.getAllOccupations);
+		this.router.get('/motor-ux-api/occupation/search', this.motor.getOccupation);
 		
 		this.router.post('/motor-ux-api/motor/page/:page', this.motor.updatePage);
 		this.router.post('/motor-ux-api/motor/update', this.motor.updateQuote);
@@ -23,8 +24,9 @@ export class MotorRoutes {
 		this.router.post('/motor-ux-api/motor/section/:section', this.motor.updateSection);
 		this.router.get('/motor-ux-api/motor/section/:section/questions', this.motor.getSectionQuestions);
 
-		this.router.get('/motor-ux-api/motor/reference/town/:town', this.motor.getTown);
-		this.router.get('/motor-ux-api/motor/reference/county/:county', this.motor.getCounty);
+		this.router.get('/motor-ux-api/reference/area/:town', this.motor.getTown);
+		this.router.get('/motor-ux-api/reference/county/:county', this.motor.getCounty);
+		this.router.get('/motor-ux-api/reference/country/:county', this.motor.getCounty);
 		
 		this.router.put('/motor-ux-api/motor/reference/address', this.motor.putAddress);
 		this.router.post('/motor-ux-api/motor/reference/address/selected', this.motor.selectAddress);
@@ -32,11 +34,11 @@ export class MotorRoutes {
 		this.router.get('/motor-ux-api/motor/reference/firstvehicle/:registration', this.motor.getVehicleRegistration)	
 		this.router.get('/motor-ux-api/motor/reference/secondvehicle/:registration', this.motor.getVehicleRegistration)	
 		
-		this.router.get('/motor-ux-api/motor/reference/car/make/search', this.motor.getCarMake);
-		this.router.get('/motor-ux-api/motor/reference/car/make/linked', this.motor.getCarMake);
-		this.router.get('/motor-ux-api/motor/reference/car/model/search', this.motor.getCarMake);
-		this.router.get('/motor-ux-api/motor/reference/car/model/linked', this.motor.getCarMake);
-		this.router.get('/motor-ux-api/motor/reference/car/exactModel/search', this.motor.getOccupation);
+		this.router.get('/motor-ux-api/reference/vehicle/make/all', this.motor.getCarMake);
+		this.router.get('/motor-ux-api/reference/vehicle/make/linked', this.motor.getCarMake);
+		this.router.get('/motor-ux-api/reference/vehicle/model/search', this.motor.getCarMake);
+		this.router.get('/motor-ux-api/reference/vehicle/model/linked', this.motor.getCarMake);
+		this.router.get('/motor-ux-api/reference/vehicle/exactModel/search', this.motor.getOccupation);
 
 		this.router.post('/motor-ux-api/motor/reference/manualCarDetails', this.motor.setCarDetails)
 		this.router.post('/motor-ux-api/motor/reference/manualCarTag', this.motor.setCarTag);
@@ -48,7 +50,13 @@ export class MotorRoutes {
 
 		this.router.put('/motor-ux-api/motor/reference/additional', this.motor.checkBankVerification);
 
+		this.router.put('/motor-ux-api/quote-selection', this.motor.checkBankVerification);
+
 		this.router.get('/motor-ux-api/motor/retrieveQuote', this.motor.retrieveQuote);
+
+		this.router.get('/motor-ux-api/reference/checkAAStatus/:id', this.quote.checkAAMembership);
+
+		this.router.put('/motor-ux-api/error', this.motor.triggerFormError);
 
 
 

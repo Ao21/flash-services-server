@@ -28,14 +28,14 @@ export const GEOCODE = [{
 }, {
     "id": 2,
     "address": "Apartment 2,14 Harcourt Street,Dublin 2"
+},{
+    "id": 4,
+    "address": "14 Harcourt Street,Dublin 2",
+    "echo": true
 }, {
     "id": 3,
     "address": "Flat 14,38 Harcourt Street,Dublin 2,County Dublin"
-}, {
-    "id": 4,
-    "address": "14 Harcourt Street,Dublin 2",
-    "isEcho": true
-}];
+} ];
 
 
 export const GEOCODE_SELECTED = {
@@ -47,7 +47,7 @@ export const GEOCODE_SELECTED = {
 	},
 	"county": {
 		description: 'Dublin',
-		id: 'dublin'
+		id: 'Dublin'
 	},
     "lookups": [{
         "id": 0,

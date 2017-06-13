@@ -27,15 +27,20 @@ app.use(slow({
 	delay: 350
 }))
 
-// app.use(slow({
-// 	url: /address/i,
-// 	delay: 2000
-// }))
+app.use(slow({
+	url: /address/i,
+	delay: 2000
+}))
 
-// app.use(slow({
-// 	url: /quote/i,
-// 	delay: 2000
-// }))
+app.use(slow({
+	url: /checkAAStatus/i,
+	delay: 2000
+}))
+
+app.use(slow({
+	url: /quote/i,
+	delay: 1500
+}))
 
 app.use(function (req: any, res: any, next: any) {
 	res.header("Access-Control-Allow-Origin", req.headers.origin);
