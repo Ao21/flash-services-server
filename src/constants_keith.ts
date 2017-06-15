@@ -7,6 +7,7 @@ export const CONFIG = {
                 {
                     "id": "getting-started",
                     "title": "Getting Started",
+                    "helpId": "213679469",
                     "subheading": "First we need some details to get started.",
                     "order": 0,
                     "uiOptions": {
@@ -1914,6 +1915,7 @@ export const CONFIG = {
                     "id": "your-claims",
                     "title": "Claims",
                     "order": 1,
+                    "helpId": "213679469",
                     "uiOptions": {
                         "nextPage": "your-penalties",
                         "prevPage": "your-cover"
@@ -2254,6 +2256,7 @@ export const CONFIG = {
                             "fields": [
                              {
                                     "key": "areYouCardholder",
+                                    "helpId": "213679469",
                                     "label": "Are you the Cardholder?",
                                     "type": "radio",
                                     "options": [
@@ -2273,6 +2276,7 @@ export const CONFIG = {
                                 },
                                 {
                                     "key": "driverLicenceNumber",
+                                    "helpId": "213679469",
                                     "label": "What is your Drivers Licence number?",
                                     "type": "text",
                                     "required": false,

@@ -16,6 +16,7 @@ export class MotorRoutes {
 		this.router.post('/motor-ux-api/motor/page/:page', this.motor.updatePage);
 		this.router.post('/motor-ux-api/motor/update', this.motor.updateQuote);
 		this.router.get('/motor-ux-api/motor/quote', this.quote.sendQuote)
+		this.router.get('/motor-ux-api/motor/quote/:id', this.motor.retrieveQuote)
 		
 		this.router.get('/motor-ux-api/myaa/email/:email', this.motor.checkMyAAEmail);
 		this.router.post('/motor-ux-api/myaa/login', this.motor.loginToMyAA);
@@ -24,7 +25,11 @@ export class MotorRoutes {
 		this.router.post('/motor-ux-api/motor/section/:section', this.motor.updateSection);
 		this.router.get('/motor-ux-api/motor/section/:section/questions', this.motor.getSectionQuestions);
 
+		this.router.get('/motor-ux-api/reference/area/linked', this.motor.getLinkedTown);
 		this.router.get('/motor-ux-api/reference/area/:town', this.motor.getTown);
+
+		
+
 		this.router.get('/motor-ux-api/reference/county/:county', this.motor.getCounty);
 		this.router.get('/motor-ux-api/reference/country/:county', this.motor.getCounty);
 		
@@ -57,7 +62,6 @@ export class MotorRoutes {
 		this.router.get('/motor-ux-api/reference/checkAAStatus/:id', this.quote.checkAAMembership);
 
 		this.router.put('/motor-ux-api/error', this.motor.triggerFormError);
-
 
 
 		

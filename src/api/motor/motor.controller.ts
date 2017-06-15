@@ -4,6 +4,7 @@ import { QUESTIONS, PAGES } from './../../constants_motor';
 import { OCCUPATIONS } from './../../constants_occupations';
 import { TOWNS, COUNTIES, GEOCODE, GEOCODE_SELECTED } from './../../constants_address';
 import { retrieveQuote } from './../../contants_motor-retrieve';
+import { RETRIEVE_QUOTE } from './../../constants_rafal';
 import { CARMAKES } from './../../constants_carmakes';
 import * as Fuse from 'fuse.js';
 
@@ -57,6 +58,7 @@ export default class Motor {
 
 	/** MYAA */
 
+
 	checkMyAAEmail(req: express.Request, res: express.Response) {
 		if (req.params.email === 'ro.brett@gmail.com') {
 			return res.status(200).send({ status: 1 });
@@ -65,8 +67,7 @@ export default class Motor {
 	}
 
 	retrieveQuote = (req: express.Request, res: express.Response) => {
-		this.isRetrieveQuote = true;
-		res.send(retrieveQuote);
+		res.send(RETRIEVE_QUOTE);
 	}
 
 	loginToMyAA(req: express.Request, res: express.Response) {
@@ -149,6 +150,10 @@ export default class Motor {
 	getTown = (req: express.Request, res: express.Response) => {
 		let list = this.townList.search(req.query.query);
 		res.send(JSON.stringify(list));
+	}
+
+	getLinkedTown = (req: express.Request, res: express.Response) => {
+		res.send(JSON.stringify(TOWNS));
 	}
 	getCounty = (req: express.Request, res: express.Response) => {
 		let list = this.countiesList.search(req.query.query);

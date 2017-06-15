@@ -1,4 +1,4 @@
-export const QUOTE = {
+export const RETRIEVE_QUOTE = {
     "productConfig": {
         "uiOptions": {},
         "stages": [{
@@ -66,6 +66,7 @@ export const QUOTE = {
                 "order": 1,
                 "sections": [{
                     "type": "default",
+                    "id": "your-details",
                     "uiOptions": {},
                     "fields": [{
                         "type": "radio",

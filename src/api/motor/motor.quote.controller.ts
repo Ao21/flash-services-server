@@ -116,7 +116,7 @@ const quote = {
 	selection: {
 		scheduleCode: 'monthly',
 		policyType: 'AAMOTOR',
-		aaHomeInsuranceId: '54354354',
+		aaHome: null,
 		aaMembershipId: '3453454',
 		addAAMembership: false
 	}
