@@ -118,7 +118,7 @@ const quote = {
 		policyType: 'AAMOTOR',
 		aaHome: null,
 		aaMembershipId: '3453454',
-		addAAMembership: false
+		addAAMembership: true
 	}
 
 }
