@@ -463,7 +463,7 @@ const TEST_Q = {
 		"selection": {
 			"policyType": "STANDARD",
 			"scheduleCode": "monthly",
-			"addAAMembership": false,
+			"addAAMembership": true,
 			"aaMembership": null,
 			"aaHome": "4353434545"
 		}

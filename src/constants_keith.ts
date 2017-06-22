@@ -25,7 +25,7 @@ export const CONFIG = {
                                     "required": true,
                                     "order": 0,
                                     "validators": [
-                                        "validEmailValidate"
+                                        "validEmailValidate",
                                     ],
                                     "uiOptions": {
                                         "summaryTitle": ""
@@ -412,6 +412,7 @@ export const CONFIG = {
                                     "helpId": 213685289,
                                     "disabled": false,
                                     "order": 2,
+                                    "value": "01/01/1992",
                                     "validators": [
                                         "validDateValidate",
                                         "validOverEighteenValidate"
@@ -756,6 +757,14 @@ export const CONFIG = {
                                             "uiOptions": {
                                                 "summaryTitle": "Make"
                                             }
+                                        },
+                                        {
+                                            "key": "yearManufactured",
+                                            "type": "text",
+                                            "required": false,
+                                            "order": 4,
+                                            "validators": [],
+                                            "hidden": true
                                         }
                                     ]
                                 },
@@ -779,7 +788,7 @@ export const CONFIG = {
                                     "required": true,
                                     "disabled": false,
                                     "order": 5,
-                                    "validators": [],
+                                    "validators": ['dateOfPurchaseValidate'],
                                     "uiOptions": {
                                         "summaryTitle": "Date of Purchase"
                                     }
@@ -1050,159 +1059,6 @@ export const CONFIG = {
                                             }
                                         }
                                     ]
-                                },
-                                {
-                                    "key": "dateOfRegistration",
-                                    "label": "Date of Registration",
-                                    "type": "date",
-                                    "required": true,
-                                    "disabled": false,
-                                    "order": 0,
-                                    "validators": [],
-                                    "uiOptions": {
-                                        "summaryTitle": "Date of Registration",
-                                        "locked": "day"
-                                    }
-                                },
-                                {
-                                    "key": "dateOfPurchase",
-                                    "label": "Date of Purchase",
-                                    "type": "date",
-                                    "required": true,
-                                    "disabled": false,
-                                    "order": 5,
-                                    "validators": [],
-                                    "uiOptions": {
-                                        "summaryTitle": "Date of Purchase"
-                                    }
-                                },
-                                {
-                                    "key": "currentValue",
-                                    "label": "Current Value",
-                                    "type": "currency",
-                                    "required": true,
-                                    "disabled": false,
-                                    "order": 6,
-                                    "validators": [],
-                                    "uiOptions": {
-                                        "summaryTitle": "Car value "
-                                    }
-                                },
-                                {
-                                    "key": "kilometersPerYear",
-                                    "label": "How many kilometres do you drive in a year?",
-                                    "type": "tel",
-                                    "required": true,
-                                    "disabled": false,
-                                    "order": 7,
-                                    "validators": [],
-                                    "uiOptions": {
-                                        "summaryTitle": "Kilometers per year"
-                                    }
-                                },
-                                {
-                                    "key": "securityFeatures",
-                                    "type": "group",
-                                    "alignment": "half",
-                                    "timeline": true,
-                                    "label": "What security features are fitted to your vehicle?",
-                                    "order": 8,
-                                    "isComplete": false,
-                                    "uiOptions": {
-                                        "summaryTitle": "Security Features"
-                                    },
-                                    "fields": [
-                                        {
-                                            "key": "security-alarm",
-                                            "name": "Alarm",
-                                            "type": "checkbox",
-                                            "timeline": false,
-                                            "required": false,
-                                            "uiOptions": {
-                                                "summaryTitle": "Security Alarm"
-                                            }
-                                        },
-                                        {
-                                            "key": "security-immobiliser",
-                                            "name": "Immobiliser",
-                                            "type": "checkbox",
-                                            "timeline": false,
-                                            "required": false,
-                                            "uiOptions": {
-                                                "summaryTitle": "Immobiliser"
-                                            }
-                                        },
-                                        {
-                                            "key": "security-tracker",
-                                            "name": "Tracker",
-                                            "type": "checkbox",
-                                            "timeline": false,
-                                            "required": false,
-                                            "uiOptions": {
-                                                "summaryTitle": "Tracker"
-                                            }
-                                        }
-                                    ]
-                                },
-                                {
-                                    "key": "carMainlyUsedArea",
-                                    "label": "In what area is your car usually used?",
-                                    "placeholder": "Please type the neighbourhood, region, area",
-                                    "type": "autocomplete",
-                                    "serviceUrl": "reference/area/",
-                                    "autoCompleteType": "search",
-                                    "required": true,
-                                    "disabled": false,
-                                    "order": 9,
-                                    "validators": []
-                                },
-                                {
-                                    "key": "carMainlyUsedCounty",
-                                    "label": "In what county is your car usually used?",
-                                    "placeholder": "Please enter a county",
-                                    "type": "autocomplete",
-                                    "serviceUrl": "reference/county/",
-                                    "link": "carMainlyUsedArea",
-                                    "trigger": {
-                                        "expectedType": "object",
-                                        "key": "carMainlyUsedArea",
-                                        "name": "disabledBasedOnKey"
-                                    },
-                                    "autoCompleteType": "linked",
-                                    "required": true,
-                                    "disabled": false,
-                                    "order": 9,
-                                    "validators": []
-                                },
-                                {
-                                    "key": "carKeptOvernight",
-                                    "label": "Where is you car kept overnight?",
-                                    "type": "dropdown",
-                                    "options": [
-                                        {
-                                            "id": "carport",
-                                            "description": "Carport"
-                                        },
-                                        {
-                                            "id": "garaged",
-                                            "description": "Garaged"
-                                        },
-                                        {
-                                            "id": "keptPrivate",
-                                            "description": "Kept on Private Property"
-                                        },
-                                        {
-                                            "id": "keptPublic",
-                                            "description": "Kept on Public Property"
-                                        },
-                                        {
-                                            "id": "parkedInDrive",
-                                            "description": "Parked on Drive"
-                                        }
-                                    ],
-                                    "required": true,
-                                    "order": 10,
-                                    "validators": []
                                 }
                             ]
                         }
@@ -1260,6 +1116,8 @@ export const CONFIG = {
                                     "required": true,
                                     "order": 1,
                                     "value": { "id": "0", "description": "0" },
+                                    "validators": [],
+
                                     "values": [
                                         { "id": "0", "description": "0" },
                                         { "id": "1", "description": "1" },
@@ -1338,6 +1196,7 @@ export const CONFIG = {
                                     "required": true,
                                     "order": 1,
                                     "value": { "id": "0", "description": "0" },
+                                    "validators": ["licenceDateValidate"],
                                     "values": [
                                         { "id": "0", "description": "0" },
                                         { "id": "1", "description": "1" },
@@ -1702,18 +1561,6 @@ export const CONFIG = {
                                             }
                                         },
                                         {
-                                            "key": "drivingExperienceType",
-                                            "label": "Type of driving experience",
-                                            "type": "dropdown",
-                                            "trigger": {
-                                                "key": "insuredNamedDriver",
-                                                "name": "showBasedOnKey",
-                                                "isObject": true
-                                            },
-                                            "required": true,
-                                            "options": []
-                                        },
-                                        {
                                             "key": "namedDrivingExperienceYears",
                                             "label": "How many years named driving experience do you have?",
                                             "type": "slider",
@@ -1863,6 +1710,7 @@ export const CONFIG = {
                                     "label": "What date would you like to start your policy from?",
                                     "type": "date",
                                     "order": 7,
+                                    "validators": ["policyStartDateValidate"],
                                     "required": true
                                 },
                                 {
@@ -1936,7 +1784,8 @@ export const CONFIG = {
                                     "order": 0,
                                     "validators": [
                                         "validDateValidate",
-                                        "validLastFiveYearsValidate"
+                                        "validLastFiveYearsValidate",
+                                        "claimDateValidator"
                                     ],
                                     "uiOptions": {
                                         "summaryTitle": "Date of Claim"
@@ -2130,7 +1979,8 @@ export const CONFIG = {
                                     "order": 0,
                                     "validators": [
                                         "validDateValidate",
-                                        "validLastThreeYearsValidate"
+                                        "validLastThreeYearsValidate",
+                                        // "penaltyDateValidator"
                                     ]
                                 },
                                 {
@@ -2254,7 +2104,7 @@ export const CONFIG = {
                             "type": "default",
                             "isDriver": true,
                             "fields": [
-                             {
+                                {
                                     "key": "areYouCardholder",
                                     "helpId": "213679469",
                                     "label": "Are you the Cardholder?",
@@ -2287,7 +2137,19 @@ export const CONFIG = {
                                         "key": "typeOfLicence",
                                         "value": "FullIrish"
                                     }
-                                }
+                                },
+                                {
+                                    "key": "carRegistration",
+                                    "label": "Please enter your car registration in order to purchase.",
+                                    "type": "text",
+                                    "required": true,
+                                    "disabled": false,
+                                    "validators": ['carRegistrationAsync'],
+                                    "trigger": {
+                                        "name": "getValueFromQuestion",
+                                        "key": "carSearchQuestion"
+                                    }
+                                },
                             ]
                         }
                     ]

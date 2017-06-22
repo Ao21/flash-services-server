@@ -1,3 +1,4 @@
+
 export var retrieveQuote = {
     "stages": [{
         "id": "quotation",

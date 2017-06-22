@@ -39,6 +39,8 @@ export class MotorRoutes {
 		this.router.get('/motor-ux-api/motor/reference/firstvehicle/:registration', this.motor.getVehicleRegistration)	
 		this.router.get('/motor-ux-api/motor/reference/secondvehicle/:registration', this.motor.getVehicleRegistration)	
 		
+		this.router.get('/motor-ux-api/motor/reference/vehicle/check/:id', this.motor.checkVehicle);
+
 		this.router.get('/motor-ux-api/reference/vehicle/make/all', this.motor.getCarMake);
 		this.router.get('/motor-ux-api/reference/vehicle/make/linked', this.motor.getCarMake);
 		this.router.get('/motor-ux-api/reference/vehicle/model/search', this.motor.getCarMake);
