@@ -465,7 +465,7 @@ const TEST_Q = {
 			"scheduleCode": "monthly",
 			"addAAMembership": true,
 			"aaMembership": null,
-			"aaHome": "4353434545"
+			"aaHome": null
 		}
 	},
 
