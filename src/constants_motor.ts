@@ -884,8 +884,9 @@ export const QUESTIONS = {
 	}, {
 		key: 'howManyPoints',
 		label: 'How many points?',
-		type: 'text',
+		type: 'number',
 		required: true,
+		validators: ['maxPenaltyPoints'],
 		placeholder: 'How many?',
 		order: 0,
 	}],
@@ -1564,12 +1565,12 @@ export const PAGES = [{
 		isDriver: true,
 		type: 'claim',
 		fields: [
-			// {
-			// 	key: '0',
-			// 	type: 'claim',
-			// 	isComplete: true,
-			// 	fields: QUESTIONS.claimWithValues
-			// }
+			{
+				key: '0',
+				type: 'claim',
+				isComplete: true,
+				fields: QUESTIONS.claimWithValues
+			}
 		]
 	}]
 }, {

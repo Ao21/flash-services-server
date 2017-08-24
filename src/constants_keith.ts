@@ -1,2197 +1,2503 @@
 export const CONFIG = {
-    "stages": [
-        {
-            "id": "quotation",
-            "title": "Your Quote",
-            "pages": [
-                {
-                    "id": "getting-started",
-                    "title": "Getting Started",
-                    "helpId": "213679469",
-                    "subheading": "First we need some details to get started.",
+    "stages": [{
+        "id": "quotation",
+        "isComplete": false,
+        "title": "Your Quote",
+        "uiOptions": {},
+        "pages": [{
+            "id": "getting-started",
+            "title": "Getting Started",
+            "uiOptions": {
+                "nextPage": "your-details"
+            },
+            "order": 0,
+            "sections": [{
+                "id": "pre-default",
+                "type": "default",
+                "uiOptions": {},
+                "fields": [{
+                    "type": "myaaEmail",
+                    "helpId": 115001401969,
+                    "uiOptions": {
+                        "summaryTitle": ""
+                    },
+                    "key": "email",
+                    "label": "Email Address",
                     "order": 0,
+                    "required": true,
+                    "validators": ["validEmailValidate"]
+                }, {
+                    "type": "memberSelector",
+                    "helpId": 115001413725,
                     "uiOptions": {
-                        "nextPage": "your-details"
+                        "summaryTitle": "Number of Drivers"
                     },
-                    "sections": [
-                        {
-                            "id": "pre-default",
-                            "type": "default",
-                            "fields": [
-                                {
-                                    "key": "email",
-                                    "label": "What is your Email Address?",
-                                    "type": "myaaEmail",
-                                    "required": true,
-                                    "order": 0,
-                                    "validators": [
-                                        "validEmailValidate",
-                                    ],
-                                    "uiOptions": {
-                                        "summaryTitle": ""
-                                    }
-                                },
-                                {
-                                    "key": "amountOfDrivers",
-                                    "label": "How many drivers will there be on your policy including yourself?",
-                                    "type": "memberSelector",
-                                    "required": true,
-                                    "order": 1,
-                                    "value": 1,
-                                    "min": 1,
-                                    "max": 5,
-                                    "uiOptions": {
-                                        "summaryTitle": "Amount of Drivers"
-                                    }
-                                },
-                                {
-                                    "key": "termsConditions",
-                                    "label": "Terms and Conditions",
-                                    "type": "questionText",
-                                    "order": 2,
-                                    "timeline": false,
-                                    "content": "<p>By proceeding, I agree to the <a href=\"\" target=\"_blank\">AA Assumptions</a> and <a href=\"https://www.theaa.ie/~/media/Files/AA%20Ireland/Terms%20And%20Conditions/MyAATerms.ashx\" target=\"_blank\">myAA Terms and Conditions</a>. I have read and agree to the <a href=\"http://www.theaa.ie/aa/about-us/privacy-policy.aspx\" target=\"_blank\">AA Privacy Policy</a> and <a href=\"http://www.theaa.ie/~/media/Files/AA%20Ireland/Terms%20and%20conditions/Motor-Terms-Business.aspx\" target=\"_blank\">Terms of Business</a></p>",
-                                    "uiOptions": {
-                                        "summaryHidden": true
-                                    }
-                                }
-                            ]
-                        }
-                    ]
-                },
-                {
-                    "id": "your-details",
-                    "title": "Details",
-                    "subheading": "We need to know some details about you so that we can give you the best quote.",
+                    "key": "amountOfDrivers",
+                    "label": "Number of drivers on the policy",
                     "order": 1,
+                    "required": true,
+                    "value": 1,
+                    "max": 5,
+                    "min": 1
+                }, {
+                    "type": "questionText",
                     "uiOptions": {
-                        "nextPage": "your-address",
-                        "prevPage": "getting-started"
+                        "summaryHidden": true
                     },
-                    "templates": [
-                        {
-                            "type": "default",
-                            "additional": true,
-                            "hasQuestionsByDefault": true,
-                            "fields": [
-                                {
-                                    "key": "title",
-                                    "label": "Title",
-                                    "type": "radio",
-                                    "order": 0,
-                                    "options": [
-                                        {
-                                            "id": "Mr",
-                                            "description": "Mr"
-                                        },
-                                        {
-                                            "id": "Mrs",
-                                            "description": "Mrs"
-                                        },
-                                        {
-                                            "id": "Miss",
-                                            "description": "Miss"
-                                        },
-                                        {
-                                            "id": "Ms",
-                                            "description": "Ms"
-                                        }
-                                    ],
-                                    "required": true,
-                                    "uiOptions": {
-                                        "summaryTitle": "Email"
-                                    }
-                                },
-                                {
-                                    "key": "firstName",
-                                    "label": "First Name",
-                                    "type": "text",
-                                    "required": true,
-                                    "helpId": 214205625,
-                                    "order": 0,
-                                    "uiOptions": {
-                                        "summaryTitle": "First Name"
-                                    }
-                                },
-                                {
-                                    "key": "lastName",
-                                    "label": "Last Name",
-                                    "type": "text",
-                                    "helpId": 213679469,
-                                    "required": true,
-                                    "order": 1,
-                                    "uiOptions": {
-                                        "summaryTitle": "Last Name"
-                                    }
-                                },
-                                {
-                                    "key": "dateOfBirth",
-                                    "label": "Date Of Birth",
-                                    "type": "date",
-                                    "required": true,
-                                    "helpId": 213685289,
-                                    "disabled": false,
-                                    "order": 2,
-                                    "validators": [
-                                        "validDateValidate",
-                                        "validOverEighteenValidate"
-                                    ],
-                                    "uiOptions": {
-                                        "summaryTitle": "Date of Birth"
-                                    }
-                                },
-                                {
-                                    "key": "phoneNumber",
-                                    "label": "Contact Number",
-                                    "type": "tel",
-                                    "required": true,
-                                    "disabled": false,
-                                    "helpId": 214224585,
-                                    "order": 2,
-                                    "validators": [
-                                        "validPhoneNumberValidate"
-                                    ],
-                                    "uiOptions": {
-                                        "summaryTitle": "Phone Number"
-                                    }
-                                },
-                                {
-                                    "key": "relationToMainDriver",
-                                    "label": "Relationship to Main Driver",
-                                    "helpId": 1001,
-                                    "type": "dropdown",
-                                    "options": [
-                                        {
-                                            "id": "Brother in Law",
-                                            "description": "Brother in Law"
-                                        },
-                                        {
-                                            "id": "Business Partner",
-                                            "description": "Business Partner"
-                                        },
-                                        {
-                                            "id": "Common Law Spouse",
-                                            "description": "Common Law Spouse"
-                                        },
-                                        {
-                                            "id": "Daughter",
-                                            "description": "Daughter"
-                                        },
-                                        {
-                                            "id": "Daughter in Law",
-                                            "description": "Daughter in Law"
-                                        },
-                                        {
-                                            "id": "Employee of Proposer",
-                                            "description": "Employee of Proposer"
-                                        },
-                                        {
-                                            "id": "Employer of Proposer",
-                                            "description": "Employer of Proposer"
-                                        },
-                                        {
-                                            "id": "Father in Law",
-                                            "description": "Father in Law"
-                                        },
-                                        {
-                                            "id": "Friend",
-                                            "description": "Friend"
-                                        },
-                                        {
-                                            "id": "Mother In Law",
-                                            "description": "Mother In Law"
-                                        },
-                                        {
-                                            "id": "Parent",
-                                            "description": "Parent"
-                                        },
-                                        {
-                                            "id": "Partner",
-                                            "description": "Partner"
-                                        },
-                                        {
-                                            "id": "Proposer",
-                                            "description": "Proposer"
-                                        },
-                                        {
-                                            "id": "Relative",
-                                            "description": "Relative"
-                                        },
-                                        {
-                                            "id": "Sister",
-                                            "description": "Sister"
-                                        },
-                                        {
-                                            "id": "Sister in Law",
-                                            "description": "Sister in Law"
-                                        },
-                                        {
-                                            "id": "Son",
-                                            "description": "Son"
-                                        },
-                                        {
-                                            "id": "Son in Law",
-                                            "description": "Son in Law"
-                                        },
-                                        {
-                                            "id": "Spouse",
-                                            "description": "Spouse"
-                                        },
-                                        {
-                                            "id": "Tenant",
-                                            "description": "Tenant"
-                                        },
-                                        {
-                                            "id": "Unrelated",
-                                            "description": "Unrelated"
-                                        }
-                                    ],
-                                    "required": true,
-                                    "order": 1,
-                                    "validators": [],
-                                    "uiOptions": {
-                                        "summaryTitle": "On who's policy"
-                                    }
-                                },
-                                {
-                                    "key": "typeOfEmployment",
-                                    "label": "Type of Employment",
-                                    "type": "dropdown",
-                                    "options": [
-                                        {
-                                            "id": "Employed",
-                                            "description": "Employed"
-                                        },
-                                        {
-                                            "id": "HouseholdDuties",
-                                            "description": "Household Duties"
-                                        },
-                                        {
-                                            "id": "Retired",
-                                            "description": "Retired"
-                                        },
-                                        {
-                                            "id": "SelfEmployed",
-                                            "description": "Self Employed"
-                                        },
-                                        {
-                                            "id": "Unemployed",
-                                            "description": "Unemployed"
-                                        }
-                                    ],
-                                    "required": true,
-                                    "order": 2,
-                                    "validators": [],
-                                    "uiOptions": {
-                                        "summaryTitle": "Type of Employment"
-                                    }
-                                },
-                                {
-                                    "key": "occupation",
-                                    "label": "What is your Occupation?",
-                                    "type": "autocomplete",
-                                    "placeholder": "Select an Occupation",
-                                    "serviceUrl": "reference/occupation/",
-                                    "autoCompleteType": "all",
-                                    "required": true,
-                                    "trigger": {
-                                        "key": "typeOfEmployment",
-                                        "equals": ["Unemployed", "Retired"],
-                                        "name": "hideIfKeyEqualsMulti"
-                                    },
-                                    "disabled": false,
-                                    "helpId": 1001,
-                                    "order": 2,
-                                    "validators": [],
-                                    "uiOptions": {
-                                        "summaryTitle": "Occupation"
-                                    }
-                                },
-                                {
-                                    "key": "business",
-                                    "label": "Type of Business",
-                                    "type": "autocomplete",
-                                    "placeholder": "Select an Area of Business",
-                                    "serviceUrl": "reference/employerBusinessType/",
-                                    "autoCompleteType": "all",
-                                    "required": true,
-                                    "trigger": {
-                                        "key": "typeOfEmployment",
-                                        "equals": ["Unemployed", "Retired"],
-                                        "name": "hideIfKeyEqualsMulti"
-                                    },
-                                    "order": 2,
-                                    "validators": [],
-                                    "uiOptions": {
-                                        "summaryTitle": "Type of business"
-                                    }
-                                },
-                                {
-                                    "key": "livedOutsideIreland",
-                                    "label": "Have you lived outside of Ireland or the UK in the past 12 months?",
-                                    "type": "radio",
-                                    "options": [
-                                        {
-                                            "id": true,
-                                            "description": "Yes"
-                                        },
-                                        {
-                                            "id": false,
-                                            "description": "No"
-                                        }
-                                    ],
-                                    "required": true,
-                                    "order": 2,
-                                    "validators": []
-                                }
-                            ]
-                        }
-                    ],
-                    "sections": [
-                        {
-                            "id": "details-default",
-                            "type": "default",
-                            "isDriver": true,
-                            "title": "Primary Driver",
-                            "fields": [
-                                {
-                                    "key": "title",
-                                    "label": "Title",
-                                    "type": "radio",
-                                    "order": 0,
-                                    "options": [
-                                        {
-                                            "id": "Mr",
-                                            "description": "Mr"
-                                        },
-                                        {
-                                            "id": "Mrs",
-                                            "description": "Mrs"
-                                        },
-                                        {
-                                            "id": "Miss",
-                                            "description": "Miss"
-                                        },
-                                        {
-                                            "id": "Ms",
-                                            "description": "Ms"
-                                        }
-                                    ],
-                                    "required": true,
-                                    "uiOptions": {
-                                        "summaryTitle": "Email"
-                                    }
-                                },
-                                {
-                                    "key": "firstName",
-                                    "label": "First Name",
-                                    "type": "text",
-                                    "required": true,
-                                    "helpId": 214205625,
-                                    "order": 0,
-                                    "uiOptions": {
-                                        "summaryTitle": "First Name"
-                                    }
-                                },
-                                {
-                                    "key": "lastName",
-                                    "label": "Last Name",
-                                    "type": "text",
-                                    "helpId": 213679469,
-                                    "required": true,
-                                    "order": 1,
-                                    "uiOptions": {
-                                        "summaryTitle": "Last Name"
-                                    }
-                                },
-                                {
-                                    "key": "dateOfBirth",
-                                    "label": "Date Of Birth",
-                                    "type": "date",
-                                    "required": true,
-                                    "helpId": 213685289,
-                                    "disabled": false,
-                                    "order": 2,
-                                    "value": "01/01/1992",
-                                    "validators": [
-                                        "validDateValidate",
-                                        "validOverEighteenValidate"
-                                    ],
-                                    "uiOptions": {
-                                        "summaryTitle": "Date of Birth"
-                                    }
-                                },
-                                {
-                                    "key": "phoneNumber",
-                                    "label": "Contact Number",
-                                    "type": "tel",
-                                    "required": true,
-                                    "disabled": false,
-                                    "helpId": 214224585,
-                                    "order": 2,
-                                    "validators": [
-                                        "validPhoneNumberValidate"
-                                    ],
-                                    "uiOptions": {
-                                        "summaryTitle": "Phone Number"
-                                    }
-                                },
-                                {
-                                    "key": "typeOfEmployment",
-                                    "label": "Type of Employment",
-                                    "type": "dropdown",
-                                    "options": [
-                                        {
-                                            "id": "Employed",
-                                            "description": "Employed"
-                                        },
-                                        {
-                                            "id": "HouseholdDuties",
-                                            "description": "Household Duties"
-                                        },
-                                        {
-                                            "id": "Retired",
-                                            "description": "Retired"
-                                        },
-                                        {
-                                            "id": "SelfEmployed",
-                                            "description": "Self Employed"
-                                        },
-                                        {
-                                            "id": "Unemployed",
-                                            "description": "Unemployed"
-                                        }
-                                    ],
-                                    "required": true,
-                                    "order": 2,
-                                    "validators": [],
-                                    "uiOptions": {
-                                        "summaryTitle": "Type of Employment"
-                                    }
-                                },
-                                {
-                                    "key": "occupation",
-                                    "label": "What is your Occupation?",
-                                    "type": "autocomplete",
-                                    "placeholder": "Select an Occupation",
-                                    "serviceUrl": "reference/occupation/",
-                                    "autoCompleteType": "all",
-                                    "required": true,
-                                    "trigger": {
-                                        "key": "typeOfEmployment",
-                                        "equals": ["Unemployed", "Retired"],
-                                        "name": "hideIfKeyEqualsMulti"
-                                    },
-                                    "disabled": false,
-                                    "helpId": 1001,
-                                    "order": 2,
-                                    "validators": [],
-                                    "uiOptions": {
-                                        "summaryTitle": "Occupation"
-                                    }
-                                },
-                                {
-                                    "key": "business",
-                                    "label": "Type of Business",
-                                    "type": "autocomplete",
-                                    "placeholder": "Select an Area of Business",
-                                    "serviceUrl": "reference/employerBusinessType/",
-                                    "autoCompleteType": "all",
-                                    "required": true,
-                                    "trigger": {
-                                        "key": "typeOfEmployment",
-                                        "equals": ["Unemployed", "Retired"],
-                                        "name": "hideIfKeyEqualsMulti"
-                                    },
-                                    "order": 2,
-                                    "validators": [],
-                                    "uiOptions": {
-                                        "summaryTitle": "Type of business"
-                                    }
-                                },
-                                {
-                                    "key": "livedOutsideIreland",
-                                    "label": "Have you lived outside of Ireland or the UK in the past 12 months?",
-                                    "type": "radio",
-                                    "options": [
-                                        {
-                                            "id": true,
-                                            "description": "Yes"
-                                        },
-                                        {
-                                            "id": false,
-                                            "description": "No"
-                                        }
-                                    ],
-                                    "required": true,
-                                    "order": 2,
-                                    "validators": []
-                                }
-                            ]
-                        }
-                    ]
-                },
-                {
-                    "id": "your-address",
-                    "title": "Addresss",
+                    "key": "termsConditions",
+                    "label": "Terms and Conditions",
+                    "order": 2,
+                    "timeline": false,
+                    "content": "<p>By proceeding, I agree to the <a href=\"http://www.theaa.ie/~/media/files/motor/assumptions.ashx\" target=\"_blank\">AA Assumptions</a> and <a href=\"https://www.theaa.ie/~/media/Files/AA%20Ireland/Terms%20And%20Conditions/MyAATerms.ashx\" target=\"_blank\">myAA Terms and Conditions</a>. I have read and agree to the <a href=\"http://www.theaa.ie/aa/about-us/privacy-policy.aspx\" target=\"_blank\">AA Privacy Policy</a> and <a href=\"http://www.theaa.ie/~/media/Files/AA%20Ireland/Terms%20and%20conditions/Motor-Terms-Business.aspx\" target=\"_blank\">Terms of Business</a></p>"
+                }]
+            }],
+            "subheading": "First we need some details to get started."
+        }, {
+            "id": "your-details",
+            "title": "Your Details",
+            "uiOptions": {
+                "nextPage": "your-address",
+                "prevPage": "getting-started"
+            },
+            "order": 1,
+            "sections": [{
+                "id": "details-default",
+                "title": "We need to know some details about you so that we can give you the best quote.",
+                "type": "default",
+                "uiOptions": {},
+                "isDriver": true,
+                "fields": [{
+                    "type": "radio",
+                    "uiOptions": {
+                        "summaryTitle": "Email"
+                    },
+                    "key": "title",
+                    "label": "Title",
+                    "order": 0,
+                    "required": true,
+                    "options": [{
+                        "id": "Mr",
+                        "description": "Mr"
+                    }, {
+                        "id": "Ms",
+                        "description": "Ms"
+                    }, {
+                        "id": "Miss",
+                        "description": "Miss"
+                    }, {
+                        "id": "Mrs",
+                        "description": "Mrs"
+                    }]
+                }, {
+                    "type": "text",
+                    "uiOptions": {
+                        "summaryTitle": "First Name"
+                    },
+                    "key": "firstName",
+                    "label": "First Name",
+                    "order": 0,
+                    validators: ['inputFieldValidate'],
+                    "required": true
+                }, {
+                    "type": "text",
+                    "uiOptions": {
+                        "summaryTitle": "Last Name"
+                    },
+                    "key": "lastName",
+                    "label": "Last Name",
                     "order": 1,
+                    validators: ['inputFieldValidate'],
+                    "required": true
+                }, {
+                    "type": "date",
                     "uiOptions": {
-                        "nextPage": "your-car",
-                        "prevPage": "your-details"
+                        "summaryTitle": "Date of Birth"
                     },
-                    "sections": [
-                        {
-                            "id": "address-default",
-                            "type": "address",
-                            "title": "Primary Driver",
-                            "fields": [
-                                {
-                                    "key": "address",
-                                    "type": "group",
-                                    "isComplete": true,
-                                    "fields": [
-                                        {
-                                            "key": "addressLine1",
-                                            "label": "Address Line 1",
-                                            "type": "text",
-                                            "required": true,
-                                            "order": 0,
-                                            "validators": [],
-                                            "uiOptions": {
-                                                "summaryTitle": "Address line 1"
-                                            }
-                                        },
-                                        {
-                                            "key": "addressLine2",
-                                            "label": "Address Line 2",
-                                            "placeholder": "Optional",
-                                            "type": "text",
-                                            "required": false,
-                                            "order": 0,
-                                            "validators": [],
-                                            "uiOptions": {
-                                                "summaryTitle": "Address line 2"
-                                            }
-                                        },
-                                        {
-                                            "key": "county",
-                                            "label": "County / Dublin Area e.g. Carlow, Dublin 18",
-                                            "type": "dropdown",
-                                            "options": [
-                                                { id: 'Antrim', description: 'Antrim' },
-                                                { id: 'Armagh', description: 'Armagh' },
-                                                { id: 'Carlow', description: 'Carlow' },
-                                                { id: 'Cavan', description: 'Cavan' },
-                                                { id: 'Clare', description: 'Clare' },
-                                                { id: 'Cork', description: 'Cork' },
-                                                { id: 'Derry', description: 'Derry' },
-                                                { id: 'Donegal', description: 'Donegal' },
-                                                { id: 'Down', description: 'Down' },
-                                                { id: 'Dublin', description: 'Dublin' },
-                                                { id: 'Fermanagh', description: 'Fermanagh' },
-                                                { id: 'Galway', description: 'Galway' },
-                                                { id: 'Kerry', description: 'Kerry' },
-                                                { id: 'Kildare', description: 'Kildare' },
-                                                { id: 'Kilkenny', description: 'Kilkenny' },
-                                                { id: 'Laois', description: 'Laois' },
-                                                { id: 'Leitrim', description: 'Leitrim' },
-                                                { id: 'Limerick', description: 'Limerick' },
-                                                { id: 'Longford', description: 'Longford' },
-                                                { id: 'Louth', description: 'Louth' },
-                                                { id: 'Mayo', description: 'Mayo' },
-                                                { id: 'Meath', description: 'Meath' },
-                                                { id: 'Monaghan', description: 'Monaghan' },
-                                                { id: 'Offaly', description: 'Offaly' },
-                                                { id: 'Roscommon', description: 'Roscommon' },
-                                                { id: 'Sligo', description: 'Sligo' },
-                                                { id: 'Tipperary', description: 'Tipperary' },
-                                                { id: 'Tyrone', description: 'Tyrone' },
-                                                { id: 'Waterford', description: 'Waterford' },
-                                                { id: 'Westmeath', description: 'Westmeath' },
-                                                { id: 'Wexford', description: 'Wexford' },
-                                                { id: 'Wicklow', description: 'Wicklow' },
-                                            ],
-                                            "required": true,
-                                            "order": 1,
-                                            "validators": [],
-                                            "uiOptions": {
-                                                "summaryTitle": "County"
-                                            }
-                                        },
-                                        {
-                                            "key": "area",
-                                            "label": "Town/Area",
-                                            "type": "autocomplete",
-                                            "serviceUrl": "reference/area/",
-                                            "autoCompleteType": "linked",
-                                            "link": "county",
-                                            "trigger": {
-                                                "name": "disabledBasedOnKey",
-                                                "expectedType": "object",
-                                                "key": "county"
-                                            },
-                                            "required": true,
-                                            "disabled": false,
-                                            "order": 2,
-                                            "validators": [],
-                                            "uiOptions": {
-                                                "summaryTitle": "Town"
-                                            }
-                                        }
-                                    ]
-                                }
-                            ]
-                        }
-                    ]
-                },
-                {
-                    "id": "your-car",
-                    "title": "Car",
+                    "key": "dateOfBirth",
+                    "label": "Date Of Birth",
+                    "order": 2,
+                    "required": true,
+                    "validators": ["validDateValidate", "validOverEighteenValidate"],
+                    "disabled": false
+                }, {
+                    "type": "tel",
+                    "uiOptions": {
+                        "summaryTitle": "Phone Number"
+                    },
+                    "key": "phoneNumber",
+                    "label": "Phone Number",
+                    "order": 2,
+                    "required": true,
+                    "validators": ["validPhoneNumberValidate"],
+                    "disabled": false
+                }, {
+                    "type": "dropdown",
+                    "helpId": 115000449309,
+                    "uiOptions": {
+                        "summaryTitle": "Type of Employment"
+                    },
+                    "key": "typeOfEmployment",
+                    "label": "Type of Employment",
+                    "order": 2,
+                    "required": true,
+                    "validators": [],
+                    "options": [{
+                        "id": "Employed",
+                        "description": "Employed"
+                    }, {
+                        "id": "Retired",
+                        "description": "Retired"
+                    }, {
+                        "id": "SelfEmployed",
+                        "description": "Self Employed"
+                    }, {
+                        "id": "HouseholdDuties",
+                        "description": "Household Duties"
+                    }, {
+                        "id": "Unemployed",
+                        "description": "Unemployed"
+                    }]
+                }, {
+                    "type": "autocomplete",
+                    "helpId": 115001402229,
+                    "uiOptions": {
+                        "summaryTitle": "Occupation"
+                    },
+                    "key": "occupation",
+                    "label": "Occupation?",
+                    "order": 2,
+                    "required": true,
+                    "trigger": {
+                        "key": "typeOfEmployment",
+                        "equals": ["Unemployed", "Retired"],
+                        "name": "hideIfKeyEqualsMulti"
+                    },
+                    "validators": [],
+                    "disabled": false,
+                    "placeholder": "Select an Occupation",
+                    "serviceUrl": "reference/occupation/",
+                    "autoCompleteType": "all"
+                }, {
+                    "type": "autocomplete",
+                    "helpId": 115003803469,
+                    "uiOptions": {
+                        "summaryTitle": "Type of business"
+                    },
+                    "key": "business",
+                    "label": "Type of Business",
+                    "order": 2,
+                    "required": true,
+                    "trigger": {
+                        "key": "typeOfEmployment",
+                        "equals": ["Unemployed", "Retired"],
+                        "name": "hideIfKeyEqualsMulti"
+                    },
+                    "validators": [],
+                    "placeholder": "Select an Area of Business",
+                    "serviceUrl": "reference/employerBusinessType/",
+                    "autoCompleteType": "all"
+                }, {
+                    "type": "radio",
+                    "helpId": 115001361705,
+                    "uiOptions": {},
+                    "key": "livedOutsideIreland",
+                    "label": "Have you lived outside of Ireland or the UK in the past 12 months?",
+                    "order": 2,
+                    "required": true,
+                    "validators": [],
+                    "options": [{
+                        "id": false,
+                        "description": "No"
+                    }, {
+                        "id": true,
+                        "description": "Yes"
+                    }]
+                }],
+                "driverIndex": 0
+            }],
+            "templates": [{
+                "id": "driver-template",
+                "type": "default",
+                "uiOptions": {},
+                "hasQuestionsByDefault": true,
+                "additional": true,
+                "fields": [{
+                    "type": "radio",
+                    "uiOptions": {
+                        "summaryTitle": "Email"
+                    },
+                    "key": "title",
+                    "label": "Title",
+                    "order": 0,
+                    "required": true,
+                    "options": [{
+                        "id": "Mr",
+                        "description": "Mr"
+                    }, {
+                        "id": "Ms",
+                        "description": "Ms"
+                    }, {
+                        "id": "Miss",
+                        "description": "Miss"
+                    }, {
+                        "id": "Mrs",
+                        "description": "Mrs"
+                    }]
+                }, {
+                    "type": "text",
+                    "uiOptions": {
+                        "summaryTitle": "First Name"
+                    },
+                    "key": "firstName",
+                    "label": "First Name",
+                    "order": 0,
+                    "required": true
+                }, {
+                    "type": "text",
+                    "uiOptions": {
+                        "summaryTitle": "Last Name"
+                    },
+                    "key": "lastName",
+                    "label": "Last Name",
                     "order": 1,
+                    "required": true
+                }, {
+                    "type": "date",
                     "uiOptions": {
-                        "nextPage": "your-licence",
-                        "prevPage": "your-address"
+                        "summaryTitle": "Date of Birth"
                     },
-                    "sections": [
-                        {
-                            "id": "car-default",
-                            "type": "car",
-                            "title": "Primary Driver",
-                            "fields": [
-                                {
-                                    "key": "carInformation",
-                                    "type": "group",
-                                    "alignment": "none",
-                                    "timeline": false,
-                                    "order": 0,
-                                    "isComplete": false,
-                                    "uiOptions": {
-                                        "summaryTitle": "Car Model"
-                                    },
-                                    "fields": [
-                                        {
-                                            "key": "carMake",
-                                            "label": "Car Make",
-                                            "type": "autocomplete",
-                                            "serviceUrl": "reference/vehicle/make/",
-                                            "autoCompleteType": "all",
-                                            "link": "carInformation",
-                                            "required": true,
-                                            "disabled": false,
-                                            "order": 1,
-                                            "validators": [],
-                                            "uiOptions": {
-                                                "summaryTitle": "Make"
-                                            }
-                                        },
-                                        {
-                                            "key": "carModel",
-                                            "label": "Car Model",
-                                            "type": "autocomplete",
-                                            "serviceUrl": "reference/vehicle/model/",
-                                            "autoCompleteType": "linked",
-                                            "link": "carMake",
-                                            "required": true,
-                                            "disabled": false,
-                                            "trigger": {
-                                                "name": "disabledBasedOnKey",
-                                                "expectedType": "object",
-                                                "key": "carMake"
-                                            },
-                                            "order": 2,
-                                            "validators": [],
-                                            "uiOptions": {
-                                                "summaryTitle": "Model"
-                                            }
-                                        },
-                                        {
-                                            "key": "engineSizeRange",
-                                            "label": "Engine Size",
-                                            "type": "dropdown",
-                                            "options": [
-                                                {
-                                                    "id": "0cc - 1499cc",
-                                                    "description": "0cc - 1499cc"
-                                                },
-                                                {
-                                                    "id": "1500cc - 1999cc",
-                                                    "description": "1500cc - 1999cc"
-                                                },
-                                                {
-                                                    "id": "2000cc - 2499cc",
-                                                    "description": "2000cc - 2499cc"
-                                                },
-                                                {
-                                                    "id": "2500cc - 2999cc",
-                                                    "description": "2500cc - 2999cc"
-                                                },
-                                                {
-                                                    "id": "3000cc - 3449cc",
-                                                    "description": "3000cc - 3449cc"
-                                                },
-                                                {
-                                                    "id": "3500cc - 3999cc",
-                                                    "description": "3500cc - 3999cc"
-                                                },
-                                                {
-                                                    "id": "4000cc - 4449cc",
-                                                    "description": "4000cc - 4449cc"
-                                                },
-                                                {
-                                                    "id": "4500cc - 4999cc",
-                                                    "description": "4500cc - 4999cc"
-                                                },
-                                                {
-                                                    "id": "4500cc - 4999c",
-                                                    "description": "4500cc - 4999cc"
-                                                }
-                                            ],
-                                            "required": true,
-                                            "trigger": {
-                                                "name": "disabledBasedOnKey",
-                                                "expectedType": "object",
-                                                "key": "carModel"
-                                            },
-                                            "order": 3,
-                                            "validators": [],
-                                            "uiOptions": {
-                                                "summaryTitle": "Make"
-                                            }
-                                        },
-                                        {
-                                            "key": "yearManufactured",
-                                            "type": "text",
-                                            "required": false,
-                                            "order": 4,
-                                            "validators": [],
-                                            "hidden": true
-                                        }
-                                    ]
-                                },
-                                {
-                                    "key": "dateOfRegistration",
-                                    "label": "Date of Registration",
-                                    "type": "date",
-                                    "required": true,
-                                    "disabled": false,
-                                    "order": 0,
-                                    "validators": [],
-                                    "uiOptions": {
-                                        "summaryTitle": "Date of Registration",
-                                        "locked": "day"
-                                    }
-                                },
-                                {
-                                    "key": "dateOfPurchase",
-                                    "label": "Date of Purchase",
-                                    "type": "date",
-                                    "required": true,
-                                    "disabled": false,
-                                    "order": 5,
-                                    "validators": ['dateOfPurchaseValidate'],
-                                    "uiOptions": {
-                                        "summaryTitle": "Date of Purchase"
-                                    }
-                                },
-                                {
-                                    "key": "currentValue",
-                                    "label": "Current Value",
-                                    "type": "currency",
-                                    "required": true,
-                                    "disabled": false,
-                                    "order": 6,
-                                    "validators": [],
-                                    "uiOptions": {
-                                        "summaryTitle": "Car value "
-                                    }
-                                },
-                                {
-                                    "key": "kilometersPerYear",
-                                    "label": "How many kilometres do you drive in a year?",
-                                    "type": "tel",
-                                    "required": true,
-                                    "disabled": false,
-                                    "order": 7,
-                                    "validators": [],
-                                    "uiOptions": {
-                                        "summaryTitle": "Kilometers per year"
-                                    }
-                                },
-                                {
-                                    "key": "securityFeatures",
-                                    "type": "group",
-                                    "alignment": "half",
-                                    "timeline": true,
-                                    "label": "What security features are fitted to your vehicle?",
-                                    "order": 8,
-                                    "isComplete": false,
-                                    "uiOptions": {
-                                        "summaryTitle": "Security Features"
-                                    },
-                                    "fields": [
-                                        {
-                                            "key": "security-alarm",
-                                            "name": "Alarm",
-                                            "type": "checkbox",
-                                            "timeline": false,
-                                            "required": false,
-                                            "uiOptions": {
-                                                "summaryTitle": "Security Alarm"
-                                            }
-                                        },
-                                        {
-                                            "key": "security-immobiliser",
-                                            "name": "Immobiliser",
-                                            "type": "checkbox",
-                                            "timeline": false,
-                                            "required": false,
-                                            "uiOptions": {
-                                                "summaryTitle": "Immobiliser"
-                                            }
-                                        },
-                                        {
-                                            "key": "security-tracker",
-                                            "name": "Tracker",
-                                            "type": "checkbox",
-                                            "timeline": false,
-                                            "required": false,
-                                            "uiOptions": {
-                                                "summaryTitle": "Tracker"
-                                            }
-                                        }
-                                    ]
-                                },
-                                {
-                                    "key": "carMainlyUsedCounty",
-                                    "label": "In what county is your car usually used?",
-                                    "placeholder": "Please enter a county",
-                                    "type": "dropdown",
-                                    "options": [
-                                        { id: 'Antrim', description: 'Antrim' },
-                                        { id: 'Armagh', description: 'Armagh' },
-                                        { id: 'Carlow', description: 'Carlow' },
-                                        { id: 'Cavan', description: 'Cavan' },
-                                        { id: 'Clare', description: 'Clare' },
-                                        { id: 'Cork', description: 'Cork' },
-                                        { id: 'Derry', description: 'Derry' },
-                                        { id: 'Donegal', description: 'Donegal' },
-                                        { id: 'Down', description: 'Down' },
-                                        { id: 'Dublin', description: 'Dublin' },
-                                        { id: 'Fermanagh', description: 'Fermanagh' },
-                                        { id: 'Galway', description: 'Galway' },
-                                        { id: 'Kerry', description: 'Kerry' },
-                                        { id: 'Kildare', description: 'Kildare' },
-                                        { id: 'Kilkenny', description: 'Kilkenny' },
-                                        { id: 'Laois', description: 'Laois' },
-                                        { id: 'Leitrim', description: 'Leitrim' },
-                                        { id: 'Limerick', description: 'Limerick' },
-                                        { id: 'Longford', description: 'Longford' },
-                                        { id: 'Louth', description: 'Louth' },
-                                        { id: 'Mayo', description: 'Mayo' },
-                                        { id: 'Meath', description: 'Meath' },
-                                        { id: 'Monaghan', description: 'Monaghan' },
-                                        { id: 'Offaly', description: 'Offaly' },
-                                        { id: 'Roscommon', description: 'Roscommon' },
-                                        { id: 'Sligo', description: 'Sligo' },
-                                        { id: 'Tipperary', description: 'Tipperary' },
-                                        { id: 'Tyrone', description: 'Tyrone' },
-                                        { id: 'Waterford', description: 'Waterford' },
-                                        { id: 'Westmeath', description: 'Westmeath' },
-                                        { id: 'Wexford', description: 'Wexford' },
-                                        { id: 'Wicklow', description: 'Wicklow' },
-                                    ],
-                                    "required": true,
-                                    "order": 9,
-                                    "validators": []
-                                },
-                                {
-                                    "key": "carMainlyUsedArea",
-                                    "label": "In what town/area is your car usually used?",
-                                    "type": "autocomplete",
-                                    "serviceUrl": "reference/area/",
-                                    "autoCompleteType": "linked",
-                                    "link": "carMainlyUsedCounty",
-                                    "trigger": {
-                                        "name": "disabledBasedOnKey",
-                                        "expectedType": "object",
-                                        "key": "carMainlyUsedCounty"
-                                    },
-                                    "required": true,
-                                    "disabled": false,
-                                    "order": 9,
-                                    "validators": []
-                                },
-                                {
-                                    "key": "carKeptOvernight",
-                                    "label": "Where is you car kept overnight?",
-                                    "type": "dropdown",
-                                    "options": [
-                                        {
-                                            "id": "Carport",
-                                            "description": "Carport"
-                                        },
-                                        {
-                                            "id": "Garaged",
-                                            "description": "Garaged"
-                                        },
-                                        {
-                                            "id": "KeptOnPrivateProperty",
-                                            "description": "Kept on Private Property"
-                                        },
-                                        {
-                                            "id": "KeptOnPublicRoad",
-                                            "description": "Kept on Public Property"
-                                        },
-                                        {
-                                            "id": "ParkedOnDrive",
-                                            "description": "Parked on Drive"
-                                        }
-                                    ],
-                                    "required": true,
-                                    "order": 10,
-                                    "validators": []
-                                }
-                            ]
+                    "key": "dateOfBirth",
+                    "label": "Date Of Birth",
+                    "order": 2,
+                    "required": true,
+                    "validators": ["validDateValidate", "validOverEighteenValidate"],
+                    "disabled": false
+                }, {
+                    "type": "tel",
+                    "uiOptions": {
+                        "summaryTitle": "Phone Number"
+                    },
+                    "key": "phoneNumber",
+                    "label": "Phone Number",
+                    "order": 2,
+                    "required": true,
+                    "validators": ["validPhoneNumberValidate"],
+                    "disabled": false
+                }, {
+                    "type": "dropdown",
+                    "uiOptions": {
+                        "summaryTitle": "On whose policy?"
+                    },
+                    "key": "relationToMainDriver",
+                    "label": "Relationship to Main Driver",
+                    "order": 1,
+                    "required": true,
+                    "validators": [],
+                    "options": [{
+                        "id": "Brother",
+                        "description": "Brother"
+                    }, {
+                        "id": "BrotherInLaw",
+                        "description": "Brother in Law"
+                    }, {
+                        "id": "BusinessPartner",
+                        "description": "Business Partner"
+                    }, {
+                        "id": "CommonLawSpouse",
+                        "description": "Common Law Spouse"
+                    }, {
+                        "id": "Daughter",
+                        "description": "Daughter"
+                    }, {
+                        "id": "DaughterInLaw",
+                        "description": "Daughter in Law"
+                    }, {
+                        "id": "EmployeeOfProposer",
+                        "description": "Employee of Proposer"
+                    }, {
+                        "id": "EmployerOfProposer",
+                        "description": "Employer of Proposer"
+                    }, {
+                        "id": "FatherInLaw",
+                        "description": "Father in Law"
+                    }, {
+                        "id": "MotherInLaw",
+                        "description": "Mother in Law"
+                    }, {
+                        "id": "Parent",
+                        "description": "Parent"
+                    }, {
+                        "id": "Proposer",
+                        "description": "Proposer"
+                    }, {
+                        "id": "Relative",
+                        "description": "Relative"
+                    }, {
+                        "id": "Sister",
+                        "description": "Sister"
+                    }, {
+                        "id": "SisterInLaw",
+                        "description": "Sister in Law"
+                    }, {
+                        "id": "Son",
+                        "description": "Son"
+                    }, {
+                        "id": "SonInLaw",
+                        "description": "Son in Law"
+                    }, {
+                        "id": "Spouse",
+                        "description": "Spouse"
+                    }, {
+                        "id": "Tenant",
+                        "description": "Tenant"
+                    }, {
+                        "id": "Unrelated",
+                        "description": "Unrelated"
+                    }, {
+                        "id": "Partner",
+                        "description": "Partner"
+                    }, {
+                        "id": "Friend",
+                        "description": "Friend"
+                    }]
+                }, {
+                    "type": "dropdown",
+                    "helpId": 115000449309,
+                    "uiOptions": {
+                        "summaryTitle": "Type of Employment"
+                    },
+                    "key": "typeOfEmployment",
+                    "label": "Type of Employment",
+                    "order": 2,
+                    "required": true,
+                    "validators": [],
+                    "options": [{
+                        "id": "Employed",
+                        "description": "Employed"
+                    }, {
+                        "id": "Retired",
+                        "description": "Retired"
+                    }, {
+                        "id": "SelfEmployed",
+                        "description": "Self Employed"
+                    }, {
+                        "id": "HouseholdDuties",
+                        "description": "Household Duties"
+                    }, {
+                        "id": "Unemployed",
+                        "description": "Unemployed"
+                    }]
+                }, {
+                    "type": "autocomplete",
+                    "helpId": 115001402229,
+                    "uiOptions": {
+                        "summaryTitle": "Occupation"
+                    },
+                    "key": "occupation",
+                    "label": "Occupation",
+                    "order": 2,
+                    "required": true,
+                    "trigger": {
+                        "key": "typeOfEmployment",
+                        "equals": ["Unemployed", "Retired"],
+                        "name": "hideIfKeyEqualsMulti"
+                    },
+                    "validators": [],
+                    "disabled": false,
+                    "placeholder": "Select an Occupation",
+                    "serviceUrl": "reference/occupation/",
+                    "autoCompleteType": "all"
+                }, {
+                    "type": "autocomplete",
+                    "helpId": 115003803469,
+                    "uiOptions": {
+                        "summaryTitle": "Type of business"
+                    },
+                    "key": "business",
+                    "label": "Type of Business",
+                    "order": 2,
+                    "required": true,
+                    "trigger": {
+                        "key": "typeOfEmployment",
+                        "equals": ["Unemployed", "Retired"],
+                        "name": "hideIfKeyEqualsMulti"
+                    },
+                    "validators": [],
+                    "placeholder": "Select an Area of Business",
+                    "serviceUrl": "reference/employerBusinessType/",
+                    "autoCompleteType": "all"
+                }, {
+                    "type": "radio",
+                    "helpId": 115001361705,
+                    "uiOptions": {},
+                    "key": "livedOutsideIreland",
+                    "label": "Have you lived outside of Ireland or the UK in the past 12 months?",
+                    "order": 2,
+                    "required": true,
+                    "validators": [],
+                    "options": [{
+                        "id": false,
+                        "description": "No"
+                    }, {
+                        "id": true,
+                        "description": "Yes"
+                    }]
+                }]
+            }]
+        }, {
+            "id": "your-address",
+            "title": "Your Address",
+            "uiOptions": {
+                "nextPage": "your-car",
+                "prevPage": "your-details"
+            },
+            "order": 1,
+            "sections": [{
+                "id": "address-default",
+                "type": "address",
+                "uiOptions": {},
+                "fields": [{
+                    "key": "address",
+                    "type": "group",
+                    "isComplete": true,
+                    "uiOptions": {},
+                    "fields": [{
+                        "type": "text",
+                        "helpId": 115001402349,
+                        "uiOptions": {
+                            "summaryTitle": "Address line 1"
                         },
-                        {
-                            "id": "car-secondary",
-                            "type": "car",
-                            "title": "Second Car",
-                            "fields": [
-                                {
-                                    "key": "carInformation",
-                                    "type": "group",
-                                    "alignment": "none",
-                                    "timeline": false,
-                                    "order": 0,
-                                    "isComplete": false,
-                                    "uiOptions": {
-                                        "summaryTitle": "Car Model"
-                                    },
-                                    "fields": [
-                                        {
-                                            "key": "carMake",
-                                            "label": "Car Make",
-                                            "type": "autocomplete",
-                                            "serviceUrl": "reference/vehicle/make/",
-                                            "autoCompleteType": "all",
-                                            "link": "carInformation",
-                                            "required": true,
-                                            "disabled": false,
-                                            "order": 1,
-                                            "validators": [],
-                                            "uiOptions": {
-                                                "summaryTitle": "Make"
-                                            }
-                                        },
-                                        {
-                                            "key": "carModel",
-                                            "label": "Car Model",
-                                            "type": "autocomplete",
-                                            "serviceUrl": "reference/vehicle/model/",
-                                            "autoCompleteType": "linked",
-                                            "link": "carMake",
-                                            "required": true,
-                                            "disabled": false,
-                                            "trigger": {
-                                                "name": "disabledBasedOnKey",
-                                                "expectedType": "object",
-                                                "key": "carMake"
-                                            },
-                                            "order": 2,
-                                            "validators": [],
-                                            "uiOptions": {
-                                                "summaryTitle": "Model"
-                                            }
-                                        },
-                                        {
-                                            "key": "engineSizeRange",
-                                            "label": "Engine Size",
-                                            "type": "dropdown",
-                                            "options": [
-                                                {
-                                                    "id": "0cc - 1499cc",
-                                                    "description": "0cc - 1499cc"
-                                                },
-                                                {
-                                                    "id": "1500cc - 1999cc",
-                                                    "description": "1500cc - 1999cc"
-                                                },
-                                                {
-                                                    "id": "2000cc - 2499cc",
-                                                    "description": "2000cc - 2499cc"
-                                                },
-                                                {
-                                                    "id": "2500cc - 2999cc",
-                                                    "description": "2500cc - 2999cc"
-                                                },
-                                                {
-                                                    "id": "3000cc - 3449cc",
-                                                    "description": "3000cc - 3449cc"
-                                                },
-                                                {
-                                                    "id": "3500cc - 3999cc",
-                                                    "description": "3500cc - 3999cc"
-                                                },
-                                                {
-                                                    "id": "4000cc - 4449cc",
-                                                    "description": "4000cc - 4449cc"
-                                                },
-                                                {
-                                                    "id": "4500cc - 4999cc",
-                                                    "description": "4500cc - 4999cc"
-                                                },
-                                                {
-                                                    "id": "4500cc - 4999c",
-                                                    "description": "4500cc - 4999cc"
-                                                }
-                                            ],
-                                            "required": true,
-                                            "trigger": {
-                                                "name": "disabledBasedOnKey",
-                                                "expectedType": "object",
-                                                "key": "carModel"
-                                            },
-                                            "order": 3,
-                                            "validators": [],
-                                            "uiOptions": {
-                                                "summaryTitle": "Make"
-                                            }
-                                        }
-                                    ]
-                                }
-                            ]
-                        }
-                    ]
-                },
-                {
-                    "id": "your-licence",
-                    "title": "Licence",
-                    "order": 1,
-                    "uiOptions": {
-                        "nextPage": "your-cover",
-                        "prevPage": "your-car"
-                    },
-                    "templates": [
-                        {
-                            "id": "licence-template",
-                            "type": "default",
-                            "additional": true,
-                            "hasQuestionsByDefault": true,
-                            "fields": [
-                                {
-                                    "key": "typeOfLicence",
-                                    "label": "What type of licence do you hold?",
-                                    "type": "dropdown",
-                                    "options": [
-                                        {
-                                            "id": "Full Irish Licence",
-                                            "description": "Full Irish Licence"
-                                        },
-                                        {
-                                            "id": "Irish Learners Permit",
-                                            "description": "Irish Learners Permit"
-                                        },
-                                        {
-                                            "id": "Full EU Licence",
-                                            "description": "Full EU Licence"
-                                        },
-                                        {
-                                            "id": "Non-EU Licence",
-                                            "description": "Non-EU Licence"
-                                        }
-                                    ],
-                                    "required": true,
-                                    "disabled": false,
-                                    "order": 0,
-                                    "validators": [],
-                                    "uiOptions": {
-                                        "summaryTitle": "Type of Licence"
-                                    }
-                                },
-                                {
-                                    "key": "howLongLicenceHeld",
-                                    "label": "How long have you held your licence?",
-                                    "type": "slider",
-                                    "required": true,
-                                    "order": 1,
-                                    "value": { "id": "0", "description": "0" },
-                                    "validators": [],
-
-                                    "values": [
-                                        { "id": "0", "description": "0" },
-                                        { "id": "1", "description": "1" },
-                                        { "id": "2", "description": "2" },
-                                        { "id": "3", "description": "3" },
-                                        { "id": "4", "description": "4" },
-                                        { "id": "5", "description": "5" },
-                                        { "id": "6", "description": "6" },
-                                        { "id": "7", "description": "7" },
-                                        { "id": "8", "description": "8" },
-                                        { "id": "9", "description": "9+" }
-                                    ],
-                                    "uiOptions": {
-                                        "summaryTitle": "Amount of years you held your licence"
-                                    }
-                                },
-                                {
-                                    "key": "whereEarnLicence",
-                                    "label": "Where did you earn your licence?",
-                                    "placeholder": "Please enter a country",
-                                    "type": "autocomplete",
-                                    "serviceUrl": "reference/country/",
-                                    "autoCompleteType": "search",
-                                    "required": true,
-                                    "disabled": false,
-                                    "order": 2,
-                                    "validators": [],
-                                    "uiOptions": {
-                                        "summaryTitle": "Where did you earn your licence"
-                                    }
-                                }
-                            ]
-                        }
-                    ],
-                    "sections": [
-                        {
-                            "id": "licence-default",
-                            "type": "default",
-                            "isDriver": true,
-                            "title": "Primary Driver",
-                            "fields": [
-                                {
-                                    "key": "typeOfLicence",
-                                    "label": "What type of licence do you hold?",
-                                    "type": "dropdown",
-                                    "options": [
-                                        {
-                                            "id": "Full Irish Licence",
-                                            "description": "Full Irish Licence"
-                                        },
-                                        {
-                                            "id": "Irish Learners Permit",
-                                            "description": "Irish Learners Permit"
-                                        },
-                                        {
-                                            "id": "Full EU Licence",
-                                            "description": "Full EU Licence"
-                                        },
-                                        {
-                                            "id": "Non-EU Licence",
-                                            "description": "Non-EU Licence"
-                                        }
-                                    ],
-                                    "required": true,
-                                    "disabled": false,
-                                    "order": 0,
-                                    "validators": [],
-                                    "uiOptions": {
-                                        "summaryTitle": "Type of Licence"
-                                    }
-                                },
-                                {
-                                    "key": "howLongLicenceHeld",
-                                    "label": "How long have you held your licence?",
-                                    "type": "slider",
-                                    "required": true,
-                                    "order": 1,
-                                    "value": { "id": "0", "description": "0" },
-                                    "validators": ["licenceDateValidate"],
-                                    "values": [
-                                        { "id": "0", "description": "0" },
-                                        { "id": "1", "description": "1" },
-                                        { "id": "2", "description": "2" },
-                                        { "id": "3", "description": "3" },
-                                        { "id": "4", "description": "4" },
-                                        { "id": "5", "description": "5" },
-                                        { "id": "6", "description": "6" },
-                                        { "id": "7", "description": "7" },
-                                        { "id": "8", "description": "8" },
-                                        { "id": "9", "description": "9+" }
-                                    ],
-                                    "uiOptions": {
-                                        "summaryTitle": "Amount of years you held your licence"
-                                    }
-                                },
-                                {
-                                    "key": "whereEarnLicence",
-                                    "label": "Where did you earn your licence?",
-                                    "placeholder": "Please enter a country",
-                                    "type": "autocomplete",
-                                    "serviceUrl": "reference/country/",
-                                    "autoCompleteType": "search",
-                                    "required": true,
-                                    "disabled": false,
-                                    "order": 2,
-                                    "validators": [],
-                                    "uiOptions": {
-                                        "summaryTitle": "Where did you earn your licence"
-                                    }
-                                }
-                            ]
-                        }
-                    ]
-                },
-                {
-                    "id": "your-cover",
-                    "title": "Cover",
-                    "order": 1,
-                    "uiOptions": {
-                        "nextPage": "your-claims",
-                        "prevPage": "your-licence"
-                    },
-                    "sections": [
-                        {
-                            "id": "cover-default",
-                            "type": "default",
-                            "title": "Primary Driver",
-                            "fields": [
-                                {
-                                    "key": "drivingExperience",
-                                    "type": "group",
-                                    "alignment": "none",
-                                    "timeline": false,
-                                    "order": 0,
-                                    "isComplete": false,
-                                    "fields": [
-                                        {
-                                            "key": "insuredInYourOwnName",
-                                            "label": "Have you been insured in your own name within the last two years?",
-                                            "type": "radio",
-                                            "order": 0,
-                                            "helpId": 1001,
-                                            "trigger": {
-                                                "key": "insuredNamedDriver",
-                                                "name": "hideBasedOnKey",
-                                                "isObject": true
-                                            },
-                                            "options": [
-                                                {
-                                                    "id": true,
-                                                    "description": "Yes"
-                                                },
-                                                {
-                                                    "id": false,
-                                                    "description": "No"
-                                                }
-                                            ],
-
-                                            "required": true,
-                                            "uiOptions": {
-                                                "summaryTitle": "Insured in your own Name"
-                                            }
-                                        },
-                                        {
-                                            "key": "insuredNamedDriver",
-                                            "label": "Have you been a named driver on someone else’s policy?",
-                                            "type": "radio",
-                                            "order": 0,
-                                            "trigger": {
-                                                "key": "insuredInYourOwnName",
-                                                "name": "hideBasedOnKey",
-                                                "isObject": true
-                                            },
-                                            "options": [
-                                                {
-                                                    "id": true,
-                                                    "description": "Yes"
-                                                },
-                                                {
-                                                    "id": false,
-                                                    "description": "No"
-                                                }
-                                            ],
-                                            "required": true,
-                                            "uiOptions": {
-                                                "summaryTitle": "Named Driver"
-                                            }
-                                        },
-                                        {
-                                            "key": "insuredNamedDriverOnPolicy",
-                                            "label": "On whose policy",
-                                            "helpId": 1001,
-                                            "type": "dropdown",
-                                            "trigger": {
-                                                "key": "insuredNamedDriver",
-                                                "name": "showBasedOnKey",
-                                                "isObject": true
-                                            },
-                                            "options": [
-                                                {
-                                                    "id": "Brother in Law",
-                                                    "description": "Brother in Law"
-                                                },
-                                                {
-                                                    "id": "Business Partner",
-                                                    "description": "Business Partner"
-                                                },
-                                                {
-                                                    "id": "Common Law Spouse",
-                                                    "description": "Common Law Spouse"
-                                                },
-                                                {
-                                                    "id": "Daughter",
-                                                    "description": "Daughter"
-                                                },
-                                                {
-                                                    "id": "Daughter in Law",
-                                                    "description": "Daughter in Law"
-                                                },
-                                                {
-                                                    "id": "Employee of Proposer",
-                                                    "description": "Employee of Proposer"
-                                                },
-                                                {
-                                                    "id": "Employer of Proposer",
-                                                    "description": "Employer of Proposer"
-                                                },
-                                                {
-                                                    "id": "Father in Law",
-                                                    "description": "Father in Law"
-                                                },
-                                                {
-                                                    "id": "Friend",
-                                                    "description": "Friend"
-                                                },
-                                                {
-                                                    "id": "Mother In Law",
-                                                    "description": "Mother In Law"
-                                                },
-                                                {
-                                                    "id": "Parent",
-                                                    "description": "Parent"
-                                                },
-                                                {
-                                                    "id": "Partner",
-                                                    "description": "Partner"
-                                                },
-                                                {
-                                                    "id": "Proposer",
-                                                    "description": "Proposer"
-                                                },
-                                                {
-                                                    "id": "Relative",
-                                                    "description": "Relative"
-                                                },
-                                                {
-                                                    "id": "Sister",
-                                                    "description": "Sister"
-                                                },
-                                                {
-                                                    "id": "Sister in Law",
-                                                    "description": "Sister in Law"
-                                                },
-                                                {
-                                                    "id": "Son",
-                                                    "description": "Son"
-                                                },
-                                                {
-                                                    "id": "Son in Law",
-                                                    "description": "Son in Law"
-                                                },
-                                                {
-                                                    "id": "Spouse",
-                                                    "description": "Spouse"
-                                                },
-                                                {
-                                                    "id": "Tenant",
-                                                    "description": "Tenant"
-                                                },
-                                                {
-                                                    "id": "Unrelated",
-                                                    "description": "Unrelated"
-                                                }
-                                            ],
-                                            "required": true,
-                                            "order": 1,
-                                            "validators": [],
-                                            "uiOptions": {
-                                                "summaryTitle": "On who's policy"
-                                            }
-                                        },
-                                        {
-                                            "key": "insuranceCompany",
-                                            "label": "Which is your current insurance company?",
-                                            "type": "dropdown",
-                                            "trigger": {
-                                                "key1": "insuredInYourOwnName",
-                                                "key2": "insuredNamedDriver",
-                                                "name": "showDualKey",
-                                                "isObject": true
-                                            },
-                                            "options": [
-                                                {
-                                                    "id": "ARB Underwriting Ltd",
-                                                    "description": "ARB Underwriting Ltd"
-                                                },
-                                                {
-                                                    "id": "AXA Broker",
-                                                    "description": "AXA Broker"
-                                                },
-                                                {
-                                                    "id": "AXA Direct",
-                                                    "description": "AXA Direct"
-                                                },
-                                                {
-                                                    "id": "AXA Insurance",
-                                                    "description": "AXA Insurance"
-                                                },
-                                                {
-                                                    "id": "Allianz",
-                                                    "description": "Allianz"
-                                                },
-                                                {
-                                                    "id": "Asgard",
-                                                    "description": "Asgard"
-                                                },
-                                                {
-                                                    "id": "Aviva",
-                                                    "description": "Aviva"
-                                                },
-                                                {
-                                                    "id": "Chartis Insurance",
-                                                    "description": "Chartis Insurance"
-                                                },
-                                                {
-                                                    "id": "Chubb Insurance",
-                                                    "description": "Chubb Insurance"
-                                                },
-                                                {
-                                                    "id": "Cigna Insurance of Europe",
-                                                    "description": "Cigna Insurance of Europe"
-                                                },
-                                                {
-                                                    "id": "Cornhill",
-                                                    "description": "Cornhill"
-                                                },
-                                                {
-                                                    "id": "Ecclesiastical Insurance Office Plc",
-                                                    "description": "Ecclesiastical Insurance Office Plc"
-                                                },
-                                                {
-                                                    "id": "Europa General",
-                                                    "description": "Europa General"
-                                                },
-                                                {
-                                                    "id": "FBD Insurance",
-                                                    "description": "FBD Insurance"
-                                                },
-                                                {
-                                                    "id": "FC Rebroked AXA Broker",
-                                                    "description": "FC Rebroked AXA Broker"
-                                                },
-                                                {
-                                                    "id": "First Call Direct",
-                                                    "description": "First Call Direct"
-                                                },
-                                                {
-                                                    "id": "Generali Insurance",
-                                                    "description": "Generali Insurance"
-                                                },
-                                                {
-                                                    "id": "Kennco Underwriting Ltd",
-                                                    "description": "Kennco Underwriting Ltd"
-                                                },
-                                                {
-                                                    "id": "Liberty Underwriting",
-                                                    "description": "Liberty Underwriting"
-                                                },
-                                                {
-                                                    "id": "One Direct",
-                                                    "description": "One Direct"
-                                                },
-                                                {
-                                                    "id": "Prestige Underwriting Services",
-                                                    "description": "Prestige Underwriting Services"
-                                                },
-                                                {
-                                                    "id": "Provident Insurance",
-                                                    "description": "Provident Insurance"
-                                                },
-                                                {
-                                                    "id": "Quinn Direct",
-                                                    "description": "Quinn Direct"
-                                                },
-                                                {
-                                                    "id": "RSA Insurance Ireland",
-                                                    "description": "RSA Insurance Ireland"
-                                                },
-                                                {
-                                                    "id": "Sertus Underwriting",
-                                                    "description": "Sertus Underwriting"
-                                                },
-                                                {
-                                                    "id": "Setanta Insurance",
-                                                    "description": "Setanta Insurance"
-                                                },
-                                                {
-                                                    "id": "Torch",
-                                                    "description": "Torch"
-                                                },
-                                                {
-                                                    "id": "Travelers Insurance",
-                                                    "description": "Travelers Insurance"
-                                                },
-                                                {
-                                                    "id": "Unlisted Insurer - Ireland",
-                                                    "description": "Unlisted Insurer - Ireland"
-                                                },
-                                                {
-                                                    "id": "Unlisted Insurer - Not Ireland",
-                                                    "description": "Unlisted Insurer - Not Ireland"
-                                                },
-                                                {
-                                                    "id": "Wright Way Underwriting",
-                                                    "description": "Wright Way Underwriting"
-                                                },
-                                                {
-                                                    "id": "XS Direct",
-                                                    "description": "XS Direct"
-                                                },
-                                                {
-                                                    "id": "Zurich",
-                                                    "description": "Zurich"
-                                                }
-                                            ],
-                                            "required": true,
-                                            "order": 2,
-                                            "validators": [],
-                                            "uiOptions": {
-                                                "summaryTitle": "Current Insurance Company"
-                                            }
-                                        },
-                                        {
-                                            "key": "namedDrivingExperienceYears",
-                                            "label": "How many years named driving experience do you have?",
-                                            "type": "slider",
-                                            "trigger": {
-                                                "key": "insuredNamedDriver",
-                                                "name": "showBasedOnKey",
-                                                "isObject": true
-                                            },
-                                            "required": true,
-                                            "order": 3,
-                                            "value": { "id": "0", "description": "0" },
-                                            "values": [
-                                                { "id": "0", "description": "0" },
-                                                { "id": "1", "description": "1" },
-                                                { "id": "2", "description": "2" },
-                                                { "id": "3", "description": "3" },
-                                                { "id": "4", "description": "4" },
-                                                { "id": "5", "description": "5" },
-                                                { "id": "6", "description": "6" },
-                                                { "id": "7", "description": "7" },
-                                                { "id": "8", "description": "8" },
-                                                { "id": "9", "description": "9+" }
-                                            ],
-
-                                            "uiOptions": {
-                                                "summaryTitle": "Amount of Years No Claims Bonus"
-                                            }
-                                        },
-                                        {
-                                            "key": "countryNamedDrivingExperience",
-                                            "label": "In what country did you earn your named driving experience?",
-                                            "type": "autocomplete",
-                                            "placeholder": "Please enter a country",
-                                            "serviceUrl": "reference/country/",
-                                            "trigger": {
-                                                "key": "insuredNamedDriver",
-                                                "name": "showBasedOnKey",
-                                                "isObject": true
-                                            },
-                                            "autoCompleteType": "search",
-                                            "options": [
-                                                {
-                                                    "id": "Dublin",
-                                                    "description": "Dublin"
-                                                },
-                                                {
-                                                    "id": "Cork",
-                                                    "description": "cork"
-                                                }
-                                            ],
-                                            "required": true,
-                                            "disabled": false,
-                                            "order": 2,
-                                            "validators": [],
-                                            "uiOptions": {
-                                                "summaryTitle": "Where did you earn your licence"
-                                            }
-                                        },
-                                        {
-                                            "key": "namedDrivingExperienceExpire",
-                                            "label": "When does this named driving experience expire?",
-                                            "type": "date",
-                                            "trigger": {
-                                                "key": "insuredNamedDriver",
-                                                "name": "showBasedOnKey",
-                                                "isObject": true
-                                            },
-                                            "required": true,
-                                            "order": 3,
-                                            "uiOptions": {
-                                                "summaryTitle": "Amount of Years No Claims Bonus"
-                                            }
-                                        },
-                                        {
-                                            "key": "noClaimsBonusYears",
-                                            "label": "How many years no claims discount have you earned in your own name?",
-                                            "type": "slider",
-                                            "trigger": {
-                                                "key": "insuredInYourOwnName",
-                                                "name": "showBasedOnKey",
-                                                "isObject": true
-                                            },
-                                            "required": true,
-                                            "order": 3,
-                                            "value": { "id": "0", "description": "0" },
-                                            "values": [
-                                                { "id": "0", "description": "0" },
-                                                { "id": "1", "description": "1" },
-                                                { "id": "2", "description": "2" },
-                                                { "id": "3", "description": "3" },
-                                                { "id": "4", "description": "4" },
-                                                { "id": "5", "description": "5" },
-                                                { "id": "6", "description": "6" },
-                                                { "id": "7", "description": "7" },
-                                                { "id": "8", "description": "8" },
-                                                { "id": "9", "description": "9+" }
-                                            ],
-                                            "uiOptions": {
-                                                "summaryTitle": "Amount of Years No Claims Bonus"
-                                            }
-                                        },
-                                        {
-                                            "key": "whereNoClaimsBonus",
-                                            "label": "Where did you earn your no claims bonus",
-                                            "type": "autocomplete",
-                                            "helpId": 1001,
-                                            "placeholder": "Please enter a country",
-                                            "serviceUrl": "reference/country/",
-                                            "autoCompleteType": "search",
-                                            "trigger": {
-                                                "key": "insuredInYourOwnName",
-                                                "name": "showBasedOnKey",
-                                                "isObject": true
-                                            },
-                                            "required": true,
-                                            "disabled": false,
-                                            "order": 4,
-                                            "validators": [],
-                                            "uiOptions": {
-                                                "summaryTitle": "Location no claims bonus was earned"
-                                            }
-                                        },
-                                        {
-                                            "key": "policyExpiryDate",
-                                            "label": "When does your policy expire?",
-                                            "type": "date",
-                                            "helpId": 1001,
-                                            "trigger": {
-                                                "key": "insuredInYourOwnName",
-                                                "name": "showBasedOnKey",
-                                                "isObject": true
-                                            },
-                                            "required": true,
-                                            "disabled": false,
-                                            "order": 5,
-                                            "validators": [
-                                                "validDateValidate"
-                                            ],
-                                            "uiOptions": {
-                                                "summaryTitle": "Policy Expiration Date"
-                                            }
-                                        }
-                                    ]
-                                },
-                                {
-                                    "key": "policyStartDate",
-                                    "label": "What date would you like to start your policy from?",
-                                    "type": "date",
-                                    "order": 7,
-                                    "validators": ["policyStartDateValidate"],
-                                    "required": true
-                                },
-                                {
-                                    "key": "levelOfCover",
-                                    "label": "What level of cover do you need?",
-                                    "type": "radio",
-                                    "alignment": "vertical",
-                                    "order": 8,
-                                    "options": [
-                                        {
-                                            "id": "COMPREHENSIVE",
-                                            "description": "Comprehensive"
-                                        },
-                                        {
-                                            "id": "THIRDPARTY",
-                                            "description": "Third Party, Fire and Theft"
-                                        }
-                                    ],
-                                    "required": true,
-                                    "uiOptions": {
-                                        "summaryTitle": "Level of Cover"
-                                    }
-                                },
-                                {
-                                    "key": "levelOfNoClaimsBonus",
-                                    "label": "What level of no claims bonus protection do you require?",
-                                    "type": "radio",
-                                    "helpId": 1001,
-                                    "order": 9,
-                                    "options": [
-                                        {
-                                            "id": "Full",
-                                            "description": "Full"
-                                        },
-                                        {
-                                            "id": "StepBack",
-                                            "description": "Step Back"
-                                        }
-                                    ],
-                                    "required": true,
-                                    "uiOptions": {
-                                        "summaryTitle": "Level of no claims bonus"
-                                    }
-                                }
-                            ]
-                        }
-                    ]
-                },
-                {
-                    "id": "your-claims",
-                    "title": "Claims",
-                    "order": 1,
-                    "helpId": "213679469",
-                    "uiOptions": {
-                        "nextPage": "your-penalties",
-                        "prevPage": "your-cover"
-                    },
-                    "templates": [
-                        {
-                            "id": "claim-template",
-                            "type": "claim",
-                            "userHasClaim": null,
-                            "additional": true,
-                            "fields": [
-                                {
-                                    "key": "dateOfClaim",
-                                    "label": "Date of claim",
-                                    "type": "date",
-                                    "required": true,
-                                    "disabled": false,
-                                    "order": 0,
-                                    "validators": [
-                                        "validDateValidate",
-                                        "validLastFiveYearsValidate",
-                                        "claimDateValidator"
-                                    ],
-                                    "uiOptions": {
-                                        "summaryTitle": "Date of Claim"
-                                    }
-                                },
-                                {
-                                    "key": "reasonForClaim",
-                                    "label": "What was the reason for the claim?",
-                                    "type": "dropdown",
-                                    "options": [
-                                        {
-                                            "id": "Accident",
-                                            "description": "Accident"
-                                        },
-                                        {
-                                            "id": "Accidental Damage",
-                                            "description": "Accidental Damage"
-                                        },
-                                        {
-                                            "id": "Fire",
-                                            "description": "Fire"
-                                        },
-                                        {
-                                            "id": "Malicious Damage As A Result Of Theft",
-                                            "description": "Malicious Damage As A Result Of Theft"
-                                        },
-                                        {
-                                            "id": "Personal Accident",
-                                            "description": "Personal Accident"
-                                        },
-                                        {
-                                            "id": "Personal Effects",
-                                            "description": "Personal Effects"
-                                        },
-                                        {
-                                            "id": "Theft",
-                                            "description": "Theft"
-                                        },
-                                        {
-                                            "id": "Third Party",
-                                            "description": "Third Party"
-                                        },
-                                        {
-                                            "id": "Vandalism",
-                                            "description": "Vandalism"
-                                        },
-                                        {
-                                            "id": "Windscreen",
-                                            "description": "Windscreen"
-                                        }
-                                    ],
-                                    "required": true,
-                                    "order": 0,
-                                    "validators": [],
-                                    "uiOptions": {
-                                        "summaryTitle": "Reason for Claim"
-                                    }
-                                },
-                                {
-                                    "key": "isClaimSettled",
-                                    "label": "Is the claim settled?",
-                                    "type": "radio",
-                                    "options": [
-                                        {
-                                            "id": true,
-                                            "description": "Yes"
-                                        },
-                                        {
-                                            "id": false,
-                                            "description": "No"
-                                        }
-                                    ],
-                                    "required": true,
-                                    "order": 0,
-                                    "validators": [],
-                                    "uiOptions": {
-                                        "summaryTitle": "Reason for Claim"
-                                    }
-                                },
-                                {
-                                    "key": "thirdPartyInjuries",
-                                    "label": "Were there any third party injuries?",
-                                    "type": "radio",
-                                    "options": [
-                                        {
-                                            "id": true,
-                                            "description": "Yes"
-                                        },
-                                        {
-                                            "id": false,
-                                            "description": "No"
-                                        }
-                                    ],
-                                    "required": true,
-                                    "order": 0,
-                                    "validators": [],
-                                    "uiOptions": {
-                                        "summaryTitle": "Reason for Claim"
-                                    }
-                                },
-                                {
-                                    "key": "costOfClaim",
-                                    "label": "Cost of claim",
-                                    "type": "currency",
-                                    "required": true,
-                                    "placeholder": "How Much",
-                                    "order": 0,
-                                    "uiOptions": {
-                                        "summaryTitle": "Cost of Claim"
-                                    }
-                                },
-                                {
-                                    "key": "customerAtFault",
-                                    "label": "Were you at fault?",
-                                    "type": "radio",
-                                    "helpId": 1001,
-                                    "options": [
-                                        {
-                                            "id": true,
-                                            "description": "Yes"
-                                        },
-                                        {
-                                            "id": false,
-                                            "description": "No"
-                                        }
-                                    ],
-                                    "required": true,
-                                    "order": 2,
-                                    "validators": [],
-                                    "uiOptions": {
-                                        "summaryTitle": "Claim Fault"
-                                    }
-                                },
-                                {
-                                    "key": "noClaimsBonusProtected",
-                                    "label": "Was your no claims bonus protected?",
-                                    "type": "radio",
-                                    "options": [
-                                        {
-                                            "id": true,
-                                            "description": "Yes"
-                                        },
-                                        {
-                                            "id": false,
-                                            "description": "No"
-                                        }
-                                    ],
-                                    "required": true,
-                                    "order": 2,
-                                    "validators": [],
-                                    "uiOptions": {
-                                        "summaryTitle": "No Claim Bonus Protected"
-                                    }
-                                }
-                            ]
-                        }
-                    ],
-                    "sections": [
-                        {
-                            "id": "claim-primary-driver",
-                            "title": "Primary Driver",
-                            "userHasClaim": null,
-                            "isDriver": true,
-                            "type": "claim",
-                            "fields": []
-                        }
-                    ]
-                },
-                {
-                    "id": "your-penalties",
-                    "title": "Penalty Points",
-                    "order": 1,
-                    "uiOptions": {
-                        "prevPage": "your-claims",
-                        "nextPage": "choose-your-product"
-                    },
-                    "templates": [
-                        {
-                            "id": "penalty-template",
-                            "type": "penalty",
-                            "title": "Primary Driver",
-                            "userHasPenalty": null,
-                            "additional": true,
-                            "fields": [
-                                {
-                                    "key": "dateOfPenalty",
-                                    "label": "Date of Penalty",
-                                    "type": "date",
-                                    "required": true,
-                                    "disabled": false,
-                                    "order": 0,
-                                    "validators": [
-                                        "validDateValidate",
-                                        "validLastThreeYearsValidate",
-                                        // "penaltyDateValidator"
-                                    ]
-                                },
-                                {
-                                    "key": "reasonForPenalty",
-                                    "label": "What was the reason?",
-                                    "type": "dropdown",
-                                    "options": [
-                                        {
-                                            "id": "Accident",
-                                            "description": "Accident"
-                                        },
-                                        {
-                                            "id": "Accidental Damage",
-                                            "description": "Accidental Damage"
-                                        },
-                                        {
-                                            "id": "Fire",
-                                            "description": "Fire"
-                                        },
-                                        {
-                                            "id": "Malicious Damage As A Result Of Theft",
-                                            "description": "Malicious Damage As A Result Of Theft"
-                                        },
-                                        {
-                                            "id": "Personal Accident",
-                                            "description": "Personal Accident"
-                                        },
-                                        {
-                                            "id": "Personal Effects",
-                                            "description": "Personal Effects"
-                                        },
-                                        {
-                                            "id": "Theft",
-                                            "description": "Theft"
-                                        },
-                                        {
-                                            "id": "Third Party",
-                                            "description": "Third Party"
-                                        },
-                                        {
-                                            "id": "Vandalism",
-                                            "description": "Vandalism"
-                                        },
-                                        {
-                                            "id": "Windscreen",
-                                            "description": "Windscreen"
-                                        }
-                                    ],
-                                    "required": true,
-                                    "order": 0,
-                                    "validators": []
-                                },
-                                {
-                                    "key": "howManyPoints",
-                                    "label": "How many points?",
-                                    "type": "text",
-                                    "required": true,
-                                    "placeholder": "How many?",
-                                    "order": 0
-                                }
-                            ]
-                        }
-                    ],
-                    "sections": [
-                        {
-                            "id": "penalty-primary-driver",
-                            "title": "Primary Driver",
-                            "userHasPenalty": null,
-                            "isDriver": true,
-                            "type": "penalty",
-                            "fields": []
-                        }
-                    ]
-                }
-            ],
-            "isComplete": false,
-            "uiOptions": {}
-        },
-        {
-            "id": "price-presentation",
-            "title": "Get Quote",
-            "pages": [
-                {
-                    "id": "choose-your-product",
-                    "title": "Choose the best product for you",
-                    "uiOptions": {
-                        "prevPage": "your-penalties",
-                        "nextPage": "choose-your-payment"
-                    }
-                },
-                {
-                    "id": "choose-your-payment",
-                    "title": "Choose your payment",
-                    "uiOptions": {
-                        "prevPage": "choose-your-product",
-                        "nextPage": "additional-questions"
-                    }
-                }
-            ],
-            "isComplete": false,
+                        "key": "addressLine1",
+                        "label": "Address Line 1",
+                        "order": 0,
+                        "required": true,
+                        "validators": []
+                    }, {
+                        "type": "text",
+                        "helpId": 115001402469,
+                        "uiOptions": {
+                            "summaryTitle": "Address line 2"
+                        },
+                        "key": "addressLine2",
+                        "label": "Address Line 2",
+                        "order": 0,
+                        "required": false,
+                        "validators": [],
+                        "placeholder": "Optional"
+                    }, {
+                        "type": "dropdown",
+                        "helpId": 115001414145,
+                        "uiOptions": {
+                            "summaryTitle": "County"
+                        },
+                        "key": "county",
+                        "label": "County / Dublin postcode",
+                        "order": 1,
+                        "required": true,
+                        "validators": [],
+                        "options": [{
+                            "id": "Carlow",
+                            "description": "Carlow"
+                        }, {
+                            "id": "Cavan",
+                            "description": "Cavan"
+                        }, {
+                            "id": "Clare",
+                            "description": "Clare"
+                        }, {
+                            "id": "Cork",
+                            "description": "Cork"
+                        }, {
+                            "id": "Donegal",
+                            "description": "Donegal"
+                        }, {
+                            "id": "Dublin1",
+                            "description": "Dublin 1"
+                        }, {
+                            "id": "Dublin2",
+                            "description": "Dublin 2"
+                        }, {
+                            "id": "Dublin3",
+                            "description": "Dublin 3"
+                        }, {
+                            "id": "Dublin4",
+                            "description": "Dublin 4"
+                        }, {
+                            "id": "Dublin5",
+                            "description": "Dublin 5"
+                        }, {
+                            "id": "Dublin6",
+                            "description": "Dublin 6"
+                        }, {
+                            "id": "Dublin6w",
+                            "description": "Dublin 6w"
+                        }, {
+                            "id": "Dublin7",
+                            "description": "Dublin 7"
+                        }, {
+                            "id": "Dublin8",
+                            "description": "Dublin 8"
+                        }, {
+                            "id": "Dublin9",
+                            "description": "Dublin 9"
+                        }, {
+                            "id": "Dublin10",
+                            "description": "Dublin 10"
+                        }, {
+                            "id": "Dublin11",
+                            "description": "Dublin 11"
+                        }, {
+                            "id": "Dublin12",
+                            "description": "Dublin 12"
+                        }, {
+                            "id": "Dublin13",
+                            "description": "Dublin 13"
+                        }, {
+                            "id": "Dublin14",
+                            "description": "Dublin 14"
+                        }, {
+                            "id": "Dublin15",
+                            "description": "Dublin 15"
+                        }, {
+                            "id": "Dublin16",
+                            "description": "Dublin 16"
+                        }, {
+                            "id": "Dublin17",
+                            "description": "Dublin 17"
+                        }, {
+                            "id": "Dublin18",
+                            "description": "Dublin 18"
+                        }, {
+                            "id": "Dublin20",
+                            "description": "Dublin 20"
+                        }, {
+                            "id": "Dublin22",
+                            "description": "Dublin 22"
+                        }, {
+                            "id": "Dublin24",
+                            "description": "Dublin 24"
+                        }, {
+                            "id": "Dublin",
+                            "description": "Dublin County"
+                        }, {
+                            "id": "Galway",
+                            "description": "Galway"
+                        }, {
+                            "id": "Kerry",
+                            "description": "Kerry"
+                        }, {
+                            "id": "Kildare",
+                            "description": "Kildare"
+                        }, {
+                            "id": "Kilkenny",
+                            "description": "Kilkenny"
+                        }, {
+                            "id": "Laois",
+                            "description": "Laois"
+                        }, {
+                            "id": "Leitrim",
+                            "description": "Leitrim"
+                        }, {
+                            "id": "Limerick",
+                            "description": "Limerick"
+                        }, {
+                            "id": "Longford",
+                            "description": "Longford"
+                        }, {
+                            "id": "Louth",
+                            "description": "Louth"
+                        }, {
+                            "id": "Mayo",
+                            "description": "Mayo"
+                        }, {
+                            "id": "Meath",
+                            "description": "Meath"
+                        }, {
+                            "id": "Monaghan",
+                            "description": "Monaghan"
+                        }, {
+                            "id": "Offaly",
+                            "description": "Offaly"
+                        }, {
+                            "id": "Roscommon",
+                            "description": "Roscommon"
+                        }, {
+                            "id": "Sligo",
+                            "description": "Sligo"
+                        }, {
+                            "id": "Tipperary",
+                            "description": "Tipperary"
+                        }, {
+                            "id": "Waterford",
+                            "description": "Waterford"
+                        }, {
+                            "id": "Westmeath",
+                            "description": "Westmeath"
+                        }, {
+                            "id": "Wexford",
+                            "description": "Wexford"
+                        }, {
+                            "id": "Wicklow",
+                            "description": "Wicklow"
+                        }]
+                    }, {
+                        "type": "autocomplete",
+                        "helpId": 115001402489,
+                        "uiOptions": {
+                            "summaryTitle": "Town"
+                        },
+                        "key": "area",
+                        "label": "Area/Town/Townland",
+                        "order": 2,
+                        "required": true,
+                        "trigger": {
+                            "name": "disabledBasedOnKey",
+                            "expectedType": "object",
+                            "key": "county"
+                        },
+                        "validators": [],
+                        "disabled": false,
+                        "link": "county",
+                        "serviceUrl": "reference/area/",
+                        "autoCompleteType": "linked"
+                    }]
+                }]
+            }]
+        }, {
+            "id": "your-car",
+            "title": "Your Car",
+            "helpId": 115001414305,
             "uiOptions": {
-                "isWide": true,
-                "isPagesHidden": true
-            }
+                "nextPage": "your-licence",
+                "prevPage": "your-address"
+            },
+            "order": 1,
+            "sections": [{
+                "id": "car-default",
+                "title": "You're half way there, we just need to know a little more.",
+                "type": "car",
+                "uiOptions": {},
+                "fields": [{
+                    "key": "carInformation",
+                    "type": "group",
+                    "alignment": "none",
+                    "timeline": false,
+                    "order": 0,
+                    "isComplete": false,
+                    "uiOptions": {
+                        "summaryTitle": "Car Model"
+                    },
+                    "fields": [{
+                        "type": "text",
+                        "hidden": true,
+                        "uiOptions": {},
+                        "key": "yearManufactured",
+                        "order": 4,
+                        "required": false,
+                        "validators": []
+                    },{
+                        "type": "text",
+                        "hidden": true,
+                        "uiOptions": {},
+                        "key": "vehicleRegistrationNumber",
+                        "order": 4,
+                        "required": false,
+                        "validators": []
+                    }, {
+                        "type": "autocomplete",
+                        "helpId": 115001414385,
+                        "uiOptions": {
+                            "summaryTitle": "Make"
+                        },
+                        "key": "carMake",
+                        "label": "Car Make",
+                        "order": 1,
+                        "required": true,
+                        "validators": [],
+                        "disabled": false,
+                        "link": "carInformation",
+                        "serviceUrl": "reference/vehicle/make/",
+                        "autoCompleteType": "all"
+                    }, {
+                        "type": "autocomplete",
+                        "helpId": 115001402669,
+                        "uiOptions": {
+                            "summaryTitle": "Model"
+                        },
+                        "key": "carModel",
+                        "label": "Car Model",
+                        "order": 2,
+                        "required": true,
+                        "trigger": {
+                            "name": "disabledBasedOnKey",
+                            "expectedType": "object",
+                            "key": "carMake"
+                        },
+                        "validators": [],
+                        "disabled": false,
+                        "link": "carMake",
+                        "serviceUrl": "reference/vehicle/model/",
+                        "autoCompleteType": "linked"
+                    }, {
+                        "type": "dropdown",
+                        "helpId": 115001402749,
+                        "uiOptions": {
+                            "summaryTitle": "Make"
+                        },
+                        "key": "engineSizeRange",
+                        "label": "Engine Size",
+                        "order": 3,
+                        "required": true,
+                        "trigger": {
+                            "name": "disabledBasedOnKey",
+                            "expectedType": "object",
+                            "key": "carModel"
+                        },
+                        "validators": [],
+                        "options": [{
+                            "id": "0cc - 1499cc",
+                            "description": "0cc - 1499cc"
+                        }, {
+                            "id": "1500cc - 1999cc",
+                            "description": "1500cc - 1999cc"
+                        }, {
+                            "id": "2000cc - 2499cc",
+                            "description": "2000cc - 2499cc"
+                        }, {
+                            "id": "2500cc - 2999cc",
+                            "description": "2500cc - 2999cc"
+                        }, {
+                            "id": "3000cc - 3449cc",
+                            "description": "3000cc - 3449cc"
+                        }, {
+                            "id": "3500cc - 3999cc",
+                            "description": "3500cc - 3999cc"
+                        }, {
+                            "id": "4000cc - 4449cc",
+                            "description": "4000cc - 4449cc"
+                        }, {
+                            "id": "4500cc - 4999cc",
+                            "description": "4500cc - 4999cc"
+                        }, {
+                            "id": "4500cc - 4999c",
+                            "description": "4500cc - 4999cc"
+                        }]
+                    }]
+                }, {
+                    "type": "date",
+                    "helpId": 115001414365,
+                    "hidden": true,
+                    "uiOptions": {
+                        "summaryTitle": "Date of Registration",
+                        "locked": "day"
+                    },
+                    "key": "dateOfRegistration",
+                    "label": "Date of Registration",
+                    "order": 0,
+                    "validators": []
+                }, {
+                    "type": "date",
+                    "helpId": 115001414625,
+                    "uiOptions": {
+                        "summaryTitle": "Date of Purchase"
+                    },
+                    "key": "dateOfPurchase",
+                    "label": "When did you buy your car?",
+                    "order": 5,
+                    "required": true,
+                    "validators": ["dateOfPurchaseValidate"],
+                    "disabled": false
+                }, {
+                    "type": "currency",
+                    "helpId": 115001404989,
+                    "uiOptions": {
+                        "summaryTitle": "Car value "
+                    },
+                    "key": "currentValue",
+                    "label": "Current Value",
+                    "order": 6,
+                    "required": true,
+                    "validators": [],
+                    "disabled": false
+                }, {
+                    "type": "tel",
+                    "helpId": 115001416805,
+                    "uiOptions": {
+                        "summaryTitle": "Miles per year"
+                    },
+                    "key": "kilometersPerYear",
+                    "label": "How many miles do you drive in a year?",
+                    "order": 7,
+                    "required": true,
+                    "validators": [],
+                    "disabled": false
+                }, {
+                    "key": "securityFeatures",
+                    "type": "group",
+                    "alignment": "half",
+                    "timeline": true,
+                    "label": "What security features are fitted to your vehicle? Please select all that apply.",
+                    "order": 8,
+                    "isComplete": false,
+                    "helpId": 115001417705,
+                    "uiOptions": {
+                        "summaryTitle": "Security Features"
+                    },
+                    "fields": [{
+                        "type": "checkbox",
+                        "uiOptions": {
+                            "summaryTitle": "Security Alarm"
+                        },
+                        "key": "security-alarm",
+                        "required": false,
+                        "timeline": false,
+                        "name": "Alarm"
+                    }, {
+                        "type": "checkbox",
+                        "uiOptions": {
+                            "summaryTitle": "Immobiliser"
+                        },
+                        "key": "security-immobiliser",
+                        "required": false,
+                        "timeline": false,
+                        "name": "Immobiliser"
+                    }, {
+                        "type": "checkbox",
+                        "uiOptions": {
+                            "summaryTitle": "Tracker"
+                        },
+                        "key": "security-tracker",
+                        "required": false,
+                        "timeline": false,
+                        "name": "Tracker"
+                    }]
+                }, {
+                    "type": "dropdown",
+                    "uiOptions": {},
+                    "key": "carMainlyUsedCounty",
+                    "label": "In what county is your car usually used?",
+                    "order": 9,
+                    "required": true,
+                    "validators": [],
+                    "placeholder": "Please enter a county",
+                    "options": [{
+                        "id": "Carlow",
+                        "description": "Carlow"
+                    }, {
+                        "id": "Cavan",
+                        "description": "Cavan"
+                    }, {
+                        "id": "Clare",
+                        "description": "Clare"
+                    }, {
+                        "id": "Cork",
+                        "description": "Cork"
+                    }, {
+                        "id": "Donegal",
+                        "description": "Donegal"
+                    }, {
+                        "id": "Dublin",
+                        "description": "Dublin"
+                    }, {
+                        "id": "CountyDublin",
+                        "description": "County Dublin"
+                    }, {
+                        "id": "Galway",
+                        "description": "Galway"
+                    }, {
+                        "id": "Kerry",
+                        "description": "Kerry"
+                    }, {
+                        "id": "Kildare",
+                        "description": "Kildare"
+                    }, {
+                        "id": "Kilkenny",
+                        "description": "Kilkenny"
+                    }, {
+                        "id": "Laois",
+                        "description": "Laois"
+                    }, {
+                        "id": "Leitrim",
+                        "description": "Leitrim"
+                    }, {
+                        "id": "Limerick",
+                        "description": "Limerick"
+                    }, {
+                        "id": "Longford",
+                        "description": "Longford"
+                    }, {
+                        "id": "Louth",
+                        "description": "Louth"
+                    }, {
+                        "id": "Mayo",
+                        "description": "Mayo"
+                    }, {
+                        "id": "Meath",
+                        "description": "Meath"
+                    }, {
+                        "id": "Monaghan",
+                        "description": "Monaghan"
+                    }, {
+                        "id": "Offaly",
+                        "description": "Offaly"
+                    }, {
+                        "id": "Roscommon",
+                        "description": "Roscommon"
+                    }, {
+                        "id": "Sligo",
+                        "description": "Sligo"
+                    }, {
+                        "id": "TipperaryNorth",
+                        "description": "Tipperary North"
+                    }, {
+                        "id": "TipperarySouth",
+                        "description": "Tipperary South"
+                    }, {
+                        "id": "Waterford",
+                        "description": "Waterford"
+                    }, {
+                        "id": "Westmeath",
+                        "description": "Westmeath"
+                    }, {
+                        "id": "Wexford",
+                        "description": "Wexford"
+                    }, {
+                        "id": "Wicklow",
+                        "description": "Wicklow"
+                    }]
+                }, {
+                    "type": "autocomplete",
+                    "uiOptions": {},
+                    "key": "carMainlyUsedArea",
+                    "label": "In what town/area is your car usually used?",
+                    "order": 9,
+                    "required": true,
+                    "trigger": {
+                        "name": "disabledBasedOnKey",
+                        "expectedType": "object",
+                        "key": "carMainlyUsedCounty"
+                    },
+                    "validators": [],
+                    "disabled": false,
+                    "link": "carMainlyUsedCounty",
+                    "serviceUrl": "reference/areaCarUsed/",
+                    "autoCompleteType": "linked"
+                }, {
+                    "type": "dropdown",
+                    "uiOptions": {},
+                    "key": "carKeptOvernight",
+                    "label": "Overnight Parking",
+                    "order": 10,
+                    "required": true,
+                    "validators": [],
+                    "options": [{
+                        "id": "KeptOnPublicRoad",
+                        "description": "Kept on Public Property"
+                    }, {
+                        "id": "ParkedOnDrive",
+                        "description": "Parked on Drive"
+                    }, {
+                        "id": "Carport",
+                        "description": "Carport"
+                    }, {
+                        "id": "KeptOnPrivateProperty",
+                        "description": "Kept on Private Property"
+                    }, {
+                        "id": "Garaged",
+                        "description": "Garaged"
+                    }]
+                }]
+            }, {
+                "id": "car-secondary",
+                "title": "Second Car",
+                "type": "car",
+                "uiOptions": {},
+                "fields": [{
+                    "key": "carInformation",
+                    "type": "group",
+                    "alignment": "none",
+                    "timeline": false,
+                    "order": 0,
+                    "isComplete": false,
+                    "uiOptions": {
+                        "summaryTitle": "Car Model"
+                    },
+                    "fields": [{
+                        "type": "text",
+                        "hidden": true,
+                        "uiOptions": {},
+                        "key": "yearManufactured",
+                        "order": 4,
+                        "required": false,
+                        "validators": []
+                    }, {
+                        "type": "autocomplete",
+                        "helpId": 115001414385,
+                        "uiOptions": {
+                            "summaryTitle": "Make"
+                        },
+                        "key": "carMake",
+                        "label": "Car Make",
+                        "order": 1,
+                        "required": true,
+                        "validators": [],
+                        "disabled": false,
+                        "link": "carInformation",
+                        "serviceUrl": "reference/vehicle/make/",
+                        "autoCompleteType": "all"
+                    }, {
+                        "type": "autocomplete",
+                        "helpId": 115001402669,
+                        "uiOptions": {
+                            "summaryTitle": "Model"
+                        },
+                        "key": "carModel",
+                        "label": "Car Model",
+                        "order": 2,
+                        "required": true,
+                        "trigger": {
+                            "name": "disabledBasedOnKey",
+                            "expectedType": "object",
+                            "key": "carMake"
+                        },
+                        "validators": [],
+                        "disabled": false,
+                        "link": "carMake",
+                        "serviceUrl": "reference/vehicle/model/",
+                        "autoCompleteType": "linked"
+                    }, {
+                        "type": "dropdown",
+                        "helpId": 115001402749,
+                        "uiOptions": {
+                            "summaryTitle": "Make"
+                        },
+                        "key": "engineSizeRange",
+                        "label": "Engine Size",
+                        "order": 3,
+                        "required": true,
+                        "trigger": {
+                            "name": "disabledBasedOnKey",
+                            "expectedType": "object",
+                            "key": "carModel"
+                        },
+                        "validators": [],
+                        "options": [{
+                            "id": "0cc - 1499cc",
+                            "description": "0cc - 1499cc"
+                        }, {
+                            "id": "1500cc - 1999cc",
+                            "description": "1500cc - 1999cc"
+                        }, {
+                            "id": "2000cc - 2499cc",
+                            "description": "2000cc - 2499cc"
+                        }, {
+                            "id": "2500cc - 2999cc",
+                            "description": "2500cc - 2999cc"
+                        }, {
+                            "id": "3000cc - 3449cc",
+                            "description": "3000cc - 3449cc"
+                        }, {
+                            "id": "3500cc - 3999cc",
+                            "description": "3500cc - 3999cc"
+                        }, {
+                            "id": "4000cc - 4449cc",
+                            "description": "4000cc - 4449cc"
+                        }, {
+                            "id": "4500cc - 4999cc",
+                            "description": "4500cc - 4999cc"
+                        }, {
+                            "id": "4500cc - 4999c",
+                            "description": "4500cc - 4999cc"
+                        }]
+                    }]
+                }]
+            }]
+        }, {
+            "id": "your-licence",
+            "title": "Licence",
+            "uiOptions": {
+                "nextPage": "your-cover",
+                "prevPage": "your-car"
+            },
+            "order": 1,
+            "sections": [{
+                "id": "licence-default",
+                "type": "default",
+                "uiOptions": {},
+                "isDriver": true,
+                "fields": [{
+                    "type": "dropdown",
+                    "helpId": 115001405929,
+                    "uiOptions": {
+                        "summaryTitle": "Type of Licence"
+                    },
+                    "key": "typeOfLicence",
+                    "label": "Your Driving Licence",
+                    "order": 0,
+                    "required": true,
+                    "validators": [],
+                    "disabled": false,
+                    "options": [{
+                        "id": "Foreign",
+                        "description": "Foreign"
+                    }, {
+                        "id": "FullEuropeanUnion",
+                        "description": "Full EU"
+                    }, {
+                        "id": "FullIrish",
+                        "description": "Full Irish"
+                    }, {
+                        "id": "FullUnitedKingdom",
+                        "description": "Full UK"
+                    }, {
+                        "id": "InternationalLicence",
+                        "description": "International Licence"
+                    }, {
+                        "id": "ProvisionalIrish",
+                        "description": "Provisional Irish"
+                    }, {
+                        "id": "LearnerPermit",
+                        "description": "Learner Permit"
+                    }]
+                }, {
+                    "type": "slider",
+                    "helpId": 115001418565,
+                    "uiOptions": {
+                        "summaryTitle": "Number of years you held your licence"
+                    },
+                    "key": "howLongLicenceHeld",
+                    "label": "How many years have you held your licence?",
+                    "order": 1,
+                    "required": true,
+                    "validators": ["licenceDateValidate"],
+                    "value": {
+                        "id": "0",
+                        "description": "0"
+                    },
+                    "values": [{
+                        "id": "0",
+                        "description": "0"
+                    }, {
+                        "id": "1",
+                        "description": "1"
+                    }, {
+                        "id": "2",
+                        "description": "2"
+                    }, {
+                        "id": "3",
+                        "description": "3"
+                    }, {
+                        "id": "4",
+                        "description": "4"
+                    }, {
+                        "id": "5",
+                        "description": "5"
+                    }, {
+                        "id": "6",
+                        "description": "6"
+                    }, {
+                        "id": "7",
+                        "description": "7"
+                    }, {
+                        "id": "8",
+                        "description": "8"
+                    }, {
+                        "id": "9",
+                        "description": "9+"
+                    }]
+                }, {
+                    "type": "autocomplete",
+                    "helpId": 115001418525,
+                    "uiOptions": {
+                        "summaryTitle": "Where did you earn your licence"
+                    },
+                    "key": "whereEarnLicence",
+                    "label": "Where did you pass your driving test?",
+                    "order": 2,
+                    "required": true,
+                    "validators": [],
+                    "disabled": false,
+                    "value": {
+                        "id": "Ireland",
+                        "description": "Ireland"
+                    },
+                    "placeholder": "Please enter a country",
+                    "serviceUrl": "reference/country/",
+                    "autoCompleteType": "search"
+                }],
+                "driverIndex": 0
+            }],
+            "templates": [{
+                "id": "licence-template",
+                "type": "default",
+                "uiOptions": {},
+                "hasQuestionsByDefault": true,
+                "additional": true,
+                "fields": [{
+                    "type": "dropdown",
+                    "helpId": 115001405929,
+                    "uiOptions": {
+                        "summaryTitle": "Type of Licence"
+                    },
+                    "key": "typeOfLicence",
+                    "label": "Your Driving Licence",
+                    "order": 0,
+                    "required": true,
+                    "validators": [],
+                    "disabled": false,
+                    "options": [{
+                        "id": "Foreign",
+                        "description": "Foreign"
+                    }, {
+                        "id": "FullEuropeanUnion",
+                        "description": "Full EU"
+                    }, {
+                        "id": "FullIrish",
+                        "description": "Full Irish"
+                    }, {
+                        "id": "FullUnitedKingdom",
+                        "description": "Full UK"
+                    }, {
+                        "id": "InternationalLicence",
+                        "description": "International Licence"
+                    }, {
+                        "id": "ProvisionalIrish",
+                        "description": "Provisional Irish"
+                    }, {
+                        "id": "LearnerPermit",
+                        "description": "Learner Permit"
+                    }]
+                }, {
+                    "type": "slider",
+                    "helpId": 115001418565,
+                    "uiOptions": {
+                        "summaryTitle": "How many years have you held your licence?"
+                    },
+                    "key": "howLongLicenceHeld",
+                    "label": "How many years have you held your licence?",
+                    "order": 1,
+                    "required": true,
+                    "validators": ["licenceDateValidate"],
+                    "value": {
+                        "id": "0",
+                        "description": "0"
+                    },
+                    "values": [{
+                        "id": "0",
+                        "description": "0"
+                    }, {
+                        "id": "1",
+                        "description": "1"
+                    }, {
+                        "id": "2",
+                        "description": "2"
+                    }, {
+                        "id": "3",
+                        "description": "3"
+                    }, {
+                        "id": "4",
+                        "description": "4"
+                    }, {
+                        "id": "5",
+                        "description": "5"
+                    }, {
+                        "id": "6",
+                        "description": "6"
+                    }, {
+                        "id": "7",
+                        "description": "7"
+                    }, {
+                        "id": "8",
+                        "description": "8"
+                    }, {
+                        "id": "9",
+                        "description": "9+"
+                    }]
+                }, {
+                    "type": "autocomplete",
+                    "helpId": 115001418525,
+                    "uiOptions": {
+                        "summaryTitle": "Where did you earn your licence"
+                    },
+                    "key": "whereEarnLicence",
+                    "label": "Where did you pass your driving test?",
+                    "order": 2,
+                    "required": true,
+                    "validators": [],
+                    "disabled": false,
+                    "value": {
+                        "id": "Ireland",
+                        "description": "Ireland"
+                    },
+                    "placeholder": "Please enter a country",
+                    "serviceUrl": "reference/country/",
+                    "autoCompleteType": "search"
+                }]
+            }]
+        }, {
+            "id": "your-cover",
+            "title": "Your Driving Experience",
+            "uiOptions": {
+                "nextPage": "your-claims",
+                "prevPage": "your-licence"
+            },
+            "order": 1,
+            "sections": [{
+                "id": "cover-default",
+                "type": "default",
+                "uiOptions": {},
+                "fields": [{
+                    "key": "drivingExperience",
+                    "type": "group",
+                    "alignment": "none",
+                    "timeline": false,
+                    "order": 0,
+                    "isComplete": false,
+                    "uiOptions": {},
+                    "fields": [{
+                        "type": "radio",
+                        "helpId": 115001418625,
+                        "uiOptions": {
+                            "summaryTitle": "Insured in your own Name"
+                        },
+                        "key": "insuredInYourOwnName",
+                        "label": "Insured in your own name?",
+                        "order": 0,
+                        "required": true,
+                        "trigger": {
+                            "key": "insuredNamedDriver",
+                            "name": "hideBasedOnKey",
+                            "isObject": true
+                        },
+                        "options": [{
+                            "id": true,
+                            "description": "Yes"
+                        }, {
+                            "id": false,
+                            "description": "No"
+                        }]
+                    }, {
+                        "type": "radio",
+                        "helpId": 115001407089,
+                        "uiOptions": {
+                            "summaryTitle": "Named Driver"
+                        },
+                        "key": "insuredNamedDriver",
+                        "label": "Have you been a named driver on someone else’s policy?",
+                        "order": 0,
+                        "required": true,
+                        "trigger": {
+                            "key": "insuredInYourOwnName",
+                            "name": "hideBasedOnKey",
+                            "isObject": true
+                        },
+                        "options": [{
+                            "id": true,
+                            "description": "Yes"
+                        }, {
+                            "id": false,
+                            "description": "No"
+                        }]
+                    }, {
+                        "type": "dropdown",
+                        "helpId": 115001407149,
+                        "uiOptions": {
+                            "summaryTitle": "On whose policy?"
+                        },
+                        "key": "insuredNamedDriverOnPolicy",
+                        "label": "On whose policy?",
+                        "order": 1,
+                        "required": true,
+                        "trigger": {
+                            "key": "insuredNamedDriver",
+                            "name": "showBasedOnKey",
+                            "isObject": true
+                        },
+                        "validators": [],
+                        "options": [{
+                            "id": "Brother",
+                            "description": "Brother"
+                        }, {
+                            "id": "BrotherInLaw",
+                            "description": "Brother in Law"
+                        }, {
+                            "id": "BusinessPartner",
+                            "description": "Business Partner"
+                        }, {
+                            "id": "CommonLawSpouse",
+                            "description": "Common Law Spouse"
+                        }, {
+                            "id": "Daughter",
+                            "description": "Daughter"
+                        }, {
+                            "id": "DaughterInLaw",
+                            "description": "Daughter in Law"
+                        }, {
+                            "id": "EmployeeOfProposer",
+                            "description": "Employee of Proposer"
+                        }, {
+                            "id": "EmployerOfProposer",
+                            "description": "Employer of Proposer"
+                        }, {
+                            "id": "FatherInLaw",
+                            "description": "Father in Law"
+                        }, {
+                            "id": "MotherInLaw",
+                            "description": "Mother in Law"
+                        }, {
+                            "id": "Parent",
+                            "description": "Parent"
+                        }, {
+                            "id": "Proposer",
+                            "description": "Proposer"
+                        }, {
+                            "id": "Relative",
+                            "description": "Relative"
+                        }, {
+                            "id": "Sister",
+                            "description": "Sister"
+                        }, {
+                            "id": "SisterInLaw",
+                            "description": "Sister in Law"
+                        }, {
+                            "id": "Son",
+                            "description": "Son"
+                        }, {
+                            "id": "SonInLaw",
+                            "description": "Son in Law"
+                        }, {
+                            "id": "Spouse",
+                            "description": "Spouse"
+                        }, {
+                            "id": "Tenant",
+                            "description": "Tenant"
+                        }, {
+                            "id": "Unrelated",
+                            "description": "Unrelated"
+                        }, {
+                            "id": "Partner",
+                            "description": "Partner"
+                        }, {
+                            "id": "Friend",
+                            "description": "Friend"
+                        }]
+                    }, {
+                        "type": "dropdown",
+                        "helpId": 115001418685,
+                        "uiOptions": {
+                            "summaryTitle": "Current Insurance Company"
+                        },
+                        "key": "insuranceCompany",
+                        "label": "Who is your current insurer?",
+                        "order": 2,
+                        "required": true,
+                        "trigger": {
+                            "key1": "insuredInYourOwnName",
+                            "key2": "insuredNamedDriver",
+                            "name": "showDualKey",
+                            "isObject": true
+                        },
+                        "validators": [],
+                        "options": [{
+                            "id": "AIG",
+                            "description": "AIG"
+                        }, {
+                            "id": "Allianz",
+                            "description": "Allianz"
+                        }, {
+                            "id": "ARB",
+                            "description": "ARB Underwriting"
+                        }, {
+                            "id": "Asgard",
+                            "description": "Asgard"
+                        }, {
+                            "id": "Aviva",
+                            "description": "Aviva"
+                        }, {
+                            "id": "AXABroker",
+                            "description": "AXA Broker"
+                        }, {
+                            "id": "AXADirect",
+                            "description": "AXA Direct"
+                        }, {
+                            "id": "AXA",
+                            "description": "AXA Insurance"
+                        }, {
+                            "id": "Bump",
+                            "description": "Bump"
+                        }, {
+                            "id": "ChartisInsurance",
+                            "description": "Chartis Insurance"
+                        }, {
+                            "id": "Chubb",
+                            "description": "Chubb Insurance"
+                        }, {
+                            "id": "Cigna",
+                            "description": "Cigna Insurance"
+                        }, {
+                            "id": "Cornhill",
+                            "description": "Cornhill"
+                        }, {
+                            "id": "Ecclesiastical",
+                            "description": "Ecclesiastical"
+                        }, {
+                            "id": "Europa",
+                            "description": "Europa General"
+                        }, {
+                            "id": "FBD",
+                            "description": "FBD Insurance"
+                        }, {
+                            "id": "FCRebrokedAXABroker",
+                            "description": "FC Rebroked AXA Broker"
+                        }, {
+                            "id": "FirstCallDirect",
+                            "description": "First Call Direct"
+                        }, {
+                            "id": "Footprint",
+                            "description": "Footprint"
+                        }, {
+                            "id": "Generali",
+                            "description": "Generali Insurance"
+                        }, {
+                            "id": "KennCo",
+                            "description": "KennCo Underwriting"
+                        }, {
+                            "id": "Liberty",
+                            "description": "Liberty Underwriting"
+                        }, {
+                            "id": "Octane",
+                            "description": "Octane"
+                        }, {
+                            "id": "OneDirect",
+                            "description": "One Direct"
+                        }, {
+                            "id": "PatronaUnderwritingLtd",
+                            "description": "Patrona Underwriting Ltd"
+                        }, {
+                            "id": "Prestige",
+                            "description": "Prestige Underwriting Services"
+                        }, {
+                            "id": "ProvidentInsurance",
+                            "description": "Provident Insurance"
+                        }, {
+                            "id": "Quinn",
+                            "description": "Quinn Direct"
+                        }, {
+                            "id": "RSA",
+                            "description": "RSA"
+                        }, {
+                            "id": "Sertus",
+                            "description": "Sertus Underwriting"
+                        }, {
+                            "id": "Setanta",
+                            "description": "Setanta Insurance"
+                        }, {
+                            "id": "Torch",
+                            "description": "Torch"
+                        }, {
+                            "id": "Travelers",
+                            "description": "Travelers"
+                        }, {
+                            "id": "UnlistedInsurerIreland",
+                            "description": "Unlisted Insurer - Ireland"
+                        }, {
+                            "id": "UnlistedInsurerNotIreland",
+                            "description": "Unlisted Insurer - Not Ireland"
+                        }, {
+                            "id": "Wrightway",
+                            "description": "Wrightway Underwriting"
+                        }, {
+                            "id": "XSDirect",
+                            "description": "XS Direct"
+                        }, {
+                            "id": "Zurich",
+                            "description": "Zurich"
+                        }, {
+                            "id": "Unspecified",
+                            "description": "Unspecified"
+                        }]
+                    }, {
+                        "type": "dropdown",
+                        "uiOptions": {},
+                        "key": "drivingExperienceType",
+                        "label": "Type of driving experience",
+                        "required": true,
+                        "trigger": {
+                            "key": "insuredNamedDriver",
+                            "name": "showBasedOnKey",
+                            "isObject": true
+                        },
+                        "options": [{
+                            "id": "FullTimeCompanyCarExperience",
+                            "description": "Full-time Company Car Experience"
+                        }, {
+                            "id": "InsuranceInOwnName",
+                            "description": "Insurance in Own Name"
+                        }, {
+                            "id": "NamedDriverExperience",
+                            "description": "Named Driver Experience"
+                        }, {
+                            "id": "PartTimeCompanyCarExperience",
+                            "description": "Part-time Company Car Experience"
+                        }]
+                    }, {
+                        "type": "slider",
+                        "helpId": 115001407209,
+                        "uiOptions": {
+                            "summaryTitle": "Years of Name Driving Experience"
+                        },
+                        "key": "namedDrivingExperienceYears",
+                        "label": "Years of Name Driving Experience",
+                        "order": 3,
+                        "required": true,
+                        "trigger": {
+                            "key": "insuredNamedDriver",
+                            "name": "showBasedOnKey",
+                            "isObject": true
+                        },
+                        "validators": ['namedDriverExperience'],
+                        "value": {
+                            "id": "0",
+                            "description": "0"
+                        },
+                        "values": [{
+                            "id": "0",
+                            "description": "0"
+                        }, {
+                            "id": "1",
+                            "description": "1"
+                        }, {
+                            "id": "2",
+                            "description": "2"
+                        }, {
+                            "id": "3",
+                            "description": "3"
+                        }, {
+                            "id": "4",
+                            "description": "4"
+                        }, {
+                            "id": "5",
+                            "description": "5"
+                        }, {
+                            "id": "6",
+                            "description": "6"
+                        }, {
+                            "id": "7",
+                            "description": "7"
+                        }, {
+                            "id": "8",
+                            "description": "8"
+                        }, {
+                            "id": "9",
+                            "description": "9+"
+                        }]
+                    }, {
+                        "type": "autocomplete",
+                        "helpId": 115001407329,
+                        "uiOptions": {
+                            "summaryTitle": "Where did you earn your licence"
+                        },
+                        "key": "countryNamedDrivingExperience",
+                        "label": "Where did you earn your named driving experience?",
+                        "order": 2,
+                        "required": true,
+                        "trigger": {
+                            "key": "insuredNamedDriver",
+                            "name": "showBasedOnKey",
+                            "isObject": true
+                        },
+                        "validators": [],
+                        "disabled": false,
+                        "placeholder": "Please enter a country",
+                        "serviceUrl": "reference/country/",
+                        "autoCompleteType": "search"
+                    }, {
+                        "type": "date",
+                        "helpId": 115001407469,
+                        "uiOptions": {
+                            "summaryTitle": "Amount of Years No Claims Bonus"
+                        },
+                        "key": "namedDrivingExperienceExpire",
+                        "label": "When does your named driving experience end?",
+                        "order": 3,
+                        "required": true,
+                        "trigger": {
+                            "key": "insuredNamedDriver",
+                            "name": "showBasedOnKey",
+                            "isObject": true
+                        }
+                    }, {
+                        "type": "slider",
+                        "helpId": 115001418725,
+                        "uiOptions": {
+                            "summaryTitle": "Amount of Years No Claims Bonus"
+                        },
+                        "key": "noClaimsBonusYears",
+                        "label": "Years of no claims bonus",
+                        "order": 3,
+                        "required": true,
+                        "trigger": {
+                            "key": "insuredInYourOwnName",
+                            "name": "showBasedOnKey",
+                            "isObject": true
+                        },
+                        "validators": ['noclaimsBonusValidate'],
+                        "value": {
+                            "id": "0",
+                            "description": "0"
+                        },
+                        "values": [{
+                            "id": "0",
+                            "description": "0"
+                        }, {
+                            "id": "1",
+                            "description": "1"
+                        }, {
+                            "id": "2",
+                            "description": "2"
+                        }, {
+                            "id": "3",
+                            "description": "3"
+                        }, {
+                            "id": "4",
+                            "description": "4"
+                        }, {
+                            "id": "5",
+                            "description": "5"
+                        }, {
+                            "id": "6",
+                            "description": "6"
+                        }, {
+                            "id": "7",
+                            "description": "7"
+                        }, {
+                            "id": "8",
+                            "description": "8"
+                        }, {
+                            "id": "9",
+                            "description": "9+"
+                        }]
+                    }, {
+                        "type": "autocomplete",
+                        "helpId": 115001419005,
+                        "uiOptions": {
+                            "summaryTitle": "Location no claims bonus was earned"
+                        },
+                        "key": "whereNoClaimsBonus",
+                        "label": "Where did you earn your no claims bonus?",
+                        "order": 4,
+                        "required": true,
+                        "trigger": {
+                            "key": "insuredInYourOwnName",
+                            "name": "showBasedOnKey",
+                            "isObject": true
+                        },
+                        "validators": [],
+                        "disabled": false,
+                        "placeholder": "Please enter a country",
+                        "serviceUrl": "reference/country/",
+                        "autoCompleteType": "search"
+                    }, {
+                        "type": "date",
+                        "helpId": 115001419065,
+                        "uiOptions": {
+                            "summaryTitle": "Policy Expiration Date"
+                        },
+                        "key": "policyExpiryDate",
+                        "label": "When does your currnet policy end?",
+                        "order": 5,
+                        "required": true,
+                        "trigger": {
+                            "key": "insuredInYourOwnName",
+                            "name": "showBasedOnKey",
+                            "isObject": true
+                        },
+                        "validators": ["validDateValidate"],
+                        "disabled": false
+                    }]
+                }, {
+                    "type": "date",
+                    "helpId": 115001407029,
+                    "uiOptions": {},
+                    "key": "policyStartDate",
+                    "label": "What date would you like your new policy to start?",
+                    "order": 7,
+                    "required": true,
+                    "validators": ["policyStartDateValidate"]
+                }, {
+                    "type": "radio",
+                    "helpId": 115001004829,
+                    "uiOptions": {
+                        "summaryTitle": "Level of Cover"
+                    },
+                    "key": "levelOfCover",
+                    "label": "What level of cover would you prefer?",
+                    "order": 8,
+                    "required": true,
+                    "options": [{
+                        "id": "COMPREHENSIVE",
+                        "description": "Comprehensive"
+                    }, {
+                        "id": "THIRDPARTYFIREANDTHEFT",
+                        "description": "Third Party, Fire And Theft"
+                    }],
+                    "alignment": "vertical"
+                }, {
+                    "type": "radio",
+                    "helpId": 115001407589,
+                    "uiOptions": {
+                        "summaryTitle": "Level of no claims bonus"
+                    },
+                    "key": "levelOfNoClaimsBonus",
+                    "label": "Choose No Claims Bonus Protection ",
+                    "order": 9,
+                    "required": true,
+                    "options": [{
+                        "id": "Full",
+                        "description": "Full"
+                    }, {
+                        "id": "StepBack",
+                        "description": "Step Back"
+                    }]
+                }]
+            }]
+        }, {
+            "id": "your-claims",
+            "title": "Claims",
+            "helpId": 115001407729,
+            "uiOptions": {
+                "nextPage": "your-penalty-points",
+                "prevPage": "your-cover"
+            },
+            "order": 1,
+            "sections": [{
+                "id": "claim-primary-driver",
+                "type": "claim",
+                "uiOptions": {},
+                "isDriver": true,
+                "fields": [],
+                "driverIndex": 0
+            }],
+            "templates": [{
+                "id": "claim-template",
+                "type": "claim",
+                "helpId": 115001407729,
+                "uiOptions": {},
+                "additional": true,
+                "fields": [{
+                    "type": "date",
+                    "helpId": 115001419745,
+                    "uiOptions": {
+                        "summaryTitle": "Date of Claim"
+                    },
+                    "key": "dateOfClaim",
+                    "label": "Date of claim",
+                    "order": 0,
+                    "required": true,
+                    // "validators": ["validDateValidate", "validLastFiveYearsValidate", "claimDateValidator"],
+                    "disabled": false
+                }, {
+                    "type": "dropdown",
+                    "helpId": 115001419765,
+                    "uiOptions": {
+                        "summaryTitle": "Reason for Claim"
+                    },
+                    "key": "reasonForClaim",
+                    "label": "Type of Claim",
+                    "order": 0,
+                    "required": true,
+                    "validators": [],
+                    "options": [{
+                        "id": "Accident",
+                        "description": "Accident"
+                    }, {
+                        "id": "AccidentalDamage",
+                        "description": "Accidental Damage"
+                    }, {
+                        "id": "Fire",
+                        "description": "Fire"
+                    }, {
+                        "id": "MaliciousDamageAsAResultOfTheft",
+                        "description": "Malicious Damage As A Result Of Theft"
+                    }, {
+                        "id": "PersonalAccident",
+                        "description": "Personal Accident"
+                    }, {
+                        "id": "PersonalEffects",
+                        "description": "Personal Effects"
+                    }, {
+                        "id": "Theft",
+                        "description": "Theft"
+                    }, {
+                        "id": "Vandalism",
+                        "description": "Vandalism"
+                    }, {
+                        "id": "Windscreen",
+                        "description": "Windscreen"
+                    }, {
+                        "id": "ThirdParty",
+                        "description": "Third Party"
+                    }]
+                }, {
+                    "type": "radio",
+                    "uiOptions": {
+                        "summaryTitle": "Reason for Claim"
+                    },
+                    "key": "claimSettled",
+                    "label": "Is the claim settled?",
+                    "order": 0,
+                    "required": true,
+                    "validators": [],
+                    "options": [{
+                        "id": "false",
+                        "description": "No"
+                    }, {
+                        "id": "true",
+                        "description": "Yes"
+                    }]
+                }, {
+                    "type": "radio",
+                    "helpId": 115001419825,
+                    "uiOptions": {
+                        "summaryTitle": "Reason for Claim"
+                    },
+                    "key": "thirdPartyInjuries",
+                    "label": "Were there any third party injuries?",
+                    "order": 0,
+                    "required": true,
+                    "validators": [],
+                    "options": [{
+                        "id": true,
+                        "description": "Yes"
+                    }, {
+                        "id": false,
+                        "description": "No"
+                    }]
+                }, {
+                    "type": "currency",
+                    "helpId": 115001419845,
+                    "uiOptions": {
+                        "summaryTitle": "Value Of Claim"
+                    },
+                    "key": "costOfClaim",
+                    "label": "Value Of Claim",
+                    "order": 0,
+                    "required": true,
+                    "placeholder": "How Much"
+                }, {
+                    "type": "radio",
+                    "uiOptions": {
+                        "summaryTitle": "Claim Fault"
+                    },
+                    "key": "customerAtFault",
+                    "label": "Were you deemed to be at fault?",
+                    "order": 2,
+                    "required": true,
+                    "validators": [],
+                    "options": [{
+                        "id": true,
+                        "description": "Yes"
+                    }, {
+                        "id": false,
+                        "description": "No"
+                    }]
+                }, {
+                    "type": "radio",
+                    "helpId": 115001419885,
+                    "uiOptions": {
+                        "summaryTitle": "No Claim Bonus Protected"
+                    },
+                    "key": "noClaimsBonusProtected",
+                    "label": "Was your no claims bonus protected?",
+                    "order": 2,
+                    "required": true,
+                    "validators": [],
+                    "options": [{
+                        "id": true,
+                        "description": "Yes"
+                    }, {
+                        "id": false,
+                        "description": "No"
+                    }]
+                }]
+            }]
+        }, {
+            "id": "your-penalty-points",
+            "title": "Penalty Points",
+            "helpId": 115001419965,
+            "uiOptions": {
+                "prevPage": "your-claims",
+                "nextPage": "choose-your-product"
+            },
+            "order": 1,
+            "sections": [{
+                "id": "penalty-primary-driver",
+                "title": "Primary Driver",
+                "type": "penalty",
+                "uiOptions": {},
+                "isDriver": true,
+                "fields": [],
+                "driverIndex": 0
+            }],
+            "templates": [{
+                "id": "penalty-template",
+                "title": "Primary Driver",
+                "type": "penalty",
+                "uiOptions": {},
+                "additional": true,
+                "fields": [{
+                    "type": "date",
+                    "helpId": 115001420025,
+                    "uiOptions": {},
+                    "key": "dateOfPenalty",
+                    "label": "Date of Penalty",
+                    "order": 0,
+                    "required": true,
+                    // "validators": ["validDateValidate", "validLastThreeYearsValidate", "penaltyDateValidator"],
+                    "disabled": false
+                }, {
+                    "type": "dropdown",
+                    "helpId": 115001420085,
+                    "uiOptions": {},
+                    "key": "reasonForPenalty",
+                    "label": "What was the reason?",
+                    "order": 0,
+                    "required": true,
+                    "validators": [],
+                    "options": [{
+                        "id": "ExceedingWeight",
+                        "description": "Exceeding weight"
+                    }, {
+                        "id": "NoTestCertificate",
+                        "description": "No test cert"
+                    }, {
+                        "id": "NoLicence",
+                        "description": "No licence"
+                    }, {
+                        "id": "TryingToGetLicenceWhileDisqualified",
+                        "description": "Trying to get licence while disqualified"
+                    }, {
+                        "id": "FailureToProduceLicence",
+                        "description": "Failure to produce licence"
+                    }, {
+                        "id": "ExceedingSpeedLimit",
+                        "description": "Exceeding speed limit"
+                    }, {
+                        "id": "DrivingVehicleWhenUnfit",
+                        "description": "Driving vehicle when unfit"
+                    }, {
+                        "id": "CarelessDriving",
+                        "description": "Careless driving"
+                    }, {
+                        "id": "DrivingDefectiveVehicle",
+                        "description": "Driving defective vehicle"
+                    }, {
+                        "id": "ParkingInDangerousPosition",
+                        "description": "Parking in dangerous position"
+                    }, {
+                        "id": "NoInsurance",
+                        "description": "No insurance"
+                    }, {
+                        "id": "FailingToStopAtWarden",
+                        "description": "Failing to stop at warden"
+                    }, {
+                        "id": "BreachOfDutyAtAccident",
+                        "description": "Breach of duty at accident"
+                    }, {
+                        "id": "FailingToStopForGarda",
+                        "description": "Failing to stop for Garda"
+                    }, {
+                        "id": "GivingFalseDetailsForLicence",
+                        "description": "Giving false details for licence"
+                    }, {
+                        "id": "VehicleExceedsWidthLimit",
+                        "description": "Vehicle exceeds width limit"
+                    }, {
+                        "id": "VehicleExceedsLengthLimit",
+                        "description": "Vehicle exceeds length limit"
+                    }, {
+                        "id": "WornTyres",
+                        "description": "Worn tyres"
+                    }, {
+                        "id": "PoorVisibilityOfRoad",
+                        "description": "Poor visibility of road"
+                    }, {
+                        "id": "WindscreenNotSafetyGlass",
+                        "description": "Windscreen not safety glass"
+                    }, {
+                        "id": "PoorWindscreenWipers",
+                        "description": "Poor windscreen wipers"
+                    }, {
+                        "id": "NoDrivingMirror",
+                        "description": "No driving mirror"
+                    }, {
+                        "id": "PoorBrakes",
+                        "description": "Poor brakes"
+                    }, {
+                        "id": "PoorSeatBeltAnchoragePoints",
+                        "description": "Poor seat belt anchorage points"
+                    }, {
+                        "id": "NoSeatBelts",
+                        "description": "Driver of car or goods vehicle not wearing safety belt"
+                    }, {
+                        "id": "NoCrashHelmetOnMotorbike",
+                        "description": "No crash helmet on motorbike"
+                    }, {
+                        "id": "NoPassengerCrashHelmet",
+                        "description": "No passenger crash helmet"
+                    }, {
+                        "id": "TruckWithNoRearCrashBar",
+                        "description": "Truck with no rear crash bar"
+                    }, {
+                        "id": "TruckWithNoSideCrashBar",
+                        "description": "Truck with no side crash bar"
+                    }, {
+                        "id": "DrivingWithoutSeatBelt",
+                        "description": "Driver of car or goods vehicle not wearing safety belt"
+                    }, {
+                        "id": "RearPassengersWithNoBelt",
+                        "description": "Driver permitting person under 17 years of age to occupy a seat when not wearing safety belt"
+                    }, {
+                        "id": "NoSpeedLimitingDevice",
+                        "description": "No speed limiting device"
+                    }, {
+                        "id": "SpeedLimiterNotCalibrated",
+                        "description": "Speed limiter not calibrated"
+                    }, {
+                        "id": "UnsealedSpeedLimiter",
+                        "description": "Unsealed speed limiter"
+                    }, {
+                        "id": "UsingMobilePhoneWhileDriving",
+                        "description": "Using mobile phone while driving"
+                    }, {
+                        "id": "VehicleNotEquippedWithLamps",
+                        "description": "Vehicle not equipped with lamps"
+                    }, {
+                        "id": "TrailerNotEquippedWithLamps",
+                        "description": "Trailer  not equipped with lamps"
+                    }, {
+                        "id": "NonUseOfProjectingRoadLamps",
+                        "description": "Non use of projecting road lamps"
+                    }, {
+                        "id": "NonUseOfTrailerMarkerLamps",
+                        "description": "Non use of trailer marker lamps"
+                    }, {
+                        "id": "NoInternalLightingInPSV",
+                        "description": "No internal lighting in PSV"
+                    }, {
+                        "id": "NoIndicators",
+                        "description": "No indicators"
+                    }, {
+                        "id": "BreakingSpeedRestriction",
+                        "description": "Breaking speed restriction"
+                    }, {
+                        "id": "FailureToYieldRightOfWay",
+                        "description": "Failure to yield right of way"
+                    }, {
+                        "id": "FailureToDriveOnLeft",
+                        "description": "Failure to drive on left"
+                    }, {
+                        "id": "DangerousOvertaking",
+                        "description": "Dangerous overtaking"
+                    }, {
+                        "id": "PoorDrivingAtJunction",
+                        "description": "Poor driving at junction"
+                    }, {
+                        "id": "PoorReversing",
+                        "description": "Poor reversing"
+                    }, {
+                        "id": "BreachOfFootwayDrivingRules",
+                        "description": "Breach of footway driving rules"
+                    }, {
+                        "id": "FailureToEnterRoundaboutOnLeft",
+                        "description": "Failure to enter roundabout on left"
+                    }, {
+                        "id": "DrivingAlongOrAcrossMedianStrip",
+                        "description": "Driving along or across median strip"
+                    }, {
+                        "id": "FailureToComplyWithGardaSignals",
+                        "description": "Failure to comply with Garda signals"
+                    }, {
+                        "id": "FailureToStopAtStopSign",
+                        "description": "Failure to stop at stop sign"
+                    }, {
+                        "id": "FailureToComplyWithTrafficSign",
+                        "description": "Failure to comply with traffic sign"
+                    }, {
+                        "id": "FailureToKeepLeftAtCertainSigns",
+                        "description": "Failure to keep left at certain signs"
+                    }, {
+                        "id": "CrossingWhiteLine",
+                        "description": "Crossing white line"
+                    }, {
+                        "id": "EnteringMarkedHatchedArea",
+                        "description": "Entering marked hatched area"
+                    }, {
+                        "id": "BreachOfLaneMarkings",
+                        "description": "Breach of lane markings"
+                    }, {
+                        "id": "FailureToObeyTrafficLights",
+                        "description": "Failure to obey traffic lights"
+                    }, {
+                        "id": "FailureToObeyLevelCrossingLights",
+                        "description": "Failure to obey level crossing lights"
+                    }, {
+                        "id": "DrivingAgainstMotorwayFlow",
+                        "description": "Driving against motorway flow"
+                    }, {
+                        "id": "DrivingOnBannedAreasOfMotorway",
+                        "description": "Driving on banned areas of motorway"
+                    }, {
+                        "id": "DrivingVehicleRestrictedTo50MphOnOutsideLaneOfMotorway",
+                        "description": "Driving vehicle restricted to 50 mph on outside lane of motorway"
+                    }, {
+                        "id": "FailureToHeedHeightRestrictions",
+                        "description": "Failure to heed height restrictions"
+                    }, {
+                        "id": "ProvisionalLicenceHolderDrivingWithoutSupervisionOfQualifiedDriver",
+                        "description": "Provisional licence holder driving without supervision of qualified driver"
+                    }, {
+                        "id": "Other",
+                        "description": "Other"
+                    }, {
+                        "id": "DrivingOnACycleTrack",
+                        "description": "Driving on a cycle track"
+                    }, {
+                        "id": "DrivingVehicleBeforeRemedyingDangerousDefect",
+                        "description": "Driving vehicle before remedying dangerous defect"
+                    }, {
+                        "id": "IllegalEntryOntoAOneWayStreet",
+                        "description": "Illegal entry onto a one-way street"
+                    }, {
+                        "id": "FailureToComplyWithProhibitoryTraffiSigns",
+                        "description": "Failure to comply with prohibitory traffic signs"
+                    }, {
+                        "id": "FailureToYieldRightOfWayAtAYieldSignYieldLine",
+                        "description": "Failure to yield right of way at a yield sign/ yield line"
+                    }, {
+                        "id": "InsurerPenaltyPointUpdate",
+                        "description": "Insurer Penalty Point Update"
+                    }, {
+                        "id": "UsingVehicleWithoutCertificateOfRoadworthiness",
+                        "description": "Using vehicle without certificate of roadworthiness"
+                    }, {
+                        "id": "FailureToLeaveAppropriateDistanceBetweenYouAndTheVehicleInFront",
+                        "description": "Failure to leave appropriate distance between you and the vehicle in front"
+                    }, {
+                        "id": "DrivingWithoutReasonableConsideration",
+                        "description": "Driving without reasonable consideration"
+                    }, {
+                        "id": "DrinkDrivingOffencesDependingOnLevelOfAlcoholPresentInTheBlood",
+                        "description": "Drink Driving Offences (depending on level of alcohol present in the blood)"
+                    }, {
+                        "id": "DriverOfCarOrGoodsVehiclePermittingChildUnder3YearsOfAget",
+                        "description": "Driver of car or goods vehicle permitting child under 3 years of age to travel in without being restrainted by appropriate child restraint"
+                    }, {
+                        "id": "DriverOfCarOrGoodsVehiclePermittingChildOver3YearsOfAgeTo",
+                        "description": "Driver of car or goods vehicle permitting child over 3 years of age to travel in without being restrainted by appropriate child restraint"
+                    }, {
+                        "id": "DriverOfCarOrGoodsVehiclePermittingChildToBeRestrainedByRe",
+                        "description": "Driver of car or goods vehicle permitting child to be restrained by rearward facing child restraint fitted to a seat protected by active frontal air-bag "
+                    }, {
+                        "id": "DriverOfBusNotWearingSafetyBelt",
+                        "description": "Driver of bus not wearing safety belt"
+                    }, {
+                        "id": "UsingVehicleWhoseWeightUnLadenExceedsMaximumPermittedWe",
+                        "description": "Using vehicle - (a) whose weight un-laden exceeds maximum permitted weight"
+                    }, {
+                        "id": "ContraventionOfBanOnUTurns",
+                        "description": "Contravention of ban on U-turns"
+                    }, {
+                        "id": "ContraventionOfRulesForUseOfMiniRoundabouts",
+                        "description": "Contravention of rules for use of mini roundabouts"
+                    }, {
+                        "id": "FailureToDisplayLPlateOrLTabard",
+                        "description": "Failure to display L-Plate or L tabard"
+                    }, {
+                        "id": "FailureToDisplayNPlateOrNTabard",
+                        "description": "Failure to display N Plate or N tabard"
+                    }, {
+                        "id": "GrossVehicleWeightExceedsMaximumSignDisplayed",
+                        "description": "Gross vehicle weight exceeds maximum sign displayed"
+                    }, {
+                        "id": "LearnerPermitHolderDrivingUnaccompaniedByQualifiedPerson",
+                        "description": "Learner permit holder driving unaccompanied by qualified person"
+                    }, {
+                        "id": "LengthOfVehicleExceedsMaximumSignDisplayed",
+                        "description": "Length of vehicle exceeds maximum sign displayed"
+                    }, {
+                        "id": "NoSpeedLimitationDeviceNonCompliantSpeedLimitationDevice",
+                        "description": "No speed limitation device / non-compliant speed limitation device"
+                    }, {
+                        "id": "PassingTrafficLaneControlSignNotInAccordanceWithSuchSign",
+                        "description": "Passing traffic lane control sign not in accordance with such sign"
+                    }, {
+                        "id": "ProceedingBeyondNoEntryToVehiclesSign",
+                        "description": "Proceeding beyond no entry to vehicles sign"
+                    }, {
+                        "id": "UsingModifiedAlteredVehicleWhereAuthorisationPlateIsInaccurate",
+                        "description": "Using modified/altered vehicle where authorisation plate is inaccurate"
+                    }, {
+                        "id": "UsingVehicleInAPublicPlaceWithoutAnAuthorisationPlate",
+                        "description": "Using vehicle in a public place without an authorisation plate"
+                    }, {
+                        "id": "VehicleAxleLoadingWeightExceedsMaximumSignDisplayed",
+                        "description": "Vehicle axle loading weight exceeds maximum sign displayed"
+                    }, {
+                        "id": "WidthOfVehicleExceedsMaximumSignDisplayed",
+                        "description": "Width of vehicle exceeds maximum sign displayed"
+                    }]
+                }, {
+                    "type": "number",
+                    "helpId": 115001420185,
+                    "uiOptions": {},
+                    "key": "howManyPoints",
+                    "validators": ['maxPenaltyPoints'],
+                    "label": "How many penalty points did you get?",
+                    "order": 0,
+                    "required": true,
+                    "placeholder": "How many?"
+                }]
+            }]
+        }]
+    }, {
+        "id": "price-presentation",
+        "isComplete": false,
+        "title": "Get Quote",
+        "uiOptions": {
+            "isWide": true,
+            "isPagesHidden": true
         },
-        {
-            "id": "payments",
+        "pages": [{
+            "id": "choose-your-product",
+            "title": "Choose the best cover for you",
+            "uiOptions": {
+                "prevPage": "your-penalty-points",
+                "nextPage": "choose-your-payment"
+            }
+        }, {
+            "id": "are-you-a-member",
+            "title": "Are you a Member?",
+            "helpId": 115001402049,
+            "uiOptions": {
+                "prevPage": "choose-your-product",
+                "nextPage": "choose-your-payment"
+            }
+        }, {
+            "id": "choose-your-payment",
+            "title": "Choose your payment",
+            "uiOptions": {
+                "prevPage": "choose-your-product",
+                "nextPage": "additional-questions"
+            }
+        }]
+    }, {
+        "id": "payments",
+        "isComplete": false,
+        "title": "Payment",
+        "uiOptions": {
+            "isWide": true,
+            "isPagesHidden": true
+        },
+        "pages": [{
+            "id": "additional-questions",
+            "title": "Additional Questions",
+            "uiOptions": {
+                "nextPage": "payment",
+                "prevPage": "choose-your-payment"
+            },
+            "sections": [{
+                "id": "additional-questions",
+                "type": "default",
+                "uiOptions": {},
+                "isDriver": true,
+                "fields": [{
+                    "type": "radio",
+                    "helpId": 115001420245,
+                    "uiOptions": {
+                        "summaryTitle": "Registered card holder."
+                    },
+                    "key": "registeredCardHolder",
+                    "label": "Are you the registered cardholder?",
+                    "required": true,
+                    "options": [{
+                        "id": true,
+                        "description": "Yes"
+                    }, {
+                        "id": false,
+                        "description": "No"
+                    }]
+                }, {
+                    "type": "text",
+                    "helpId": 115001408249,
+                    "uiOptions": {},
+                    "key": "driverLicenceNumber",
+                    "label": "Driver's Licence number",
+                    "required": false,
+                    "trigger": {
+                        "name": "getValueForValidationFromQuestion",
+                        "key": "typeOfLicence",
+                        "value": "FullIrish"
+                    },
+                    "validators": ["licenceNumberValidate"],
+                    "disabled": false
+                }, {
+                    "type": "text",
+                    "uiOptions": {},
+                    "key": "carRegistration",
+                    "label": "Please enter your car registration in order to purchase.",
+                    "required": true,
+                    "trigger": {
+                        "name": "lockOnValue",
+                        "key": "vehicleRegistrationNumber"
+                    },
+                    "disabled": false
+                }]
+            }],
+            "templates": [{
+                "type": "default",
+                "uiOptions": {},
+                "hasQuestionsByDefault": true,
+                "additional": true,
+                "fields": [{
+                    "type": "text",
+                    "helpId": 115001408249,
+                    "uiOptions": {},
+                    "key": "driverLicenceNumber",
+                    "label": "Driver's Licence number",
+                    "required": false,
+                    "validators": ["licenceNumberValidate"],
+                    "disabled": false
+                }]
+            }]
+        }, {
+            "id": "payment",
             "title": "Payment",
-            "pages": [
-                {
-                    "id": "additional-questions",
-                    "title": "Additional Questions",
-                    "uiOptions": {
-                        "nextPage": "payment",
-                        "prevPage": "choose-your-payment"
-                    },
-                    "templates": [],
-                    "sections": [
-                        {
-                            "id": "additional-questions",
-                            "type": "default",
-                            "isDriver": true,
-                            "fields": [
-                                {
-                                    "key": "areYouCardholder",
-                                    "helpId": "213679469",
-                                    "label": "Are you the Cardholder?",
-                                    "type": "radio",
-                                    "options": [
-                                        {
-                                            "id": true,
-                                            "description": "Yes"
-                                        },
-                                        {
-                                            "id": false,
-                                            "description": "No"
-                                        }
-                                    ],
-                                    "required": true,
-                                    "value": "Yes",
-                                    "order": 2,
-                                    "validators": []
-                                },
-                                {
-                                    "key": "driverLicenceNumber",
-                                    "helpId": "213679469",
-                                    "label": "What is your Drivers Licence number?",
-                                    "type": "text",
-                                    "required": false,
-                                    "disabled": false,
-                                    "validators": ["licenceNumberValidate"],
-                                    "trigger": {
-                                        "name": "getValueForValidationFromQuestion",
-                                        "key": "typeOfLicence",
-                                        "value": "FullIrish"
-                                    }
-                                },
-                                {
-                                    "key": "carRegistration",
-                                    "label": "Please enter your car registration in order to purchase.",
-                                    "type": "text",
-                                    "required": true,
-                                    "disabled": false,
-                                    "validators": ['carRegistrationAsync'],
-                                    "trigger": {
-                                        "name": "getValueFromQuestion",
-                                        "key": "carSearchQuestion"
-                                    }
-                                },
-                            ]
-                        }
-                    ]
-                },
-                {
-                    "id": "payment",
-                    "title": "Payment",
-                    "uiOptions": {
-                        "prevPage": "additional-questions",
-                        "nextPage": "confirmation"
-                    }
-                }
-            ],
-            "isComplete": false,
             "uiOptions": {
-                "isWide": true,
-                "isPagesHidden": true
+                "prevPage": "additional-questions",
+                "nextPage": "confirmation"
             }
+        }]
+    }, {
+        "id": "confirmation",
+        "isComplete": false,
+        "title": "Confirmation",
+        "uiOptions": {
+            "isWide": true,
+            "isProgressHidden": true,
+            "isSummaryHidden": true,
+            "isHelpCenterHidden": true,
+            "isHeaderExtended": true,
+            "isPagesHidden": true
         },
-        {
+        "pages": [{
             "id": "confirmation",
             "title": "Confirmation",
-            "pages": [
-                {
-                    "id": "confirmation",
-                    "title": "Confirmation",
-                    "uiOptions": {
-                        "prevPage": "payment",
-                        "isSummaryHidden": true,
-                        "isTimelineHidden": true
-                    }
-                }
-            ],
-            "isComplete": false,
             "uiOptions": {
-                "isWide": true,
-                "isProgressHidden": true,
+                "prevPage": "payment",
                 "isSummaryHidden": true,
-                "isHelpCenterHidden": true,
-                "isHeaderExtended": true,
-                "isPagesHidden": true
+                "isTimelineHidden": true
             }
-        }
-    ]
+        }]
+    }]
 }

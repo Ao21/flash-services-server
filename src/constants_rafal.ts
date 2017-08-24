@@ -10,7 +10,8 @@ export const RETRIEVE_QUOTE = {
                 "id": "getting-started",
                 "title": "Getting Started",
                 "uiOptions": {
-                    "nextPage": "your-details"
+                    "nextPage": "your-details",
+                    "isComplete": true
                 },
                 "order": 0,
                 "sections": [{
@@ -19,26 +20,24 @@ export const RETRIEVE_QUOTE = {
                     "uiOptions": {},
                     "fields": [{
                         "type": "myaaEmail",
-                        "type": "myaaEmail",
                         "helpId": 115001401969,
                         "uiOptions": {
                             "summaryTitle": ""
                         },
                         "key": "email",
-                        "label": "What is your Email Address?",
+                        "label": "Email Address",
                         "order": 0,
                         "required": true,
                         "validators": ["validEmailValidate"],
-                        "value": "testemail@theaa.ie"
+                        "value": "mototest1@theaa.ie"
                     }, {
-                        "type": "memberSelector",
                         "type": "memberSelector",
                         "helpId": 115001413725,
                         "uiOptions": {
-                            "summaryTitle": "Amount of Drivers"
+                            "summaryTitle": "Number of Drivers"
                         },
                         "key": "amountOfDrivers",
-                        "label": "How many drivers will there be on your policy including yourself?",
+                        "label": "Do you want any additional drivers on your policy?",
                         "order": 1,
                         "required": true,
                         "value": 1,
@@ -46,9 +45,8 @@ export const RETRIEVE_QUOTE = {
                         "min": 1
                     }, {
                         "type": "questionText",
-                        "type": "questionText",
                         "uiOptions": {
-                            "summaryHidden": "true"
+                            "summaryHidden": true
                         },
                         "key": "termsConditions",
                         "label": "Terms and Conditions",
@@ -57,21 +55,23 @@ export const RETRIEVE_QUOTE = {
                         "value": true,
                         "content": "<p>By proceeding, I agree to the <a href=\"http://www.theaa.ie/~/media/files/motor/assumptions.ashx\" target=\"_blank\">AA Assumptions</a> and <a href=\"https://www.theaa.ie/~/media/Files/AA%20Ireland/Terms%20And%20Conditions/MyAATerms.ashx\" target=\"_blank\">myAA Terms and Conditions</a>. I have read and agree to the <a href=\"http://www.theaa.ie/aa/about-us/privacy-policy.aspx\" target=\"_blank\">AA Privacy Policy</a> and <a href=\"http://www.theaa.ie/~/media/Files/AA%20Ireland/Terms%20and%20conditions/Motor-Terms-Business.aspx\" target=\"_blank\">Terms of Business</a></p>"
                     }]
-                }]
+                }],
+                "subheading": "First we need some details to get started."
             }, {
                 "id": "your-details",
-                "title": "Details",
+                "title": "Your Details",
                 "uiOptions": {
                     "nextPage": "your-address",
-                    "prevPage": "getting-started"
+                    "prevPage": "getting-started",
+                    "isComplete": true
                 },
                 "order": 1,
                 "sections": [{
-                    "id": "your-details",
+                    "id": "details-default",
+                    "title": "asfd",
                     "type": "default",
                     "uiOptions": {},
                     "fields": [{
-                        "type": "radio",
                         "type": "radio",
                         "uiOptions": {
                             "summaryTitle": "Email"
@@ -80,9 +80,24 @@ export const RETRIEVE_QUOTE = {
                         "label": "Title",
                         "order": 0,
                         "required": true,
-                        "value": "Mr"
+                        "value": {
+                            "id": "Mr",
+                            "description": "Mr"
+                        },
+                        "options": [{
+                            "id": "Mr",
+                            "description": "Mr"
+                        }, {
+                            "id": "Ms",
+                            "description": "Ms"
+                        }, {
+                            "id": "Miss",
+                            "description": "Miss"
+                        }, {
+                            "id": "Mrs",
+                            "description": "Mrs"
+                        }]
                     }, {
-                        "type": "text",
                         "type": "text",
                         "uiOptions": {
                             "summaryTitle": "First Name"
@@ -91,9 +106,9 @@ export const RETRIEVE_QUOTE = {
                         "label": "First Name",
                         "order": 0,
                         "required": true,
-                        "value": "Adam"
+                        "validators": ["inputFieldValidate"],
+                        "value": "asfd"
                     }, {
-                        "type": "text",
                         "type": "text",
                         "uiOptions": {
                             "summaryTitle": "Last Name"
@@ -102,9 +117,9 @@ export const RETRIEVE_QUOTE = {
                         "label": "Last Name",
                         "order": 1,
                         "required": true,
-                        "value": "Mccollum"
+                        "validators": ["inputFieldValidate"],
+                        "value": "adsf"
                     }, {
-                        "type": "date",
                         "type": "date",
                         "uiOptions": {
                             "summaryTitle": "Date of Birth"
@@ -115,100 +130,20 @@ export const RETRIEVE_QUOTE = {
                         "required": true,
                         "validators": ["validDateValidate", "validOverEighteenValidate"],
                         "disabled": false,
-                        "value": 677458800000
+                        "value": "02/02/1980"
                     }, {
-                        "type": "tel",
                         "type": "tel",
                         "uiOptions": {
                             "summaryTitle": "Phone Number"
                         },
                         "key": "phoneNumber",
-                        "label": "Contact Number",
+                        "label": "Phone Number",
                         "order": 2,
                         "required": true,
                         "validators": ["validPhoneNumberValidate"],
                         "disabled": false,
-                        "value": "00353872782781"
+                        "value": "003538544455545"
                     }, {
-                        "type": "dropdown",
-                        "type": "dropdown",
-                        "uiOptions": {
-                            "summaryTitle": "On who's policy"
-                        },
-                        "key": "relationToMainDriver",
-                        "label": "Relationship to Main Driver",
-                        "order": 1,
-                        "required": true,
-                        "validators": [],
-                        "options": [{
-                            "id": "Brother",
-                            "description": "Brother"
-                        }, {
-                            "id": "BrotherInLaw",
-                            "description": "Brother in Law"
-                        }, {
-                            "id": "BusinessPartner",
-                            "description": "Business Partner"
-                        }, {
-                            "id": "CommonLawSpouse",
-                            "description": "Common Law Spouse"
-                        }, {
-                            "id": "Daughter",
-                            "description": "Daughter"
-                        }, {
-                            "id": "DaughterInLaw",
-                            "description": "Daughter in Law"
-                        }, {
-                            "id": "EmployeeOfProposer",
-                            "description": "Employee of Proposer"
-                        }, {
-                            "id": "EmployerOfProposer",
-                            "description": "Employer of Proposer"
-                        }, {
-                            "id": "FatherInLaw",
-                            "description": "Father in Law"
-                        }, {
-                            "id": "MotherInLaw",
-                            "description": "Mother in Law"
-                        }, {
-                            "id": "Parent",
-                            "description": "Parent"
-                        }, {
-                            "id": "Proposer",
-                            "description": "Proposer"
-                        }, {
-                            "id": "Relative",
-                            "description": "Relative"
-                        }, {
-                            "id": "Sister",
-                            "description": "Sister"
-                        }, {
-                            "id": "SisterInLaw",
-                            "description": "Sister in Law"
-                        }, {
-                            "id": "Son",
-                            "description": "Son"
-                        }, {
-                            "id": "SonInLaw",
-                            "description": "Son in Law"
-                        }, {
-                            "id": "Spouse",
-                            "description": "Spouse"
-                        }, {
-                            "id": "Tenant",
-                            "description": "Tenant"
-                        }, {
-                            "id": "Unrelated",
-                            "description": "Unrelated"
-                        }, {
-                            "id": "Partner",
-                            "description": "Partner"
-                        }, {
-                            "id": "Friend",
-                            "description": "Friend"
-                        }]
-                    }, {
-                        "type": "dropdown",
                         "type": "dropdown",
                         "helpId": 115000449309,
                         "uiOptions": {
@@ -222,16 +157,31 @@ export const RETRIEVE_QUOTE = {
                         "value": {
                             "id": "Employed",
                             "description": "Employed"
-                        }
+                        },
+                        "options": [{
+                            "id": "Employed",
+                            "description": "Employed"
+                        }, {
+                            "id": "Retired",
+                            "description": "Retired"
+                        }, {
+                            "id": "SelfEmployed",
+                            "description": "Self Employed"
+                        }, {
+                            "id": "HouseholdDuties",
+                            "description": "Household Duties"
+                        }, {
+                            "id": "Unemployed",
+                            "description": "Unemployed"
+                        }]
                     }, {
-                        "type": "autocomplete",
                         "type": "autocomplete",
                         "helpId": 115001402229,
                         "uiOptions": {
                             "summaryTitle": "Occupation"
                         },
                         "key": "occupation",
-                        "label": "What is your Occupation?",
+                        "label": "Occupation",
                         "order": 2,
                         "required": true,
                         "trigger": {
@@ -245,12 +195,12 @@ export const RETRIEVE_QUOTE = {
                             "id": "SoftwareDeveloper",
                             "description": "Software Developer"
                         },
-                        "placeholder": "Select an Occupation",
+                        "placeholder": "Start typing",
                         "serviceUrl": "reference/occupation/",
                         "autoCompleteType": "all"
                     }, {
                         "type": "autocomplete",
-                        "type": "autocomplete",
+                        "helpId": 115003803469,
                         "uiOptions": {
                             "summaryTitle": "Type of business"
                         },
@@ -265,14 +215,13 @@ export const RETRIEVE_QUOTE = {
                         },
                         "validators": [],
                         "value": {
-                            "id": "Accountancy",
-                            "description": "Accountancy"
+                            "id": "FinanceCompany",
+                            "description": "Finance Company"
                         },
                         "placeholder": "Select an Area of Business",
                         "serviceUrl": "reference/employerBusinessType/",
                         "autoCompleteType": "all"
                     }, {
-                        "type": "radio",
                         "type": "radio",
                         "helpId": 115001361705,
                         "uiOptions": {},
@@ -284,8 +233,16 @@ export const RETRIEVE_QUOTE = {
                         "value": {
                             "id": false,
                             "description": "No"
-                        }
-                    }]
+                        },
+                        "options": [{
+                            "id": false,
+                            "description": "No"
+                        }, {
+                            "id": true,
+                            "description": "Yes"
+                        }]
+                    }],
+                    "driverIndex": 0
                 }],
                 "templates": [{
                     "id": "driver-template",
@@ -295,16 +252,27 @@ export const RETRIEVE_QUOTE = {
                     "additional": true,
                     "fields": [{
                         "type": "radio",
-                        "type": "radio",
                         "uiOptions": {
                             "summaryTitle": "Email"
                         },
                         "key": "title",
                         "label": "Title",
                         "order": 0,
-                        "required": true
+                        "required": true,
+                        "options": [{
+                            "id": "Mr",
+                            "description": "Mr"
+                        }, {
+                            "id": "Ms",
+                            "description": "Ms"
+                        }, {
+                            "id": "Miss",
+                            "description": "Miss"
+                        }, {
+                            "id": "Mrs",
+                            "description": "Mrs"
+                        }]
                     }, {
-                        "type": "text",
                         "type": "text",
                         "uiOptions": {
                             "summaryTitle": "First Name"
@@ -312,9 +280,9 @@ export const RETRIEVE_QUOTE = {
                         "key": "firstName",
                         "label": "First Name",
                         "order": 0,
-                        "required": true
+                        "required": true,
+                        "validators": ["inputFieldValidate"]
                     }, {
-                        "type": "text",
                         "type": "text",
                         "uiOptions": {
                             "summaryTitle": "Last Name"
@@ -322,9 +290,9 @@ export const RETRIEVE_QUOTE = {
                         "key": "lastName",
                         "label": "Last Name",
                         "order": 1,
-                        "required": true
+                        "required": true,
+                        "validators": ["inputFieldValidate"]
                     }, {
-                        "type": "date",
                         "type": "date",
                         "uiOptions": {
                             "summaryTitle": "Date of Birth"
@@ -337,21 +305,19 @@ export const RETRIEVE_QUOTE = {
                         "disabled": false
                     }, {
                         "type": "tel",
-                        "type": "tel",
                         "uiOptions": {
                             "summaryTitle": "Phone Number"
                         },
                         "key": "phoneNumber",
-                        "label": "Contact Number",
+                        "label": "Phone Number",
                         "order": 2,
                         "required": true,
                         "validators": ["validPhoneNumberValidate"],
                         "disabled": false
                     }, {
                         "type": "dropdown",
-                        "type": "dropdown",
                         "uiOptions": {
-                            "summaryTitle": "On who's policy"
+                            "summaryTitle": "On whose policy?"
                         },
                         "key": "relationToMainDriver",
                         "label": "Relationship to Main Driver",
@@ -392,9 +358,6 @@ export const RETRIEVE_QUOTE = {
                             "id": "Parent",
                             "description": "Parent"
                         }, {
-                            "id": "Proposer",
-                            "description": "Proposer"
-                        }, {
                             "id": "Relative",
                             "description": "Relative"
                         }, {
@@ -427,7 +390,6 @@ export const RETRIEVE_QUOTE = {
                         }]
                     }, {
                         "type": "dropdown",
-                        "type": "dropdown",
                         "helpId": 115000449309,
                         "uiOptions": {
                             "summaryTitle": "Type of Employment"
@@ -436,16 +398,31 @@ export const RETRIEVE_QUOTE = {
                         "label": "Type of Employment",
                         "order": 2,
                         "required": true,
-                        "validators": []
+                        "validators": [],
+                        "options": [{
+                            "id": "Employed",
+                            "description": "Employed"
+                        }, {
+                            "id": "Retired",
+                            "description": "Retired"
+                        }, {
+                            "id": "SelfEmployed",
+                            "description": "Self Employed"
+                        }, {
+                            "id": "HouseholdDuties",
+                            "description": "Household Duties"
+                        }, {
+                            "id": "Unemployed",
+                            "description": "Unemployed"
+                        }]
                     }, {
-                        "type": "autocomplete",
                         "type": "autocomplete",
                         "helpId": 115001402229,
                         "uiOptions": {
                             "summaryTitle": "Occupation"
                         },
                         "key": "occupation",
-                        "label": "What is your Occupation?",
+                        "label": "Occupation",
                         "order": 2,
                         "required": true,
                         "trigger": {
@@ -455,12 +432,12 @@ export const RETRIEVE_QUOTE = {
                         },
                         "validators": [],
                         "disabled": false,
-                        "placeholder": "Select an Occupation",
+                        "placeholder": "Start typing",
                         "serviceUrl": "reference/occupation/",
                         "autoCompleteType": "all"
                     }, {
                         "type": "autocomplete",
-                        "type": "autocomplete",
+                        "helpId": 115003803469,
                         "uiOptions": {
                             "summaryTitle": "Type of business"
                         },
@@ -479,37 +456,58 @@ export const RETRIEVE_QUOTE = {
                         "autoCompleteType": "all"
                     }, {
                         "type": "radio",
-                        "type": "radio",
                         "helpId": 115001361705,
                         "uiOptions": {},
                         "key": "livedOutsideIreland",
                         "label": "Have you lived outside of Ireland or the UK in the past 12 months?",
                         "order": 2,
                         "required": true,
-                        "validators": []
+                        "validators": [],
+                        "options": [{
+                            "id": false,
+                            "description": "No"
+                        }, {
+                            "id": true,
+                            "description": "Yes"
+                        }]
                     }]
                 }]
             }, {
                 "id": "your-address",
-                "title": "Addresss",
+                "title": "Your Address",
                 "uiOptions": {
                     "nextPage": "your-car",
-                    "prevPage": "your-details"
+                    "prevPage": "your-details",
+                    "isComplete": true
                 },
                 "order": 1,
                 "sections": [{
                     "id": "address-default",
-                    "title": "Primary Driver",
                     "type": "address",
                     "uiOptions": {},
                     "fields": [{
-                        "type": "group",
                         "key": "address",
                         "type": "group",
                         "isComplete": true,
                         "uiOptions": {},
+                        "value": {
+                            "addressLine1": "369 Captain's Road",
+                            "addressLine2": "",
+                            "area": {
+                                "id": "Crumlin",
+                                "description": "Crumlin"
+                            },
+                            "county": {
+                                "id": "Dublin12",
+                                "description": "Dublin 12"
+                            },
+                            "selected": {
+                                "address": "369 Captain's Road,Crumlin,Dublin 12",
+                                "id": 0,
+                                "echo": false
+                            }
+                        },
                         "fields": [{
-                            "type": "text",
                             "type": "text",
                             "helpId": 115001402349,
                             "uiOptions": {
@@ -520,9 +518,8 @@ export const RETRIEVE_QUOTE = {
                             "order": 0,
                             "required": true,
                             "validators": [],
-                            "value": "1 Main Street"
+                            "value": "369 Captain's Road"
                         }, {
-                            "type": "text",
                             "type": "text",
                             "helpId": 115001402469,
                             "uiOptions": {
@@ -533,23 +530,22 @@ export const RETRIEVE_QUOTE = {
                             "order": 0,
                             "required": false,
                             "validators": [],
-                            "value": "Ballylinan",
+                            "value": "",
                             "placeholder": "Optional"
                         }, {
-                            "type": "dropdown",
                             "type": "dropdown",
                             "helpId": 115001414145,
                             "uiOptions": {
                                 "summaryTitle": "County"
                             },
                             "key": "county",
-                            "label": "County / Dublin Area e.g. Carlow, Dublin 18",
+                            "label": "County / Dublin postcode",
                             "order": 1,
                             "required": true,
                             "validators": [],
                             "value": {
-                                "id": "Laois",
-                                "description": "Laois"
+                                "id": "Dublin12",
+                                "description": "Dublin 12"
                             },
                             "options": [{
                                 "id": "Carlow",
@@ -698,13 +694,12 @@ export const RETRIEVE_QUOTE = {
                             }]
                         }, {
                             "type": "autocomplete",
-                            "type": "autocomplete",
                             "helpId": 115001402489,
                             "uiOptions": {
                                 "summaryTitle": "Town"
                             },
                             "key": "area",
-                            "label": "Town/Area",
+                            "label": "Area/Town/Townland",
                             "order": 2,
                             "required": true,
                             "trigger": {
@@ -715,8 +710,8 @@ export const RETRIEVE_QUOTE = {
                             "validators": [],
                             "disabled": false,
                             "value": {
-                                "id": "Ballylynan",
-                                "description": "Ballylynan"
+                                "id": "Crumlin",
+                                "description": "Crumlin"
                             },
                             "link": "county",
                             "serviceUrl": "reference/area/",
@@ -726,20 +721,20 @@ export const RETRIEVE_QUOTE = {
                 }]
             }, {
                 "id": "your-car",
-                "title": "Car",
+                "title": "Your Car",
                 "helpId": 115001414305,
                 "uiOptions": {
                     "nextPage": "your-licence",
-                    "prevPage": "your-address"
+                    "prevPage": "your-address",
+                    "isComplete": true
                 },
                 "order": 1,
                 "sections": [{
                     "id": "car-default",
-                    "title": "Primary Driver",
+                    "title": "Nearly there! We just need a little more information",
                     "type": "car",
                     "uiOptions": {},
                     "fields": [{
-                        "type": "group",
                         "key": "carInformation",
                         "type": "group",
                         "alignment": "none",
@@ -749,8 +744,48 @@ export const RETRIEVE_QUOTE = {
                         "uiOptions": {
                             "summaryTitle": "Car Model"
                         },
+                        "value": {
+                            "dateOfRegistration": -1704153600000,
+                            "carMake": {
+                                "id": "TOYOTA",
+                                "description": "TOYOTA"
+                            },
+                            "carModel": {
+                                "id": "AVENSIS 1.6 D-4D SOL NAVI",
+                                "description": "AVENSIS 1.6 D-4D SOL NAVI"
+                            },
+                            "engineSizeRange": {
+                                "id": "1500cc - 1999cc",
+                                "description": "1500cc - 1999cc"
+                            },
+                            "fuelType": {
+                                "id": "Diesel",
+                                "description": "Diesel"
+                            },
+                            "numberOfDoors": 5,
+                            "cubicCapacity": 1598,
+                            "vehicleRegistrationNumber": "16D",
+                            "yearManufactured": 2016
+                        },
                         "fields": [{
-                            "type": "autocomplete",
+                            "type": "text",
+                            "hidden": true,
+                            "uiOptions": {},
+                            "key": "yearManufactured",
+                            "order": 4,
+                            "required": false,
+                            "validators": [],
+                            "value": "2016"
+                        }, {
+                            "type": "text",
+                            "hidden": true,
+                            "uiOptions": {},
+                            "key": "vehicleRegistrationNumber",
+                            "order": 4,
+                            "required": false,
+                            "validators": [],
+                            "value": "16D"
+                        }, {
                             "type": "autocomplete",
                             "helpId": 115001414385,
                             "uiOptions": {
@@ -763,14 +798,13 @@ export const RETRIEVE_QUOTE = {
                             "validators": [],
                             "disabled": false,
                             "value": {
-                                "id": "KIA",
-                                "description": "KIA"
+                                "id": "TOYOTA",
+                                "description": "TOYOTA"
                             },
                             "link": "carInformation",
                             "serviceUrl": "reference/vehicle/make/",
                             "autoCompleteType": "all"
                         }, {
-                            "type": "autocomplete",
                             "type": "autocomplete",
                             "helpId": 115001402669,
                             "uiOptions": {
@@ -788,14 +822,13 @@ export const RETRIEVE_QUOTE = {
                             "validators": [],
                             "disabled": false,
                             "value": {
-                                "id": "SPORTAGE 1.7 D EX 2WD",
-                                "description": "SPORTAGE 1.7 D EX 2WD"
+                                "id": "AVENSIS 1.6 D-4D SOL NAVI",
+                                "description": "AVENSIS 1.6 D-4D SOL NAVI"
                             },
                             "link": "carMake",
                             "serviceUrl": "reference/vehicle/model/",
                             "autoCompleteType": "linked"
                         }, {
-                            "type": "dropdown",
                             "type": "dropdown",
                             "helpId": 115001402749,
                             "uiOptions": {
@@ -846,8 +879,8 @@ export const RETRIEVE_QUOTE = {
                         }]
                     }, {
                         "type": "date",
-                        "type": "date",
                         "helpId": 115001414365,
+                        "hidden": true,
                         "uiOptions": {
                             "summaryTitle": "Date of Registration",
                             "locked": "day"
@@ -855,26 +888,22 @@ export const RETRIEVE_QUOTE = {
                         "key": "dateOfRegistration",
                         "label": "Date of Registration",
                         "order": 0,
-                        "required": true,
                         "validators": [],
-                        "disabled": false,
-                        "value": 1356998400000
+                        "value": "01/01/2016"
                     }, {
-                        "type": "date",
                         "type": "date",
                         "helpId": 115001414625,
                         "uiOptions": {
                             "summaryTitle": "Date of Purchase"
                         },
                         "key": "dateOfPurchase",
-                        "label": "Date of Purchase",
+                        "label": "When did you buy your car?",
                         "order": 5,
                         "required": true,
-                        "validators": [],
+                        "validators": ["dateOfPurchaseValidate"],
                         "disabled": false,
-                        "value": 1356998400000
+                        "value": "02/02/2016"
                     }, {
-                        "type": "currency",
                         "type": "currency",
                         "helpId": 115001404989,
                         "uiOptions": {
@@ -886,28 +915,26 @@ export const RETRIEVE_QUOTE = {
                         "required": true,
                         "validators": [],
                         "disabled": false,
-                        "value": 500000
+                        "value": 1500000
                     }, {
-                        "type": "tel",
                         "type": "tel",
                         "helpId": 115001416805,
                         "uiOptions": {
-                            "summaryTitle": "Kilometers per year"
+                            "summaryTitle": "Miles per year"
                         },
                         "key": "kilometersPerYear",
-                        "label": "How many kilometres do you drive in a year?",
+                        "label": "How many miles do you drive in a year?",
                         "order": 7,
                         "required": true,
                         "validators": [],
                         "disabled": false,
-                        "value": 20000
+                        "value": 9000
                     }, {
-                        "type": "group",
                         "key": "securityFeatures",
                         "type": "group",
                         "alignment": "half",
                         "timeline": true,
-                        "label": "What security features are fitted to your vehicle?",
+                        "label": "What security features are fitted to your vehicle? Please select all that apply.",
                         "order": 8,
                         "isComplete": false,
                         "helpId": 115001417705,
@@ -915,7 +942,6 @@ export const RETRIEVE_QUOTE = {
                             "summaryTitle": "Security Features"
                         },
                         "fields": [{
-                            "type": "checkbox",
                             "type": "checkbox",
                             "uiOptions": {
                                 "summaryTitle": "Security Alarm"
@@ -927,7 +953,6 @@ export const RETRIEVE_QUOTE = {
                             "name": "Alarm"
                         }, {
                             "type": "checkbox",
-                            "type": "checkbox",
                             "uiOptions": {
                                 "summaryTitle": "Immobiliser"
                             },
@@ -937,7 +962,6 @@ export const RETRIEVE_QUOTE = {
                             "value": false,
                             "name": "Immobiliser"
                         }, {
-                            "type": "checkbox",
                             "type": "checkbox",
                             "uiOptions": {
                                 "summaryTitle": "Tracker"
@@ -950,7 +974,6 @@ export const RETRIEVE_QUOTE = {
                         }]
                     }, {
                         "type": "dropdown",
-                        "type": "dropdown",
                         "uiOptions": {},
                         "key": "carMainlyUsedCounty",
                         "label": "In what county is your car usually used?",
@@ -958,8 +981,8 @@ export const RETRIEVE_QUOTE = {
                         "required": true,
                         "validators": [],
                         "value": {
-                            "id": "Cork",
-                            "description": "Cork"
+                            "id": "Dublin",
+                            "description": "Dublin"
                         },
                         "placeholder": "Please enter a county",
                         "options": [{
@@ -1049,7 +1072,6 @@ export const RETRIEVE_QUOTE = {
                         }]
                     }, {
                         "type": "autocomplete",
-                        "type": "autocomplete",
                         "uiOptions": {},
                         "key": "carMainlyUsedArea",
                         "label": "In what town/area is your car usually used?",
@@ -1063,18 +1085,17 @@ export const RETRIEVE_QUOTE = {
                         "validators": [],
                         "disabled": false,
                         "value": {
-                            "id": "Aghaville",
-                            "description": "Aghaville"
+                            "id": "Dublin12",
+                            "description": "Dublin12"
                         },
                         "link": "carMainlyUsedCounty",
                         "serviceUrl": "reference/areaCarUsed/",
                         "autoCompleteType": "linked"
                     }, {
                         "type": "dropdown",
-                        "type": "dropdown",
                         "uiOptions": {},
                         "key": "carKeptOvernight",
-                        "label": "Where is you car kept overnight?",
+                        "label": "Overnight Parking",
                         "order": 10,
                         "required": true,
                         "validators": [],
@@ -1105,7 +1126,6 @@ export const RETRIEVE_QUOTE = {
                     "type": "car",
                     "uiOptions": {},
                     "fields": [{
-                        "type": "group",
                         "key": "carInformation",
                         "type": "group",
                         "alignment": "none",
@@ -1115,8 +1135,48 @@ export const RETRIEVE_QUOTE = {
                         "uiOptions": {
                             "summaryTitle": "Car Model"
                         },
+                        "value": {
+                            "dateOfRegistration": 1451606400000,
+                            "carMake": {
+                                "id": "NISSAN",
+                                "description": "NISSAN"
+                            },
+                            "carModel": {
+                                "id": "MICRA",
+                                "description": "MICRA"
+                            },
+                            "engineSizeRange": {
+                                "id": "0cc - 1499cc",
+                                "description": "0cc - 1499cc"
+                            },
+                            "fuelType": {
+                                "id": "Diesel",
+                                "description": "Diesel"
+                            },
+                            "numberOfDoors": 5,
+                            "cubicCapacity": 1461,
+                            "vehicleRegistrationNumber": "16D",
+                            "yearManufactured": 2016
+                        },
                         "fields": [{
-                            "type": "autocomplete",
+                            "type": "text",
+                            "hidden": true,
+                            "uiOptions": {},
+                            "key": "yearManufactured",
+                            "order": 4,
+                            "required": false,
+                            "validators": [],
+                            "value": "2016"
+                        }, {
+                            "type": "text",
+                            "hidden": true,
+                            "uiOptions": {},
+                            "key": "vehicleRegistrationNumber",
+                            "order": 4,
+                            "required": false,
+                            "validators": [],
+                            "value": "16D"
+                        }, {
                             "type": "autocomplete",
                             "helpId": 115001414385,
                             "uiOptions": {
@@ -1128,11 +1188,14 @@ export const RETRIEVE_QUOTE = {
                             "required": true,
                             "validators": [],
                             "disabled": false,
+                            "value": {
+                                "id": "NISSAN",
+                                "description": "NISSAN"
+                            },
                             "link": "carInformation",
                             "serviceUrl": "reference/vehicle/make/",
                             "autoCompleteType": "all"
                         }, {
-                            "type": "autocomplete",
                             "type": "autocomplete",
                             "helpId": 115001402669,
                             "uiOptions": {
@@ -1149,11 +1212,14 @@ export const RETRIEVE_QUOTE = {
                             },
                             "validators": [],
                             "disabled": false,
+                            "value": {
+                                "id": "MICRA",
+                                "description": "MICRA"
+                            },
                             "link": "carMake",
                             "serviceUrl": "reference/vehicle/model/",
                             "autoCompleteType": "linked"
                         }, {
-                            "type": "dropdown",
                             "type": "dropdown",
                             "helpId": 115001402749,
                             "uiOptions": {
@@ -1169,6 +1235,10 @@ export const RETRIEVE_QUOTE = {
                                 "key": "carModel"
                             },
                             "validators": [],
+                            "value": {
+                                "id": "0cc - 1499cc",
+                                "description": "0cc - 1499cc"
+                            },
                             "options": [{
                                 "id": "0cc - 1499cc",
                                 "description": "0cc - 1499cc"
@@ -1198,160 +1268,6 @@ export const RETRIEVE_QUOTE = {
                                 "description": "4500cc - 4999cc"
                             }]
                         }]
-                    }, {
-                        "type": "date",
-                        "type": "date",
-                        "helpId": 115001414365,
-                        "uiOptions": {
-                            "summaryTitle": "Date of Registration",
-                            "locked": "day"
-                        },
-                        "key": "dateOfRegistration",
-                        "label": "Date of Registration",
-                        "order": 0,
-                        "required": true,
-                        "validators": [],
-                        "disabled": false
-                    }, {
-                        "type": "date",
-                        "type": "date",
-                        "helpId": 115001414625,
-                        "uiOptions": {
-                            "summaryTitle": "Date of Purchase"
-                        },
-                        "key": "dateOfPurchase",
-                        "label": "Date of Purchase",
-                        "order": 5,
-                        "required": true,
-                        "validators": [],
-                        "disabled": false
-                    }, {
-                        "type": "currency",
-                        "type": "currency",
-                        "helpId": 115001404989,
-                        "uiOptions": {
-                            "summaryTitle": "Car value "
-                        },
-                        "key": "currentValue",
-                        "label": "Current Value",
-                        "order": 6,
-                        "required": true,
-                        "validators": [],
-                        "disabled": false
-                    }, {
-                        "type": "tel",
-                        "type": "tel",
-                        "helpId": 115001416805,
-                        "uiOptions": {
-                            "summaryTitle": "Kilometers per year"
-                        },
-                        "key": "kilometersPerYear",
-                        "label": "How many kilometres do you drive in a year?",
-                        "order": 7,
-                        "required": true,
-                        "validators": [],
-                        "disabled": false
-                    }, {
-                        "type": "group",
-                        "key": "securityFeatures",
-                        "type": "group",
-                        "alignment": "half",
-                        "timeline": true,
-                        "label": "What security features are fitted to your vehicle?",
-                        "order": 8,
-                        "isComplete": false,
-                        "helpId": 115001417705,
-                        "uiOptions": {
-                            "summaryTitle": "Security Features"
-                        },
-                        "fields": [{
-                            "type": "checkbox",
-                            "type": "checkbox",
-                            "uiOptions": {
-                                "summaryTitle": "Security Alarm"
-                            },
-                            "key": "security-alarm",
-                            "required": false,
-                            "timeline": false,
-                            "name": "Alarm"
-                        }, {
-                            "type": "checkbox",
-                            "type": "checkbox",
-                            "uiOptions": {
-                                "summaryTitle": "Immobiliser"
-                            },
-                            "key": "security-immobiliser",
-                            "required": false,
-                            "timeline": false,
-                            "name": "Immobiliser"
-                        }, {
-                            "type": "checkbox",
-                            "type": "checkbox",
-                            "uiOptions": {
-                                "summaryTitle": "Tracker"
-                            },
-                            "key": "security-tracker",
-                            "required": false,
-                            "timeline": false,
-                            "name": "Tracker"
-                        }]
-                    }, {
-                        "type": "autocomplete",
-                        "type": "autocomplete",
-                        "uiOptions": {},
-                        "key": "carMainlyUsedArea",
-                        "label": "In what area is your car usually used?",
-                        "order": 9,
-                        "required": true,
-                        "validators": [],
-                        "disabled": false,
-                        "placeholder": "Please type the neighbourhood, region, area",
-                        "serviceUrl": "reference/area/",
-                        "autoCompleteType": "search"
-                    }, {
-                        "type": "autocomplete",
-                        "type": "autocomplete",
-                        "uiOptions": {},
-                        "key": "carMainlyUsedCounty",
-                        "label": "In what county is your car usually used?",
-                        "order": 9,
-                        "required": true,
-                        "trigger": {
-                            "expectedType": "object",
-                            "key": "carMainlyUsedArea",
-                            "name": "disabledBasedOnKey"
-                        },
-                        "validators": [],
-                        "disabled": false,
-                        "placeholder": "Please enter a county",
-                        "link": "carMainlyUsedArea",
-                        "serviceUrl": "reference/county/",
-                        "autoCompleteType": "linked"
-                    }, {
-                        "type": "dropdown",
-                        "type": "dropdown",
-                        "uiOptions": {},
-                        "key": "carKeptOvernight",
-                        "label": "Where is you car kept overnight?",
-                        "order": 10,
-                        "required": true,
-                        "validators": [],
-                        "options": [{
-                            "id": "carport",
-                            "description": "Carport"
-                        }, {
-                            "id": "garaged",
-                            "description": "Garaged"
-                        }, {
-                            "id": "keptPrivate",
-                            "description": "Kept on Private Property"
-                        }, {
-                            "id": "keptPublic",
-                            "description": "Kept on Public Property"
-                        }, {
-                            "id": "parkedInDrive",
-                            "description": "Parked on Drive"
-                        }]
                     }]
                 }]
             }, {
@@ -1359,24 +1275,22 @@ export const RETRIEVE_QUOTE = {
                 "title": "Licence",
                 "uiOptions": {
                     "nextPage": "your-cover",
-                    "prevPage": "your-car"
+                    "prevPage": "your-car",
+                    "isComplete": true
                 },
                 "order": 1,
                 "sections": [{
                     "id": "licence-default",
-                    "title": "Primary Driver",
                     "type": "default",
                     "uiOptions": {},
-                    "isDriver": true,
                     "fields": [{
-                        "type": "dropdown",
                         "type": "dropdown",
                         "helpId": 115001405929,
                         "uiOptions": {
                             "summaryTitle": "Type of Licence"
                         },
                         "key": "typeOfLicence",
-                        "label": "What type of licence do you hold?",
+                        "label": "Your Driving Licence",
                         "order": 0,
                         "required": true,
                         "validators": [],
@@ -1409,18 +1323,18 @@ export const RETRIEVE_QUOTE = {
                         }]
                     }, {
                         "type": "slider",
-                        "type": "slider",
                         "helpId": 115001418565,
                         "uiOptions": {
-                            "summaryTitle": "Amount of years you held your licence"
+                            "summaryTitle": "How many years have you held your licence?"
                         },
                         "key": "howLongLicenceHeld",
-                        "label": "How long have you held your licence?",
+                        "label": "How many years have you held your licence?",
                         "order": 1,
                         "required": true,
+                        "validators": ["licenceDateValidate"],
                         "value": {
-                            "id": "7",
-                            "description": "7"
+                            "id": "11",
+                            "description": "11"
                         },
                         "values": [{
                             "id": "0",
@@ -1451,17 +1365,190 @@ export const RETRIEVE_QUOTE = {
                             "description": "8"
                         }, {
                             "id": "9",
-                            "description": "9+"
+                            "description": "9"
+                        }, {
+                            "id": "10",
+                            "description": "10"
+                        }, {
+                            "id": "11",
+                            "description": "11"
+                        }, {
+                            "id": "12",
+                            "description": "12"
+                        }, {
+                            "id": "13",
+                            "description": "13"
+                        }, {
+                            "id": "14",
+                            "description": "14"
+                        }, {
+                            "id": "15",
+                            "description": "15"
+                        }, {
+                            "id": "16",
+                            "description": "16"
+                        }, {
+                            "id": "17",
+                            "description": "17"
+                        }, {
+                            "id": "18",
+                            "description": "18"
+                        }, {
+                            "id": "19",
+                            "description": "19"
+                        }, {
+                            "id": "20",
+                            "description": "20+"
                         }]
                     }, {
-                        "type": "autocomplete",
                         "type": "autocomplete",
                         "helpId": 115001418525,
                         "uiOptions": {
                             "summaryTitle": "Where did you earn your licence"
                         },
                         "key": "whereEarnLicence",
-                        "label": "Where did you earn your licence?",
+                        "label": "Where did you pass your driving test?",
+                        "order": 2,
+                        "required": true,
+                        "validators": [],
+                        "disabled": false,
+                        "value": {
+                            "id": "Ireland",
+                            "description": "Ireland"
+                        },
+                        "placeholder": "Please enter a country",
+                        "serviceUrl": "reference/country/",
+                        "autoCompleteType": "search"
+                    }],
+                    "driverIndex": 0
+                }],
+                "templates": [{
+                    "id": "licence-template",
+                    "type": "default",
+                    "uiOptions": {},
+                    "hasQuestionsByDefault": true,
+                    "additional": true,
+                    "fields": [{
+                        "type": "dropdown",
+                        "helpId": 115001405929,
+                        "uiOptions": {
+                            "summaryTitle": "Type of Licence"
+                        },
+                        "key": "typeOfLicence",
+                        "label": "Your Driving Licence",
+                        "order": 0,
+                        "required": true,
+                        "validators": [],
+                        "disabled": false,
+                        "options": [{
+                            "id": "Foreign",
+                            "description": "Foreign"
+                        }, {
+                            "id": "FullEuropeanUnion",
+                            "description": "Full EU"
+                        }, {
+                            "id": "FullIrish",
+                            "description": "Full Irish"
+                        }, {
+                            "id": "FullUnitedKingdom",
+                            "description": "Full UK"
+                        }, {
+                            "id": "InternationalLicence",
+                            "description": "International Licence"
+                        }, {
+                            "id": "ProvisionalIrish",
+                            "description": "Provisional Irish"
+                        }, {
+                            "id": "LearnerPermit",
+                            "description": "Learner Permit"
+                        }]
+                    }, {
+                        "type": "slider",
+                        "helpId": 115001418565,
+                        "uiOptions": {
+                            "summaryTitle": "How many years have you held your licence?"
+                        },
+                        "key": "howLongLicenceHeld",
+                        "label": "How many years have you held your licence?",
+                        "order": 1,
+                        "required": true,
+                        "validators": ["licenceDateValidate"],
+                        "value": {
+                            "id": "0",
+                            "description": "0"
+                        },
+                        "values": [{
+                            "id": "0",
+                            "description": "0"
+                        }, {
+                            "id": "1",
+                            "description": "1"
+                        }, {
+                            "id": "2",
+                            "description": "2"
+                        }, {
+                            "id": "3",
+                            "description": "3"
+                        }, {
+                            "id": "4",
+                            "description": "4"
+                        }, {
+                            "id": "5",
+                            "description": "5"
+                        }, {
+                            "id": "6",
+                            "description": "6"
+                        }, {
+                            "id": "7",
+                            "description": "7"
+                        }, {
+                            "id": "8",
+                            "description": "8"
+                        }, {
+                            "id": "9",
+                            "description": "9"
+                        }, {
+                            "id": "10",
+                            "description": "10"
+                        }, {
+                            "id": "11",
+                            "description": "11"
+                        }, {
+                            "id": "12",
+                            "description": "12"
+                        }, {
+                            "id": "13",
+                            "description": "13"
+                        }, {
+                            "id": "14",
+                            "description": "14"
+                        }, {
+                            "id": "15",
+                            "description": "15"
+                        }, {
+                            "id": "16",
+                            "description": "16"
+                        }, {
+                            "id": "17",
+                            "description": "17"
+                        }, {
+                            "id": "18",
+                            "description": "18"
+                        }, {
+                            "id": "19",
+                            "description": "19"
+                        }, {
+                            "id": "20",
+                            "description": "20+"
+                        }]
+                    }, {
+                        "type": "autocomplete",
+                        "helpId": 115001418525,
+                        "uiOptions": {
+                            "summaryTitle": "Where did you earn your licence"
+                        },
+                        "key": "whereEarnLicence",
+                        "label": "Where did you pass your driving test?",
                         "order": 2,
                         "required": true,
                         "validators": [],
@@ -1474,127 +1561,21 @@ export const RETRIEVE_QUOTE = {
                         "serviceUrl": "reference/country/",
                         "autoCompleteType": "search"
                     }]
-                }],
-                "templates": [{
-                    "id": "licence-template",
-                    "type": "default",
-                    "uiOptions": {},
-                    "hasQuestionsByDefault": true,
-                    "additional": true,
-                    "fields": [{
-                        "type": "dropdown",
-                        "type": "dropdown",
-                        "helpId": 115001405929,
-                        "uiOptions": {
-                            "summaryTitle": "Type of Licence"
-                        },
-                        "key": "typeOfLicence",
-                        "label": "What type of licence do you hold?",
-                        "order": 0,
-                        "required": true,
-                        "validators": [],
-                        "disabled": false,
-                        "options": [{
-                            "id": "Foreign",
-                            "description": "Foreign"
-                        }, {
-                            "id": "FullEuropeanUnion",
-                            "description": "Full EU"
-                        }, {
-                            "id": "FullIrish",
-                            "description": "Full Irish"
-                        }, {
-                            "id": "FullUnitedKingdom",
-                            "description": "Full UK"
-                        }, {
-                            "id": "InternationalLicence",
-                            "description": "International Licence"
-                        }, {
-                            "id": "ProvisionalIrish",
-                            "description": "Provisional Irish"
-                        }, {
-                            "id": "LearnerPermit",
-                            "description": "Learner Permit"
-                        }]
-                    }, {
-                        "type": "slider",
-                        "type": "slider",
-                        "helpId": 115001418565,
-                        "uiOptions": {
-                            "summaryTitle": "Amount of years you held your licence"
-                        },
-                        "key": "howLongLicenceHeld",
-                        "label": "How long have you held your licence?",
-                        "order": 1,
-                        "required": true,
-                        "value": {
-                            "id": "0",
-                            "description": "0"
-                        },
-                        "values": [{
-                            "id": "0",
-                            "description": "0"
-                        }, {
-                            "id": "1",
-                            "description": "1"
-                        }, {
-                            "id": "2",
-                            "description": "2"
-                        }, {
-                            "id": "3",
-                            "description": "3"
-                        }, {
-                            "id": "4",
-                            "description": "4"
-                        }, {
-                            "id": "5",
-                            "description": "5"
-                        }, {
-                            "id": "6",
-                            "description": "6"
-                        }, {
-                            "id": "7",
-                            "description": "7"
-                        }, {
-                            "id": "8",
-                            "description": "8"
-                        }, {
-                            "id": "9",
-                            "description": "9+"
-                        }]
-                    }, {
-                        "type": "autocomplete",
-                        "type": "autocomplete",
-                        "helpId": 115001418525,
-                        "uiOptions": {
-                            "summaryTitle": "Where did you earn your licence"
-                        },
-                        "key": "whereEarnLicence",
-                        "label": "Where did you earn your licence?",
-                        "order": 2,
-                        "required": true,
-                        "validators": [],
-                        "disabled": false,
-                        "placeholder": "Please enter a country",
-                        "serviceUrl": "reference/country/",
-                        "autoCompleteType": "search"
-                    }]
                 }]
             }, {
                 "id": "your-cover",
-                "title": "Cover",
+                "title": "Your Driving Experience",
                 "uiOptions": {
                     "nextPage": "your-claims",
-                    "prevPage": "your-licence"
+                    "prevPage": "your-licence",
+                    "isComplete": true
                 },
                 "order": 1,
                 "sections": [{
                     "id": "cover-default",
-                    "title": "Primary Driver",
                     "type": "default",
                     "uiOptions": {},
                     "fields": [{
-                        "type": "group",
                         "key": "drivingExperience",
                         "type": "group",
                         "alignment": "none",
@@ -1604,13 +1585,12 @@ export const RETRIEVE_QUOTE = {
                         "uiOptions": {},
                         "fields": [{
                             "type": "radio",
-                            "type": "radio",
                             "helpId": 115001418625,
                             "uiOptions": {
                                 "summaryTitle": "Insured in your own Name"
                             },
                             "key": "insuredInYourOwnName",
-                            "label": "Have you been insured in your own name within the last two years?",
+                            "label": "Insured in your own name?",
                             "order": 0,
                             "required": true,
                             "trigger": {
@@ -1630,7 +1610,6 @@ export const RETRIEVE_QUOTE = {
                                 "description": "No"
                             }]
                         }, {
-                            "type": "radio",
                             "type": "radio",
                             "helpId": 115001407089,
                             "uiOptions": {
@@ -1658,13 +1637,12 @@ export const RETRIEVE_QUOTE = {
                             }]
                         }, {
                             "type": "dropdown",
-                            "type": "dropdown",
                             "helpId": 115001407149,
                             "uiOptions": {
-                                "summaryTitle": "On who's policy"
+                                "summaryTitle": "On whose policy?"
                             },
                             "key": "insuredNamedDriverOnPolicy",
-                            "label": "On whose policy",
+                            "label": "On whose policy?",
                             "order": 1,
                             "required": true,
                             "trigger": {
@@ -1707,9 +1685,6 @@ export const RETRIEVE_QUOTE = {
                                 "id": "Parent",
                                 "description": "Parent"
                             }, {
-                                "id": "Proposer",
-                                "description": "Proposer"
-                            }, {
                                 "id": "Relative",
                                 "description": "Relative"
                             }, {
@@ -1742,13 +1717,12 @@ export const RETRIEVE_QUOTE = {
                             }]
                         }, {
                             "type": "dropdown",
-                            "type": "dropdown",
                             "helpId": 115001418685,
                             "uiOptions": {
                                 "summaryTitle": "Current Insurance Company"
                             },
                             "key": "insuranceCompany",
-                            "label": "Which is your current insurance company?",
+                            "label": "Who is your current insurer?",
                             "order": 2,
                             "required": true,
                             "trigger": {
@@ -1759,8 +1733,8 @@ export const RETRIEVE_QUOTE = {
                             },
                             "validators": [],
                             "value": {
-                                "id": "Allianz",
-                                "description": "Allianz"
+                                "id": "Aviva",
+                                "description": "Aviva"
                             },
                             "options": [{
                                 "id": "AIG",
@@ -1882,7 +1856,6 @@ export const RETRIEVE_QUOTE = {
                             }]
                         }, {
                             "type": "dropdown",
-                            "type": "dropdown",
                             "uiOptions": {},
                             "key": "drivingExperienceType",
                             "label": "Type of driving experience",
@@ -1907,15 +1880,15 @@ export const RETRIEVE_QUOTE = {
                             }]
                         }, {
                             "type": "slider",
-                            "type": "slider",
                             "helpId": 115001407209,
                             "uiOptions": {
-                                "summaryTitle": "Amount of Years No Claims Bonus"
+                                "summaryTitle": "Years of Name Driving Experience"
                             },
                             "key": "namedDrivingExperienceYears",
-                            "label": "How many years named driving experience do you have?",
+                            "label": "Years of Name Driving Experience",
                             "order": 3,
                             "required": true,
+                            "validators": ['namedDriverExperience'],
                             "trigger": {
                                 "key": "insuredNamedDriver",
                                 "name": "showBasedOnKey",
@@ -1958,13 +1931,12 @@ export const RETRIEVE_QUOTE = {
                             }]
                         }, {
                             "type": "autocomplete",
-                            "type": "autocomplete",
                             "helpId": 115001407329,
                             "uiOptions": {
                                 "summaryTitle": "Where did you earn your licence"
                             },
                             "key": "countryNamedDrivingExperience",
-                            "label": "In what country did you earn your named driving experience?",
+                            "label": "Where did you earn your named driving experience?",
                             "order": 2,
                             "required": true,
                             "trigger": {
@@ -1979,13 +1951,12 @@ export const RETRIEVE_QUOTE = {
                             "autoCompleteType": "search"
                         }, {
                             "type": "date",
-                            "type": "date",
                             "helpId": 115001407469,
                             "uiOptions": {
                                 "summaryTitle": "Amount of Years No Claims Bonus"
                             },
                             "key": "namedDrivingExperienceExpire",
-                            "label": "When does this named driving experience expire?",
+                            "label": "When does your named driving experience end?",
                             "order": 3,
                             "required": true,
                             "trigger": {
@@ -1995,13 +1966,12 @@ export const RETRIEVE_QUOTE = {
                             }
                         }, {
                             "type": "slider",
-                            "type": "slider",
                             "helpId": 115001418725,
                             "uiOptions": {
                                 "summaryTitle": "Amount of Years No Claims Bonus"
                             },
                             "key": "noClaimsBonusYears",
-                            "label": "How many years no claims discount have you earned in your own name?",
+                            "label": "Years of no claims bonus",
                             "order": 3,
                             "required": true,
                             "trigger": {
@@ -2010,8 +1980,8 @@ export const RETRIEVE_QUOTE = {
                                 "isObject": true
                             },
                             "value": {
-                                "id": "5",
-                                "description": "5"
+                                "id": "7",
+                                "description": "7"
                             },
                             "values": [{
                                 "id": "0",
@@ -2046,13 +2016,12 @@ export const RETRIEVE_QUOTE = {
                             }]
                         }, {
                             "type": "autocomplete",
-                            "type": "autocomplete",
                             "helpId": 115001419005,
                             "uiOptions": {
                                 "summaryTitle": "Location no claims bonus was earned"
                             },
                             "key": "whereNoClaimsBonus",
-                            "label": "Where did you earn your no claims bonus",
+                            "label": "Where did you earn your no claims bonus?",
                             "order": 4,
                             "required": true,
                             "trigger": {
@@ -2071,13 +2040,12 @@ export const RETRIEVE_QUOTE = {
                             "autoCompleteType": "search"
                         }, {
                             "type": "date",
-                            "type": "date",
                             "helpId": 115001419065,
                             "uiOptions": {
                                 "summaryTitle": "Policy Expiration Date"
                             },
                             "key": "policyExpiryDate",
-                            "label": "When does your policy expire?",
+                            "label": "When does your current policy end?",
                             "order": 5,
                             "required": true,
                             "trigger": {
@@ -2087,31 +2055,30 @@ export const RETRIEVE_QUOTE = {
                             },
                             "validators": ["validDateValidate"],
                             "disabled": false,
-                            "value": 1493074800000
+                            "value": "01/08/2017"
                         }]
                     }, {
-                        "type": "date",
                         "type": "date",
                         "helpId": 115001407029,
                         "uiOptions": {},
                         "key": "policyStartDate",
-                        "label": "What date would you like to start your policy from?",
+                        "label": "What date would you like your new policy to start?",
                         "order": 7,
                         "required": true,
-                        "value": 1497919908000
+                        "validators": ["policyStartDateValidate"],
+                        "value": "01/08/2017"
                     }, {
-                        "type": "radio",
                         "type": "radio",
                         "helpId": 115001004829,
                         "uiOptions": {
                             "summaryTitle": "Level of Cover"
                         },
                         "key": "levelOfCover",
-                        "label": "What level of cover do you need?",
+                        "label": "What level of cover would you prefer?",
                         "order": 8,
                         "required": true,
                         "value": {
-                            "id": "Comprehensive",
+                            "id": "COMPREHENSIVE",
                             "description": "Comprehensive"
                         },
                         "options": [{
@@ -2119,18 +2086,17 @@ export const RETRIEVE_QUOTE = {
                             "description": "Comprehensive"
                         }, {
                             "id": "THIRDPARTYFIREANDTHEFT",
-                            "description": "Third Party, Fire and Theft"
+                            "description": "Third Party, Fire And Theft"
                         }],
                         "alignment": "vertical"
                     }, {
-                        "type": "radio",
                         "type": "radio",
                         "helpId": 115001407589,
                         "uiOptions": {
                             "summaryTitle": "Level of no claims bonus"
                         },
                         "key": "levelOfNoClaimsBonus",
-                        "label": "What level of no claims bonus protection do you require?",
+                        "label": "Choose No Claims Bonus Protection ",
                         "order": 9,
                         "required": true,
                         "value": {
@@ -2152,16 +2118,17 @@ export const RETRIEVE_QUOTE = {
                 "helpId": 115001407729,
                 "uiOptions": {
                     "nextPage": "your-penalties",
-                    "prevPage": "your-cover"
+                    "prevPage": "your-cover",
+                    "isComplete": true
                 },
                 "order": 1,
                 "sections": [{
                     "id": "claim-primary-driver",
-                    "title": "Primary Driver",
                     "type": "claim",
                     "uiOptions": {},
-                    "isDriver": true,
-                    "fields": []
+                    "userHasClaim": false,
+                    "fields": [],
+                    "driverIndex": 0
                 }],
                 "templates": [{
                     "id": "claim-template",
@@ -2171,7 +2138,6 @@ export const RETRIEVE_QUOTE = {
                     "additional": true,
                     "fields": [{
                         "type": "date",
-                        "type": "date",
                         "helpId": 115001419745,
                         "uiOptions": {
                             "summaryTitle": "Date of Claim"
@@ -2180,17 +2146,16 @@ export const RETRIEVE_QUOTE = {
                         "label": "Date of claim",
                         "order": 0,
                         "required": true,
-                        "validators": ["validDateValidate", "validLastFiveYearsValidate"],
+                        "validators": ["validDateValidate", "validLastFiveYearsValidate", "claimDateValidator"],
                         "disabled": false
                     }, {
-                        "type": "dropdown",
                         "type": "dropdown",
                         "helpId": 115001419765,
                         "uiOptions": {
                             "summaryTitle": "Reason for Claim"
                         },
                         "key": "reasonForClaim",
-                        "label": "What was the reason for the claim?",
+                        "label": "Type of Claim",
                         "order": 0,
                         "required": true,
                         "validators": [],
@@ -2227,24 +2192,22 @@ export const RETRIEVE_QUOTE = {
                         }]
                     }, {
                         "type": "radio",
-                        "type": "radio",
                         "uiOptions": {
                             "summaryTitle": "Reason for Claim"
                         },
-                        "key": "isClaimSettled",
+                        "key": "claimSettled",
                         "label": "Is the claim settled?",
                         "order": 0,
                         "required": true,
                         "validators": [],
                         "options": [{
-                            "id": true,
-                            "description": "Yes"
-                        }, {
-                            "id": false,
+                            "id": "false",
                             "description": "No"
+                        }, {
+                            "id": "true",
+                            "description": "Yes"
                         }]
                     }, {
-                        "type": "radio",
                         "type": "radio",
                         "helpId": 115001419825,
                         "uiOptions": {
@@ -2264,24 +2227,22 @@ export const RETRIEVE_QUOTE = {
                         }]
                     }, {
                         "type": "currency",
-                        "type": "currency",
                         "helpId": 115001419845,
                         "uiOptions": {
-                            "summaryTitle": "Cost of Claim"
+                            "summaryTitle": "Value Of Claim"
                         },
                         "key": "costOfClaim",
-                        "label": "Cost of claim",
+                        "label": "Value Of Claim",
                         "order": 0,
                         "required": true,
                         "placeholder": "How Much"
                     }, {
                         "type": "radio",
-                        "type": "radio",
                         "uiOptions": {
                             "summaryTitle": "Claim Fault"
                         },
                         "key": "customerAtFault",
-                        "label": "Were you at fault?",
+                        "label": "Were you deemed to be at fault?",
                         "order": 2,
                         "required": true,
                         "validators": [],
@@ -2293,7 +2254,6 @@ export const RETRIEVE_QUOTE = {
                             "description": "No"
                         }]
                     }, {
-                        "type": "radio",
                         "type": "radio",
                         "helpId": 115001419885,
                         "uiOptions": {
@@ -2319,16 +2279,17 @@ export const RETRIEVE_QUOTE = {
                 "helpId": 115001419965,
                 "uiOptions": {
                     "prevPage": "your-claims",
-                    "nextPage": "choose-your-product"
+                    "nextPage": "choose-your-product",
+                    "isComplete": true
                 },
                 "order": 1,
                 "sections": [{
                     "id": "penalty-primary-driver",
-                    "title": "Primary Driver",
                     "type": "penalty",
                     "uiOptions": {},
-                    "isDriver": true,
-                    "fields": []
+                    "userHasPenalty": false,
+                    "fields": [],
+                    "driverIndex": 0
                 }],
                 "templates": [{
                     "id": "penalty-template",
@@ -2338,17 +2299,15 @@ export const RETRIEVE_QUOTE = {
                     "additional": true,
                     "fields": [{
                         "type": "date",
-                        "type": "date",
                         "helpId": 115001420025,
                         "uiOptions": {},
                         "key": "dateOfPenalty",
                         "label": "Date of Penalty",
                         "order": 0,
                         "required": true,
-                        "validators": ["validDateValidate", "validLastThreeYearsValidate"],
+                        "validators": ["validDateValidate", "validLastThreeYearsValidate", "penaltyDateValidator"],
                         "disabled": false
                     }, {
-                        "type": "dropdown",
                         "type": "dropdown",
                         "helpId": 115001420085,
                         "uiOptions": {},
@@ -2642,13 +2601,14 @@ export const RETRIEVE_QUOTE = {
                         }]
                     }, {
                         "type": "text",
-                        "type": "text",
                         "helpId": 115001420185,
                         "uiOptions": {},
                         "key": "howManyPoints",
-                        "label": "How many points?",
+                        "label": "How many penalty points did you get?",
                         "order": 0,
                         "required": true,
+                        "validators": ["maxPenaltyPoints"],
+                        "value": 1,
                         "placeholder": "How many?"
                     }]
                 }]
@@ -2658,30 +2618,24 @@ export const RETRIEVE_QUOTE = {
             "isComplete": false,
             "title": "Get Quote",
             "uiOptions": {
-                "isWide": "true",
-                "isPagesHidden": "true"
+                "isWide": true,
+                "isPagesHidden": true
             },
             "pages": [{
                 "id": "choose-your-product",
-                "title": "Choose the best product for you",
+                "title": "Choose the best cover for you",
                 "uiOptions": {
                     "prevPage": "your-penalties",
-                    "nextPage": "choose-your-payment"
-                }
-            }, {
-                "id": "are-you-a-member",
-                "title": "Are you a Member?",
-                "helpId": 115001402049,
-                "uiOptions": {
-                    "prevPage": "choose-your-product",
-                    "nextPage": "choose-your-payment"
+                    "nextPage": "choose-your-payment",
+                    "isComplete": true
                 }
             }, {
                 "id": "choose-your-payment",
                 "title": "Choose your payment",
                 "uiOptions": {
                     "prevPage": "choose-your-product",
-                    "nextPage": "additional-questions"
+                    "nextPage": "additional-questions",
+                    "isComplete": true
                 }
             }]
         }, {
@@ -2689,15 +2643,16 @@ export const RETRIEVE_QUOTE = {
             "isComplete": false,
             "title": "Payment",
             "uiOptions": {
-                "isWide": "true",
-                "isPagesHidden": "true"
+                "isWide": true,
+                "isPagesHidden": true
             },
             "pages": [{
                 "id": "additional-questions",
                 "title": "Additional Questions",
                 "uiOptions": {
                     "nextPage": "payment",
-                    "prevPage": "choose-your-payment"
+                    "prevPage": "choose-your-payment",
+                    "isComplete": true
                 },
                 "sections": [{
                     "id": "additional-questions",
@@ -2705,7 +2660,6 @@ export const RETRIEVE_QUOTE = {
                     "uiOptions": {},
                     "isDriver": true,
                     "fields": [{
-                        "type": "radio",
                         "type": "radio",
                         "helpId": 115001420245,
                         "uiOptions": {
@@ -2723,56 +2677,25 @@ export const RETRIEVE_QUOTE = {
                         }]
                     }, {
                         "type": "text",
-                        "type": "text",
-                        "helpId": 115001408249,
-                        "uiOptions": {},
-                        "key": "driverLicenceNumber",
-                        "label": "What is your Drivers Licence number?",
-                        "required": false,
-                        "trigger": {
-                            "name": "getValueForValidationFromQuestion",
-                            "key": "typeOfLicence",
-                            "value": "FullIrish"
-                        },
-                        "validators": ["licenceNumberValidate"],
-                        "disabled": false
-                    }, {
-                        "type": "text",
-                        "type": "text",
                         "uiOptions": {},
                         "key": "carRegistration",
                         "label": "Please enter your car registration in order to purchase.",
                         "required": true,
                         "trigger": {
-                            "name": "getValueFromQuestion",
-                            "key": "carSearchQuestion"
+                            "name": "lockOnValue",
+                            "key": "vehicleRegistrationNumber"
                         },
                         "disabled": false
                     }]
                 }],
-                "templates": [{
-                    "type": "default",
-                    "uiOptions": {},
-                    "hasQuestionsByDefault": true,
-                    "additional": true,
-                    "fields": [{
-                        "type": "text",
-                        "type": "text",
-                        "helpId": 115001408249,
-                        "uiOptions": {},
-                        "key": "driverLicenceNumber",
-                        "label": "What is your Drivers Licence number?",
-                        "required": false,
-                        "validators": ["licenceNumberValidate"],
-                        "disabled": false
-                    }]
-                }]
+                "templates": []
             }, {
                 "id": "payment",
                 "title": "Payment",
                 "uiOptions": {
                     "prevPage": "additional-questions",
-                    "nextPage": "confirmation"
+                    "nextPage": "confirmation",
+                    "isComplete": true
                 }
             }]
         }, {
@@ -2780,46 +2703,59 @@ export const RETRIEVE_QUOTE = {
             "isComplete": false,
             "title": "Confirmation",
             "uiOptions": {
-                "isWide": "true",
-                "isProgressHidden": "true",
-                "isSummaryHidden": "true",
-                "isHelpCenterHidden": "true",
-                "isHeaderExtended": "true",
-                "isPagesHidden": "true"
+                "isWide": true,
+                "isProgressHidden": true,
+                "isSummaryHidden": true,
+                "isHelpCenterHidden": true,
+                "isHeaderExtended": true,
+                "isPagesHidden": true
             },
             "pages": [{
                 "id": "confirmation",
                 "title": "Confirmation",
                 "uiOptions": {
                     "prevPage": "payment",
-                    "isSummaryHidden": "true",
-                    "isTimelineHidden": "true"
+                    "isSummaryHidden": true,
+                    "isTimelineHidden": true,
+                    "isComplete": true
                 }
             }]
         }]
     },
     "nextPage": "choose-your-product",
     "quoteResponse": {
-        "reference": "COLA27000414",
+        "reference": "ADSA22000002",
         "products": [{
             "benefits": [{
-                "description": "Windscreen Cover",
+                "description": "AA Instalment Plan",
                 "included": true,
                 "inHeader": true
             }, {
-                "description": "Theft & Fire Protection",
+                "description": "NCD Protection",
+                "included": false,
+                "inHeader": true
+            }, {
+                "description": "Windscreen/Glass Breakage (Comprehensive policies only)",
                 "included": true,
                 "inHeader": true
             }, {
-                "description": "Windscreen Cover",
-                "included": true,
-                "inHeader": true
+                "description": "Temporary Replacement Car",
+                "included": false,
+                "inHeader": false
             }, {
-                "description": "Personal Accident",
+                "description": "Lifetime NCD Protection (Fire & Theft)",
                 "included": true,
                 "inHeader": false
             }, {
-                "description": "Legal fees",
+                "description": "Personal Accident Protection up to €75,000",
+                "included": true,
+                "inHeader": false
+            }, {
+                "description": "Replacement Locks & Alarms",
+                "included": false,
+                "inHeader": false
+            }, {
+                "description": "Foreign Travel",
                 "included": true,
                 "inHeader": false
             }, {
@@ -2827,60 +2763,54 @@ export const RETRIEVE_QUOTE = {
                 "included": true,
                 "inHeader": false
             }, {
-                "description": "Car Valet",
-                "included": true,
-                "inHeader": false
-            }, {
-                "description": "Step Back Bonus Protection",
-                "included": true,
-                "inHeader": false
-            }, {
-                "description": "Personal Belongings/Sat Navs/Mobile Phones",
-                "included": true,
-                "inHeader": false
-            }, {
-                "description": "Replacement Locks & Alarms",
-                "included": true,
-                "inHeader": false
-            }, {
                 "description": "Child Car Seats",
-                "included": true,
-                "inHeader": false
-            }, {
-                "description": "Misfuel",
-                "included": true,
-                "inHeader": false
-            }, {
-                "description": "Courtesy Car",
-                "included": true,
+                "included": false,
                 "inHeader": false
             }],
             "breakdowns": [{
                 "description": "Third Party",
                 "price": {
-                    "amount": 295632,
-                    "str": "2956.32",
+                    "amount": 281679,
+                    "str": "2816.79",
                     "symbol": "€",
                     "currency": "EUR",
-                    "pretty": "€2956.32"
+                    "pretty": "€2816.79"
                 }
             }, {
                 "description": "Accidental Damage",
                 "price": {
-                    "amount": 23498,
-                    "str": "234.98",
+                    "amount": 22389,
+                    "str": "223.89",
                     "symbol": "€",
                     "currency": "EUR",
-                    "pretty": "€234.98"
+                    "pretty": "€223.89"
                 }
             }, {
                 "description": "No Claims Discount",
                 "price": {
-                    "amount": -143608,
-                    "str": "-1436.08",
+                    "amount": -173319,
+                    "str": "-1733.19",
                     "symbol": "€",
                     "currency": "EUR",
-                    "pretty": "€-1436.08"
+                    "pretty": "€-1733.19"
+                }
+            }, {
+                "description": "Policy Excess",
+                "price": {
+                    "amount": -1961,
+                    "str": "-19.61",
+                    "symbol": "€",
+                    "currency": "EUR",
+                    "pretty": "€-19.61"
+                }
+            }, {
+                "description": "NCD Protection",
+                "price": {
+                    "amount": -9015,
+                    "str": "-90.15",
+                    "symbol": "€",
+                    "currency": "EUR",
+                    "pretty": "€-90.15"
                 }
             }, {
                 "description": "Windscreen",
@@ -2890,6 +2820,15 @@ export const RETRIEVE_QUOTE = {
                     "symbol": "€",
                     "currency": "EUR",
                     "pretty": "€27.00"
+                }
+            }, {
+                "description": "AA Membership",
+                "price": {
+                    "amount": -6124,
+                    "str": "-61.24",
+                    "symbol": "€",
+                    "currency": "EUR",
+                    "pretty": "€-61.24"
                 }
             }, {
                 "description": "Round before Gov Levy",
@@ -2903,56 +2842,147 @@ export const RETRIEVE_QUOTE = {
             }, {
                 "description": "Gov Levy",
                 "price": {
-                    "amount": 8911,
-                    "str": "89.11",
+                    "amount": 5817,
+                    "str": "58.17",
                     "symbol": "€",
                     "currency": "EUR",
-                    "pretty": "€89.11"
+                    "pretty": "€58.17"
                 }
             }, {
                 "description": "",
                 "price": {
-                    "amount": 0,
-                    "str": "0.00",
+                    "amount": 13927,
+                    "str": "139.27",
                     "symbol": "€",
                     "currency": "EUR",
-                    "pretty": "€0.00"
+                    "pretty": "€139.27"
+                }
+            }, {
+                "description": "",
+                "price": {
+                    "amount": 122166,
+                    "str": "1221.66",
+                    "symbol": "€",
+                    "currency": "EUR",
+                    "pretty": "€1221.66"
+                }
+            }, {
+                "description": "",
+                "price": {
+                    "amount": 116349,
+                    "str": "1163.49",
+                    "symbol": "€",
+                    "currency": "EUR",
+                    "pretty": "€1163.49"
+                }
+            }, {
+                "description": "",
+                "price": {
+                    "amount": 23270,
+                    "str": "232.70",
+                    "symbol": "€",
+                    "currency": "EUR",
+                    "pretty": "€232.70"
+                }
+            }, {
+                "description": "",
+                "price": {
+                    "amount": 93079,
+                    "str": "930.79",
+                    "symbol": "€",
+                    "currency": "EUR",
+                    "pretty": "€930.79"
+                }
+            }, {
+                "description": "",
+                "price": {
+                    "amount": 5817,
+                    "str": "58.17",
+                    "symbol": "€",
+                    "currency": "EUR",
+                    "pretty": "€58.17"
+                }
+            }, {
+                "description": "",
+                "price": {
+                    "amount": 17165,
+                    "str": "171.65",
+                    "symbol": "€",
+                    "currency": "EUR",
+                    "pretty": "€171.65"
+                }
+            }, {
+                "description": "",
+                "price": {
+                    "amount": 17165,
+                    "str": "171.65",
+                    "symbol": "€",
+                    "currency": "EUR",
+                    "pretty": "€171.65"
+                }
+            }, {
+                "description": "",
+                "price": {
+                    "amount": 116061,
+                    "str": "1160.61",
+                    "symbol": "€",
+                    "currency": "EUR",
+                    "pretty": "€1160.61"
+                }
+            }, {
+                "description": "",
+                "price": {
+                    "amount": 13927,
+                    "str": "139.27",
+                    "symbol": "€",
+                    "currency": "EUR",
+                    "pretty": "€139.27"
+                }
+            }, {
+                "description": "",
+                "price": {
+                    "amount": 16172,
+                    "str": "161.72",
+                    "symbol": "€",
+                    "currency": "EUR",
+                    "pretty": "€161.72"
                 }
             }],
             "premium": {
                 "monthly": {
                     "deposit": {
-                        "amount": 65497,
-                        "str": "654.97",
+                        "amount": 41477,
+                        "str": "414.77",
                         "symbol": "€",
                         "currency": "EUR",
-                        "pretty": "€654.97"
+                        "pretty": "€414.77"
                     },
                     "total": {
-                        "amount": 189579,
-                        "str": "1895.79",
+                        "amount": 118507,
+                        "str": "1185.07",
                         "symbol": "€",
                         "currency": "EUR",
-                        "pretty": "€1895.79"
+                        "pretty": "€1185.07"
                     },
                     "apr": "9.20%",
                     "installments": {
                         "code": "MO_DD09",
                         "number": 11,
                         "instalment": {
-                            "amount": 12075,
-                            "str": "120.75",
+                            "amount": 7647,
+                            "str": "76.47",
                             "symbol": "€",
                             "currency": "EUR",
-                            "pretty": "€120.75"
+                            "pretty": "€76.47"
                         },
                         "deposit": {
-                            "amount": 65497,
-                            "str": "654.97",
+                            "amount": 41477,
+                            "str": "414.77",
                             "symbol": "€",
                             "currency": "EUR",
-                            "pretty": "€654.97"
-                        }
+                            "pretty": "€414.77"
+                        },
+                        "firstCollectionDate": 1504220400000
                     },
                     "annual": false,
                     "monthly": true
@@ -2966,23 +2996,24 @@ export const RETRIEVE_QUOTE = {
                         "pretty": "€0.00"
                     },
                     "total": {
-                        "amount": 189579,
-                        "str": "1895.79",
+                        "amount": 118507,
+                        "str": "1185.07",
                         "symbol": "€",
                         "currency": "EUR",
-                        "pretty": "€1895.79"
+                        "pretty": "€1185.07"
                     },
                     "apr": "0%",
                     "annual": true,
                     "monthly": false
                 }
             },
-            "name": "STANDARD",
-            "id": "STANDARD",
-            "tagline": "Our Premium Product"
+            "name": "AA Value Insurance",
+            "tagline": "",
+            "insurerName": "Allianz",
+            "type": "VALUE"
         }],
         "selection": {
-            "policyType": "STANDARD",
+            "policyType": "VALUE",
             "scheduleCode": "monthly",
             "addAaMembership": false
         }

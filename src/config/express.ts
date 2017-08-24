@@ -7,39 +7,39 @@ const app = express();
 
 app.use(bodyParser.json());
 
-app.use(slow({
-	url: /query/i,
-	delay: 150
-}))
+// app.use(slow({
+// 	url: /query/i,
+// 	delay: 150
+// }))
 
-app.use(slow({
-	url: /selected/i,
-	delay: 350
-}))
+// app.use(slow({
+// 	url: /selected/i,
+// 	delay: 350
+// }))
 
-app.use(slow({
-	url: /town/i,
-	delay: 350
-}))
+// app.use(slow({
+// 	url: /town/i,
+// 	delay: 350
+// }))
 
-app.use(slow({
-	url: /county/i,
-	delay: 350
-}))
+// app.use(slow({
+// 	url: /county/i,
+// 	delay: 350
+// }))
 
-app.use(slow({
-	url: /address/i,
-	delay: 2000
-}))
+// app.use(slow({
+// 	url: /address/i,
+// 	delay: 2000
+// }))
 
-app.use(slow({
-	url: /checkAAStatus/i,
-	delay: 2000
-}))
+// app.use(slow({
+// 	url: /checkAAStatus/i,
+// 	delay: 2000
+// }))
 
 app.use(slow({
 	url: /quote/i,
-	delay: 1500
+	delay: 4000
 }))
 
 app.use(function (req: any, res: any, next: any) {
